@@ -1,0 +1,13 @@
+# Section 1: Temporary files
+.DS_Store
+Thumbs.db
+*.log
+.~lock*
+
+
+# Section 2: Large and unnecessary files
+zZz
+*.wav
+*.psd
+*.max
+
