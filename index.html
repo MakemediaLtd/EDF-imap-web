@@ -1,1 +1,41 @@
- @todo
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>index</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- `w80a("alert this text!")` -->
+  <script>if(-1 != top.location.href.split('?').pop().indexOf('dev')){
+          !function(c){var d=document,v=navigator.userAgent,A='addEventListener'
+  ,t=0,w=this,e=function(m,u,n){m===m+''?0:(n=m.lineno,u=m.filename,m=m.message)
+  c.w80a((u+':'+n).match(/[^\/]+?\/?[^\/]+$/)[0]+'\n'+m)};w.w80a=c.w80a=c.w80a||
+  function(o){o=++t+' '+o;c.w80f?c.w80f():0;!d.body?alert(o):(p=d.createElement(
+  'P'),d.body.appendChild(p),p.innerHTML='<pre style="position:fixed;z-index:9;\
+  top:40%;left:1em;right:1em;border:1em solid #600;background:#811;color:#ccc;"\
+  onclick="body.removeChild(this.parentNode)">'+o+'</pre>')}//@todo x-ua style
+  if(/efox\/(\d|[1-2]\d)\.|Presto|n\/4\.0 Saf/.test(v)){w.onerror=e}else{w[A]&&!
+  /MSIE 9/.test(v)?w[A]('error',e,0):w.attachEvent('onerror',e)}}(top)}</script>
+
+  <!-- Define `window.EDF_IMAP_WEB`, and load content into it -->
+  <script src="js/edf-imap-web.js"></script>
+  <script src="js/content.js"></script>
+
+</head>
+<body style="margin:0px;">
+
+  <div id="edf-imap-web"></div>
+  <script>
+    !function() {
+      var me = 'index.html:\n  ', EIW = window.EDF_IMAP_WEB;
+      if (! EIW) throw new Error(me+'No `window.EDF_IMAP_WEB`');
+      if (! EIW.main) throw new Error(me+'No `main`');
+      if (! EIW.main.items.length) throw new Error(me+'No `items`');
+      EIW.main.init('#edf-imap-web');
+    }();
+  </script>
+
+</body>
+</html>
