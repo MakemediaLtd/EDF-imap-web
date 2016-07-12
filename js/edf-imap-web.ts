@@ -1,3 +1,6 @@
+//// Typings. 
+/// <reference path="../typings/globals/jquery/index.d.ts" />
+
 //// Basic validation. 
 !function () {
     let me = 'js/edf-imap.web.ts:\n  ';
@@ -29,7 +32,7 @@ module EDF_IMAP_WEB {
         }
 
         init(selector:string) {
-            console.log('Main::init() ' + selector);
+            console.log('Main::init() ', $(selector));
         }
     }
 }

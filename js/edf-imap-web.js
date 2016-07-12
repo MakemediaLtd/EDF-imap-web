@@ -1,3 +1,5 @@
+//// Typings. 
+/// <reference path="../typings/globals/jquery/index.d.ts" />
 //// Basic validation. 
 !function () {
     var me = 'js/edf-imap.web.ts:\n  ';
@@ -25,7 +27,7 @@ var EDF_IMAP_WEB;
             this.items.push(new Item(item, this.items.length));
         };
         Main.prototype.init = function (selector) {
-            console.log('Main::init() ' + selector);
+            console.log('Main::init() ', $(selector));
         };
         return Main;
     }());
