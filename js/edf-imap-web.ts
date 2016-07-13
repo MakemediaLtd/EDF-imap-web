@@ -1,5 +1,6 @@
 //// Typings. 
 /// <reference path="../typings/globals/jquery/index.d.ts" />
+/// <reference path="../typings/globals/slick-carousel/slick-carousel.d.ts" />
 
 //// Basic validation. 
 !function () {
@@ -14,13 +15,17 @@ module EDF_IMAP_WEB {
     let me = 'js/edf-imap-web.ts:\n  ';
 
     //// Describe the `Pin` class’s configuration-object. 
+    interface PinItem {
+        src:     number;
+        caption: string;
+    }
     interface PinConfig {
         x:       number;
         y:       number;
         slug:    string;
         title:   string;
         content: string[]; // each array element is a paragraph
-        items:   Object[];
+        items:   PinItem[];
     }
 
     //// Define the base class for all Pins. 
@@ -46,11 +51,24 @@ module EDF_IMAP_WEB {
             let { title = '', content = [], items = [] } = this.config;
             $('.eiw-title').html(title);
             $('.eiw-content').html(`<p>${content.join('</p><p>')}</p>`);
-            let carousel = '';
-            for (let item of items) {
-                carousel += `<li><img src="${item.src}"></li>`;
+            for (var i=EDF_IMAP_WEB['current-carousel-tally']; i>0; i--) {
+                this.main.$carousel.slick('slickRemove', i-1);
             }
-            $('.eiw-carousel').html(carousel);
+            // let carousel = '';
+            for (let item of items) {
+                // carousel += `<div><img src="${item.src}"><h4>${item.caption}</h4></div>`;
+                this.main.$carousel.slick('slickAdd', 
+                  `<div><img src="${item.src}"><h4>${item.caption}</h4></div>`);
+            }
+            EDF_IMAP_WEB['current-carousel-tally'] = items.length;
+            // this.main.$carousel.slick('unslick'); // destroy the ‘Slick’ carousel
+            // this.main.$carousel.html(carousel);
+            // this.main.$carousel.slick({
+            //     appendArrows: $('.eiw-arrows')
+            //   , appendDots:   $('.eiw-dots')
+            //   , dots:         true
+            //   , infinite:     false
+            // });
         }
 
         renderInfoPoint ($wrap:JQuery) {
@@ -98,13 +116,13 @@ module EDF_IMAP_WEB {
     export class Main {
 
         constructor () {
-            console.log('Main::constructor()');
         }
 
-        config:  MainConfig;
-        $wrap:   JQuery;
-        $popup:  JQuery;
-        pins:    Pin[] = [];
+        config:    MainConfig;
+        $wrap:     JQuery;
+        $popup:    JQuery;
+        $carousel: JQuery;
+        pins:      Pin[] = [];
 
         configure (config:MainConfig) {
             this.config = config;
@@ -149,11 +167,10 @@ module EDF_IMAP_WEB {
                 <div class="eiw-popup eiw-hidden">
                   <h2  class="eiw-title"    >Title here</h2>
                   <div class="eiw-dismiss"  >X</div>
-                  <ul  class="eiw-carousel" ></ul>
+                  <div class="eiw-carousel" ></div>
                   <h4  class="eiw-caption"  >Caption here</h4>
-                  <div class="eiw-nav-left" >&lt;</div>
-                  <div class="eiw-nav-right">&gt;</div>
-                  <ul  class="eiw-nav-dots" ></ul>
+                  <div class="eiw-arrows"   ></div>
+                  <div class="eiw-dots"     ></div>
                   <div class="eiw-content"  ><p>Content here. </p></div>
                 </div>
             `);
@@ -162,6 +179,16 @@ module EDF_IMAP_WEB {
                 for (let pin of this.pins) { pin.deactivate(); }
                 this.$popup.addClass('eiw-hidden');
             });
+
+            //// Initialize the ‘Slick’ carousel. 
+            this.$carousel = $('.eiw-carousel'); 
+            this.$carousel.slick({
+                appendArrows: '.eiw-arrows'
+              , appendDots:   '.eiw-dots'
+              , dots:         true
+              , infinite:     false
+            });
+
         }
     }
 }
@@ -169,4 +196,5 @@ module EDF_IMAP_WEB {
 //// We use a singleton instance of `Main` for the app. 
 EDF_IMAP_WEB['main'] = new EDF_IMAP_WEB.Main();
 EDF_IMAP_WEB['numbered-pin-tally'] = 0;
+EDF_IMAP_WEB['current-carousel-tally'] = 0;
 

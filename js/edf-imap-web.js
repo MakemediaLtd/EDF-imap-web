@@ -1,5 +1,6 @@
 //// Typings. 
 /// <reference path="../typings/globals/jquery/index.d.ts" />
+/// <reference path="../typings/globals/slick-carousel/slick-carousel.d.ts" />
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -34,12 +35,24 @@ var EDF_IMAP_WEB;
             var _a = this.config, _b = _a.title, title = _b === void 0 ? '' : _b, _c = _a.content, content = _c === void 0 ? [] : _c, _d = _a.items, items = _d === void 0 ? [] : _d;
             $('.eiw-title').html(title);
             $('.eiw-content').html("<p>" + content.join('</p><p>') + "</p>");
-            var carousel = '';
+            for (var i = EDF_IMAP_WEB['current-carousel-tally']; i > 0; i--) {
+                this.main.$carousel.slick('slickRemove', i - 1);
+            }
+            // let carousel = '';
             for (var _i = 0, items_1 = items; _i < items_1.length; _i++) {
                 var item = items_1[_i];
-                carousel += "<li><img src=\"" + item.src + "\"></li>";
+                // carousel += `<div><img src="${item.src}"><h4>${item.caption}</h4></div>`;
+                this.main.$carousel.slick('slickAdd', "<div><img src=\"" + item.src + "\"><h4>" + item.caption + "</h4></div>");
             }
-            $('.eiw-carousel').html(carousel);
+            EDF_IMAP_WEB['current-carousel-tally'] = items.length;
+            // this.main.$carousel.slick('unslick'); // destroy the ‘Slick’ carousel
+            // this.main.$carousel.html(carousel);
+            // this.main.$carousel.slick({
+            //     appendArrows: $('.eiw-arrows')
+            //   , appendDots:   $('.eiw-dots')
+            //   , dots:         true
+            //   , infinite:     false
+            // });
         };
         Pin.prototype.renderInfoPoint = function ($wrap) {
             this.$el = $("\n                <div class=\"eiw-info-point eiw-pin-" + this.kind + "\">\n                  " + (this.id || '') + "\n                </div>\n            ");
@@ -83,7 +96,6 @@ var EDF_IMAP_WEB;
     var Main = (function () {
         function Main() {
             this.pins = [];
-            console.log('Main::constructor()');
         }
         Main.prototype.configure = function (config) {
             this.config = config;
@@ -118,7 +130,7 @@ var EDF_IMAP_WEB;
                 $(evt.target).data('eiwPinInstance').activate();
             });
             //// Render the popup (initially hidden) and attach event-listeners.
-            this.$popup = $("\n                <div class=\"eiw-popup eiw-hidden\">\n                  <h2  class=\"eiw-title\"    >Title here</h2>\n                  <div class=\"eiw-dismiss\"  >X</div>\n                  <ul  class=\"eiw-carousel\" ></ul>\n                  <h4  class=\"eiw-caption\"  >Caption here</h4>\n                  <div class=\"eiw-nav-left\" >&lt;</div>\n                  <div class=\"eiw-nav-right\">&gt;</div>\n                  <ul  class=\"eiw-nav-dots\" ></ul>\n                  <div class=\"eiw-content\"  ><p>Content here. </p></div>\n                </div>\n            ");
+            this.$popup = $("\n                <div class=\"eiw-popup eiw-hidden\">\n                  <h2  class=\"eiw-title\"    >Title here</h2>\n                  <div class=\"eiw-dismiss\"  >X</div>\n                  <div class=\"eiw-carousel\" ></div>\n                  <h4  class=\"eiw-caption\"  >Caption here</h4>\n                  <div class=\"eiw-arrows\"   ></div>\n                  <div class=\"eiw-dots\"     ></div>\n                  <div class=\"eiw-content\"  ><p>Content here. </p></div>\n                </div>\n            ");
             this.$wrap.append(this.$popup);
             $('.eiw-dismiss').click(function (evt) {
                 for (var _i = 0, _a = _this.pins; _i < _a.length; _i++) {
@@ -126,6 +138,14 @@ var EDF_IMAP_WEB;
                     pin.deactivate();
                 }
                 _this.$popup.addClass('eiw-hidden');
+            });
+            //// Initialize the ‘Slick’ carousel. 
+            this.$carousel = $('.eiw-carousel');
+            this.$carousel.slick({
+                appendArrows: '.eiw-arrows',
+                appendDots: '.eiw-dots',
+                dots: true,
+                infinite: false
             });
         };
         return Main;
@@ -135,3 +155,4 @@ var EDF_IMAP_WEB;
 //// We use a singleton instance of `Main` for the app. 
 EDF_IMAP_WEB['main'] = new EDF_IMAP_WEB.Main();
 EDF_IMAP_WEB['numbered-pin-tally'] = 0;
+EDF_IMAP_WEB['current-carousel-tally'] = 0;

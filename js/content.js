@@ -47,6 +47,9 @@
       , y: 200
       , title: 'Title for Lightbulb Pin One'
       , slug:  'slug-for-lightbulb-pin-one'
+      , items: [
+            { src: 'assets/test-3-288x360.jpg', caption: 'Caption for item. ' }
+        ]
     });
 
     main.addLightbulbPin({

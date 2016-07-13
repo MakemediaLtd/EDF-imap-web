@@ -1,0 +1,7 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/slavomirvojacek/adbrain-typescript-definitions/master/slick-carousel/slick-carousel.d.ts",
+    "typings": "https://raw.githubusercontent.com/slavomirvojacek/adbrain-typescript-definitions/master/slick-carousel/slick-carousel.d.ts"
+  }
+}
