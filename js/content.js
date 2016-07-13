@@ -23,13 +23,19 @@
       , y: 456
       , title: 'Title for Numbered Pin One'
       , slug:  'slug-for-numbered-pin-one'
-      , content: [
-            'This is the first paragraph. '
-          , 'Here’s paragraph 2. '
-        ]
       , items: [
-            { src: 'assets/test-1-288x360.jpg', caption: 'Caption for first item. ' }
-          , { src: 'assets/test-2-288x360.jpg', caption: 'Caption for second item. ' }
+            { src: 'assets/test-1-288x360.jpg', caption: 'Caption for first item. ', 
+              content: [
+                  'This is the first paragraph for the first item. '
+                , 'Here’s paragraph 2. '
+              ]
+            }
+          , { src: 'assets/test-2-288x360.jpg', caption: 'Caption for second item. ', 
+              content: [
+                  'This is the first paragraph for the second item. '
+                , 'Here’s paragraph 2 for the second item. '
+              ]
+            }
         ]
     });
 
@@ -38,6 +44,26 @@
       , y: 150
       , title: 'Title for Numbered Pin Two'
       , slug:  'slug-for-numbered-pin-two'
+      , items: [
+            { src: 'assets/test-1-288x360.jpg', caption: 'Caption for first item. ', 
+              content: [
+                  'This is the first paragraph for the first item. '
+                , 'Here’s paragraph 2. '
+              ]
+            }
+          , { src: 'assets/test-2-288x360.jpg', caption: 'Caption for second item. ', 
+              content: [
+                  'This is the paragraph for the second item. '
+              ]
+            }
+          , { src: 'assets/test-3-288x360.jpg', caption: 'Caption for third item. ', 
+              content: [
+                  'This is the first paragraph for the third item. '
+                , 'Here’s paragraph 2 for the third item. '
+                , 'Here’s paragraph 3 for the third item. '
+              ]
+            }
+        ]
     });
 
 
@@ -48,7 +74,12 @@
       , title: 'Title for Lightbulb Pin One'
       , slug:  'slug-for-lightbulb-pin-one'
       , items: [
-            { src: 'assets/test-3-288x360.jpg', caption: 'Caption for item. ' }
+            { src: 'assets/test-3-288x360.jpg', caption: 'Caption for item. ', 
+              content: [
+                  'This is the first paragraph for the item. '
+                , 'Here’s paragraph 2 for the item. '
+              ]
+            }
         ]
     });
 

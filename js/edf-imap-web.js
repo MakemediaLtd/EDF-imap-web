@@ -31,28 +31,27 @@ var EDF_IMAP_WEB;
         };
         Pin.prototype.activate = function () {
             this.$el.addClass('eiw-active');
+            this.main.activePin = this;
             this.main.$popup.removeClass('eiw-hidden');
-            var _a = this.config, _b = _a.title, title = _b === void 0 ? '' : _b, _c = _a.content, content = _c === void 0 ? [] : _c, _d = _a.items, items = _d === void 0 ? [] : _d;
+            var _a = this.config, _b = _a.title, title = _b === void 0 ? '' : _b, _c = _a.slug, slug = _c === void 0 ? '' : _c, _d = _a.items, items = _d === void 0 ? [{ src: '', caption: '', content: [''] }] : _d;
             $('.eiw-title').html(title);
-            $('.eiw-content').html("<p>" + content.join('</p><p>') + "</p>");
-            for (var i = EDF_IMAP_WEB['current-carousel-tally']; i > 0; i--) {
+            //// Remove the previous carousel slides, and add the new ones.  
+            for (var i = this.main.$carousel.data('eiwCurrentSlideTally'); i > 0; i--) {
                 this.main.$carousel.slick('slickRemove', i - 1);
             }
-            // let carousel = '';
             for (var _i = 0, items_1 = items; _i < items_1.length; _i++) {
                 var item = items_1[_i];
-                // carousel += `<div><img src="${item.src}"><h4>${item.caption}</h4></div>`;
-                this.main.$carousel.slick('slickAdd', "<div><img src=\"" + item.src + "\"><h4>" + item.caption + "</h4></div>");
+                this.main.$carousel.slick('slickAdd', "<div><img src=\"" + item.src + "\"></div>");
             }
-            EDF_IMAP_WEB['current-carousel-tally'] = items.length;
-            // this.main.$carousel.slick('unslick'); // destroy the ‘Slick’ carousel
-            // this.main.$carousel.html(carousel);
-            // this.main.$carousel.slick({
-            //     appendArrows: $('.eiw-arrows')
-            //   , appendDots:   $('.eiw-dots')
-            //   , dots:         true
-            //   , infinite:     false
-            // });
+            this.main.$carousel.data('eiwCurrentSlideTally', items.length);
+            //// Show caption/content for current slide. 
+            $('.eiw-caption').html("<p>" + items[0].caption + "</p>");
+            $('.eiw-content').html("<p>" + items[0].content.join('</p><p>') + "</p>");
+        };
+        Pin.prototype.showSlide = function (slideIndex) {
+            var item = this.config.items[slideIndex];
+            $('.eiw-caption').html("<p>" + item.caption + "</p>");
+            $('.eiw-content').html("<p>" + item.content.join('</p><p>') + "</p>");
         };
         Pin.prototype.renderInfoPoint = function ($wrap) {
             this.$el = $("\n                <div class=\"eiw-info-point eiw-pin-" + this.kind + "\">\n                  " + (this.id || '') + "\n                </div>\n            ");
@@ -70,7 +69,7 @@ var EDF_IMAP_WEB;
         function NumberedPin(config, main) {
             _super.call(this, config, main);
             this.kind = 'numbered';
-            this.id = ++EDF_IMAP_WEB['numbered-pin-tally'];
+            this.id = ++this.main.numberedPinTally;
         }
         return NumberedPin;
     }(Pin));
@@ -96,6 +95,7 @@ var EDF_IMAP_WEB;
     var Main = (function () {
         function Main() {
             this.pins = [];
+            this.numberedPinTally = 0;
         }
         Main.prototype.configure = function (config) {
             this.config = config;
@@ -141,11 +141,16 @@ var EDF_IMAP_WEB;
             });
             //// Initialize the ‘Slick’ carousel. 
             this.$carousel = $('.eiw-carousel');
-            this.$carousel.slick({
+            this.$carousel
+                .data('eiwCurrentSlideTally', 0)
+                .slick({
                 appendArrows: '.eiw-arrows',
                 appendDots: '.eiw-dots',
                 dots: true,
                 infinite: false
+            })
+                .on('beforeChange', function (evt, slick, currentSlide, nextSlide) {
+                _this.activePin.showSlide(nextSlide);
             });
         };
         return Main;
@@ -154,5 +159,3 @@ var EDF_IMAP_WEB;
 })(EDF_IMAP_WEB || (EDF_IMAP_WEB = {}));
 //// We use a singleton instance of `Main` for the app. 
 EDF_IMAP_WEB['main'] = new EDF_IMAP_WEB.Main();
-EDF_IMAP_WEB['numbered-pin-tally'] = 0;
-EDF_IMAP_WEB['current-carousel-tally'] = 0;
