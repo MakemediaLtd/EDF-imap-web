@@ -19,6 +19,9 @@
   if(/efox\/(\d|[1-2]\d)\.|Presto|n\/4\.0 Saf/.test(v)){w.onerror=e}else{w[A]&&!
   /MSIE 9/.test(v)?w[A]('error',e,0):w.attachEvent('onerror',e)}}(top)}</script>
 
+  <!-- Load styles -->
+  <link rel="stylesheet" type="text/css" href="css/edf-imap-web.css">
+
   <!-- Load jQuery -->
   <script src="js/jquery.js"></script>
 
@@ -29,14 +32,14 @@
 </head>
 <body style="margin:0px;">
 
-  <div id="edf-imap-web"></div>
+  <div id="edf-imap-web-wrap"></div>
   <script>
     !function() {
       var me = 'index.html:\n  ', EIW = window.EDF_IMAP_WEB;
       if (! EIW) throw new Error(me+'No `window.EDF_IMAP_WEB`');
       if (! EIW.main) throw new Error(me+'No `main`');
-      if (! EIW.main.items.length) throw new Error(me+'No `items`');
-      EIW.main.init('#edf-imap-web');
+      if (! EIW.main.markers.length) throw new Error(me+'No `markers`');
+      EIW.main.init('#edf-imap-web-wrap');
     }();
   </script>
 

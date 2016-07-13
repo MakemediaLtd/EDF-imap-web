@@ -10,31 +10,82 @@
 
 //// Public API. 
 module EDF_IMAP_WEB {
-    export class Item {
+
+    let me = 'js/edf-imap-web.ts:\n  ';
+
+    //// Describe the `Marker` class’s configuration-object. 
+    interface MarkerConfig {
         x:     number;
         y:     number;
         title: string;
         slug:  string;
-        constructor(config:Object, id:number) {
-            console.log('new Item, id ' + id + '!');
+    }
+
+    export class Marker {
+        config: MarkerConfig;
+        id:     number;
+        $el:    JQuery;
+        constructor(config:MarkerConfig, id:number) {
+            this.config = config;
+            this.id     = id;
         }
     }
+
+    //// Describe the `Main` class’s configuration-object. 
+    interface MainConfig {
+        bkgnd?: {
+            src:    string;
+            width:  number;
+            height: number;
+        };
+    }
+
     export class Main {
 
-        constructor(config:Object) {
+        constructor() {
             console.log('Main::constructor()');
         }
 
-        items: Item[] = [];
+        config:  MainConfig;
+        markers: Marker[] = [];
+        $wrap:   JQuery;
 
-        add(item:Object) {
-            this.items.push(new Item(item, this.items.length));
+        configure(config:MainConfig) {
+            this.config = config;
         }
 
-        init(selector:string) {
-            console.log('Main::init() ', $(selector));
+        addMarker(marker:MarkerConfig) {
+            this.markers.push(new Marker(marker, this.markers.length));
+        }
+
+        init(wrapSelector:string) {
+
+            //// Get a reference to the HTML element which will contain the app.
+            this.$wrap = $(wrapSelector)
+            if (! this.$wrap.length) throw Error(me+'No $wrap');
+
+            //// Render the background-image. 
+            this.$wrap.append(`<div class="eiw-bkgnd">
+              <img src="${this.config.bkgnd.src}">
+            </div>`);
+
+            //// Render each marker. 
+            for (let marker of this.markers) {
+                marker.$el = $(`
+                    <div class="eiw-marker">
+                      ${marker.config.title}
+                    </div>`
+                ); 
+                this.$wrap.append(marker.$el);
+                marker.$el.css({
+                    left: marker.config.x
+                  , top:  marker.config.y
+                });
+            }
         }
     }
 }
 
-EDF_IMAP_WEB['main'] = new EDF_IMAP_WEB.Main({});
+//// We use a singleton instance of `Main` for the app. 
+EDF_IMAP_WEB['main'] = new EDF_IMAP_WEB.Main();
+

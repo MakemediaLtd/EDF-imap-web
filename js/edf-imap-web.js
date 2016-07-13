@@ -11,26 +11,47 @@
 //// Public API. 
 var EDF_IMAP_WEB;
 (function (EDF_IMAP_WEB) {
-    var Item = (function () {
-        function Item(config, id) {
-            console.log('new Item, id ' + id + '!');
+    var me = 'js/edf-imap-web.ts:\n  ';
+    var Marker = (function () {
+        function Marker(config, id) {
+            this.config = config;
+            this.id = id;
         }
-        return Item;
+        return Marker;
     }());
-    EDF_IMAP_WEB.Item = Item;
+    EDF_IMAP_WEB.Marker = Marker;
     var Main = (function () {
-        function Main(config) {
-            this.items = [];
+        function Main() {
+            this.markers = [];
             console.log('Main::constructor()');
         }
-        Main.prototype.add = function (item) {
-            this.items.push(new Item(item, this.items.length));
+        Main.prototype.configure = function (config) {
+            this.config = config;
         };
-        Main.prototype.init = function (selector) {
-            console.log('Main::init() ', $(selector));
+        Main.prototype.addMarker = function (marker) {
+            this.markers.push(new Marker(marker, this.markers.length));
+        };
+        Main.prototype.init = function (wrapSelector) {
+            //// Get a reference to the HTML element which will contain the app.
+            this.$wrap = $(wrapSelector);
+            if (!this.$wrap.length)
+                throw Error(me + 'No $wrap');
+            //// Render the background-image. 
+            this.$wrap.append("<div class=\"eiw-bkgnd\">\n              <img src=\"" + this.config.bkgnd.src + "\">\n            </div>");
+            //// Render each marker. 
+            for (var _i = 0, _a = this.markers; _i < _a.length; _i++) {
+                var marker = _a[_i];
+                marker.$el = $("\n                    <div class=\"eiw-marker\">\n                      " + marker.config.title + "\n                    </div>");
+                this.$wrap.append(marker.$el);
+                marker.$el.css({
+                    left: marker.config.x,
+                    top: marker.config.y
+                });
+            }
         };
         return Main;
     }());
     EDF_IMAP_WEB.Main = Main;
 })(EDF_IMAP_WEB || (EDF_IMAP_WEB = {}));
-EDF_IMAP_WEB['main'] = new EDF_IMAP_WEB.Main({});
+//// We use a singleton instance of `Main` for the app. 
+EDF_IMAP_WEB['main'] = new EDF_IMAP_WEB.Main();
