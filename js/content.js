@@ -6,6 +6,7 @@
     if (! window.EDF_IMAP_WEB) throw new Error(me+'No `window.EDF_IMAP_WEB`');
     var main = window.EDF_IMAP_WEB.main;
 
+
     //// Configure the interactive map. 
     main.configure({
         bkgnd: {
@@ -15,20 +16,60 @@
         }
     });
 
-    //// Add the Markers. 
-    main.addMarker({
+
+    //// Add the Numbered Pins. 
+    main.addNumberedPin({
         x: 123
       , y: 456
-      , title: 'Title for Marker Zero'
-      , slug:  'slug-for-marker-zero'
+      , title: 'Title for Numbered Pin One'
+      , slug:  'slug-for-numbered-pin-one'
+      , content: [
+            'This is the first paragraph. '
+          , 'Here’s paragraph 2. '
+        ]
+      , items: [
+            { src: 'assets/test-1-288x360.jpg', caption: 'Caption for first item. ' }
+          , { src: 'assets/test-2-288x360.jpg', caption: 'Caption for second item. ' }
+        ]
     });
 
-    //// Add the Markers. 
-    main.addMarker({
+    main.addNumberedPin({
         x: 500
-      , y: 50
-      , title: 'Title for Marker One'
-      , slug:  'slug-for-marker-one'
+      , y: 150
+      , title: 'Title for Numbered Pin Two'
+      , slug:  'slug-for-numbered-pin-two'
+    });
+
+
+    //// Add the Lightbulb Pins. 
+    main.addLightbulbPin({
+        x: 50
+      , y: 200
+      , title: 'Title for Lightbulb Pin One'
+      , slug:  'slug-for-lightbulb-pin-one'
+    });
+
+    main.addLightbulbPin({
+        x: 300
+      , y: 270
+      , title: 'Title for Lightbulb Pin Two'
+      , slug:  'slug-for-lightbulb-pin-two'
+    });
+
+
+    //// Add the Hidden Pins. 
+    main.addHiddenPin({
+        x: 50
+      , y: 200
+      , title: 'Title for Hidden Pin One'
+      , slug:  'slug-for-hidden-pin-one'
+    });
+
+    main.addHiddenPin({
+        x: 300
+      , y: 270
+      , title: 'Title for Hidden Pin Two'
+      , slug:  'slug-for-hidden-pin-two'
     });
 
 }();

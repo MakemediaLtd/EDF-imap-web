@@ -1,4 +1,53 @@
-.eiw-marker {
+/* Info-points, which mark places on the map. */
+.eiw-info-point {
     position: absolute;
-    
+    width: 50px;
+    height: 100px;
+    margin-left: -25px;
+    margin-top: -50px;
+    cursor: pointer;
+    opacity: 0.9;
+    -webkit-transition: opacity 0.3s, width 0.3s, height 0.3s, margin-left 0.3s, margin-top 0.3s;
+    -moz-transition: opacity 0.3s, width 0.3s, height 0.3s, margin-left 0.3s, margin-top 0.3s;
+    transition: opacity 0.3s, width 0.3s, height 0.3s, margin-left 0.3s, margin-top 0.3s;
 }
+.eiw-info-point:hover,
+.eiw-info-point.eiw-active {
+    opacity: 1;
+    width: 60px;
+    height: 120px;
+    margin-left: -30px;
+    margin-top: -60px;
+}
+.eiw-pin-numbered {
+    border: 2px solid blue;
+}
+.eiw-pin-lightbulb {
+    border: 2px solid yellow;
+}
+.eiw-pin-hidden {
+    display: none;
+}
+
+/* Popup */
+.eiw-popup {
+    position: absolute;
+    background: #eee;
+    left: 50px;
+    right: 50px;
+    top: 200px;
+    bottom: 200px;
+}
+.eiw-popup.eiw-hidden {
+    display: none;
+}
+.eiw-dismiss {
+    cursor: pointer;
+}
+.eiw-carousel li {
+    position: absolute;
+    list-style: none;
+}
+
+
+

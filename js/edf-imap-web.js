@@ -1,5 +1,10 @@
 //// Typings. 
 /// <reference path="../typings/globals/jquery/index.d.ts" />
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 //// Basic validation. 
 !function () {
     var me = 'js/edf-imap.web.ts:\n  ';
@@ -12,42 +17,116 @@
 var EDF_IMAP_WEB;
 (function (EDF_IMAP_WEB) {
     var me = 'js/edf-imap-web.ts:\n  ';
-    var Marker = (function () {
-        function Marker(config, id) {
+    //// Define the base class for all Pins. 
+    var Pin = (function () {
+        function Pin(config, main) {
+            this.kind = 'base';
+            this.id = 0;
             this.config = config;
-            this.id = id;
+            this.main = main;
         }
-        return Marker;
+        Pin.prototype.deactivate = function () {
+            this.$el.removeClass('eiw-active');
+        };
+        Pin.prototype.activate = function () {
+            this.$el.addClass('eiw-active');
+            this.main.$popup.removeClass('eiw-hidden');
+            var _a = this.config, _b = _a.title, title = _b === void 0 ? '' : _b, _c = _a.content, content = _c === void 0 ? [] : _c, _d = _a.items, items = _d === void 0 ? [] : _d;
+            $('.eiw-title').html(title);
+            $('.eiw-content').html("<p>" + content.join('</p><p>') + "</p>");
+            var carousel = '';
+            for (var _i = 0, items_1 = items; _i < items_1.length; _i++) {
+                var item = items_1[_i];
+                carousel += "<li><img src=\"" + item.src + "\"></li>";
+            }
+            $('.eiw-carousel').html(carousel);
+        };
+        Pin.prototype.renderInfoPoint = function ($wrap) {
+            this.$el = $("\n                <div class=\"eiw-info-point eiw-pin-" + this.kind + "\">\n                  " + (this.id || '') + "\n                </div>\n            ");
+            this.$el.css({
+                left: this.config.x,
+                top: this.config.y
+            }).data('eiwPinInstance', this); // allows backreference
+            $wrap.append(this.$el);
+        };
+        return Pin;
     }());
-    EDF_IMAP_WEB.Marker = Marker;
+    //// Define `Numbered`, `Lightbulb` and `Hidden` Pins. 
+    var NumberedPin = (function (_super) {
+        __extends(NumberedPin, _super);
+        function NumberedPin(config, main) {
+            _super.call(this, config, main);
+            this.kind = 'numbered';
+            this.id = ++EDF_IMAP_WEB['numbered-pin-tally'];
+        }
+        return NumberedPin;
+    }(Pin));
+    EDF_IMAP_WEB.NumberedPin = NumberedPin;
+    var LightbulbPin = (function (_super) {
+        __extends(LightbulbPin, _super);
+        function LightbulbPin() {
+            _super.apply(this, arguments);
+            this.kind = 'lightbulb';
+        }
+        return LightbulbPin;
+    }(Pin));
+    EDF_IMAP_WEB.LightbulbPin = LightbulbPin;
+    var HiddenPin = (function (_super) {
+        __extends(HiddenPin, _super);
+        function HiddenPin() {
+            _super.apply(this, arguments);
+            this.kind = 'hidden';
+        }
+        return HiddenPin;
+    }(Pin));
+    EDF_IMAP_WEB.HiddenPin = HiddenPin;
     var Main = (function () {
         function Main() {
-            this.markers = [];
+            this.pins = [];
             console.log('Main::constructor()');
         }
         Main.prototype.configure = function (config) {
             this.config = config;
         };
-        Main.prototype.addMarker = function (marker) {
-            this.markers.push(new Marker(marker, this.markers.length));
+        Main.prototype.addNumberedPin = function (pin) {
+            this.pins.push(new NumberedPin(pin, this));
+        };
+        Main.prototype.addLightbulbPin = function (pin) {
+            this.pins.push(new LightbulbPin(pin, this));
+        };
+        Main.prototype.addHiddenPin = function (pin) {
+            this.pins.push(new HiddenPin(pin, this));
         };
         Main.prototype.init = function (wrapSelector) {
+            var _this = this;
             //// Get a reference to the HTML element which will contain the app.
             this.$wrap = $(wrapSelector);
             if (!this.$wrap.length)
                 throw Error(me + 'No $wrap');
             //// Render the background-image. 
-            this.$wrap.append("<div class=\"eiw-bkgnd\">\n              <img src=\"" + this.config.bkgnd.src + "\">\n            </div>");
-            //// Render each marker. 
-            for (var _i = 0, _a = this.markers; _i < _a.length; _i++) {
-                var marker = _a[_i];
-                marker.$el = $("\n                    <div class=\"eiw-marker\">\n                      " + marker.config.title + "\n                    </div>");
-                this.$wrap.append(marker.$el);
-                marker.$el.css({
-                    left: marker.config.x,
-                    top: marker.config.y
-                });
+            this.$wrap.append("\n                <div class=\"eiw-bkgnd\">\n                  <img src=\"" + this.config.bkgnd.src + "\">\n                </div>\n            ");
+            //// Render each pin, and attach event-listeners. 
+            for (var _i = 0, _a = this.pins; _i < _a.length; _i++) {
+                var pin = _a[_i];
+                pin.renderInfoPoint(this.$wrap);
             }
+            $('.eiw-info-point').click(function (evt) {
+                for (var _i = 0, _a = _this.pins; _i < _a.length; _i++) {
+                    var pin = _a[_i];
+                    pin.deactivate();
+                }
+                $(evt.target).data('eiwPinInstance').activate();
+            });
+            //// Render the popup (initially hidden) and attach event-listeners.
+            this.$popup = $("\n                <div class=\"eiw-popup eiw-hidden\">\n                  <h2  class=\"eiw-title\"    >Title here</h2>\n                  <div class=\"eiw-dismiss\"  >X</div>\n                  <ul  class=\"eiw-carousel\" ></ul>\n                  <h4  class=\"eiw-caption\"  >Caption here</h4>\n                  <div class=\"eiw-nav-left\" >&lt;</div>\n                  <div class=\"eiw-nav-right\">&gt;</div>\n                  <ul  class=\"eiw-nav-dots\" ></ul>\n                  <div class=\"eiw-content\"  ><p>Content here. </p></div>\n                </div>\n            ");
+            this.$wrap.append(this.$popup);
+            $('.eiw-dismiss').click(function (evt) {
+                for (var _i = 0, _a = _this.pins; _i < _a.length; _i++) {
+                    var pin = _a[_i];
+                    pin.deactivate();
+                }
+                _this.$popup.addClass('eiw-hidden');
+            });
         };
         return Main;
     }());
@@ -55,3 +134,4 @@ var EDF_IMAP_WEB;
 })(EDF_IMAP_WEB || (EDF_IMAP_WEB = {}));
 //// We use a singleton instance of `Main` for the app. 
 EDF_IMAP_WEB['main'] = new EDF_IMAP_WEB.Main();
+EDF_IMAP_WEB['numbered-pin-tally'] = 0;

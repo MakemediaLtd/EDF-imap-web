@@ -38,7 +38,7 @@
       var me = 'index.html:\n  ', EIW = window.EDF_IMAP_WEB;
       if (! EIW) throw new Error(me+'No `window.EDF_IMAP_WEB`');
       if (! EIW.main) throw new Error(me+'No `main`');
-      if (! EIW.main.markers.length) throw new Error(me+'No `markers`');
+      if (! EIW.main.pins.length) throw new Error(me+'No `pins`');
       EIW.main.init('#edf-imap-web-wrap');
     }();
   </script>
