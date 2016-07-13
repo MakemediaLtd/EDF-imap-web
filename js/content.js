@@ -23,6 +23,7 @@
       , y: 456
       , title: 'Title for Numbered Pin One'
       , slug:  'slug-for-numbered-pin-one'
+      , tags:  ['Logistics', 'Workforce']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: 'Caption for first item. ', 
               content: [
@@ -44,6 +45,7 @@
       , y: 150
       , title: 'Title for Numbered Pin Two'
       , slug:  'slug-for-numbered-pin-two'
+      , tags:  ['Logistics']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: 'Caption for first item. ', 
               content: [
@@ -73,6 +75,7 @@
       , y: 200
       , title: 'Title for Lightbulb Pin One'
       , slug:  'slug-for-lightbulb-pin-one'
+      , tags:  ['Power Station', 'Workforce']
       , items: [
             { src: 'assets/test-3-288x360.jpg', caption: 'Caption for item. ', 
               content: [

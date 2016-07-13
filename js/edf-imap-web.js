@@ -23,6 +23,7 @@ var EDF_IMAP_WEB;
         function Pin(config, main) {
             this.kind = 'base';
             this.id = 0;
+            config.tags = config.tags || []; //@todo find a better defaults syntax
             this.config = config;
             this.main = main;
         }
@@ -33,8 +34,9 @@ var EDF_IMAP_WEB;
             this.$el.addClass('eiw-active');
             this.main.activePin = this;
             this.main.$popup.removeClass('eiw-hidden');
-            var _a = this.config, _b = _a.title, title = _b === void 0 ? '' : _b, _c = _a.slug, slug = _c === void 0 ? '' : _c, _d = _a.items, items = _d === void 0 ? [{ src: '', caption: '', content: [''] }] : _d;
+            var _a = this.config, _b = _a.title, title = _b === void 0 ? '' : _b, _c = _a.tags, tags = _c === void 0 ? [] : _c, _d = _a.items, items = _d === void 0 ? [{ src: '', caption: '', content: [''] }] : _d;
             $('.eiw-title').html(title);
+            $('.eiw-tags').html("<tt>" + tags.join('</tt><tt>') + "</tt>");
             //// Remove the previous carousel slides, and add the new ones.  
             for (var i = this.main.$carousel.data('eiwCurrentSlideTally'); i > 0; i--) {
                 this.main.$carousel.slick('slickRemove', i - 1);
@@ -117,7 +119,7 @@ var EDF_IMAP_WEB;
                 throw Error(me + 'No $wrap');
             //// Render the background-image. 
             this.$wrap.append("\n                <div class=\"eiw-bkgnd\">\n                  <img src=\"" + this.config.bkgnd.src + "\">\n                </div>\n            ");
-            //// Render each pin, and attach event-listeners. 
+            //// Render each pin. 
             for (var _i = 0, _a = this.pins; _i < _a.length; _i++) {
                 var pin = _a[_i];
                 pin.renderInfoPoint(this.$wrap);
@@ -129,8 +131,8 @@ var EDF_IMAP_WEB;
                 }
                 $(evt.target).data('eiwPinInstance').activate();
             });
-            //// Render the popup (initially hidden) and attach event-listeners.
-            this.$popup = $("\n                <div class=\"eiw-popup eiw-hidden\">\n                  <h2  class=\"eiw-title\"    >Title here</h2>\n                  <div class=\"eiw-dismiss\"  >X</div>\n                  <div class=\"eiw-carousel\" ></div>\n                  <h4  class=\"eiw-caption\"  >Caption here</h4>\n                  <div class=\"eiw-arrows\"   ></div>\n                  <div class=\"eiw-dots\"     ></div>\n                  <div class=\"eiw-content\"  ><p>Content here. </p></div>\n                </div>\n            ");
+            //// Render the popup (initially hidden).
+            this.$popup = $("\n                <div class=\"eiw-popup eiw-hidden\">\n                  <h2  class=\"eiw-title\"    >Title here</h2>\n                  <div class=\"eiw-dismiss\"  >X</div>\n                  <div class=\"eiw-carousel\" ></div>\n                  <h4  class=\"eiw-caption\"  >Caption here</h4>\n                  <div class=\"eiw-arrows\"   ></div>\n                  <div class=\"eiw-dots\"     ></div>\n                  <div class=\"eiw-content\"  ><p>Content here. </p></div>\n                  <div class=\"eiw-tags\"     ><tt>A Tag</tt><tt>Another Tag</tt></div>\n                </div>\n            ");
             this.$wrap.append(this.$popup);
             $('.eiw-dismiss').click(function (evt) {
                 for (var _i = 0, _a = _this.pins; _i < _a.length; _i++) {
@@ -151,6 +153,37 @@ var EDF_IMAP_WEB;
             })
                 .on('beforeChange', function (evt, slick, currentSlide, nextSlide) {
                 _this.activePin.showSlide(nextSlide);
+            });
+            //// Render the tagmenu (initially hidden).
+            var tags = {};
+            for (var _b = 0, _c = this.pins; _b < _c.length; _b++) {
+                var pin = _c[_b];
+                for (var _d = 0, _e = pin.config.tags; _d < _e.length; _d++) {
+                    var tag = _e[_d];
+                    tags[tag] = tags[tag] || [];
+                    var $li = $("<li>" + pin.config.title + "</li>");
+                    $li.data('eiwPinInstance', pin);
+                    tags[tag].push($li);
+                }
+            }
+            this.$tagmenu = $('<ul class="eiw-tagmenu eiw-hidden"></ul>');
+            for (var tag in tags) {
+                var $section = $("<li><h4>" + tag + "</h4></li>");
+                var $ul = $("<ul></ul>");
+                for (var _f = 0, _g = tags[tag]; _f < _g.length; _f++) {
+                    var $li = _g[_f];
+                    $ul.append($li);
+                }
+                $section.append($ul);
+                this.$tagmenu.append($section);
+            }
+            this.$wrap.append(this.$tagmenu);
+            $('li li', this.$tagmenu).click(function (evt) {
+                for (var _i = 0, _a = _this.pins; _i < _a.length; _i++) {
+                    var pin = _a[_i];
+                    pin.deactivate();
+                }
+                $(evt.target).data('eiwPinInstance').activate();
             });
         };
         return Main;

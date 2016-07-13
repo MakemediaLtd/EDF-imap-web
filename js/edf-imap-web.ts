@@ -25,6 +25,7 @@ module EDF_IMAP_WEB {
         y:       number;
         slug:    string;
         title:   string;
+        tags:    string[];
         items:   PinItem[];
     }
 
@@ -37,6 +38,7 @@ module EDF_IMAP_WEB {
         id:     number = 0;
 
         constructor (config:PinConfig, main:Main) {
+            config.tags = config.tags || []; //@todo find a better defaults syntax
             this.config = config;
             this.main   = main;
         }
@@ -49,9 +51,10 @@ module EDF_IMAP_WEB {
             this.$el.addClass('eiw-active');
             this.main.activePin = this; 
             this.main.$popup.removeClass('eiw-hidden');
-            let { title='', slug='', items=[{ src:'', caption:'', content:[''] }] } 
+            let { title='', tags=[], items=[{ src:'', caption:'', content:[''] }] } 
                 = this.config;
             $('.eiw-title').html(title);
+            $('.eiw-tags').html(`<tt>${tags.join('</tt><tt>')}</tt>`);
 
             //// Remove the previous carousel slides, and add the new ones.  
             for (var i=this.main.$carousel.data('eiwCurrentSlideTally'); i>0; i--) {
@@ -126,6 +129,7 @@ module EDF_IMAP_WEB {
         $wrap:            JQuery;
         $popup:           JQuery;
         $carousel:        JQuery;
+        $tagmenu:         JQuery;
         pins:             Pin[] = [];
         numberedPinTally: number = 0;
         activePin:        Pin;
@@ -159,7 +163,7 @@ module EDF_IMAP_WEB {
                 </div>
             `);
 
-            //// Render each pin, and attach event-listeners. 
+            //// Render each pin. 
             for (let pin of this.pins) {
                 pin.renderInfoPoint(this.$wrap);
             }
@@ -168,7 +172,7 @@ module EDF_IMAP_WEB {
                 $(evt.target).data('eiwPinInstance').activate();
             });
 
-            //// Render the popup (initially hidden) and attach event-listeners.
+            //// Render the popup (initially hidden).
             this.$popup = $(`
                 <div class="eiw-popup eiw-hidden">
                   <h2  class="eiw-title"    >Title here</h2>
@@ -178,6 +182,7 @@ module EDF_IMAP_WEB {
                   <div class="eiw-arrows"   ></div>
                   <div class="eiw-dots"     ></div>
                   <div class="eiw-content"  ><p>Content here. </p></div>
+                  <div class="eiw-tags"     ><tt>A Tag</tt><tt>Another Tag</tt></div>
                 </div>
             `);
             this.$wrap.append(this.$popup);
@@ -200,6 +205,32 @@ module EDF_IMAP_WEB {
                    this.activePin.showSlide(nextSlide);
                 })
             ;
+
+            //// Render the tagmenu (initially hidden).
+            let tags = {};
+            for (let pin of this.pins) {
+                for (let tag of pin.config.tags) {
+                    tags[tag] = tags[tag] || [];
+                    let $li = $(`<li>${pin.config.title}</li>`);
+                    $li.data('eiwPinInstance', pin); 
+                    tags[tag].push($li); 
+                }
+            }
+            this.$tagmenu = $('<ul class="eiw-tagmenu eiw-hidden"></ul>');
+            for (let tag in tags) {
+                let $section = $(`<li><h4>${tag}</h4></li>`);
+                let $ul      = $(`<ul></ul>`);
+                for (let $li of tags[tag]) {
+                    $ul.append($li);
+                }
+                $section.append($ul);
+                this.$tagmenu.append($section);
+            }
+            this.$wrap.append(this.$tagmenu);
+            $('li li', this.$tagmenu).click( (evt:JQueryMouseEventObject) => { //@todo DRY ... this is an exact repeat of the anon fn above!
+                for (let pin of this.pins) { pin.deactivate(); }
+                $(evt.target).data('eiwPinInstance').activate();
+            });
 
         }
     }

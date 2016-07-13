@@ -37,6 +37,7 @@
     right: 50px;
     top: 200px;
     bottom: 200px;
+    z-index: 20;
 }
 .eiw-popup.eiw-hidden {
     display: none;
@@ -44,9 +45,25 @@
 .eiw-dismiss {
     cursor: pointer;
 }
-.eiw-carousel li {
+.eiw-tags tt { /* @todo hide tags */
+    padding: 0 1em;
+}
+
+/* Tagmenu */
+.eiw-tagmenu {
     position: absolute;
-    list-style: none;
+    background: #eee;
+    left: 0;
+    bottom: 0;
+}
+/*.eiw-tagmenu.eiw-hidden {
+    display: none;
+}*/
+.eiw-tagmenu li li {
+    cursor: pointer;
+}
+.eiw-tagmenu li li:hover {
+    color: red;
 }
 
 
