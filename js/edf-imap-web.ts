@@ -190,6 +190,9 @@ module EDF_IMAP_WEB {
                   <img src="${this.config.bkgnd.src}">
                 </div>
             `);
+            $('.eiw-bkgnd', this.$wrap).click( () => {
+                this.hideAll();
+            });
 
             //// Render each pin. 
             for (let pin of this.pins) {

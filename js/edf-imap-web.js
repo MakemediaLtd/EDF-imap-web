@@ -132,6 +132,9 @@ var EDF_IMAP_WEB;
                 throw Error(me + 'No $wrap');
             //// Render the background-image. 
             this.$wrap.append("\n                <div class=\"eiw-bkgnd\">\n                  <img src=\"" + this.config.bkgnd.src + "\">\n                </div>\n            ");
+            $('.eiw-bkgnd', this.$wrap).click(function () {
+                _this.hideAll();
+            });
             //// Render each pin. 
             for (var _i = 0, _a = this.pins; _i < _a.length; _i++) {
                 var pin = _a[_i];
