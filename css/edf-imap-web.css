@@ -42,10 +42,13 @@ body {
     margin-top: -5em;
     cursor: pointer;
     opacity: 0; /* hidden in ‘view B’ */
-    transition: opacity 0.5s, width 0.5s, height 0.5s, margin-left 0.5s, margin-top 0.5s;
+    transition: opacity 0.5s, width 0.5s, height 0.5s, margin-left 0.5s, margin-top 0.5s, z-index 0.5s;
+    z-index: -5;
 }
 .eiw-view-a .eiw-info-point {
     opacity: 0.9;
+    transition: opacity 0.5s, width 0.5s, height 0.5s, margin-left 0.5s, margin-top 0.5s, z-index 0;
+    z-index: 0;
 }
 
 .eiw-info-point:hover,
@@ -120,13 +123,18 @@ body {
 }
 
 
-/* Background Image */
+/* Background Images */
 
-.eiw-bkgnd-a,
-.eiw-bkgnd-b {
-    position: fixed;
-    top: 0;
-    left: 0;
+.eiw-bkgnd-a {
+    width: 100%;
+    height: 400px; /* will be set by JavaScript */
+    background: pink;
+    cursor: grab;
+}
+.eiw-bkgnd-a img,
+.eiw-bkgnd-b img {
+    /*width: 100%;
+    height: auto;*/
 }
             .eiw-bkgnd-a { opacity: 0; z-index:-2; transition: opacity 0.5s 0.5s; }
 .eiw-view-a .eiw-bkgnd-a { opacity: 1; z-index:-1; transition: opacity 0.5s; }
@@ -158,6 +166,7 @@ body {
     bottom: 0;
     height: 15.5em;
     background: #fff;
+    z-index: 30;
 }
 .eiw-footer div {
     overflow: hidden;

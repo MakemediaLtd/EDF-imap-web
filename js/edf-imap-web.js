@@ -58,13 +58,13 @@ var EDF_IMAP_WEB;
             $('.eiw-caption', this.main.$wrap).html("<p>" + item.caption + "</p>");
             $('.eiw-content', this.main.$wrap).html("<p>" + item.content.join('</p><p>') + "</p>");
         };
-        Pin.prototype.renderInfoPoint = function ($wrap) {
+        Pin.prototype.renderInfoPoint = function ($container) {
             this.$el = $("\n                <div class=\"eiw-info-point eiw-pin-" + this.kind + "\">\n                  " + (this.id || '') + "\n                </div>\n            ");
             this.$el.css({
                 left: this.config.x,
                 top: this.config.y
             }).data('eiwPinInstance', this); // allows backreference
-            $wrap.append(this.$el);
+            $container.append(this.$el);
         };
         return Pin;
     }());
@@ -133,11 +133,62 @@ var EDF_IMAP_WEB;
             if (!this.$wrap.length)
                 throw Error(me + 'No $wrap');
             this.$wrap.addClass('eiw-view-a');
-            //// Render the background-image. 
-            this.$wrap.append("\n                <div class=\"eiw-bkgnd-a\"><img src=\"" + this.config.bkgnd.srcA + "\"></div>\n                <div class=\"eiw-bkgnd-b\"><img src=\"" + this.config.bkgnd.srcB + "\"></div>\n            ");
+            //// Render the header. 
+            this.$wrap.append("\n                <div class=\"eiw-header-a\">" + this.config.header.titleA + "</div>\n                <div class=\"eiw-header-b\">" + this.config.header.titleB + "</div>\n            ");
+            //// Render the footer. 
+            this.$wrap.append("\n                <div class=\"eiw-footer\">\n                  <div class=\"eiw-tagmenu-toggle\">" + this.config.tagmenu.title + "</div>\n                  <div class=\"eiw-xtramenu-toggle\">" + this.config.xtramenu.title + "</div>\n                  <div class=\"eiw-changeview\">" + this.config.changeview.title + "</div>\n                  <div class=\"eiw-gps\">" + this.config.gps.title + "</div>\n                  <div class=\"eiw-instructions\">" + this.config.instructions.title + "</div>\n                </div>\n            ");
+            $('.eiw-tagmenu-toggle', this.$wrap).click(function () {
+                _this.hideAll('tagmenu');
+                $('.eiw-tagmenu', _this.$wrap).toggleClass('eiw-hidden');
+            });
+            $('.eiw-xtramenu-toggle', this.$wrap).click(function () {
+                _this.hideAll('xtramenu');
+                $('.eiw-xtramenu', _this.$wrap).toggleClass('eiw-hidden');
+            });
+            $('.eiw-changeview', this.$wrap).click(function () {
+                _this.hideAll();
+                _this.$wrap.toggleClass('eiw-view-a');
+            });
+            //// Render the background-images. 
+            this.$wrap.append("\n                <div class=\"eiw-bkgnds\">\n                  <div class=\"eiw-bkgnd-a\"></div>\n                  <div class=\"eiw-bkgnd-b\"><img src=\"" + this.config.bkgnd.srcB + "\"></div>\n                </div>\n            ");
             $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap).click(function () {
                 _this.hideAll();
             });
+            $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap)
+                .css('height', $(window).innerHeight() - $('.eiw-footer').height());
+            $('.eiw-bkgnd-a', this.$wrap).iviewer({
+                src: this.config.bkgnd.srcA,
+                zoom_min: 100,
+                ui_disabled: true,
+                onZoom: function (evt, zoom) {
+                    console.log(zoom);
+                },
+                onDrag: function (evt, coords) {
+                    console.log(coords);
+                }
+            });
+            // let $panzoom = $('.eiw-bkgnd-a').panzoom();
+            // $('.eiw-bkgnd-a', this.$wrap).panzoom({
+            //     contain:  'invert'
+            //   , minScale: 1
+            // });
+            // $('.eiw-bkgnd-a').on('mousewheel.focal', (e) => {
+            //     console.log(123);
+            //     e.preventDefault();
+            //     var delta = e.delta || e.originalEvent.wheelDelta;
+            //     var zoomOut = delta ? delta < 0 : e.originalEvent.deltaY > 0;
+            //     $('.eiw-bkgnd-a').panzoom('zoom', zoomOut, {
+            //         increment: 0.1
+            //       , animate: false
+            //       , focal: e
+            //     });
+            // });
+            $(window).on('resize', function () {
+                $('.eiw-bkgnd-a, .eiw-bkgnd-b', _this.$wrap)
+                    .css('height', $(window).innerHeight() - $('.eiw-footer').height());
+                $('.eiw-bkgnd-a', _this.$wrap).iviewer('update');
+            });
+            console.log($('.eiw-bkgnd-a', this.$wrap).iviewer('info', 'coords'));
             //// Render each pin. 
             for (var _i = 0, _a = this.pins; _i < _a.length; _i++) {
                 var pin = _a[_i];
@@ -202,24 +253,6 @@ var EDF_IMAP_WEB;
             //// Render the xtramenu (initially hidden).
             this.$xtramenu = $("\n                <div class=\"eiw-xtramenu eiw-hidden\">\n                  <h3>" + this.config.xtramenu.heading + "</h3>\n                </div>\n            ");
             this.$wrap.append(this.$xtramenu);
-            //// Render the header. 
-            this.$wrap.append("\n                <div class=\"eiw-header-a\">" + this.config.header.titleA + "</div>\n                <div class=\"eiw-header-b\">" + this.config.header.titleB + "</div>\n            ");
-            //// Render the footer. 
-            this.$wrap.append("\n                <div class=\"eiw-footer\">\n                  <div class=\"eiw-tagmenu-toggle\">" + this.config.tagmenu.title + "</div>\n                  <div class=\"eiw-xtramenu-toggle\">" + this.config.xtramenu.title + "</div>\n                  <div class=\"eiw-changeview\">" + this.config.changeview.title + "</div>\n                  <div class=\"eiw-gps\">" + this.config.gps.title + "</div>\n                  <div class=\"eiw-instructions\">" + this.config.instructions.title + "</div>\n                </div>\n            ");
-            $('.eiw-tagmenu-toggle', this.$wrap).click(function () {
-                _this.hideAll('tagmenu');
-                $('.eiw-tagmenu', _this.$wrap).toggleClass('eiw-hidden');
-            });
-            $('.eiw-xtramenu-toggle', this.$wrap).click(function () {
-                _this.hideAll('xtramenu');
-                $('.eiw-xtramenu', _this.$wrap).toggleClass('eiw-hidden');
-            });
-            $('.eiw-changeview', this.$wrap).click(function () {
-                _this.hideAll();
-                _this.$wrap.toggleClass('eiw-view-a');
-                // $('.eiw-header-a, .eiw-header-b, .eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap)
-                //    .toggleClass('eiw-hidden');
-            });
         };
         return Main;
     }());
