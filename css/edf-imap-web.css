@@ -41,11 +41,13 @@ body {
     margin-left: -2.5em;
     margin-top: -5em;
     cursor: pointer;
-    opacity: 0.9;
-    -webkit-transition: opacity 0.3s, width 0.3s, height 0.3s, margin-left 0.3s, margin-top 0.3s;
-    -moz-transition: opacity 0.3s, width 0.3s, height 0.3s, margin-left 0.3s, margin-top 0.3s;
-    transition: opacity 0.3s, width 0.3s, height 0.3s, margin-left 0.3s, margin-top 0.3s;
+    opacity: 0; /* hidden in ‘view B’ */
+    transition: opacity 0.5s, width 0.5s, height 0.5s, margin-left 0.5s, margin-top 0.5s;
 }
+.eiw-view-a .eiw-info-point {
+    opacity: 0.9;
+}
+
 .eiw-info-point:hover,
 .eiw-info-point.eiw-active {
     opacity: 1;
@@ -118,6 +120,20 @@ body {
 }
 
 
+/* Background Image */
+
+.eiw-bkgnd-a,
+.eiw-bkgnd-b {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+            .eiw-bkgnd-a { opacity: 0; z-index:-2; transition: opacity 0.5s 0.5s; }
+.eiw-view-a .eiw-bkgnd-a { opacity: 1; z-index:-1; transition: opacity 0.5s; }
+            .eiw-bkgnd-b { opacity: 1; z-index:-1; transition: opacity 0.5s; }
+.eiw-view-a .eiw-bkgnd-b { opacity: 0; z-index:-2; transition: opacity 0.5s 0.5s; }
+
+
 /* Header */
 
 .eiw-header-a,
@@ -125,7 +141,12 @@ body {
     position: fixed;
     top: 0;
     right: 0;
+    transition: opacity 0.5s;
 }
+            .eiw-header-a { opacity: 0; }
+.eiw-view-a .eiw-header-a { opacity: 1; }
+            .eiw-header-b { opacity: 1; }
+.eiw-view-a .eiw-header-b { opacity: 0; }
 
 
 /* Footer */

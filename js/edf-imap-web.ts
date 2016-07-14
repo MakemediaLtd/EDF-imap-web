@@ -190,11 +190,12 @@ module EDF_IMAP_WEB {
             //// Get a reference to the HTML element which will contain the app.
             this.$wrap = $(wrapSelector)
             if (! this.$wrap.length) throw Error(me+'No $wrap');
+            this.$wrap.addClass('eiw-view-a');
 
             //// Render the background-image. 
             this.$wrap.append(`
                 <div class="eiw-bkgnd-a"><img src="${this.config.bkgnd.srcA}"></div>
-                <div class="eiw-bkgnd-b eiw-hidden"><img src="${this.config.bkgnd.srcB}"></div>
+                <div class="eiw-bkgnd-b"><img src="${this.config.bkgnd.srcB}"></div>
             `);
             $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap).click( () => {
                 this.hideAll();
@@ -288,7 +289,7 @@ module EDF_IMAP_WEB {
             //// Render the header. 
             this.$wrap.append(`
                 <div class="eiw-header-a">${this.config.header.titleA}</div>
-                <div class="eiw-header-b eiw-hidden">${this.config.header.titleB}</div>
+                <div class="eiw-header-b">${this.config.header.titleB}</div>
             `);
 
             //// Render the footer. 
@@ -311,8 +312,9 @@ module EDF_IMAP_WEB {
             });
             $('.eiw-changeview', this.$wrap).click( () => {
                 this.hideAll();
-                $('.eiw-header-a, .eiw-header-b, .eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap)
-                   .toggleClass('eiw-hidden');
+                this.$wrap.toggleClass('eiw-view-a');
+                // $('.eiw-header-a, .eiw-header-b, .eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap)
+                //    .toggleClass('eiw-hidden');
             });
 
         }

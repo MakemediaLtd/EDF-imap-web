@@ -132,8 +132,9 @@ var EDF_IMAP_WEB;
             this.$wrap = $(wrapSelector);
             if (!this.$wrap.length)
                 throw Error(me + 'No $wrap');
+            this.$wrap.addClass('eiw-view-a');
             //// Render the background-image. 
-            this.$wrap.append("\n                <div class=\"eiw-bkgnd-a\"><img src=\"" + this.config.bkgnd.srcA + "\"></div>\n                <div class=\"eiw-bkgnd-b eiw-hidden\"><img src=\"" + this.config.bkgnd.srcB + "\"></div>\n            ");
+            this.$wrap.append("\n                <div class=\"eiw-bkgnd-a\"><img src=\"" + this.config.bkgnd.srcA + "\"></div>\n                <div class=\"eiw-bkgnd-b\"><img src=\"" + this.config.bkgnd.srcB + "\"></div>\n            ");
             $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap).click(function () {
                 _this.hideAll();
             });
@@ -202,7 +203,7 @@ var EDF_IMAP_WEB;
             this.$xtramenu = $("\n                <div class=\"eiw-xtramenu eiw-hidden\">\n                  <h3>" + this.config.xtramenu.heading + "</h3>\n                </div>\n            ");
             this.$wrap.append(this.$xtramenu);
             //// Render the header. 
-            this.$wrap.append("\n                <div class=\"eiw-header-a\">" + this.config.header.titleA + "</div>\n                <div class=\"eiw-header-b eiw-hidden\">" + this.config.header.titleB + "</div>\n            ");
+            this.$wrap.append("\n                <div class=\"eiw-header-a\">" + this.config.header.titleA + "</div>\n                <div class=\"eiw-header-b\">" + this.config.header.titleB + "</div>\n            ");
             //// Render the footer. 
             this.$wrap.append("\n                <div class=\"eiw-footer\">\n                  <div class=\"eiw-tagmenu-toggle\">" + this.config.tagmenu.title + "</div>\n                  <div class=\"eiw-xtramenu-toggle\">" + this.config.xtramenu.title + "</div>\n                  <div class=\"eiw-changeview\">" + this.config.changeview.title + "</div>\n                  <div class=\"eiw-gps\">" + this.config.gps.title + "</div>\n                  <div class=\"eiw-instructions\">" + this.config.instructions.title + "</div>\n                </div>\n            ");
             $('.eiw-tagmenu-toggle', this.$wrap).click(function () {
@@ -215,8 +216,9 @@ var EDF_IMAP_WEB;
             });
             $('.eiw-changeview', this.$wrap).click(function () {
                 _this.hideAll();
-                $('.eiw-header-a, .eiw-header-b, .eiw-bkgnd-a, .eiw-bkgnd-b', _this.$wrap)
-                    .toggleClass('eiw-hidden');
+                _this.$wrap.toggleClass('eiw-view-a');
+                // $('.eiw-header-a, .eiw-header-b, .eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap)
+                //    .toggleClass('eiw-hidden');
             });
         };
         return Main;
