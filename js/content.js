@@ -10,9 +10,14 @@
     //// Configure the interactive map. 
     main.configure({
         bkgnd: {
-            src:     'assets/test-jpeg-1.jpg'
+            srcA:     'assets/test-jpeg-1.jpg'
+          , srcB:     'assets/test-jpeg-2.jpg'
           , width:   984
           , height:  735
+        }
+      , header: {
+            titleA:  'Title A'
+          , titleB:  'Title B'
         }
       , tagmenu: {
             title:   'Browse By Category'

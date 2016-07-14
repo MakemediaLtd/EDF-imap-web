@@ -118,6 +118,15 @@ body {
 }
 
 
+/* Header */
+
+.eiw-header-a,
+.eiw-header-b {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
 
 /* Footer */
 
@@ -153,6 +162,7 @@ body {
     width: 5em;
     padding-right: 0.5em;
     margin-top: -0.5em;
+    cursor: pointer;
 }
 .eiw-gps {
     position: absolute;

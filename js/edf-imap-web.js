@@ -115,13 +115,15 @@ var EDF_IMAP_WEB;
         Main.prototype.addHiddenPin = function (pin) {
             this.pins.push(new HiddenPin(pin, this));
         };
-        Main.prototype.hideAll = function () {
+        Main.prototype.hideAll = function (except) {
             for (var _i = 0, _a = this.pins; _i < _a.length; _i++) {
                 var pin = _a[_i];
                 pin.deactivate();
             }
-            $('.eiw-tagmenu', this.$wrap).addClass('eiw-hidden');
-            $('.eiw-xtramenu', this.$wrap).addClass('eiw-hidden');
+            if ('tagmenu' !== except)
+                $('.eiw-tagmenu', this.$wrap).addClass('eiw-hidden');
+            if ('xtramenu' !== except)
+                $('.eiw-xtramenu', this.$wrap).addClass('eiw-hidden');
             this.$popup.addClass('eiw-hidden');
         };
         Main.prototype.init = function (wrapSelector) {
@@ -131,8 +133,8 @@ var EDF_IMAP_WEB;
             if (!this.$wrap.length)
                 throw Error(me + 'No $wrap');
             //// Render the background-image. 
-            this.$wrap.append("\n                <div class=\"eiw-bkgnd\">\n                  <img src=\"" + this.config.bkgnd.src + "\">\n                </div>\n            ");
-            $('.eiw-bkgnd', this.$wrap).click(function () {
+            this.$wrap.append("\n                <div class=\"eiw-bkgnd-a\"><img src=\"" + this.config.bkgnd.srcA + "\"></div>\n                <div class=\"eiw-bkgnd-b eiw-hidden\"><img src=\"" + this.config.bkgnd.srcB + "\"></div>\n            ");
+            $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap).click(function () {
                 _this.hideAll();
             });
             //// Render each pin. 
@@ -199,21 +201,22 @@ var EDF_IMAP_WEB;
             //// Render the xtramenu (initially hidden).
             this.$xtramenu = $("\n                <div class=\"eiw-xtramenu eiw-hidden\">\n                  <h3>" + this.config.xtramenu.heading + "</h3>\n                </div>\n            ");
             this.$wrap.append(this.$xtramenu);
+            //// Render the header. 
+            this.$wrap.append("\n                <div class=\"eiw-header-a\">" + this.config.header.titleA + "</div>\n                <div class=\"eiw-header-b eiw-hidden\">" + this.config.header.titleB + "</div>\n            ");
             //// Render the footer. 
             this.$wrap.append("\n                <div class=\"eiw-footer\">\n                  <div class=\"eiw-tagmenu-toggle\">" + this.config.tagmenu.title + "</div>\n                  <div class=\"eiw-xtramenu-toggle\">" + this.config.xtramenu.title + "</div>\n                  <div class=\"eiw-changeview\">" + this.config.changeview.title + "</div>\n                  <div class=\"eiw-gps\">" + this.config.gps.title + "</div>\n                  <div class=\"eiw-instructions\">" + this.config.instructions.title + "</div>\n                </div>\n            ");
             $('.eiw-tagmenu-toggle', this.$wrap).click(function () {
-                if (_this.activePin)
-                    _this.activePin.deactivate();
-                _this.$popup.addClass('eiw-hidden');
-                $('.eiw-xtramenu', _this.$wrap).addClass('eiw-hidden');
+                _this.hideAll('tagmenu');
                 $('.eiw-tagmenu', _this.$wrap).toggleClass('eiw-hidden');
             });
             $('.eiw-xtramenu-toggle', this.$wrap).click(function () {
-                if (_this.activePin)
-                    _this.activePin.deactivate();
-                _this.$popup.addClass('eiw-hidden');
-                $('.eiw-tagmenu', _this.$wrap).addClass('eiw-hidden');
+                _this.hideAll('xtramenu');
                 $('.eiw-xtramenu', _this.$wrap).toggleClass('eiw-hidden');
+            });
+            $('.eiw-changeview', this.$wrap).click(function () {
+                _this.hideAll();
+                $('.eiw-header-a, .eiw-header-b, .eiw-bkgnd-a, .eiw-bkgnd-b', _this.$wrap)
+                    .toggleClass('eiw-hidden');
             });
         };
         return Main;

@@ -117,10 +117,15 @@ module EDF_IMAP_WEB {
     //// Describe the `Main` class’s configuration-object. 
     interface MainConfig {
         bkgnd: {
-            src:     string;
+            srcA:    string;
+            srcB:    string;
             width:   number;
             height:  number;
         };
+        header: {
+            titleA:  string;
+            titleB:  string;
+        }
         tagmenu: {
             title:   string;
             heading: string;
@@ -171,10 +176,12 @@ module EDF_IMAP_WEB {
             this.pins.push( new HiddenPin(pin, this) );
         }
 
-        hideAll () {
+        hideAll (except?:string) {
             for (let pin of this.pins) { pin.deactivate(); }
-            $('.eiw-tagmenu', this.$wrap).addClass('eiw-hidden');
-            $('.eiw-xtramenu', this.$wrap).addClass('eiw-hidden');
+            if ('tagmenu' !== except)
+                $('.eiw-tagmenu', this.$wrap).addClass('eiw-hidden');
+            if ('xtramenu' !== except)
+                $('.eiw-xtramenu', this.$wrap).addClass('eiw-hidden');
             this.$popup.addClass('eiw-hidden');
         }
 
@@ -186,11 +193,10 @@ module EDF_IMAP_WEB {
 
             //// Render the background-image. 
             this.$wrap.append(`
-                <div class="eiw-bkgnd">
-                  <img src="${this.config.bkgnd.src}">
-                </div>
+                <div class="eiw-bkgnd-a"><img src="${this.config.bkgnd.srcA}"></div>
+                <div class="eiw-bkgnd-b eiw-hidden"><img src="${this.config.bkgnd.srcB}"></div>
             `);
-            $('.eiw-bkgnd', this.$wrap).click( () => {
+            $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap).click( () => {
                 this.hideAll();
             });
 
@@ -279,6 +285,12 @@ module EDF_IMAP_WEB {
             `);
             this.$wrap.append(this.$xtramenu);
 
+            //// Render the header. 
+            this.$wrap.append(`
+                <div class="eiw-header-a">${this.config.header.titleA}</div>
+                <div class="eiw-header-b eiw-hidden">${this.config.header.titleB}</div>
+            `);
+
             //// Render the footer. 
             this.$wrap.append(`
                 <div class="eiw-footer">
@@ -290,16 +302,17 @@ module EDF_IMAP_WEB {
                 </div>
             `);
             $('.eiw-tagmenu-toggle', this.$wrap).click( () => {
-                if (this.activePin) this.activePin.deactivate();
-                this.$popup.addClass('eiw-hidden');
-                $('.eiw-xtramenu', this.$wrap).addClass('eiw-hidden');
+                this.hideAll('tagmenu');
                 $('.eiw-tagmenu', this.$wrap).toggleClass('eiw-hidden');
             });
             $('.eiw-xtramenu-toggle', this.$wrap).click( () => {
-                if (this.activePin) this.activePin.deactivate();
-                this.$popup.addClass('eiw-hidden');
-                $('.eiw-tagmenu', this.$wrap).addClass('eiw-hidden');
+                this.hideAll('xtramenu');
                 $('.eiw-xtramenu', this.$wrap).toggleClass('eiw-hidden');
+            });
+            $('.eiw-changeview', this.$wrap).click( () => {
+                this.hideAll();
+                $('.eiw-header-a, .eiw-header-b, .eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap)
+                   .toggleClass('eiw-hidden');
             });
 
         }
