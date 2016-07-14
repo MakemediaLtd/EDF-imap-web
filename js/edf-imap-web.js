@@ -1,6 +1,8 @@
 //// Typings. 
 /// <reference path="../typings/globals/jquery/index.d.ts" />
 /// <reference path="../typings/globals/slick-carousel/slick-carousel.d.ts" />
+/// <reference path="../typings/globals/jqueryui/index.d.ts" />
+/// <reference path="../typings/globals/jquery.tinyscrollbar/index.d.ts" />
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -166,7 +168,7 @@ var EDF_IMAP_WEB;
                     tags[tag].push($li);
                 }
             }
-            this.$tagmenu = $('<ul class="eiw-tagmenu eiw-hidden"></ul>');
+            this.$tagmenu = $("\n                <div class=\"eiw-tagmenu eiw-hidden\">\n                  <h4>" + this.config.tagmenu.title + "</h4>\n                  <ul></ul>\n                </div>\n            ");
             for (var tag in tags) {
                 var $section = $("<li><h4>" + tag + "</h4></li>");
                 var $ul = $("<ul></ul>");
@@ -178,6 +180,9 @@ var EDF_IMAP_WEB;
                 this.$tagmenu.append($section);
             }
             this.$wrap.append(this.$tagmenu);
+            this.$tagmenu.accordion({
+                create: function (event, ui) { console.log(event, ui); }
+            });
             $('li li', this.$tagmenu).click(function (evt) {
                 for (var _i = 0, _a = _this.pins; _i < _a.length; _i++) {
                     var pin = _a[_i];

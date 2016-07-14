@@ -14,6 +14,9 @@
           , width:  984
           , height: 735
         }
+      , tagmenu: {
+            title: 'Numbered Pins Link to On-Site Signs'
+        }
     });
 
 

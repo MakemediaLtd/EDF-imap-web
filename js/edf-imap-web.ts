@@ -1,6 +1,8 @@
 //// Typings. 
 /// <reference path="../typings/globals/jquery/index.d.ts" />
 /// <reference path="../typings/globals/slick-carousel/slick-carousel.d.ts" />
+/// <reference path="../typings/globals/jqueryui/index.d.ts" />
+/// <reference path="../typings/globals/jquery.tinyscrollbar/index.d.ts" />
 
 //// Basic validation. 
 !function () {
@@ -216,7 +218,12 @@ module EDF_IMAP_WEB {
                     tags[tag].push($li); 
                 }
             }
-            this.$tagmenu = $('<ul class="eiw-tagmenu eiw-hidden"></ul>');
+            this.$tagmenu = $(`
+                <div class="eiw-tagmenu eiw-hidden">
+                  <h4>${this.config.tagmenu.title}</h4>
+                  <ul></ul>
+                </div>
+            `);
             for (let tag in tags) {
                 let $section = $(`<li><h4>${tag}</h4></li>`);
                 let $ul      = $(`<ul></ul>`);
@@ -227,6 +234,9 @@ module EDF_IMAP_WEB {
                 this.$tagmenu.append($section);
             }
             this.$wrap.append(this.$tagmenu);
+            this.$tagmenu.accordion({
+                create: (event, ui) => { console.log(event, ui); }
+            });
             $('li li', this.$tagmenu).click( (evt:JQueryMouseEventObject) => { //@todo DRY ... this is an exact repeat of the anon fn above!
                 for (let pin of this.pins) { pin.deactivate(); }
                 $(evt.target).data('eiwPinInstance').activate();
