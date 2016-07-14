@@ -16,7 +16,20 @@
         }
       , tagmenu: {
             title:   'Browse By Category'
-          , heading: 'Numbered Pins Link to On-Site Signs'
+          , heading: 'Numbered Pins Link<br>to On-Site Signs'
+        }
+      , xtramenu: {
+            title:   'Additional Information'
+          , heading: 'Hinkley Point C<br>Community Links'
+        }
+      , changeview: {
+            title:   'Change View'
+        }
+      , gps: {
+            title:   'GPS'
+        }
+      , instructions: {
+            title:   'Tap an information point<br>to get more detail &amp; media'
         }
     });
 

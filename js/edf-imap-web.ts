@@ -47,6 +47,7 @@ module EDF_IMAP_WEB {
 
         deactivate () {
             this.$el.removeClass('eiw-active');
+            this.main.activePin = null;
         }
 
         activate () {
@@ -55,8 +56,8 @@ module EDF_IMAP_WEB {
             this.main.$popup.removeClass('eiw-hidden');
             let { title='', tags=[], items=[{ src:'', caption:'', content:[''] }] } 
                 = this.config;
-            $('.eiw-title').html(title);
-            $('.eiw-tags').html(`<tt>${tags.join('</tt><tt>')}</tt>`);
+            $('.eiw-title', this.main.$wrap).html(title);
+            $('.eiw-tags', this.main.$wrap).html(`<tt>${tags.join('</tt><tt>')}</tt>`);
 
             //// Remove the previous carousel slides, and add the new ones.  
             for (var i=this.main.$carousel.data('eiwCurrentSlideTally'); i>0; i--) {
@@ -69,15 +70,15 @@ module EDF_IMAP_WEB {
             this.main.$carousel.data('eiwCurrentSlideTally', items.length);
 
             //// Show caption/content for current slide. 
-            $('.eiw-caption').html(`<p>${items[0].caption}</p>`);
-            $('.eiw-content').html(`<p>${items[0].content.join('</p><p>')}</p>`);
+            $('.eiw-caption', this.main.$wrap).html(`<p>${items[0].caption}</p>`);
+            $('.eiw-content', this.main.$wrap).html(`<p>${items[0].content.join('</p><p>')}</p>`);
 
         }
 
         showSlide (slideIndex:number) {
             let item = this.config.items[slideIndex];
-            $('.eiw-caption').html(`<p>${item.caption}</p>`);
-            $('.eiw-content').html(`<p>${item.content.join('</p><p>')}</p>`);
+            $('.eiw-caption', this.main.$wrap).html(`<p>${item.caption}</p>`);
+            $('.eiw-content', this.main.$wrap).html(`<p>${item.content.join('</p><p>')}</p>`);
         }
 
         renderInfoPoint ($wrap:JQuery) {
@@ -124,6 +125,19 @@ module EDF_IMAP_WEB {
             title:   string;
             heading: string;
         }
+        xtramenu: {
+            title:   string;
+            heading: string;
+        }
+        changeview: {
+            title:   string;
+        }
+        gps: {
+            title:   string;
+        }
+        instructions: {
+            title:   string;
+        }
     }
 
     export class Main {
@@ -136,9 +150,10 @@ module EDF_IMAP_WEB {
         $popup:           JQuery;
         $carousel:        JQuery;
         $tagmenu:         JQuery;
+        $xtramenu:        JQuery;
         pins:             Pin[] = [];
         numberedPinTally: number = 0;
-        activePin:        Pin;
+        activePin:        Pin = null;
 
         configure (config:MainConfig) {
             this.config = config;
@@ -173,8 +188,10 @@ module EDF_IMAP_WEB {
             for (let pin of this.pins) {
                 pin.renderInfoPoint(this.$wrap);
             }
-            $('.eiw-info-point').click( (evt:JQueryMouseEventObject) => {
+            $('.eiw-info-point', this.$wrap).click( (evt:JQueryMouseEventObject) => {
                 for (let pin of this.pins) { pin.deactivate(); }
+                $('.eiw-tagmenu', this.$wrap).addClass('eiw-hidden');
+                $('.eiw-xtramenu', this.$wrap).addClass('eiw-hidden');
                 $(evt.target).data('eiwPinInstance').activate();
             });
 
@@ -192,13 +209,13 @@ module EDF_IMAP_WEB {
                 </div>
             `);
             this.$wrap.append(this.$popup);
-            $('.eiw-dismiss').click( (evt:JQueryMouseEventObject) => {
+            $('.eiw-dismiss', this.$wrap).click( (evt:JQueryMouseEventObject) => {
                 for (let pin of this.pins) { pin.deactivate(); }
                 this.$popup.addClass('eiw-hidden');
             });
 
             //// Initialize the ‘Slick’ carousel. 
-            this.$carousel = $('.eiw-carousel'); 
+            this.$carousel = $('.eiw-carousel', this.$wrap); 
             this.$carousel
                .data('eiwCurrentSlideTally', 0)
                .slick({
@@ -240,11 +257,44 @@ module EDF_IMAP_WEB {
             this.$wrap.append(this.$tagmenu);
             this.$tagmenu.accordion({
                 header: 'h4'
-              , create: (event, ui) => { console.log(event, ui); }
+              , create: (event, ui) => { /* @todo something here? */ }
             });
             $('li', this.$tagmenu).click( (evt:JQueryMouseEventObject) => { //@todo DRY ... this is an exact repeat of the anon fn above!
                 for (let pin of this.pins) { pin.deactivate(); }
+                $('.eiw-tagmenu', this.$wrap).addClass('eiw-hidden');
+                $('.eiw-xtramenu', this.$wrap).addClass('eiw-hidden');
                 $(evt.target).data('eiwPinInstance').activate();
+            });
+
+            //// Render the xtramenu (initially hidden).
+            this.$xtramenu = $(`
+                <div class="eiw-xtramenu eiw-hidden">
+                  <h3>${this.config.xtramenu.heading}</h3>
+                </div>
+            `);
+            this.$wrap.append(this.$xtramenu);
+
+            //// Render the footer. 
+            this.$wrap.append(`
+                <div class="eiw-footer">
+                  <div class="eiw-tagmenu-toggle">${this.config.tagmenu.title}</div>
+                  <div class="eiw-xtramenu-toggle">${this.config.xtramenu.title}</div>
+                  <div class="eiw-changeview">${this.config.changeview.title}</div>
+                  <div class="eiw-gps">${this.config.gps.title}</div>
+                  <div class="eiw-instructions">${this.config.instructions.title}</div>
+                </div>
+            `);
+            $('.eiw-tagmenu-toggle', this.$wrap).click( () => {
+                if (this.activePin) this.activePin.deactivate();
+                this.$popup.addClass('eiw-hidden');
+                $('.eiw-xtramenu', this.$wrap).addClass('eiw-hidden');
+                $('.eiw-tagmenu', this.$wrap).toggleClass('eiw-hidden');
+            });
+            $('.eiw-xtramenu-toggle', this.$wrap).click( () => {
+                if (this.activePin) this.activePin.deactivate();
+                this.$popup.addClass('eiw-hidden');
+                $('.eiw-tagmenu', this.$wrap).addClass('eiw-hidden');
+                $('.eiw-xtramenu', this.$wrap).toggleClass('eiw-hidden');
             });
 
         }

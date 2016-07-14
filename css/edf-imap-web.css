@@ -1,3 +1,9 @@
+/* Utility */
+.eiw-hidden {
+    display: none;
+}
+
+
 /* Info-points, which mark places on the map. */
 .eiw-info-point {
     position: absolute;
@@ -29,6 +35,9 @@
     display: none;
 }
 
+
+
+
 /* Popup */
 .eiw-popup {
     position: absolute;
@@ -39,9 +48,6 @@
     bottom: 200px;
     z-index: 20;
 }
-.eiw-popup.eiw-hidden {
-    display: none;
-}
 .eiw-dismiss {
     cursor: pointer;
 }
@@ -49,16 +55,20 @@
     padding: 0 1em;
 }
 
-/* Tagmenu */
+
+
+/* Tagmenu - shown on the right */
 .eiw-tagmenu {
     position: absolute;
     background: #eee;
     left: 0;
-    bottom: 0;
+    width: 50%;
+    top: 150px;
+    bottom: 150px;
 }
-/*.eiw-tagmenu.eiw-hidden {
-    display: none;
-}*/
+.eiw-tagmenu ul {
+    height: auto!important;
+}
 .eiw-tagmenu li {
     cursor: pointer;
 }
@@ -68,3 +78,67 @@
 
 
 
+/* Xtramenu - shown on the right */
+.eiw-xtramenu {
+    position: absolute;
+    background: #eee;
+    right: 0;
+    width: 50%;
+    top: 150px;
+    bottom: 150px;
+}
+
+
+
+/* Footer */
+
+.eiw-footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 155px;
+    background: #fff;
+}
+.eiw-footer div {
+    overflow: hidden;
+}
+
+.eiw-tagmenu-toggle {
+    background: red;
+    height: 55px;
+    width: 51%;
+    cursor: pointer;
+}
+.eiw-xtramenu-toggle {
+    background: green;
+    height: 55px;
+    width: 50%;
+    margin-top: -55px;
+    margin-left: 50%;
+    cursor: pointer;
+}
+.eiw-changeview {
+    background: yellow;
+    height: 105px;
+    width: 50px;
+    padding-right: 5px;
+    margin-top: -5px;
+}
+.eiw-gps {
+    position: absolute;
+    background: blue;
+    height: 105px;
+    width: 50px;
+    padding-left: 5px;
+    right: 0;
+    margin-top: -105px;
+}
+.eiw-instructions {
+    position: absolute;
+    background: cyan;
+    height: 105px;
+    left: 50px;
+    right: 50px;
+    margin-top: -105px;
+}
