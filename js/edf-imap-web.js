@@ -115,6 +115,15 @@ var EDF_IMAP_WEB;
         Main.prototype.addHiddenPin = function (pin) {
             this.pins.push(new HiddenPin(pin, this));
         };
+        Main.prototype.hideAll = function () {
+            for (var _i = 0, _a = this.pins; _i < _a.length; _i++) {
+                var pin = _a[_i];
+                pin.deactivate();
+            }
+            $('.eiw-tagmenu', this.$wrap).addClass('eiw-hidden');
+            $('.eiw-xtramenu', this.$wrap).addClass('eiw-hidden');
+            this.$popup.addClass('eiw-hidden');
+        };
         Main.prototype.init = function (wrapSelector) {
             var _this = this;
             //// Get a reference to the HTML element which will contain the app.
@@ -129,23 +138,14 @@ var EDF_IMAP_WEB;
                 pin.renderInfoPoint(this.$wrap);
             }
             $('.eiw-info-point', this.$wrap).click(function (evt) {
-                for (var _i = 0, _a = _this.pins; _i < _a.length; _i++) {
-                    var pin = _a[_i];
-                    pin.deactivate();
-                }
-                $('.eiw-tagmenu', _this.$wrap).addClass('eiw-hidden');
-                $('.eiw-xtramenu', _this.$wrap).addClass('eiw-hidden');
+                _this.hideAll();
                 $(evt.target).data('eiwPinInstance').activate();
             });
             //// Render the popup (initially hidden).
             this.$popup = $("\n                <div class=\"eiw-popup eiw-hidden\">\n                  <h2  class=\"eiw-title\"    >Title here</h2>\n                  <div class=\"eiw-dismiss\"  >X</div>\n                  <div class=\"eiw-carousel\" ></div>\n                  <h4  class=\"eiw-caption\"  >Caption here</h4>\n                  <div class=\"eiw-arrows\"   ></div>\n                  <div class=\"eiw-dots\"     ></div>\n                  <div class=\"eiw-content\"  ><p>Content here. </p></div>\n                  <div class=\"eiw-tags\"     ><tt>A Tag</tt><tt>Another Tag</tt></div>\n                </div>\n            ");
             this.$wrap.append(this.$popup);
             $('.eiw-dismiss', this.$wrap).click(function (evt) {
-                for (var _i = 0, _a = _this.pins; _i < _a.length; _i++) {
-                    var pin = _a[_i];
-                    pin.deactivate();
-                }
-                _this.$popup.addClass('eiw-hidden');
+                _this.hideAll();
             });
             //// Initialize the ‘Slick’ carousel. 
             this.$carousel = $('.eiw-carousel', this.$wrap);
@@ -190,12 +190,7 @@ var EDF_IMAP_WEB;
                 create: function (event, ui) { }
             });
             $('li', this.$tagmenu).click(function (evt) {
-                for (var _i = 0, _a = _this.pins; _i < _a.length; _i++) {
-                    var pin = _a[_i];
-                    pin.deactivate();
-                }
-                $('.eiw-tagmenu', _this.$wrap).addClass('eiw-hidden');
-                $('.eiw-xtramenu', _this.$wrap).addClass('eiw-hidden');
+                _this.hideAll();
                 $(evt.target).data('eiwPinInstance').activate();
             });
             //// Render the xtramenu (initially hidden).

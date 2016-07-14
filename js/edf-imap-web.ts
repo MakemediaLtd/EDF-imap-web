@@ -171,6 +171,13 @@ module EDF_IMAP_WEB {
             this.pins.push( new HiddenPin(pin, this) );
         }
 
+        hideAll () {
+            for (let pin of this.pins) { pin.deactivate(); }
+            $('.eiw-tagmenu', this.$wrap).addClass('eiw-hidden');
+            $('.eiw-xtramenu', this.$wrap).addClass('eiw-hidden');
+            this.$popup.addClass('eiw-hidden');
+        }
+
         init (wrapSelector:string) {
 
             //// Get a reference to the HTML element which will contain the app.
@@ -189,9 +196,7 @@ module EDF_IMAP_WEB {
                 pin.renderInfoPoint(this.$wrap);
             }
             $('.eiw-info-point', this.$wrap).click( (evt:JQueryMouseEventObject) => {
-                for (let pin of this.pins) { pin.deactivate(); }
-                $('.eiw-tagmenu', this.$wrap).addClass('eiw-hidden');
-                $('.eiw-xtramenu', this.$wrap).addClass('eiw-hidden');
+                this.hideAll();
                 $(evt.target).data('eiwPinInstance').activate();
             });
 
@@ -210,8 +215,7 @@ module EDF_IMAP_WEB {
             `);
             this.$wrap.append(this.$popup);
             $('.eiw-dismiss', this.$wrap).click( (evt:JQueryMouseEventObject) => {
-                for (let pin of this.pins) { pin.deactivate(); }
-                this.$popup.addClass('eiw-hidden');
+                this.hideAll();
             });
 
             //// Initialize the ‘Slick’ carousel. 
@@ -259,10 +263,8 @@ module EDF_IMAP_WEB {
                 header: 'h4'
               , create: (event, ui) => { /* @todo something here? */ }
             });
-            $('li', this.$tagmenu).click( (evt:JQueryMouseEventObject) => { //@todo DRY ... this is an exact repeat of the anon fn above!
-                for (let pin of this.pins) { pin.deactivate(); }
-                $('.eiw-tagmenu', this.$wrap).addClass('eiw-hidden');
-                $('.eiw-xtramenu', this.$wrap).addClass('eiw-hidden');
+            $('li', this.$tagmenu).click( (evt:JQueryMouseEventObject) => {
+                this.hideAll();
                 $(evt.target).data('eiwPinInstance').activate();
             });
 
