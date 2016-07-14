@@ -163,27 +163,29 @@ var EDF_IMAP_WEB;
                 for (var _d = 0, _e = pin.config.tags; _d < _e.length; _d++) {
                     var tag = _e[_d];
                     tags[tag] = tags[tag] || [];
-                    var $li = $("<li>" + pin.config.title + "</li>");
-                    $li.data('eiwPinInstance', pin);
-                    tags[tag].push($li);
+                    var $accordionLink = $("<li>" + pin.config.title + "</li>");
+                    $accordionLink.data('eiwPinInstance', pin);
+                    tags[tag].push($accordionLink);
                 }
             }
-            this.$tagmenu = $("\n                <div class=\"eiw-tagmenu eiw-hidden\">\n                  <h4>" + this.config.tagmenu.title + "</h4>\n                  <ul></ul>\n                </div>\n            ");
+            this.$tagmenu = $("\n                <div class=\"eiw-tagmenu eiw-hidden\">\n                  <h3>" + this.config.tagmenu.heading + "</h3>\n                </div>\n            ");
+            var $accordionContent = $('<div></div>');
+            this.$tagmenu.append($accordionContent);
             for (var tag in tags) {
-                var $section = $("<li><h4>" + tag + "</h4></li>");
-                var $ul = $("<ul></ul>");
+                $accordionContent.append("<h4>" + tag + "</h4");
+                var $accordionSection = $("<ul>");
                 for (var _f = 0, _g = tags[tag]; _f < _g.length; _f++) {
-                    var $li = _g[_f];
-                    $ul.append($li);
+                    var $accordionLink = _g[_f];
+                    $accordionSection.append($accordionLink);
                 }
-                $section.append($ul);
-                this.$tagmenu.append($section);
+                $accordionContent.append($accordionSection);
             }
             this.$wrap.append(this.$tagmenu);
             this.$tagmenu.accordion({
+                header: 'h4',
                 create: function (event, ui) { console.log(event, ui); }
             });
-            $('li li', this.$tagmenu).click(function (evt) {
+            $('li', this.$tagmenu).click(function (evt) {
                 for (var _i = 0, _a = _this.pins; _i < _a.length; _i++) {
                     var pin = _a[_i];
                     pin.deactivate();

@@ -59,10 +59,10 @@
 /*.eiw-tagmenu.eiw-hidden {
     display: none;
 }*/
-.eiw-tagmenu li li {
+.eiw-tagmenu li {
     cursor: pointer;
 }
-.eiw-tagmenu li li:hover {
+.eiw-tagmenu li:hover {
     color: red;
 }
 

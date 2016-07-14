@@ -115,11 +115,15 @@ module EDF_IMAP_WEB {
 
     //// Describe the `Main` class’s configuration-object. 
     interface MainConfig {
-        bkgnd?: {
-            src:    string;
-            width:  number;
-            height: number;
+        bkgnd: {
+            src:     string;
+            width:   number;
+            height:  number;
         };
+        tagmenu: {
+            title:   string;
+            heading: string;
+        }
     }
 
     export class Main {
@@ -213,31 +217,32 @@ module EDF_IMAP_WEB {
             for (let pin of this.pins) {
                 for (let tag of pin.config.tags) {
                     tags[tag] = tags[tag] || [];
-                    let $li = $(`<li>${pin.config.title}</li>`);
-                    $li.data('eiwPinInstance', pin); 
-                    tags[tag].push($li); 
+                    let $accordionLink = $(`<li>${pin.config.title}</li>`);
+                    $accordionLink.data('eiwPinInstance', pin); 
+                    tags[tag].push($accordionLink); 
                 }
             }
             this.$tagmenu = $(`
                 <div class="eiw-tagmenu eiw-hidden">
-                  <h4>${this.config.tagmenu.title}</h4>
-                  <ul></ul>
+                  <h3>${this.config.tagmenu.heading}</h3>
                 </div>
             `);
+            let $accordionContent = $('<div></div>');
+            this.$tagmenu.append($accordionContent);
             for (let tag in tags) {
-                let $section = $(`<li><h4>${tag}</h4></li>`);
-                let $ul      = $(`<ul></ul>`);
-                for (let $li of tags[tag]) {
-                    $ul.append($li);
+                $accordionContent.append(`<h4>${tag}</h4`);
+                let $accordionSection = $(`<ul>`);
+                for (let $accordionLink of tags[tag]) {
+                    $accordionSection.append($accordionLink);
                 }
-                $section.append($ul);
-                this.$tagmenu.append($section);
+                $accordionContent.append($accordionSection);
             }
             this.$wrap.append(this.$tagmenu);
             this.$tagmenu.accordion({
-                create: (event, ui) => { console.log(event, ui); }
+                header: 'h4'
+              , create: (event, ui) => { console.log(event, ui); }
             });
-            $('li li', this.$tagmenu).click( (evt:JQueryMouseEventObject) => { //@todo DRY ... this is an exact repeat of the anon fn above!
+            $('li', this.$tagmenu).click( (evt:JQueryMouseEventObject) => { //@todo DRY ... this is an exact repeat of the anon fn above!
                 for (let pin of this.pins) { pin.deactivate(); }
                 $(evt.target).data('eiwPinInstance').activate();
             });

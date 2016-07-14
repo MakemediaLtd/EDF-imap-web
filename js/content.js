@@ -10,12 +10,13 @@
     //// Configure the interactive map. 
     main.configure({
         bkgnd: {
-            src:    'assets/test-jpeg-1.jpg'
-          , width:  984
-          , height: 735
+            src:     'assets/test-jpeg-1.jpg'
+          , width:   984
+          , height:  735
         }
       , tagmenu: {
-            title: 'Numbered Pins Link to On-Site Signs'
+            title:   'Browse By Category'
+          , heading: 'Numbered Pins Link to On-Site Signs'
         }
     });
 
