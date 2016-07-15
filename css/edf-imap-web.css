@@ -119,8 +119,9 @@ body {
 .eiw-popup {
     position: absolute;
     background: #fff;
-    left: 2em;
-    right: 2em;
+    left: 50%;
+    margin-left: -364px;
+    width: 718px;
     top: 5em;
     bottom: 20em;
     border-left: 1em solid #ffa02f;

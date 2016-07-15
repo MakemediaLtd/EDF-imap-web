@@ -19,8 +19,8 @@ module EDF_IMAP_WEB {
     //// Describe the `Pin` class’s configuration-object. 
     interface PinItem {
         src:     string;
-        caption: string;
-        content: string[]; // each array element is a paragraph
+        caption: string   | number;
+        content: number | string[]; // each array element is a paragraph
     }
     interface PinConfig {
         x:       number;
@@ -64,10 +64,20 @@ module EDF_IMAP_WEB {
                 this.main.$carousel.slick('slickRemove', i-1);
             }
             for (let item of items) {
-                this.main.$carousel.slick('slickAdd', 
-                  `<div><img src="${item.src}"></div>`);
+                let media:string;
+                if (! item.src) { // no media
+                    media = '';
+                } else if ( '.mp4' === item.src.substr(-4) ) { // a movie
+                    media = `<video loop src="${item.src}"></video>`;
+                } else { // an image
+                    media = `<img src="${item.src}">`;
+                }
+                this.main.$carousel.slick('slickAdd', `<div>${media}</div>`);
             }
             this.main.$carousel.data('eiwCurrentSlideTally', items.length);
+            if ( items[0] && '.mp4' === items[0].src.substr(-4) ) {
+                $('[data-slick-index="0"] video', this.main.$carousel)[0].play();
+            }  
 
             //// Show caption/content for current slide. 
             $('.eiw-caption', this.main.$wrap).html(`<p>${items[0].caption}</p>`);
@@ -77,8 +87,12 @@ module EDF_IMAP_WEB {
 
         showSlide (slideIndex:number) {
             let item = this.config.items[slideIndex];
-            $('.eiw-caption', this.main.$wrap).html(`<p>${item.caption}</p>`);
-            $('.eiw-content', this.main.$wrap).html(`<p>${item.content.join('</p><p>')}</p>`);
+            let caption = item.caption;
+            let content = item.content;
+            if ('number' == typeof caption) caption = this.config.items[caption].caption;
+            if ('number' == typeof content) content = this.config.items[content].content;
+            $('.eiw-caption', this.main.$wrap).html(`<p>${caption}</p>`);
+            $('.eiw-content', this.main.$wrap).html(`<p>${content.join('</p><p>')}</p>`);
         }
 
         renderInfoPoint ($container:JQuery) {
@@ -324,6 +338,7 @@ module EDF_IMAP_WEB {
                 })
                .on('beforeChange', (evt, slick, currentSlide, nextSlide) => {
                    this.activePin.showSlide(nextSlide);
+                   console.log(nextSlide);
                 })
             ;
 

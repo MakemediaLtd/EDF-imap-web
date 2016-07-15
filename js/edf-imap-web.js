@@ -46,17 +46,36 @@ var EDF_IMAP_WEB;
             }
             for (var _i = 0, items_1 = items; _i < items_1.length; _i++) {
                 var item = items_1[_i];
-                this.main.$carousel.slick('slickAdd', "<div><img src=\"" + item.src + "\"></div>");
+                var media = void 0;
+                if (!item.src) {
+                    media = '';
+                }
+                else if ('.mp4' === item.src.substr(-4)) {
+                    media = "<video loop src=\"" + item.src + "\"></video>";
+                }
+                else {
+                    media = "<img src=\"" + item.src + "\">";
+                }
+                this.main.$carousel.slick('slickAdd', "<div>" + media + "</div>");
             }
             this.main.$carousel.data('eiwCurrentSlideTally', items.length);
+            if (items[0] && '.mp4' === items[0].src.substr(-4)) {
+                $('[data-slick-index="0"] video', this.main.$carousel)[0].play();
+            }
             //// Show caption/content for current slide. 
             $('.eiw-caption', this.main.$wrap).html("<p>" + items[0].caption + "</p>");
             $('.eiw-content', this.main.$wrap).html("<p>" + items[0].content.join('</p><p>') + "</p>");
         };
         Pin.prototype.showSlide = function (slideIndex) {
             var item = this.config.items[slideIndex];
-            $('.eiw-caption', this.main.$wrap).html("<p>" + item.caption + "</p>");
-            $('.eiw-content', this.main.$wrap).html("<p>" + item.content.join('</p><p>') + "</p>");
+            var caption = item.caption;
+            var content = item.content;
+            if ('number' == typeof caption)
+                caption = this.config.items[caption].caption;
+            if ('number' == typeof content)
+                content = this.config.items[content].content;
+            $('.eiw-caption', this.main.$wrap).html("<p>" + caption + "</p>");
+            $('.eiw-content', this.main.$wrap).html("<p>" + content.join('</p><p>') + "</p>");
         };
         Pin.prototype.renderInfoPoint = function ($container) {
             this.$el = $("\n                <div class=\"eiw-info-point eiw-pin-" + this.kind + "\">\n                  " + (this.id ? '<span>' + this.id + '</span>' : '') + "\n                  <img src=\"assets/icon-" + this.kind + ".png\">\n                </div>\n            ");
@@ -200,6 +219,7 @@ var EDF_IMAP_WEB;
             })
                 .on('beforeChange', function (evt, slick, currentSlide, nextSlide) {
                 _this.activePin.showSlide(nextSlide);
+                console.log(nextSlide);
             });
             //// Render the tagmenu (initially hidden).
             var tags = {};
