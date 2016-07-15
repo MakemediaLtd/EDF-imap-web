@@ -1,11 +1,20 @@
 /* Typography */
 body {
+    color: #ffa02f; 
+    color: #09357A;
+    font-family: Arial, Helvetica, sans-serif; 
     font-size: 62.5%; /* font-size 1em = 10px on default browser settings */
+    overflow: hidden;
 }
 
 
 /* Responsive */
-@media (min-width: 980px) { /* eg iPad 2 landscape */
+@media (max-width: 400px) {
+    body {
+        font-size: 50%;
+    }
+}
+@media (min-width: 980px) {
     body {
         font-size: 62.5%;
     }
@@ -36,37 +45,71 @@ body {
 /* Info-points, which mark places on the map. */
 .eiw-info-point {
     position: absolute;
-    width: 5em;
-    height: 10em;
-    margin-left: -2.5em;
-    margin-top: -5em;
     cursor: pointer;
     opacity: 0; /* hidden in ‘view B’ */
-    transition: opacity 0.5s, width 0.5s, height 0.5s, margin-left 0.5s, margin-top 0.5s, z-index 0.5s;
+    transition: width 0.5s, height 0.5s, margin-left 0.5s, margin-top 0.5s, z-index 0.5s;
     z-index: -5;
 }
 .eiw-view-a .eiw-info-point {
-    opacity: 0.9;
-    transition: opacity 0.5s, width 0.5s, height 0.5s, margin-left 0.5s, margin-top 0.5s, z-index 0;
+    opacity: 1;
+    transition: width 0.5s, height 0.5s, margin-left 0.5s, margin-top 0.5s, z-index 0;
     z-index: 0;
 }
 
-.eiw-info-point:hover,
-.eiw-info-point.eiw-active {
+.eiw-pin-lightbulb {
+    width: 5em;
+    height: 5em;
+    margin-left: -2.5em;
+    margin-top: -2.5em;
+    border-radius: 3em;
+    background: #ffa02f;
+}
+.eiw-pin-lightbulb:hover,
+.eiw-pin-lightbulb.eiw-active {
     opacity: 1;
     width: 6em;
-    height: 12em;
+    height: 6em;
     margin-left: -3em;
-    margin-top: -6em;
+    margin-top: -3em;
+}
+.eiw-pin-lightbulb img {
+    width: 100%;
+    height: auto;
 }
 .eiw-pin-numbered {
-    border: 2px solid blue;
+    width: 5em;
+    height: 5em;
+    margin-left: -2.5em;
+    margin-top: -2.5em;
+    border-radius: 3em;
 }
-.eiw-pin-lightbulb {
-    border: 2px solid yellow;
+.eiw-pin-numbered:hover,
+.eiw-pin-numbered.eiw-active {
+    opacity: 1;
+    width: 6em;
+    height: 6em;
+    margin-left: -3em;
+    margin-top: -3em;
+}
+.eiw-pin-numbered img {
+    width: 100%;
+    height: auto;
+}
+.eiw-pin-numbered span {
+    position: absolute;
+    width: 5em;
+    margin-top: 1.9em;
+    text-align: center;
+    transition: width 0.5s;
+}
+.eiw-pin-numbered:hover span,
+.eiw-pin-numbered.eiw-active span {
+    margin-top: 2em;
+    width: 6em;
 }
 .eiw-pin-hidden {
-    display: none;
+    /*display: none;*/
+    background: #ccc;
 }
 
 
@@ -75,30 +118,63 @@ body {
 /* Popup */
 .eiw-popup {
     position: absolute;
-    background: #eee;
-    left: 5em;
-    right: 5em;
-    top: 20em;
+    background: #fff;
+    left: 2em;
+    right: 2em;
+    top: 5em;
     bottom: 20em;
+    border-left: 1em solid #ffa02f;
     z-index: 20;
 }
 .eiw-dismiss {
+    float: right;
+    padding: 0.2em 0.4em;
+    background: #ffa02f;
+    color: #fff;
+    font-weight: bold;
+    font-size: 2.5em;
     cursor: pointer;
 }
-.eiw-tags tt { /* @todo hide tags */
+.eiw-title {
     padding: 0 1em;
+    margin: 0.65em 0; 
+}
+.eiw-caption {
+    margin: 0 1em;
+    border-bottom: 0.5em solid #ffa02f;
+    color: #ffa02f;
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+.eiw-tags tt {
+    display: none; /* tags are for dev only - never shown to the user */
+}
+
+
+/* Carousel */
+.eiw-carousel {
+    background: #09357A;
+    clear: both; 
+}
+.eiw-carousel .slick-slide {
+    text-align: center;
+}
+.eiw-carousel .slick-slide img {
+    display: inline;
 }
 
 
 
-/* Tagmenu - shown on the right */
+/* Tagmenu - shown on the left */
 .eiw-tagmenu {
     position: absolute;
-    background: #eee;
+    padding: 1em;
     left: 0;
-    width: 50%;
-    top: 15em;
-    bottom: 15em;
+    right: 50%;
+    top: 5em;
+    bottom: 13em;
+    background: #fff;
+    border-left: 1em solid #ffa02f;
 }
 .eiw-tagmenu ul {
     height: auto!important;
@@ -115,11 +191,13 @@ body {
 /* Xtramenu - shown on the right */
 .eiw-xtramenu {
     position: absolute;
-    background: #eee;
+    padding: 1em;
+    left: 50%;
     right: 0;
-    width: 50%;
-    top: 15em;
-    bottom: 15em;
+    top: 5em;
+    bottom: 13em;
+    background: #fff;
+    border-right: 1em solid #09357A;
 }
 
 
@@ -128,7 +206,7 @@ body {
 .eiw-bkgnd-a {
     width: 100%;
     height: 400px; /* will be set by JavaScript */
-    background: pink;
+    background: #09357A;
     cursor: grab;
 }
 .eiw-bkgnd-a img,
@@ -147,9 +225,12 @@ body {
 .eiw-header-a,
 .eiw-header-b {
     position: fixed;
-    top: 0;
-    right: 0;
+    top: 0.2em;
+    right: 0.4em;
     transition: opacity 0.5s;
+    text-transform: uppercase;
+    color: #fff;
+    z-index: 40;
 }
             .eiw-header-a { opacity: 0; }
 .eiw-view-a .eiw-header-a { opacity: 1; }
@@ -164,8 +245,9 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    height: 15.5em;
+    height: 13.5em;
     background: #fff;
+    text-transform: uppercase;
     z-index: 30;
 }
 .eiw-footer div {
@@ -173,41 +255,128 @@ body {
 }
 
 .eiw-tagmenu-toggle {
-    background: red;
     height: 5.5em;
     width: 51%;
     cursor: pointer;
+    background: #ffa02f;
+    color: #fff;
 }
+.eiw-tagmenu-toggle > span {
+    display: table;
+    width: 100%;
+    height: 5em;
+}
+.eiw-tagmenu-toggle > span > span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.eiw-tagmenu-toggle .eiw-text {
+    padding: 0 0.5em;
+    font-size: 1.5em;
+}
+.eiw-tagmenu-toggle .eiw-icon {
+    width: 5em;
+}
+.eiw-tagmenu-toggle img {
+    float: left;
+    width: 5em;
+    height: auto;
+    transition: opacity 0.5s;
+}
+.eiw-tagmenu-toggle       img.eiw-hover   { margin-left: -5em; }
+.eiw-tagmenu-toggle       img.eiw-hover   { opacity: 0; }
+.eiw-tagmenu-toggle:hover img.eiw-default { opacity: 0; }
+.eiw-tagmenu-toggle:hover img.eiw-hover   { opacity: 1; }
+
 .eiw-xtramenu-toggle {
-    background: green;
     height: 5.5em;
     width: 50%;
     margin-top: -5.5em;
     margin-left: 50%;
+    background: #09357A;
+    color: #fff;
     cursor: pointer;
 }
+.eiw-xtramenu-toggle > span {
+    display: table;
+    width: 100%;
+    height: 5em;
+}
+.eiw-xtramenu-toggle > span > span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.eiw-xtramenu-toggle .eiw-text {
+    padding: 0 0.5em;
+    font-size: 1.5em;
+}
+.eiw-xtramenu-toggle .eiw-icon {
+    width: 5em;
+}
+.eiw-xtramenu-toggle img {
+    float: right;
+    width: 5em;
+    height: auto;
+    transition: opacity 0.5s;
+}
+.eiw-xtramenu-toggle       img.eiw-hover   { margin-left: -5em; }
+.eiw-xtramenu-toggle       img.eiw-hover   { opacity: 0; }
+.eiw-xtramenu-toggle:hover img.eiw-default { opacity: 0; }
+.eiw-xtramenu-toggle:hover img.eiw-hover   { opacity: 1; }
+
 .eiw-changeview {
-    background: yellow;
-    height: 10.5em;
+    height: 8.5em;
     width: 5em;
     padding-right: 0.5em;
     margin-top: -0.5em;
+    text-align: center;
+    background: #ffa02f;
+    color: #fff;
     cursor: pointer;
 }
+.eiw-changeview img {
+    width: 5em;
+    height: auto;
+}
+
 .eiw-gps {
     position: absolute;
-    background: blue;
-    height: 10.5em;
+    height: 8.5em;
     width: 5em;
     padding-left: 0.5em;
     right: 0;
-    margin-top: -10.5em;
+    margin-top: -8.5em;
+    text-align: center;
+    color: #fff;
+    background: #09357A;
 }
+.eiw-gps img {
+    width: 5em;
+    height: auto;
+}
+
 .eiw-instructions {
     position: absolute;
-    background: cyan;
-    height: 10.5em;
+    height: 8.5em;
     left: 5em;
     right: 5em;
-    margin-top: -10.5em;
+    margin-top: -8.5em;
+    text-align: center;
+    background: #fff;
+    color: #ffa02f;
 }
+.eiw-instructions img.eiw-icon-pin {
+    width: 2em;
+    height: auto;
+}
+.eiw-instructions img.eiw-icon-logo {
+    width: 3em;
+    height: auto;
+}
+.eiw-instructions .eiw-text {
+    display: inline-block;
+    padding: 1em;
+}
+

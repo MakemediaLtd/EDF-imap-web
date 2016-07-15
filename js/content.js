@@ -10,14 +10,14 @@
     //// Configure the interactive map. 
     main.configure({
         bkgnd: {
-            srcA:    'assets/test-jpeg-1.jpg'
+            srcA:    'assets/bkgnd-a-hinkley-v3-3760x4648.jpg'
           , srcB:    'assets/test-jpeg-2.jpg'
-          , width:   984
-          , height:  735
+          , width:   3760
+          , height:  4648
         }
       , header: {
-            titleA:  'Title A'
-          , titleB:  'Title B'
+            titleA:  'Hinkley Point Construction Site June 2015'
+          , titleB:  'Hinkley Point C Construction Complete'
         }
       , tagmenu: {
             title:   'Browse By Category'

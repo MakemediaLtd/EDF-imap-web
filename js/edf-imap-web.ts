@@ -84,7 +84,8 @@ module EDF_IMAP_WEB {
         renderInfoPoint ($container:JQuery) {
             this.$el = $(`
                 <div class="eiw-info-point eiw-pin-${this.kind}">
-                  ${this.id||''}
+                  ${this.id ? '<span>'+this.id+'</span>':''}
+                  <img src="assets/icon-${this.kind}.png">
                 </div>
             `);
             this.$el.css({
@@ -201,11 +202,37 @@ module EDF_IMAP_WEB {
             //// Render the footer. 
             this.$wrap.append(`
                 <div class="eiw-footer">
-                  <div class="eiw-tagmenu-toggle">${this.config.tagmenu.title}</div>
-                  <div class="eiw-xtramenu-toggle">${this.config.xtramenu.title}</div>
-                  <div class="eiw-changeview">${this.config.changeview.title}</div>
-                  <div class="eiw-gps">${this.config.gps.title}</div>
-                  <div class="eiw-instructions">${this.config.instructions.title}</div>
+                  <div class="eiw-tagmenu-toggle"><span>
+                    <span class="eiw-icon">
+                      <img class="eiw-default" src="assets/icon-burger-tow-130x130.png">
+                      <img class="eiw-hover"   src="assets/icon-burger-wot-130x130.png">
+                    </span>
+                    <span class="eiw-text">
+                      ${this.config.tagmenu.title}
+                    </span>
+                  </span></div>
+                  <div class="eiw-xtramenu-toggle"><span>
+                    <span class="eiw-text">
+                      ${this.config.xtramenu.title}
+                    </span>
+                    <span class="eiw-icon">
+                      <img class="eiw-hover"   src="assets/icon-burger-wot-130x130.png">
+                      <img class="eiw-default" src="assets/icon-burger-tow-130x130.png">
+                    </span>
+                  </span></div>
+                  <div class="eiw-changeview">
+                    <img src="assets/icon-changeview-wot-130x130.png">
+                    ${this.config.changeview.title}
+                  </div>
+                  <div class="eiw-gps">
+                    <img src="assets/icon-gps-wot-130x130.png">
+                    ${this.config.gps.title}
+                  </div>
+                  <div class="eiw-instructions">
+                    <img class="eiw-icon-pin" src="assets/icon-numbered.png">
+                    <span class="eiw-text">${this.config.instructions.title}</span>
+                    <img class="eiw-icon-logo" src="assets/icon-logo-212x192.png">
+                  </div>
                 </div>
             `);
             $('.eiw-tagmenu-toggle', this.$wrap).click( () => {
@@ -236,7 +263,7 @@ module EDF_IMAP_WEB {
 
             $('.eiw-bkgnd-a', this.$wrap).iviewer({
                 src:      this.config.bkgnd.srcA
-              , zoom_min: 100
+              , zoom_min: 'fit'
               , ui_disabled: true
                 // update_on_resize: false,
                 // zoom_animation: false,
@@ -251,23 +278,6 @@ module EDF_IMAP_WEB {
                 }
             });
 
-            // let $panzoom = $('.eiw-bkgnd-a').panzoom();
-            // $('.eiw-bkgnd-a', this.$wrap).panzoom({
-            //     contain:  'invert'
-            //   , minScale: 1
-            // });
-            // $('.eiw-bkgnd-a').on('mousewheel.focal', (e) => {
-            //     console.log(123);
-            //     e.preventDefault();
-            //     var delta = e.delta || e.originalEvent.wheelDelta;
-            //     var zoomOut = delta ? delta < 0 : e.originalEvent.deltaY > 0;
-            //     $('.eiw-bkgnd-a').panzoom('zoom', zoomOut, {
-            //         increment: 0.1
-            //       , animate: false
-            //       , focal: e
-            //     });
-            // });
-
             $(window).on('resize', () => {
                 $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap)
                    .css('height', $(window).innerHeight() - $('.eiw-footer').height() );
@@ -281,14 +291,14 @@ module EDF_IMAP_WEB {
             }
             $('.eiw-info-point', this.$wrap).click( (evt:JQueryMouseEventObject) => {
                 this.hideAll();
-                $(evt.target).data('eiwPinInstance').activate();
+                $(evt.currentTarget).data('eiwPinInstance').activate();
             });
 
             //// Render the popup (initially hidden).
             this.$popup = $(`
                 <div class="eiw-popup eiw-hidden">
-                  <h2  class="eiw-title"    >Title here</h2>
                   <div class="eiw-dismiss"  >X</div>
+                  <h2  class="eiw-title"    >Title here</h2>
                   <div class="eiw-carousel" ></div>
                   <h4  class="eiw-caption"  >Caption here</h4>
                   <div class="eiw-arrows"   ></div>
