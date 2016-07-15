@@ -10,8 +10,8 @@
     //// Configure the interactive map. 
     main.configure({
         bkgnd: {
-            srcA:     'assets/test-jpeg-1.jpg'
-          , srcB:     'assets/test-jpeg-2.jpg'
+            srcA:    'assets/test-jpeg-1.jpg'
+          , srcB:    'assets/test-jpeg-2.jpg'
           , width:   984
           , height:  735
         }
@@ -45,7 +45,7 @@
       , y: 111
       , title: 'HPC Introduction'
       , slug:  '1'
-      , tags:  ['Logistics', 'Workforce']
+      , tags:  []
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: 'Site Construction Director’s Welcome', 
               content: [
@@ -71,7 +71,7 @@
       , y: 222
       , title: 'Reactor buildings'
       , slug:  '2'
-      , tags:  ['Logistics']
+      , tags:  ['Power Station']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: '', 
               content: [
@@ -97,7 +97,7 @@
       , y: 333
       , title: 'Concrete Batching Plant'
       , slug:  '3'
-      , tags:  ['Logistics']
+      , tags:  ['Construction']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: '', 
               content: [
@@ -119,7 +119,7 @@
       , y: 444
       , title: 'Accommodation'
       , slug:  '4'
-      , tags:  ['Logistics']
+      , tags:  ['Workforce']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: 'Hinkley Point C On-Site Accommodation Campus', 
               content: [
@@ -183,7 +183,7 @@
       , y: 777
       , title: 'Green Lane'
       , slug:  '7'
-      , tags:  ['Logistics']
+      , tags:  ['Geographical Features']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: '', 
               content: [
@@ -199,7 +199,7 @@
       , y: 888
       , title: 'Concrete process trial'
       , slug:  '8'
-      , tags:  ['Logistics']
+      , tags:  ['Construction']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: '', 
               content: [
@@ -215,7 +215,7 @@
       , y: 999
       , title: 'Holford Valley'
       , slug:  '9'
-      , tags:  ['Logistics']
+      , tags:  ['Geographical Features']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: 'Holford culvert under construction', 
               content: [
@@ -261,7 +261,7 @@
       , y: 50
       , title: 'Water Intake and Outfall Tunnels'
       , slug:  'a'
-      , tags:  ['Power Station', 'Workforce']
+      , tags:  ['Power Station']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: '', 
               content: [
@@ -295,7 +295,7 @@
       , y: 50
       , title: 'Steep Holm and Flat Holm'
       , slug:  'bc'
-      , tags:  ['Power Station', 'Workforce']
+      , tags:  ['Geographical Features']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: '', 
               content: [
@@ -310,7 +310,7 @@
       , y: 50
       , title: 'HPB Caisson'
       , slug:  'd'
-      , tags:  ['Power Station', 'Workforce']
+      , tags:  ['Geographical Features']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: '', 
               content: [
@@ -325,7 +325,7 @@
       , y: 50
       , title: 'Tree planting'
       , slug:  'e'
-      , tags:  ['Power Station', 'Workforce']
+      , tags:  ['Site History &amp; Ecology']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: '', 
               content: [
@@ -340,7 +340,7 @@
       , y: 50
       , title: 'Archaeology'
       , slug:  'f'
-      , tags:  ['Power Station', 'Workforce']
+      , tags:  ['Site History &amp; Ecology']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: '', 
               content: [
@@ -373,7 +373,7 @@
       , y: 50
       , title: 'Old barn'
       , slug:  'g'
-      , tags:  ['Power Station', 'Workforce']
+      , tags:  ['Site History &amp; Ecology']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: '', 
               content: [
@@ -388,7 +388,7 @@
       , y: 50
       , title: 'Water Management'
       , slug:  'h'
-      , tags:  ['Power Station', 'Workforce']
+      , tags:  ['Site History &amp; Ecology']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: 'Hinkley Point C Water Management Zones', 
               content: [
@@ -414,7 +414,7 @@
       , y: 50
       , title: 'Emergency Access Road'
       , slug:  'i'
-      , tags:  ['Power Station', 'Workforce']
+      , tags:  ['Logistics']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: 'Illustrative view of emergency access road', 
               content: [
@@ -429,7 +429,7 @@
       , y: 250
       , title: 'Materials Stockpile'
       , slug:  'j'
-      , tags:  ['Power Station', 'Workforce']
+      , tags:  ['Construction']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: 'Transferring material into Holford Valley', 
               content: [
@@ -451,7 +451,7 @@
       , y: 250
       , title: 'Southern Landscaping'
       , slug:  'k'
-      , tags:  ['Power Station', 'Workforce']
+      , tags:  ['Geographical Features', 'Site History &amp; Ecology']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: '', 
               content: [
@@ -465,11 +465,11 @@
     main.addLightbulbPin({
         x: 333
       , y: 250
-      , title: 'xx'
+      , title: 'Perimeter fence'
       , slug:  'l'
-      , tags:  ['Power Station', 'Workforce']
+      , tags:  ['Geographical Features']
       , items: [
-            { src: 'assets/test-1-288x360.jpg', caption: 'Perimeter fence', 
+            { src: 'assets/test-1-288x360.jpg', caption: '', 
               content: [
                   'Hinkley Point C is a nuclear licensed site and security is a priority. The perimeter fence is part of site security arrangements and is approximately 6.5 km long.'
               ]
@@ -482,7 +482,7 @@
       , y: 250
       , title: 'Doggett’s Farm'
       , slug:  'm'
-      , tags:  ['Power Station', 'Workforce']
+      , tags:  ['Geographical Features']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: '', 
               content: [
@@ -497,7 +497,7 @@
       , y: 250
       , title: 'Wick Barrow / Pixies Mound'
       , slug:  'n'
-      , tags:  ['Power Station', 'Workforce']
+      , tags:  ['Geographical Features', 'Site History &amp; Ecology']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: 'Wick Barrow archaeology', 
               content: [
@@ -518,7 +518,7 @@
       , y: 250
       , title: 'Plant Equipment'
       , slug:  'p'
-      , tags:  ['Power Station', 'Workforce']
+      , tags:  ['Construction']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: 'Image of PC3000 at work', 
               content: [
@@ -530,9 +530,9 @@
     main.addLightbulbPin({
         x: 888
       , y: 250
-      , title: ''
+      , title: 'Sea Wall' //@todo check that this is needed
       , slug:  'q'
-      , tags:  ['Power Station', 'Workforce']
+      , tags:  []
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: '', 
               content: [
@@ -549,7 +549,7 @@
       , y: 250
       , title: 'Ecology'
       , slug:  'r'
-      , tags:  ['Power Station', 'Workforce']
+      , tags:  ['Site History &amp; Ecology']
       , items: [
             { src: 'assets/test-1-288x360.jpg', caption: 'Illustrative view of restored landscape', 
               content: [
@@ -660,6 +660,21 @@
                 , 'The project presents a transformational opportunity for the Somerset economy. Over 2,000 companies in the local area have registered their interest to work on the construction of Hinkley Point C with extensive activity underway to help local firms prepare for the challenge. '
                 , 'It is estimated that around £100 million each year will be put into the region’s economy during peak construction and £40 million each year of its planned 60 year operating life. '
                 , 'EDF Energy has reached agreement with local councils to deliver almost £100 million to mitigate the impacts of the construction which includes a £20 million community fund. '
+              ]
+            }
+        ]
+    });
+
+    main.addHiddenPin({
+        x: 444
+      , y: 650
+      , title: 'On site temporary accommodation'
+      , slug:  'on-site-temporary-accommodation'
+      , tags:  ['Workforce']
+      , items: [
+            { src: '', caption: '', 
+              content: [
+                  'It is anticipated that over 50,000 square meters of welfare accommodation will be required during construction. '
               ]
             }
         ]
