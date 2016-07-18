@@ -115,8 +115,7 @@ module EDF_IMAP_WEB {
         renderInfoPoint ($container:JQuery) {
             this.$el = $(`
                 <div class="eiw-info-point eiw-pin-${this.kind}">
-                  ${this.id ? '<span>'+this.id+'</span>':''}
-                  <img src="assets/icon-${this.kind}.png">
+                  <img src="assets/icon-${this.kind}${this.id ? '-'+this.id:''}.png">
                 </div>
             `);
             this.$el.css({

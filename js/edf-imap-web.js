@@ -92,7 +92,7 @@ var EDF_IMAP_WEB;
             ;
         };
         Pin.prototype.renderInfoPoint = function ($container) {
-            this.$el = $("\n                <div class=\"eiw-info-point eiw-pin-" + this.kind + "\">\n                  " + (this.id ? '<span>' + this.id + '</span>' : '') + "\n                  <img src=\"assets/icon-" + this.kind + ".png\">\n                </div>\n            ");
+            this.$el = $("\n                <div class=\"eiw-info-point eiw-pin-" + this.kind + "\">\n                  <img src=\"assets/icon-" + this.kind + (this.id ? '-' + this.id : '') + ".png\">\n                </div>\n            ");
             this.$el.css({
                 left: this.config.x,
                 top: this.config.y
