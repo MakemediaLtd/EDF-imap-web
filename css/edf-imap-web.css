@@ -46,6 +46,7 @@ body {
 .eiw-info-point {
     position: absolute;
     cursor: pointer;
+    font-size: 0.6em;
     opacity: 0; /* hidden in ‘view B’ */
     transition: width 0.5s, height 0.5s, margin-left 0.5s, margin-top 0.5s, z-index 0.5s;
     z-index: -5;
@@ -80,7 +81,7 @@ body {
     width: 5em;
     height: 5em;
     margin-left: -2.5em;
-    margin-top: -2.5em;
+    margin-top: -6em;
     border-radius: 3em;
 }
 .eiw-pin-numbered:hover,
@@ -89,7 +90,7 @@ body {
     width: 6em;
     height: 6em;
     margin-left: -3em;
-    margin-top: -3em;
+    margin-top: -7.5em;
 }
 .eiw-pin-numbered img {
     width: 100%;
@@ -97,22 +98,22 @@ body {
 }
 .eiw-pin-numbered span {
     position: absolute;
-    width: 5em;
-    margin-top: 1.9em;
+    width: 2.5em;
+    margin-top: 0.65em;
+    font-size: 2em;
+    font-weight: bold;
     text-align: center;
-    transition: width 0.5s;
+    transition: width 0.5s, margin-top 0.5s;
 }
 .eiw-pin-numbered:hover span,
 .eiw-pin-numbered.eiw-active span {
-    margin-top: 2em;
-    width: 6em;
+    margin-top: 0.88em;
+    width: 3em;
 }
 .eiw-pin-hidden {
-    /*display: none;*/
+    display: none;
     background: #ccc;
 }
-
-
 
 
 /* Popup */

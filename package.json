@@ -1,6 +1,6 @@
 {
   "name": "edf-imap-web",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "The HTML5 port of the EDF Interactive Map Viewer",
   "main": "js/edf-imap-web.js",
   "scripts": {

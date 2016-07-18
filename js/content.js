@@ -41,8 +41,8 @@
 
     //// Add the Numbered Pins. 
     main.addNumberedPin({
-        x: 111
-      , y: 111
+        x: 2957
+      , y: 1644
       , title: 'HPC Introduction'
       , slug:  '1'
       , tags:  []
@@ -67,8 +67,8 @@
     });
 
     main.addNumberedPin({
-        x: 222
-      , y: 222
+        x: 2179
+      , y: 1474
       , title: 'Reactor buildings'
       , slug:  '2'
       , tags:  ['Power Station']
@@ -96,8 +96,8 @@
     });
 
     main.addNumberedPin({
-        x: 333
-      , y: 333
+        x: 507
+      , y: 1191
       , title: 'Concrete Batching Plant'
       , slug:  '3'
       , tags:  ['Construction']
@@ -118,8 +118,8 @@
     });
 
     main.addNumberedPin({
-        x: 444
-      , y: 444
+        x: 3252
+      , y: 3968
       , title: 'Accommodation'
       , slug:  '4'
       , tags:  ['Workforce']
@@ -147,8 +147,8 @@
     });
 
     main.addNumberedPin({
-        x: 555
-      , y: 555
+        x: 748
+      , y: 828
       , title: 'Temporary Jetty'
       , slug:  '5'
       , tags:  ['Logistics']
@@ -177,8 +177,8 @@
     });
 
     main.addNumberedPin({
-        x: 666
-      , y: 666
+        x: 3332
+      , y: 2164
       , title: 'Northern Plaza'
       , slug:  '6'
       , tags:  ['Logistics']
@@ -194,8 +194,8 @@
     });
 
     main.addNumberedPin({
-        x: 777
-      , y: 777
+        x: 2968
+      , y: 2396
       , title: 'Green Lane'
       , slug:  '7'
       , tags:  ['Geographical Features']
@@ -213,8 +213,8 @@
     });
 
     main.addNumberedPin({
-        x: 888
-      , y: 888
+        x: 2360
+      , y: 2292
       , title: 'Concrete process trial'
       , slug:  '8'
       , tags:  ['Construction']
@@ -235,8 +235,8 @@
     });
 
     main.addNumberedPin({
-        x: 999
-      , y: 999
+        x: 2647
+      , y: 2697
       , title: 'Holford Valley'
       , slug:  '9'
       , tags:  ['Geographical Features']
@@ -261,8 +261,8 @@
     });
 
     main.addNumberedPin({
-        x: 1110
-      , y: 1110
+        x: 2952
+      , y: 3520
       , title: 'Southern Plaza'
       , slug:  '10'
       , tags:  ['Logistics']
@@ -284,8 +284,8 @@
 
     //// Add the Lightbulb Pins. 
     main.addLightbulbPin({
-        x: 111
-      , y: 50
+        x: 1435
+      , y: 513
       , title: 'Water Intake and Outfall Tunnels'
       , slug:  'a'
       , tags:  ['Power Station']
@@ -318,8 +318,8 @@
     });
 
     main.addLightbulbPin({
-        x: 222
-      , y: 50
+        x: 2302
+      , y: 508
       , title: 'Steep Holm and Flat Holm'
       , slug:  'bc'
       , tags:  ['Geographical Features']
@@ -333,8 +333,8 @@
     });
 
     main.addLightbulbPin({
-        x: 444
-      , y: 50
+        x: 2794
+      , y: 484
       , title: 'HPB Caisson'
       , slug:  'd'
       , tags:  ['Geographical Features']
@@ -348,8 +348,8 @@
     });
 
     main.addLightbulbPin({
-        x: 555
-      , y: 50
+        x: 504
+      , y: 1584
       , title: 'Tree planting'
       , slug:  'e'
       , tags:  ['Site History &amp; Ecology']
@@ -363,8 +363,8 @@
     });
 
     main.addLightbulbPin({
-        x: 666
-      , y: 50
+        x: 966
+      , y: 2128
       , title: 'Archaeology'
       , slug:  'f'
       , tags:  ['Site History &amp; Ecology']
@@ -396,8 +396,8 @@
     });
 
     main.addLightbulbPin({
-        x: 777
-      , y: 50
+        x: 870
+      , y: 3100
       , title: 'Old barn'
       , slug:  'g'
       , tags:  ['Site History &amp; Ecology']
@@ -411,8 +411,8 @@
     });
 
     main.addLightbulbPin({
-        x: 888
-      , y: 50
+        x: 1480
+      , y: 3084
       , title: 'Water Management'
       , slug:  'h'
       , tags:  ['Site History &amp; Ecology']
@@ -433,8 +433,8 @@
     });
 
     main.addLightbulbPin({
-        x: 999
-      , y: 50
+        x: 1282
+      , y: 4042
       , title: 'Emergency Access Road'
       , slug:  'i'
       , tags:  ['Logistics']
@@ -448,8 +448,8 @@
     });
 
     main.addLightbulbPin({
-        x: 111
-      , y: 250
+        x: 1950
+      , y: 3684
       , title: 'Materials Stockpile'
       , slug:  'j'
       , tags:  ['Construction']
@@ -473,8 +473,8 @@
     });
 
     main.addLightbulbPin({
-        x: 222
-      , y: 250
+        x: 2188
+      , y: 4200
       , title: 'Southern Landscaping'
       , slug:  'k'
       , tags:  ['Geographical Features', 'Site History &amp; Ecology']
@@ -489,8 +489,8 @@
     });
 
     main.addLightbulbPin({
-        x: 333
-      , y: 250
+        x: 2598
+      , y: 4013
       , title: 'Perimeter fence'
       , slug:  'l'
       , tags:  ['Geographical Features']
@@ -504,8 +504,8 @@
     });
 
     main.addLightbulbPin({
-        x: 444
-      , y: 250
+        x: 3077
+      , y: 4185
       , title: 'Doggett’s Farm'
       , slug:  'm'
       , tags:  ['Geographical Features']
@@ -519,8 +519,8 @@
     });
 
     main.addLightbulbPin({
-        x: 555
-      , y: 250
+        x: 3674
+      , y: 1980
       , title: 'Wick Barrow / Pixies Mound'
       , slug:  'n'
       , tags:  ['Geographical Features', 'Site History &amp; Ecology']
@@ -529,19 +529,15 @@
               content: [
                   'Wick Barrow is a rare example of a Neolithic round barrow, dating from about 6,000 years ago.  It measures about 25 metres in diameter and 1.5 metres high.  A barrow is a name given to a structure for burying the dead. '
                 , 'Wick Barrow was found to contain late stone age human remains when excavated in 1907. The excavation also revealed it was disturbed in Roman times as Roman coins and a dagger were found. '
-              ]
-            }
-          , { src: '', caption: '', 
-              content: [
-                  'Wick Barrow is a Scheduled Ancient Monument and nationally important. It is often referred to as Pixies’ Mound because according to local legend Pixies inhabit the mound.'
+                , 'Wick Barrow is a Scheduled Ancient Monument and nationally important. It is often referred to as Pixies’ Mound because according to local legend Pixies inhabit the mound.'
               ]
             }
         ]
     });
 
     main.addLightbulbPin({
-        x: 777
-      , y: 250
+        x: 2870
+      , y: 2030
       , title: 'Plant Equipment'
       , slug:  'p'
       , tags:  ['Construction']
@@ -554,27 +550,26 @@
         ]
     });
 
-    //@todo double-check that this is not needed
-    // main.addLightbulbPin({
-    //     x: 888
-    //   , y: 250
-    //   , title: 'Sea Wall'
-    //   , slug:  'q'
-    //   , tags:  []
-    //   , items: [
-    //         { src: 'assets/test-1-288x360.jpg', caption: '', 
-    //           content: [
-    //               'A sea wall will be constructed to protect against natural hazards that have a frequency of less than one in 10,000 years and includes tides, storm surges and tsunami as isolated or in-combination events. '
-    //             , 'Having also taken predicted sea level rise over the station’s lifetime into account, the seawall will be 760m long and stand at 13.5 metres high.'
-    //             , 'A physical scale model (1:40) of a 400m long section of the sea wall has already been constructed and tested to assess the structural stability of the wall and the volume of wave overtopping.'
-    //           ]
-    //         }
-    //     ]
-    // });
+    main.addLightbulbPin({
+        x: 1868
+      , y: 656
+      , title: 'Illustrative view of sea wall'
+      , slug:  'q'
+      , tags:  []
+      , items: [
+            { src: 'assets/q-image_1-718x404.jpg', caption: 'Illustrative view of sea wall', 
+              content: [
+                  'A sea wall will be constructed to protect against natural hazards that have a frequency of less than one in 10,000 years and includes tides, storm surges and tsunami as isolated or in-combination events. '
+                , 'Having also taken predicted sea level rise over the station’s lifetime into account, the seawall will be 760m long and stand at 13.5 metres high.'
+                , 'A physical scale model (1:40) of a 400m long section of the sea wall has already been constructed and tested to assess the structural stability of the wall and the volume of wave overtopping.'
+              ]
+            }
+        ]
+    });
 
     main.addLightbulbPin({
-        x: 999
-      , y: 250
+        x: 910
+      , y: 2592
       , title: 'Ecology'
       , slug:  'r'
       , tags:  ['Site History &amp; Ecology']

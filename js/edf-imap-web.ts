@@ -126,6 +126,13 @@ module EDF_IMAP_WEB {
             $container.append(this.$el); 
         }
 
+        updateInfoPoint (top:number, left:number, zoom:number) {
+            this.$el.css({
+                left: this.config.x * zoom + left
+              , top:  this.config.y * zoom + top
+            });
+        }
+
     }
 
     //// Define `Numbered`, `Lightbulb` and `Hidden` Pins. 
@@ -184,6 +191,8 @@ module EDF_IMAP_WEB {
 
         config:           MainConfig;
         $wrap:            JQuery;
+        $bkgndAImg:       JQuery;
+        $bkgndBImg:       JQuery;
         $popup:           JQuery;
         $carousel:        JQuery;
         $tagmenu:         JQuery;
@@ -206,6 +215,14 @@ module EDF_IMAP_WEB {
 
         addHiddenPin (pin:PinConfig) {
             this.pins.push( new HiddenPin(pin, this) );
+        }
+
+        updatePins () {
+            let { top, left } = this.$bkgndAImg.position();
+            let zoom = this.$bkgndAImg.width() / this.config.bkgnd.width;
+            for (let pin of this.pins) {
+                pin.updateInfoPoint(top, left, zoom);
+            }
         }
 
         hideAll (except?:string) {
@@ -238,6 +255,7 @@ module EDF_IMAP_WEB {
             //// Reset the display when the window is resized. 
             $(window).on('resize', () => {
                 this.hideAll();
+                this.updatePins();
             });
 
             //// Render the header. 
@@ -313,6 +331,7 @@ module EDF_IMAP_WEB {
             $('.eiw-bkgnd-a', this.$wrap).iviewer({
                 src:      this.config.bkgnd.srcA
               , zoom_min: 'fit'
+              , zoom_max: 100
               , ui_disabled: true
                 // update_on_resize: false,
                 // zoom_animation: false,
@@ -320,19 +339,23 @@ module EDF_IMAP_WEB {
                 // onMouseMove: function(ev, coords) { },
                 // onStartDrag: function(ev, coords) { return false; }, //this image will not be dragged
               , onZoom: (evt, zoom) => {
-                    // console.log(zoom);
+                    this.updatePins();
+                }
+              , onAfterZoom: (evt, zoom) => {
+                    this.updatePins();
                 }
               , onDrag: (evt, coords) => {
-                    // console.log(coords);
+                    this.updatePins();
                 }
             });
+            this.$bkgndAImg = $('.eiw-bkgnd-a img', this.$wrap);
+            this.$bkgndBImg = $('.eiw-bkgnd-b img', this.$wrap);
 
             $(window).on('resize', () => {
                 $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap)
                    .css('height', $(window).innerHeight() - $('.eiw-footer').height() );
                 $('.eiw-bkgnd-a', this.$wrap).iviewer('update');
             });
-            // console.log( $('.eiw-bkgnd-a', this.$wrap).iviewer('info', 'coords') );
 
             //// Render each pin. 
             for (let pin of this.pins) {
@@ -438,6 +461,9 @@ module EDF_IMAP_WEB {
                 this.hideAll();
                 $(evt.target).data('eiwPinInstance').activate();
             });
+
+            //// Set the initial pin positions. 
+            this.updatePins();
 
         }
     }
