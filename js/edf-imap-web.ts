@@ -119,6 +119,7 @@ module EDF_IMAP_WEB {
                     this.main.$content.height( currHeight - 50 + gap );
                 } 
             }
+            this.main.$content.scrollTop(0);
         }
 
         resetGif (slideIndex:number) { // after change
