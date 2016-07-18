@@ -255,24 +255,24 @@ var EDF_IMAP_WEB;
                 zoom_delta: 1.2,
                 ui_disabled: true,
                 onZoom: function (evt, zoom) {
-                    if (!_this.zoomFix && _this.$bkgndAImg.height() < $('.eiw-bkgnd-a').height()) {
-                        _this.zoomFix = true;
-                        _this.$bkgndA.iviewer('fit');
-                    }
-                    else {
-                        _this.zoomFix = false;
-                        _this.updatePins();
-                    }
+                    _this.updatePins();
+                    // if (! this.zoomFix && this.$bkgndAImg.height() < $('.eiw-bkgnd-a').height() ) {
+                    //     this.zoomFix = true;
+                    //     this.$bkgndA.iviewer('fit');
+                    // } else {
+                    //     this.zoomFix = false;
+                    //     this.updatePins();
+                    // }
                 },
                 onAfterZoom: function (evt, zoom) {
-                    if (!_this.zoomFix && _this.$bkgndAImg.height() < $('.eiw-bkgnd-a').height()) {
-                        _this.zoomFix = true;
-                        _this.$bkgndA.iviewer('fit');
-                    }
-                    else {
-                        _this.zoomFix = false;
-                        _this.updatePins();
-                    }
+                    _this.updatePins();
+                    // if (! this.zoomFix && this.$bkgndAImg.height() < $('.eiw-bkgnd-a').height() ) {
+                    //     this.zoomFix = true;
+                    //     this.$bkgndA.iviewer('fit');
+                    // } else {
+                    //     this.zoomFix = false;
+                    //     this.updatePins();
+                    // }
                 },
                 onDrag: function (evt, coords) {
                     _this.updatePins();

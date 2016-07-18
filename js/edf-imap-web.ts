@@ -382,22 +382,24 @@ module EDF_IMAP_WEB {
                 // onMouseMove: function(ev, coords) { },
                 // onStartDrag: function(ev, coords) { return false; }, //this image will not be dragged
               , onZoom: (evt, zoom) => {
-                    if (! this.zoomFix && this.$bkgndAImg.height() < $('.eiw-bkgnd-a').height() ) {
-                        this.zoomFix = true;
-                        this.$bkgndA.iviewer('fit');
-                    } else {
-                        this.zoomFix = false;
                         this.updatePins();
-                    }
+                    // if (! this.zoomFix && this.$bkgndAImg.height() < $('.eiw-bkgnd-a').height() ) {
+                    //     this.zoomFix = true;
+                    //     this.$bkgndA.iviewer('fit');
+                    // } else {
+                    //     this.zoomFix = false;
+                    //     this.updatePins();
+                    // }
                 }
               , onAfterZoom: (evt, zoom) => {
-                    if (! this.zoomFix && this.$bkgndAImg.height() < $('.eiw-bkgnd-a').height() ) {
-                        this.zoomFix = true;
-                        this.$bkgndA.iviewer('fit');
-                    } else {
-                        this.zoomFix = false;
                         this.updatePins();
-                    }
+                    // if (! this.zoomFix && this.$bkgndAImg.height() < $('.eiw-bkgnd-a').height() ) {
+                    //     this.zoomFix = true;
+                    //     this.$bkgndA.iviewer('fit');
+                    // } else {
+                    //     this.zoomFix = false;
+                    //     this.updatePins();
+                    // }
                 }
               , onDrag: (evt, coords) => {
                     this.updatePins();
