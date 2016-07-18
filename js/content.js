@@ -201,7 +201,7 @@
       , slug:  '7'
       , tags:  ['Geographical Features']
       , items: [
-            { src: 'assets/7-green-lane-718x404.mp4', caption: '', 
+            { src: 'assets/7-green-lane-718x404.gif', caption: '', 
               content: [
                   'Green Lane is an ancient right of way. It will remain protected during construction and public access will be returned when Hinkley Point C is operational. '
                 , 'Green Lane runs east to west across the site and sits roughly between the top of Holford Valley and the area of main construction. '
@@ -418,7 +418,7 @@
       , slug:  'h'
       , tags:  ['Site History &amp; Ecology']
       , items: [
-            { src: 'assets/h-water-management-718x404.mp4', caption: 'Hinkley Point C Water Management Zones', 
+            { src: 'assets/h-water-management-718x404.gif', caption: 'Hinkley Point C Water Management Zones', 
               content: [
                   'Large ponds have been created on the construction site to hold rainwater run-off. Importantly they allow sediment to settle before water is released to sea or streams.'
               ]
