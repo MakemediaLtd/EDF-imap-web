@@ -55,7 +55,7 @@
                 , 'Safety is our number one priority. Please listen carefully to your host regarding the risks present on our construction site. If you have any concerns please tell us. '
               ]
             }
-          , { src: 'assets/test-2-288x360.jpg', caption: '', //@todo add this movie
+          , { src: 'assets/1-edf-hpc-animation-v3-718x404.gif', caption: '', //@todo add this movie
               content: [
                   'Hinkley Point C will host two nuclear reactors capable of producing enough low carbon electricity to power around 5 million homes'
                 , 'Will offset the emission of 10 million tonnes of CO2 a year.'
@@ -74,7 +74,7 @@
       , slug:  '2'
       , tags:  ['Power Station']
       , items: [
-            { src: 'assets/2-reactor-718x404.mp4', caption: '', 
+            { src: 'assets/2-reactor-718x404.gif', caption: '', 
               content: [
                   'Hinkley Point C will comprise of two UK EPRTM reactors each generating 1630MW. HPC will produce almost four times more electricity than Hinkley Point B station’s two reactors.'
                 , 'The UK EPRTM is an evolutionary design with improved efficiency and safety drawing from experience gained from EPR construction at Flamanville in France and Taishan in China. '
@@ -88,7 +88,7 @@
           , { src: 'assets/2-image_3-718x404.jpg', caption: 1, // use caption from slide 1 (zero-indexed) 
               content: 1 // use text from slide 1 (zero-indexed)
             }
-          , { src: 'assets/2-flamanville-dome-718x404.mp4', caption: 'The dome of Flamanville 3 EPR in France being lowered into place', 
+          , { src: 'assets/2-flamanville-dome-718x404.gif', caption: 'The dome of Flamanville 3 EPR in France being lowered into place', 
               content: [
                   'One of the world’s tallest, most powerful cranes will be used to raise the unit’s dome, which will measure 57 metres in diameter, and to lower it slowly into place on the 64 metre high reactor building.'
               ]
@@ -103,7 +103,7 @@
       , slug:  '3'
       , tags:  ['Construction']
       , items: [
-            { src: 'assets/3-batching-plant-718x404.mp4', caption: '', 
+            { src: 'assets/3-batching-plant-718x404.gif', caption: '', 
               content: [
                   '3 million tonnes of concrete will be required during the construction of Hinkley Point C - that’s 75 times more concrete than was used to build the Millennium Stadium. '
                 , 'HPC will manufacture the required concrete on site through concrete batching plants. '
@@ -125,7 +125,7 @@
       , slug:  '4'
       , tags:  ['Workforce']
       , items: [
-            { src: 'assets/4-accommodation-718x404.mp4', caption: 'Hinkley Point C On-Site Accommodation Campus', 
+            { src: 'assets/4-accommodation-718x404.gif', caption: 'Hinkley Point C On-Site Accommodation Campus', 
               content: [
                   'During peak construction over 5,600 people will work onsite at any one time. HPC will have an on site 510 bed campus, comprised of 15 accommodation buildings, and housing critical members of the workforce. '
               ]
@@ -154,7 +154,7 @@
       , slug:  '5'
       , tags:  ['Logistics']
       , items: [
-            { src: 'assets/5-jetty-718x404.mp4', caption: 'Artist’s impression of jetty', 
+            { src: 'assets/5-jetty-718x404.gif', caption: 'Artist’s impression of jetty', 
               content: [
                   'In order to reduce the number of vehicles on the roads, and associated C02 emissions,  will receive at least 80% of construction aggregates will arrive by sea - an estimated 2.8 million tonnes. The Jetty development will be used to bring these bulk materials to site. '
               ]
@@ -220,7 +220,7 @@
       , slug:  '8'
       , tags:  ['Construction']
       , items: [
-            { src: 'assets/8-concrete-trials-718x404.mp4', caption: '', 
+            { src: 'assets/8-concrete-trials-718x404.gif', caption: '', 
               content: [
                   'In order to trial the processes and procedures used for concrete manufacture and construction, a mock up was created following the same techniques and materials that will be used in main construction. '
                 , 'By testing the methods in this way we have been able to incorporate learning and best practice as well as assure the quality of the final product. The concrete process trial took 18 months to complete.'
@@ -252,7 +252,7 @@
           , { src: 'assets/9-image_2-718x404.jpg', caption: 0, // use caption from slide 0 (zero-indexed) 
               content: 0 // use text from slide 0 (zero-indexed)
             }
-          , { src: 'assets/9-culvert-final-piece-718x404.mp4', caption: 'Last concrete section being lifted into Holford Culvert', 
+          , { src: 'assets/9-culvert-final-piece-718x404.gif', caption: 'Last concrete section being lifted into Holford Culvert', 
               content: [
                   'The Holford Stream culvert was built in 2015 and is 710m long comprising of 592 pre-cast concrete sections - each of which weighs 16 tonnes.'
                 , 'Holford culvert is large enough for a mini-digger to pass through and keep it clear. It has animal ‘benches’ above the water, allowing small animals to pass underground.'
@@ -268,7 +268,7 @@
       , slug:  '10'
       , tags:  ['Logistics']
       , items: [
-            { src: 'assets/10-pc3000-arriving-718x404.mp4', caption: 'Large plant will arrive here throughout the build', 
+            { src: 'assets/10-pc3000-arriving-718x404.gif', caption: 'Large plant will arrive here throughout the build', 
               content: [
                   'The Southern Plaza plays a key role in efficient site logistics to minimise impact on the local road network. Using a computerised Delivery Management System, the Plaza will manage up to 375 HGVs each day. '
                 , 'Freight Management Facilities are to be built at Junctions 23 & 24 of the M5 motorway to maximise delivery efficiency. '
@@ -455,7 +455,7 @@
       , slug:  'j'
       , tags:  ['Construction']
       , items: [
-            { src: 'assets/j-transporting-materials-to-holford-valley-718x404.mp4', caption: 'Transferring material into Holford Valley', 
+            { src: 'assets/j-transporting-materials-to-holford-valley-718x404.gif', caption: 'Transferring material into Holford Valley', 
               content: [
                   'Various types of material which have been excavated from the site are segregated here. The soil will be reused for landscaping and backfill.'
               ]
@@ -543,7 +543,7 @@
       , slug:  'p'
       , tags:  ['Construction']
       , items: [
-            { src: 'assets/p-pc30000-in-operation-718x404.mp4', caption: '', 
+            { src: 'assets/p-pc30000-in-operation-718x404.gif', caption: '', 
               content: [
                   'PC3000 at work'
               ]
