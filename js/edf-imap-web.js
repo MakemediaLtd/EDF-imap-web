@@ -248,9 +248,11 @@ var EDF_IMAP_WEB;
             $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap)
                 .css('height', $(window).innerHeight() - $('.eiw-footer').height());
             this.$bkgndA = $('.eiw-bkgnd-a', this.$wrap);
+            var minWidth = $('.eiw-bkgnd-a').width() / this.config.bkgnd.width;
+            var minHeight = $('.eiw-bkgnd-a').height() / this.config.bkgnd.height;
             this.$bkgndA.iviewer({
                 src: this.config.bkgnd.srcA,
-                zoom_min: 'fit',
+                zoom_min: Math.min(minWidth, minHeight) * 100,
                 zoom_max: 100,
                 zoom_delta: 1.2,
                 ui_disabled: true,
