@@ -11,7 +11,7 @@
     main.configure({
         splash: {
             src:     'assets/0-intro-flythrough-718x404-noloop.gif'
-          , wait:    950 // nine and a half seconds
+          , wait:    9500 // nine and a half seconds
         }
       , bkgnd: {
             srcA:    'assets/bkgnd-a-hinkley-v3-3760x4648.jpg'
