@@ -31,7 +31,7 @@
             title:   'Change View'
         }
       , gps: {
-            title:   'GPS'
+            title:   '&nbsp;'
         }
       , instructions: {
             title:   'Tap an information point<br>to get more detail &amp; media'
@@ -426,11 +426,7 @@
               content: [
                   'The ponds, or Early Water Management Zones, are necessary as top-soil has been removed across site in large quantities.'
                 , 'Previously the top-soil, comprising of grass and other vegetation, would have acted as a natural filter.'
-              ]
-            }
-          , { src: 1, caption: 'Dewatering', // use image from slide 1 (zero-indexed) 
-              content: [
-                  'A programme of de-watering is planned before excavations in the main reactor area. Boreholes will be drilled and pumps inserted to draw out water which will be held in Water Management Zones. '
+                , 'A programme of de-watering is planned before excavations in the main reactor area. Boreholes will be drilled and pumps inserted to draw out water which will be held in Water Management Zones. '
               ]
             }
         ]
@@ -645,6 +641,7 @@
       , y: 650
       , title: 'Project construction summary'
       , slug:  'xtra-1'
+      , isXtra: true
       , tags:  []
       , items: [
             { src: 'assets/xtra-1-image_1-718x404.jpg', caption: 'Project construction timescale', 
@@ -668,6 +665,7 @@
       , y: 650
       , title: 'More than a power station'
       , slug:  'xtra-2'
+      , isXtra: true
       , tags:  []
       , items: [
             { src: 'assets/xtra-2-image_1-718x404.jpg', caption: 'Hinkley Point C’s Associated Developments ', 
@@ -685,6 +683,7 @@
       , y: 650
       , title: 'Our role in the Community'
       , slug:  'xtra-3'
+      , isXtra: true
       , tags:  []
       , items: [
             { src: 'assets/xtra-3-image_1-718x404.jpg', caption: 'Hinkley Point C staff volunteering at a local school', 
@@ -704,7 +703,7 @@
         x: 444
       , y: 650
       , title: 'On site temporary accommodation'
-      , slug:  'on-site-temporary-accommodation'
+      , slug:  's'
       , tags:  ['Workforce']
       , items: [
             { src: '', caption: '', 

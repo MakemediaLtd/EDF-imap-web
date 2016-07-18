@@ -18,17 +18,18 @@ module EDF_IMAP_WEB {
 
     //// Describe the `Pin` class’s configuration-object. 
     interface PinItem {
-        src:     string;
-        caption: string   | number;
-        content: number | string[]; // each array element is a paragraph
+        src:      string;
+        caption:  string | number;
+        content:  any; // @todo prevent TypeScript from complaining about `number | string[]`
     }
     interface PinConfig {
-        x:       number;
-        y:       number;
-        slug:    string;
-        title:   string;
-        tags:    string[];
-        items:   PinItem[];
+        x:        number;
+        y:        number;
+        slug:     string;
+        isXtra?:  boolean;
+        title:    string;
+        tags:     string[];
+        items:    PinItem[];
     }
 
     //// Define the base class for all Pins. 
@@ -63,25 +64,36 @@ module EDF_IMAP_WEB {
             for (var i=this.main.$carousel.data('eiwCurrentSlideTally'); i>0; i--) {
                 this.main.$carousel.slick('slickRemove', i-1);
             }
-            for (let item of items) {
-                let media:string;
-                if (! item.src) { // no media
-                    media = '';
-                } else if ( '.mp4' === item.src.substr(-4) ) { // a movie
-                    media = `<video loop src="${item.src}"></video>`;
-                } else { // an image
-                    media = `<img src="${item.src}">`;
-                }
-                this.main.$carousel.slick('slickAdd', `<div>${media}</div>`);
-            }
             this.main.$carousel.data('eiwCurrentSlideTally', items.length);
-            if ( items[0] && '.mp4' === items[0].src.substr(-4) ) {
-                $('[data-slick-index="0"] video', this.main.$carousel)[0].play();
-            }  
+            if (1 === items.length && ! items[0].src) { // deal with a single-slide pin which has no image or video
+                this.main.$popup.addClass('eiw-carousel-hidden');
 
-            //// Show caption/content for current slide. 
-            $('.eiw-caption', this.main.$wrap).html(`<p>${items[0].caption}</p>`);
-            $('.eiw-content', this.main.$wrap).html(`<p>${items[0].content.join('</p><p>')}</p>`);
+            } else {
+                this.main.$popup.removeClass('eiw-carousel-hidden');
+                for (let item of items) {
+                    let media:string;
+                    if (! item.src) { // no media
+                        media = '';
+                    } else if ( '.mp4' === item.src.substr(-4) ) { // a movie
+                        media = `<video loop src="${item.src}"></video>`;
+                    } else { // an image
+                        media = `<img src="${item.src}">`;
+                    }
+                    this.main.$carousel.slick('slickAdd', `<div>${media}</div>`);
+                }
+                if ( items[0] && '.mp4' === items[0].src.substr(-4) ) {
+                    $('[data-slick-index="0"] video', this.main.$carousel)[0]['play']();
+                }
+            }
+
+            //// Show caption and content for current slide. 
+            $('.eiw-caption', this.main.$wrap)
+               .html(items[0].caption ? `<h4>${items[0].caption}</h4>` : '<h4>&nbsp;</h4>')
+            ;
+            $('.eiw-content', this.main.$wrap)
+               .html(items[0].content ? `<p>${items[0].content['join']('</p><p>')}</p>` : '')
+               .css('height', this.main.calcContentHeight() - 30 ) // `- 30` allows for padding
+            ;
 
         }
 
@@ -91,8 +103,13 @@ module EDF_IMAP_WEB {
             let content = item.content;
             if ('number' == typeof caption) caption = this.config.items[caption].caption;
             if ('number' == typeof content) content = this.config.items[content].content;
-            $('.eiw-caption', this.main.$wrap).html(`<p>${caption}</p>`);
-            $('.eiw-content', this.main.$wrap).html(`<p>${content.join('</p><p>')}</p>`);
+            $('.eiw-caption', this.main.$wrap)
+               .html(caption ? `<h4>${caption}</h4>` : '<h4>&nbsp;</h4>')
+            ;
+            $('.eiw-content', this.main.$wrap)
+               .html(content ? `<p>${content['join']('</p><p>')}</p>` : '')
+               .css('height', this.main.calcContentHeight() - 30 ) // `- 30` allows for padding
+            ;
         }
 
         renderInfoPoint ($container:JQuery) {
@@ -193,11 +210,22 @@ module EDF_IMAP_WEB {
 
         hideAll (except?:string) {
             for (let pin of this.pins) { pin.deactivate(); }
-            if ('tagmenu' !== except)
+            if ('tagmenu' !== except) {
                 $('.eiw-tagmenu', this.$wrap).addClass('eiw-hidden');
-            if ('xtramenu' !== except)
+                $('.eiw-tagmenu-toggle', this.$wrap).removeClass('eiw-active');
+            }
+            if ('xtramenu' !== except) {
                 $('.eiw-xtramenu', this.$wrap).addClass('eiw-hidden');
+                $('.eiw-xtramenu-toggle', this.$wrap).removeClass('eiw-active');
+            }
             this.$popup.addClass('eiw-hidden');
+        }
+
+        calcContentHeight () { // used to update popup-content height
+            let popupBottom = this.$popup.position().top + this.$popup.outerHeight(true);
+            let $caption = $('.eiw-caption', this.$wrap);
+            let captionBottom = $caption.position().top + $caption.outerHeight(true);
+            return popupBottom - captionBottom; 
         }
 
         init (wrapSelector:string) {
@@ -206,6 +234,11 @@ module EDF_IMAP_WEB {
             this.$wrap = $(wrapSelector)
             if (! this.$wrap.length) throw Error(me+'No $wrap');
             this.$wrap.addClass('eiw-view-a');
+
+            //// Reset the display when the window is resized. 
+            $(window).on('resize', () => {
+                this.hideAll();
+            });
 
             //// Render the header. 
             this.$wrap.append(`
@@ -239,7 +272,7 @@ module EDF_IMAP_WEB {
                     ${this.config.changeview.title}
                   </div>
                   <div class="eiw-gps">
-                    <img src="assets/icon-gps-wot-130x130.png">
+                    ${/*<img src="assets/icon-gps-wot-130x130.png">*/''}
                     ${this.config.gps.title}
                   </div>
                   <div class="eiw-instructions">
@@ -252,10 +285,12 @@ module EDF_IMAP_WEB {
             $('.eiw-tagmenu-toggle', this.$wrap).click( () => {
                 this.hideAll('tagmenu');
                 $('.eiw-tagmenu', this.$wrap).toggleClass('eiw-hidden');
+                $('.eiw-tagmenu-toggle', this.$wrap).toggleClass('eiw-active');
             });
             $('.eiw-xtramenu-toggle', this.$wrap).click( () => {
                 this.hideAll('xtramenu');
                 $('.eiw-xtramenu', this.$wrap).toggleClass('eiw-hidden');
+                $('.eiw-xtramenu-toggle', this.$wrap).toggleClass('eiw-active');
             });
             $('.eiw-changeview', this.$wrap).click( () => {
                 this.hideAll();
@@ -285,10 +320,10 @@ module EDF_IMAP_WEB {
                 // onMouseMove: function(ev, coords) { },
                 // onStartDrag: function(ev, coords) { return false; }, //this image will not be dragged
               , onZoom: (evt, zoom) => {
-                    console.log(zoom);
+                    // console.log(zoom);
                 }
               , onDrag: (evt, coords) => {
-                    console.log(coords);
+                    // console.log(coords);
                 }
             });
 
@@ -297,7 +332,7 @@ module EDF_IMAP_WEB {
                    .css('height', $(window).innerHeight() - $('.eiw-footer').height() );
                 $('.eiw-bkgnd-a', this.$wrap).iviewer('update');
             });
-            console.log( $('.eiw-bkgnd-a', this.$wrap).iviewer('info', 'coords') );
+            // console.log( $('.eiw-bkgnd-a', this.$wrap).iviewer('info', 'coords') );
 
             //// Render each pin. 
             for (let pin of this.pins) {
@@ -314,9 +349,9 @@ module EDF_IMAP_WEB {
                   <div class="eiw-dismiss"  >X</div>
                   <h2  class="eiw-title"    >Title here</h2>
                   <div class="eiw-carousel" ></div>
-                  <h4  class="eiw-caption"  >Caption here</h4>
                   <div class="eiw-arrows"   ></div>
                   <div class="eiw-dots"     ></div>
+                  <div class="eiw-caption"  >Caption here</div>
                   <div class="eiw-content"  ><p>Content here. </p></div>
                   <div class="eiw-tags"     ><tt>A Tag</tt><tt>Another Tag</tt></div>
                 </div>
@@ -325,20 +360,27 @@ module EDF_IMAP_WEB {
             $('.eiw-dismiss', this.$wrap).click( (evt:JQueryMouseEventObject) => {
                 this.hideAll();
             });
+            $('.eiw-arrows', this.$wrap).append(`
+                <img class="eiw-arrow-left"       src="assets/icon-arrow-left-130x200.png">
+                <img class="eiw-arrow-glow-left"  src="assets/icon-arrow-glow-left-130x200.png">
+                <img class="eiw-arrow-right"      src="assets/icon-arrow-right-130x200.png">
+                <img class="eiw-arrow-glow-right" src="assets/icon-arrow-glow-right-130x200.png">
+            `);
 
             //// Initialize the ‘Slick’ carousel. 
             this.$carousel = $('.eiw-carousel', this.$wrap); 
             this.$carousel
                .data('eiwCurrentSlideTally', 0)
                .slick({
-                    appendArrows: '.eiw-arrows'
-                  , appendDots:   '.eiw-dots'
-                  , dots:         true
-                  , infinite:     false
+                    prevArrow:   '.eiw-arrow-left'
+                  , nextArrow:   '.eiw-arrow-right'
+                  , appendDots:  '.eiw-dots'
+                  , dots:        true
+                  , infinite:    false
                 })
                .on('beforeChange', (evt, slick, currentSlide, nextSlide) => {
                    this.activePin.showSlide(nextSlide);
-                   console.log(nextSlide);
+                //    console.log(nextSlide);
                 })
             ;
 
@@ -354,6 +396,7 @@ module EDF_IMAP_WEB {
             }
             this.$tagmenu = $(`
                 <div class="eiw-tagmenu eiw-hidden">
+                  <div class="eiw-icon-logo"><img src="assets/icon-logo-212x192.png"></div>
                   <h3>${this.config.tagmenu.heading}</h3>
                 </div>
             `);
@@ -380,10 +423,21 @@ module EDF_IMAP_WEB {
             //// Render the xtramenu (initially hidden).
             this.$xtramenu = $(`
                 <div class="eiw-xtramenu eiw-hidden">
+                  <div class="eiw-icon-logo"><img src="assets/icon-logo-212x192.png"></div>
                   <h3>${this.config.xtramenu.heading}</h3>
                 </div>
             `);
+            for (let pin of this.pins) {
+                if (! pin.config.isXtra) continue;
+                let $xtraLink = $(`<h4>${pin.config.title}</h4>`);
+                $xtraLink.data('eiwPinInstance', pin);
+                this.$xtramenu.append($xtraLink);
+            }
             this.$wrap.append(this.$xtramenu);
+            $('h4', this.$xtramenu).click( (evt:JQueryMouseEventObject) => {
+                this.hideAll();
+                $(evt.target).data('eiwPinInstance').activate();
+            });
 
         }
     }
