@@ -38,7 +38,7 @@ body {
 
 /* Utility */
 .eiw-hidden {
-    display: none;
+    display: none!important;
 }
 
 
@@ -141,14 +141,24 @@ body {
 /* Popup */
 .eiw-popup {
     position: absolute;
+    display: table;
     background: #fff;
     left: 50%;
     margin-left: -364px;
     width: 718px;
-    top: 1em;
-    bottom: 11em;
+    top: 3em;
     border-left: 1.5em solid #ffa02f;
     z-index: 20;
+}
+.eiw-popup > div {
+    display: table-row;
+}
+.eiw-popup > div > div {
+    display: table-cell;
+    max-width: 718px;
+}
+.eiw-popup.eiw-carousel-hidden {
+    top: 8em;
 }
 .eiw-dismiss { /* also used in return-to-map button `eiw-rtn2map` */
     float: right;
@@ -164,7 +174,7 @@ body {
     background: #09357A;
 }
 .eiw-title {
-    padding: 0 1em;
+    padding: 0 3em 0 1em;
     margin: 0.65em 0; 
 }
 .eiw-caption h4 {
@@ -179,37 +189,48 @@ body {
     clear: both;
     margin-top: 0.5em;
     padding: 0 1em;
-    height: 3em; /* updated by JavaScript */
     overflow-y: auto;
     font-size: 1.5em;
 }
 .eiw-content p:first-child {
     margin-top: 0;
 }
+.eiw-content p:last-child {
+    margin-bottom: 2em;
+}
 
 .eiw-tags tt {
     display: none; /* tags are for dev only - never shown to the user */
 }
+/*
 @media (min-height: 500px) {
     .eiw-popup {
         bottom: 12.5em;
+    }
+    .eiw-popup.eiw-carousel-hidden {
+        bottom: 22.5em;
     }
 }
 @media (min-height: 650px) {
     .eiw-popup {
         bottom: 14em;
     }
+    .eiw-popup.eiw-carousel-hidden {
+        bottom: 24em;
+    }
 }
 @media (min-height: 700px) {
     .eiw-popup {
         bottom: 16em;
     }
+    .eiw-popup.eiw-carousel-hidden {
+        bottom: 26em;
+    }
 }
 @media (min-height: 800px) {
     .eiw-popup {
-        /*bottom: 18em;*/
     }
-}
+}*/
 
 
 /* Carousel */
@@ -280,7 +301,7 @@ body {
     margin-right: 1.1em;
     font-size: 1.4em;
     margin-top: -0.35em;
-    height: 2.5em;
+    /*height: 2.5em;*/
 }
 .eiw-dots ul {
     padding-left: 0;
@@ -334,6 +355,9 @@ body {
         margin-left: -278px;
         width: 539px;
     }
+    .eiw-popup > div > div {
+        max-width: 539px;
+    }
     .eiw-carousel .slick-slide {
         height: 303px;
     }
@@ -359,6 +383,9 @@ body {
         margin-left: -185px;
         width: 359px;
     }
+    .eiw-popup > div > div {
+        max-width: 359px;
+    }
     .eiw-carousel .slick-slide {
         height: 202px;
     }
@@ -383,6 +410,9 @@ body {
     .eiw-popup {
         margin-left: -126px;
         width: 239px;
+    }
+    .eiw-popup > div > div {
+        max-width: 239px;
     }
     .eiw-carousel .slick-slide {
         height: 135px;

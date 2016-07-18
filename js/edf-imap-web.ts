@@ -87,13 +87,14 @@ module EDF_IMAP_WEB {
             }
 
             //// Show caption and content for current slide. 
-            $('.eiw-caption', this.main.$wrap)
-               .html(items[0].caption ? `<h4>${items[0].caption}</h4>` : '<h4>&nbsp;</h4>')
-            ;
-            $('.eiw-content', this.main.$wrap)
-               .html(items[0].content ? `<p>${items[0].content['join']('</p><p>')}</p>` : '')
-               .css('height', this.main.calcContentHeight() - 30 ) // `- 30` allows for padding
-            ;
+            this.showSlide(0);
+            // $('.eiw-caption', this.main.$wrap)
+            //    .html(items[0].caption ? `<h4>${items[0].caption}</h4>` : '')
+            // ;
+            // $('.eiw-content', this.main.$wrap)
+            //    .html(items[0].content ? `<p>${items[0].content['join']('</p><p>')}</p>` : '')
+            //    .css('height', this.main.calcContentHeight() - 45 ) // `- 45` allows for padding
+            // ;
 
         }
 
@@ -102,13 +103,17 @@ module EDF_IMAP_WEB {
             let { src, caption, content } = item;
             if ('number' == typeof caption) caption = this.config.items[caption].caption;
             if ('number' == typeof content) content = this.config.items[content].content;
-            $('.eiw-caption', this.main.$wrap)
-               .html(caption ? `<h4>${caption}</h4>` : '<h4>&nbsp;</h4>')
-            ;
-            $('.eiw-content', this.main.$wrap)
-               .html(content ? `<p>${content['join']('</p><p>')}</p>` : '')
-               .css('height', this.main.calcContentHeight() - 30 ) // `- 30` allows for padding
-            ;
+            this.main.$caption.html(caption ? `<h4>${caption}</h4>` : '');
+            this.main.$content.html(content ? `<p>${content['join']('</p><p>')}</p>` : '');
+            let contentBottom = this.main.$content.position().top + this.main.$content.outerHeight(true);
+            let gap = this.main.$footer.position().top - contentBottom;
+            if (50 > gap) {
+                let currHeight = this.main.$content.height();
+                this.main.$content.height( currHeight - 50 + gap ); 
+                // this.main.$content.css('height', this.main.calcContentHeight() - 45 ) // `- 45` allows for padding
+            } else {
+                this.main.$content.height('auto'); 
+            }
         }
 
         resetGif (slideIndex:number) { // after change
@@ -207,9 +212,12 @@ module EDF_IMAP_WEB {
         $bkgndBImg:       JQuery;
         $popup:           JQuery;
         $carousel:        JQuery;
+        $caption:         JQuery;
+        $content:         JQuery;
         $tagmenu:         JQuery;
         $xtramenu:        JQuery;
         $splash:          JQuery;
+        $footer:          JQuery;
         pins:             Pin[] = [];
         numberedPinTally: number = 0;
         activePin:        Pin = null;
@@ -274,12 +282,11 @@ module EDF_IMAP_WEB {
             this.$popup.addClass('eiw-hidden');
         }
 
-        calcContentHeight () { // used to update popup-content height
-            let popupBottom = this.$popup.position().top + this.$popup.outerHeight(true);
-            let $caption = $('.eiw-caption', this.$wrap);
-            let captionBottom = $caption.position().top + $caption.outerHeight(true);
-            return popupBottom - captionBottom; 
-        }
+        // calcContentHeight () { // used to update popup-content height
+        //     let popupBottom = this.$popup.position().top + this.$popup.outerHeight(true);
+        //     let captionBottom = this.$caption.position().top + this.$caption.outerHeight(true);
+        //     return popupBottom - captionBottom; 
+        // }
 
         init (wrapSelector:string) {
 
@@ -341,6 +348,7 @@ module EDF_IMAP_WEB {
                   </div>
                 </div>
             `);
+            this.$footer = $('.eiw-footer');
             $('.eiw-tagmenu-toggle', this.$wrap).click( () => {
                 this.hideAll('tagmenu');
                 $('.eiw-tagmenu', this.$wrap).toggleClass('eiw-hidden');
@@ -384,24 +392,10 @@ module EDF_IMAP_WEB {
                 // onMouseMove: function(ev, coords) { },
                 // onStartDrag: function(ev, coords) { return false; }, //this image will not be dragged
               , onZoom: (evt, zoom) => {
-                        this.updatePins();
-                    // if (! this.zoomFix && this.$bkgndAImg.height() < $('.eiw-bkgnd-a').height() ) {
-                    //     this.zoomFix = true;
-                    //     this.$bkgndA.iviewer('fit');
-                    // } else {
-                    //     this.zoomFix = false;
-                    //     this.updatePins();
-                    // }
+                    this.updatePins();
                 }
               , onAfterZoom: (evt, zoom) => {
-                        this.updatePins();
-                    // if (! this.zoomFix && this.$bkgndAImg.height() < $('.eiw-bkgnd-a').height() ) {
-                    //     this.zoomFix = true;
-                    //     this.$bkgndA.iviewer('fit');
-                    // } else {
-                    //     this.zoomFix = false;
-                    //     this.updatePins();
-                    // }
+                    this.updatePins();
                 }
               , onDrag: (evt, coords) => {
                     this.updatePins();
@@ -428,17 +422,27 @@ module EDF_IMAP_WEB {
             //// Render the popup (initially hidden).
             this.$popup = $(`
                 <div class="eiw-popup eiw-hidden">
-                  <div class="eiw-dismiss"  >X</div>
-                  <h2  class="eiw-title"    >Title here</h2>
-                  <div class="eiw-carousel" ></div>
-                  <div class="eiw-arrows"   ></div>
-                  <div class="eiw-dots"     ></div>
-                  <div class="eiw-caption"  >Caption here</div>
-                  <div class="eiw-content"  ><p>Content here. </p></div>
-                  <div class="eiw-tags"     ><tt>A Tag</tt><tt>Another Tag</tt></div>
+                  <div>
+                    <div>
+                      <div class="eiw-dismiss"  >X</div>
+                      <h2  class="eiw-title"    >Title here</h2>
+                      <div class="eiw-carousel" ></div>
+                      <div class="eiw-arrows"   ></div>
+                      <div class="eiw-dots"     ></div>
+                      <div class="eiw-caption"  >Caption here</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <div class="eiw-content"  ><p>Content here. </p></div>
+                      <div class="eiw-tags"     ><tt>A Tag</tt><tt>Another Tag</tt></div>
+                    </div>
+                  </div>
                 </div>
             `);
             this.$wrap.append(this.$popup);
+            this.$caption = $('.eiw-caption', this.$wrap); 
+            this.$content = $('.eiw-content', this.$wrap); 
             $('.eiw-dismiss', this.$wrap).click( (evt:JQueryMouseEventObject) => {
                 this.hideAll();
             });
