@@ -157,6 +157,12 @@ var EDF_IMAP_WEB;
         Main.prototype.updatePins = function () {
             var _a = this.$bkgndAImg.position(), top = _a.top, left = _a.left;
             var zoom = this.$bkgndAImg.width() / this.config.bkgnd.width;
+            this.$bkgndBImg.css({
+                top: top,
+                left: left,
+                width: this.$bkgndAImg.width(),
+                height: this.$bkgndAImg.height()
+            });
             for (var _i = 0, _b = this.pins; _i < _b.length; _i++) {
                 var pin = _b[_i];
                 pin.updateInfoPoint(top, left, zoom);
@@ -196,7 +202,10 @@ var EDF_IMAP_WEB;
                 _this.updatePins();
             });
             //// Render the header. 
-            this.$wrap.append("\n                <div class=\"eiw-header-a\">" + this.config.header.titleA + "</div>\n                <div class=\"eiw-header-b\">" + this.config.header.titleB + "</div>\n            ");
+            this.$wrap.append("\n                <div class=\"eiw-header-a\">" + this.config.header.titleA + "</div>\n                <div class=\"eiw-header-b\">" + this.config.header.titleB + "</div>\n                <div class=\"eiw-rtn2map\"><span class=\"eiw-dismiss\">X</span><div>" + this.config.header.rtn2Map + "</div></div>\n            ");
+            $('.eiw-rtn2map', this.$wrap).click(function () {
+                $('.eiw-changeview', _this.$wrap).click();
+            });
             //// Render the footer. 
             this.$wrap.append("\n                <div class=\"eiw-footer\">\n                  <div class=\"eiw-tagmenu-toggle\"><span>\n                    <span class=\"eiw-icon\">\n                      <img class=\"eiw-default\" src=\"assets/icon-burger-tow-130x130.png\">\n                      <img class=\"eiw-hover\"   src=\"assets/icon-burger-wot-130x130.png\">\n                    </span>\n                    <span class=\"eiw-text\">\n                      " + this.config.tagmenu.title + "\n                    </span>\n                  </span></div>\n                  <div class=\"eiw-xtramenu-toggle\"><span>\n                    <span class=\"eiw-text\">\n                      " + this.config.xtramenu.title + "\n                    </span>\n                    <span class=\"eiw-icon\">\n                      <img class=\"eiw-hover\"   src=\"assets/icon-burger-wot-130x130.png\">\n                      <img class=\"eiw-default\" src=\"assets/icon-burger-tow-130x130.png\">\n                    </span>\n                  </span></div>\n                  <div class=\"eiw-changeview\">\n                    <img src=\"assets/icon-changeview-wot-130x130.png\">\n                    " + this.config.changeview.title + "\n                  </div>\n                  <div class=\"eiw-gps\">\n                    " + '' + "\n                    " + this.config.gps.title + "\n                  </div>\n                  <div class=\"eiw-instructions\">\n                    <img class=\"eiw-icon-pin\" src=\"assets/icon-numbered.png\">\n                    <span class=\"eiw-text\">" + this.config.instructions.title + "</span>\n                    <img class=\"eiw-icon-logo\" src=\"assets/icon-logo-212x192.png\">\n                  </div>\n                </div>\n            ");
             $('.eiw-tagmenu-toggle', this.$wrap).click(function () {
@@ -214,7 +223,7 @@ var EDF_IMAP_WEB;
                 _this.$wrap.toggleClass('eiw-view-a');
             });
             //// Render the background-images. 
-            this.$wrap.append("\n                <div class=\"eiw-bkgnds\">\n                  <div class=\"eiw-bkgnd-a\"></div>\n                  <div class=\"eiw-bkgnd-b\"><img src=\"" + this.config.bkgnd.srcB + "\"></div>\n                </div>\n            ");
+            this.$wrap.append("\n                <div class=\"eiw-bkgnds\">\n                  <div class=\"eiw-bkgnd-b\"><img src=\"" + this.config.bkgnd.srcB + "\"></div>\n                  <div class=\"eiw-bkgnd-a\"></div>\n                </div>\n            ");
             $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap).click(function () {
                 _this.hideAll();
             });

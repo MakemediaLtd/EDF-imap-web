@@ -164,6 +164,7 @@ module EDF_IMAP_WEB {
         header: {
             titleA:  string;
             titleB:  string;
+            rtn2Map: string; 
         }
         tagmenu: {
             title:   string;
@@ -220,6 +221,12 @@ module EDF_IMAP_WEB {
         updatePins () {
             let { top, left } = this.$bkgndAImg.position();
             let zoom = this.$bkgndAImg.width() / this.config.bkgnd.width;
+            this.$bkgndBImg.css({
+                top:    top
+              , left:   left
+              , width:  this.$bkgndAImg.width()
+              , height: this.$bkgndAImg.height()
+            });
             for (let pin of this.pins) {
                 pin.updateInfoPoint(top, left, zoom);
             }
@@ -262,7 +269,11 @@ module EDF_IMAP_WEB {
             this.$wrap.append(`
                 <div class="eiw-header-a">${this.config.header.titleA}</div>
                 <div class="eiw-header-b">${this.config.header.titleB}</div>
+                <div class="eiw-rtn2map"><span class="eiw-dismiss">X</span><div>${this.config.header.rtn2Map}</div></div>
             `);
+            $('.eiw-rtn2map', this.$wrap).click( () => {
+                $('.eiw-changeview', this.$wrap).click();
+            });
 
             //// Render the footer. 
             this.$wrap.append(`
@@ -318,8 +329,8 @@ module EDF_IMAP_WEB {
             //// Render the background-images. 
             this.$wrap.append(`
                 <div class="eiw-bkgnds">
-                  <div class="eiw-bkgnd-a"></div>
                   <div class="eiw-bkgnd-b"><img src="${this.config.bkgnd.srcB}"></div>
+                  <div class="eiw-bkgnd-a"></div>
                 </div>
             `);
             $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap).click( () => {

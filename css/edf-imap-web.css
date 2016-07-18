@@ -72,6 +72,7 @@ body {
     height: 6em;
     margin-left: -3em;
     margin-top: -3em;
+    z-index: 3;
 }
 .eiw-pin-lightbulb img {
     width: 100%;
@@ -91,6 +92,7 @@ body {
     height: 6em;
     margin-left: -3em;
     margin-top: -7.5em;
+    z-index: 3;
 }
 .eiw-pin-numbered img {
     width: 100%;
@@ -128,7 +130,7 @@ body {
     border-left: 1.5em solid #ffa02f;
     z-index: 20;
 }
-.eiw-dismiss {
+.eiw-dismiss { /* also used in return-to-map button `eiw-rtn2map` */
     float: right;
     padding: 0.2em 0.4em;
     background: #ffa02f;
@@ -453,7 +455,10 @@ body {
 
 /* Background Images */
 
-.eiw-bkgnd-a {
+.eiw-bkgnd-a,
+.eiw-bkgnd-b {
+    position: absolute;
+    top; 0;
     width: 100%;
     height: 400px; /* will be set by JavaScript */
     background: #09357A;
@@ -461,31 +466,62 @@ body {
 }
 .eiw-bkgnd-a img,
 .eiw-bkgnd-b img {
-    /*width: 100%;
-    height: auto;*/
+    position: absolute;
 }
-            .eiw-bkgnd-a { opacity: 0; z-index:-2; transition: opacity 0.5s 0.5s; }
-.eiw-view-a .eiw-bkgnd-a { opacity: 1; z-index:-1; transition: opacity 0.5s; }
-            .eiw-bkgnd-b { opacity: 1; z-index:-1; transition: opacity 0.5s; }
-.eiw-view-a .eiw-bkgnd-b { opacity: 0; z-index:-2; transition: opacity 0.5s 0.5s; }
+            .eiw-bkgnd-a { opacity: 0; transition: opacity 0.5s 0.5s; }
+.eiw-view-a .eiw-bkgnd-a { opacity: 1; transition: opacity 0.5s; }
+            .eiw-bkgnd-b { opacity: 1; transition: opacity 0.5s; }
+.eiw-view-a .eiw-bkgnd-b { opacity: 0; transition: opacity 0.5s 0.5s; }
 
 
 /* Header */
 
 .eiw-header-a,
-.eiw-header-b {
+.eiw-header-b,
+.eiw-rtn2map {
     position: fixed;
-    top: 0.2em;
-    right: 0.4em;
     transition: opacity 0.5s;
     text-transform: uppercase;
     color: #fff;
     z-index: 40;
 }
+.eiw-header-a,
+.eiw-header-b {
+    top: 0.2em;
+    right: 0.4em;
+    color: #fff;
+    z-index: 40;
+}
+.eiw-rtn2map {
+    left: 0.6em;
+    top: 0.4em;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+}
+.eiw-rtn2map .eiw-dismiss { /* see `eiw-popup` for complete definition */
+    float: left;
+}
+.eiw-rtn2map:hover .eiw-dismiss {
+    background: #09357A;
+}
+.eiw-rtn2map >div {
+    display: inline-block;
+    padding: 1em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+@media (max-width: 400px) {
+    .eiw-rtn2map >div {
+        display: none;
+    }
+}
+
             .eiw-header-a { opacity: 0; }
 .eiw-view-a .eiw-header-a { opacity: 1; }
             .eiw-header-b { opacity: 1; }
 .eiw-view-a .eiw-header-b { opacity: 0; }
+            .eiw-rtn2map  { opacity: 1; }
+.eiw-view-a .eiw-rtn2map  { opacity: 0; }
 
 
 /* Footer */

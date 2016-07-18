@@ -18,6 +18,7 @@
       , header: {
             titleA:  'Hinkley Point Construction Site June 2015'
           , titleB:  'Hinkley Point C Construction Complete'
+          , rtn2Map: 'Return to map'
         }
       , tagmenu: {
             title:   'Browse By Category'
