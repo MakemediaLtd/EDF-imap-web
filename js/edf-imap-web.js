@@ -95,6 +95,12 @@ var EDF_IMAP_WEB;
             }
             else {
                 this.main.$content.height('auto');
+                contentBottom = this.main.$content.position().top + this.main.$content.outerHeight(true);
+                gap = this.main.$footer.position().top - contentBottom;
+                if (50 > gap) {
+                    var currHeight = this.main.$content.height();
+                    this.main.$content.height(currHeight - 50 + gap);
+                }
             }
         };
         Pin.prototype.resetGif = function (slideIndex) {

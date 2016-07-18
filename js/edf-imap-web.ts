@@ -110,9 +110,14 @@ module EDF_IMAP_WEB {
             if (50 > gap) {
                 let currHeight = this.main.$content.height();
                 this.main.$content.height( currHeight - 50 + gap ); 
-                // this.main.$content.css('height', this.main.calcContentHeight() - 45 ) // `- 45` allows for padding
             } else {
                 this.main.$content.height('auto'); 
+                contentBottom = this.main.$content.position().top + this.main.$content.outerHeight(true);
+                gap = this.main.$footer.position().top - contentBottom;
+                if (50 > gap) {
+                    let currHeight = this.main.$content.height();
+                    this.main.$content.height( currHeight - 50 + gap );
+                } 
             }
         }
 

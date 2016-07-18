@@ -187,6 +187,7 @@ body {
 }
 .eiw-content {
     clear: both;
+    height: auto;
     margin-top: 0.5em;
     padding: 0 1em;
     overflow-y: auto;
