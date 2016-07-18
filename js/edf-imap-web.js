@@ -217,7 +217,7 @@ var EDF_IMAP_WEB;
             $(window).on('resize', function () {
                 _this.hideAll();
                 _this.updatePins();
-                _this.$bkgndA.iviewer('fit');
+                // this.$bkgndA.iviewer('fit');
             });
             //// Render the header. 
             this.$wrap.append("\n                <div class=\"eiw-header-a\">" + this.config.header.titleA + "</div>\n                <div class=\"eiw-header-b\">" + this.config.header.titleB + "</div>\n                <div class=\"eiw-rtn2map\"><span class=\"eiw-dismiss\">X</span><div>" + this.config.header.rtn2Map + "</div></div>\n            ");

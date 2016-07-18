@@ -292,7 +292,7 @@ module EDF_IMAP_WEB {
             $(window).on('resize', () => {
                 this.hideAll();
                 this.updatePins();
-                this.$bkgndA.iviewer('fit');
+                // this.$bkgndA.iviewer('fit');
             });
 
             //// Render the header. 
