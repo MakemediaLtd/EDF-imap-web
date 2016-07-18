@@ -212,6 +212,10 @@ module EDF_IMAP_WEB {
         pins:             Pin[] = [];
         numberedPinTally: number = 0;
         activePin:        Pin = null;
+        prevTop:          number;
+        prevLeft:         number;
+        prevWidth:        number;
+        prevHeight:       number;
 
         configure (config:MainConfig) {
             this.config = config;
@@ -231,12 +235,25 @@ module EDF_IMAP_WEB {
 
         updatePins () {
             let { top, left } = this.$bkgndAImg.position();
-            let zoom = this.$bkgndAImg.width() / this.config.bkgnd.width;
+            let width = this.$bkgndAImg.width();
+            let height = this.$bkgndAImg.height();
+            let zoom = width / this.config.bkgnd.width;
+            if (
+                this.prevTop    === top
+             && this.prevLeft   === left
+             && this.prevWidth  === width
+             && this.prevHeight === height
+            ) { return; } // no need to update anything
+            console.log('reset pins!');
+            this.prevTop    = top;
+            this.prevLeft   = left;
+            this.prevWidth  = width;
+            this.prevHeight = height;
             this.$bkgndBImg.css({
                 top:    top
               , left:   left
-              , width:  this.$bkgndAImg.width()
-              , height: this.$bkgndAImg.height()
+              , width:  width
+              , height: height
             });
             for (let pin of this.pins) {
                 pin.updateInfoPoint(top, left, zoom);
@@ -513,8 +530,11 @@ module EDF_IMAP_WEB {
             this.$wrap.append(this.$splash);
             $('.eiw-media', this.$splash).append($media);
 
-            //// Set the initial pin positions. 
+            //// Set the initial pin positions, and fix various browser no-update issues. 
             this.updatePins();
+            window.setInterval( () => {
+                this.updatePins();
+            }, 300);
 
         }
     }

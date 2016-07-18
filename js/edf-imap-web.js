@@ -161,12 +161,25 @@ var EDF_IMAP_WEB;
         };
         Main.prototype.updatePins = function () {
             var _a = this.$bkgndAImg.position(), top = _a.top, left = _a.left;
-            var zoom = this.$bkgndAImg.width() / this.config.bkgnd.width;
+            var width = this.$bkgndAImg.width();
+            var height = this.$bkgndAImg.height();
+            var zoom = width / this.config.bkgnd.width;
+            if (this.prevTop === top
+                && this.prevLeft === left
+                && this.prevWidth === width
+                && this.prevHeight === height) {
+                return;
+            } // no need to update anything
+            console.log('reset pins!');
+            this.prevTop = top;
+            this.prevLeft = left;
+            this.prevWidth = width;
+            this.prevHeight = height;
             this.$bkgndBImg.css({
                 top: top,
                 left: left,
-                width: this.$bkgndAImg.width(),
-                height: this.$bkgndAImg.height()
+                width: width,
+                height: height
             });
             for (var _i = 0, _b = this.pins; _i < _b.length; _i++) {
                 var pin = _b[_i];
@@ -358,8 +371,11 @@ var EDF_IMAP_WEB;
             this.$splash = $("\n                <div class=\"eiw-splash\">\n                  <div class=\"eiw-icon-logo\"><img src=\"assets/icon-logo-212x192.png\"></div>\n                  <br>\n                  <div class=\"eiw-media\"></div>\n                </div>\n            ");
             this.$wrap.append(this.$splash);
             $('.eiw-media', this.$splash).append($media);
-            //// Set the initial pin positions. 
+            //// Set the initial pin positions, and fix various browser no-update issues. 
             this.updatePins();
+            window.setInterval(function () {
+                _this.updatePins();
+            }, 300);
         };
         return Main;
     }());
