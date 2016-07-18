@@ -114,7 +114,7 @@ module EDF_IMAP_WEB {
 
         renderInfoPoint ($container:JQuery) {
             this.$el = $(`
-                <div class="eiw-info-point eiw-pin-${this.kind}">
+                <div class="eiw-info-point eiw-pin-${this.kind} eiw-info-point-${this.config.slug}">
                   <img src="assets/icon-${this.kind}${this.id ? '-'+this.id:''}.png">
                 </div>
             `);
@@ -154,6 +154,10 @@ module EDF_IMAP_WEB {
 
     //// Describe the `Main` class’s configuration-object. 
     interface MainConfig {
+        splash: {
+            src:     string;
+            wait:    string;
+        };
         bkgnd: {
             srcA:    string;
             srcB:    string;
@@ -197,6 +201,7 @@ module EDF_IMAP_WEB {
         $carousel:        JQuery;
         $tagmenu:         JQuery;
         $xtramenu:        JQuery;
+        $splash:          JQuery;
         pins:             Pin[] = [];
         numberedPinTally: number = 0;
         activePin:        Pin = null;
@@ -471,6 +476,33 @@ module EDF_IMAP_WEB {
                 this.hideAll();
                 $(evt.target).data('eiwPinInstance').activate();
             });
+
+            //// Render the splash (only shown when the page first loads).
+            let $media = $('<b></b>'); // no media
+            if ( '.mp4' === this.config.splash.src.substr(-4) ) { // a movie
+                $media = $(`<video loop src="${this.config.splash.src}"></video>`);
+                //@todo add a 'has-reached-end' listener, if video is used
+            } else { // an image
+                $media = $(`<img src="${this.config.splash.src}">`);
+                $media.ready( () => {
+                    window.setTimeout( () => {
+                        this.$splash.addClass('eiw-splash-hidden');
+                    }, this.config.splash.wait);
+                    window.setTimeout( () => {
+                        this.$splash.remove();
+                        $('.eiw-info-point-1').click(); // open the introduction pin
+                    }, this.config.splash.wait+500);
+                });
+            };
+            this.$splash = $(`
+                <div class="eiw-splash">
+                  <div class="eiw-icon-logo"><img src="assets/icon-logo-212x192.png"></div>
+                  <br>
+                  <div class="eiw-media"></div>
+                </div>
+            `);
+            this.$wrap.append(this.$splash);
+            $('.eiw-media', this.$splash).append($media);
 
             //// Set the initial pin positions. 
             this.updatePins();
