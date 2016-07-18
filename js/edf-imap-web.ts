@@ -494,7 +494,12 @@ module EDF_IMAP_WEB {
                   <h3>${this.config.tagmenu.heading}</h3>
                 </div>
             `);
-            let $accordionContent = $('<div></div>');
+            let $accordionContent = $(`
+                <div>
+                  <h4 class="eiw-accordion-fix"></h4>
+                  <ul class="eiw-accordion-fix"></ul>
+                </div>
+            `);
             this.$tagmenu.append($accordionContent);
             for (let tag in tags) {
                 $accordionContent.append(`<h4>${tag}</h4`);

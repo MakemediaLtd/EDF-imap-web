@@ -335,7 +335,7 @@ var EDF_IMAP_WEB;
                 }
             }
             this.$tagmenu = $("\n                <div class=\"eiw-tagmenu eiw-hidden\">\n                  <div class=\"eiw-icon-logo\"><img src=\"assets/icon-logo-212x192.png\"></div>\n                  <h3>" + this.config.tagmenu.heading + "</h3>\n                </div>\n            ");
-            var $accordionContent = $('<div></div>');
+            var $accordionContent = $("\n                <div>\n                  <h4 class=\"eiw-accordion-fix\"></h4>\n                  <ul class=\"eiw-accordion-fix\"></ul>\n                </div>\n            ");
             this.$tagmenu.append($accordionContent);
             for (var tag in tags) {
                 $accordionContent.append("<h4>" + tag + "</h4");
