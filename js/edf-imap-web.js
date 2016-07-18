@@ -177,6 +177,9 @@ var EDF_IMAP_WEB;
             var _a = this.$bkgndAImg.position(), top = _a.top, left = _a.left;
             var width = this.$bkgndAImg.width();
             var height = this.$bkgndAImg.height();
+            var headerRt = Math.max(4, $(window).width() - (left + width - 4));
+            this.$headerA.css('right', headerRt);
+            this.$headerB.css('right', headerRt);
             var zoom = width / this.config.bkgnd.width;
             if (this.prevTop === top
                 && this.prevLeft === left
@@ -230,13 +233,14 @@ var EDF_IMAP_WEB;
             $(window).on('resize', function () {
                 _this.hideAll();
                 _this.updatePins();
-                // this.$bkgndA.iviewer('fit');
             });
             //// Render the header. 
             this.$wrap.append("\n                <div class=\"eiw-header-a\">" + this.config.header.titleA + "</div>\n                <div class=\"eiw-header-b\">" + this.config.header.titleB + "</div>\n                <div class=\"eiw-rtn2map\"><span class=\"eiw-dismiss\">X</span><div>" + this.config.header.rtn2Map + "</div></div>\n            ");
             $('.eiw-rtn2map', this.$wrap).click(function () {
                 $('.eiw-changeview', _this.$wrap).click();
             });
+            this.$headerA = $('.eiw-header-a', this.$wrap);
+            this.$headerB = $('.eiw-header-b', this.$wrap);
             //// Render the footer. 
             this.$wrap.append("\n                <div class=\"eiw-footer\">\n                  <div class=\"eiw-tagmenu-toggle\"><span>\n                    <span class=\"eiw-icon\">\n                      <img class=\"eiw-default\" src=\"assets/icon-burger-tow-130x130.png\">\n                      <img class=\"eiw-hover\"   src=\"assets/icon-burger-wot-130x130.png\">\n                    </span>\n                    <span class=\"eiw-text\">\n                      " + this.config.tagmenu.title + "\n                    </span>\n                  </span></div>\n                  <div class=\"eiw-xtramenu-toggle\"><span>\n                    <span class=\"eiw-text\">\n                      " + this.config.xtramenu.title + "\n                    </span>\n                    <span class=\"eiw-icon\">\n                      <img class=\"eiw-hover\"   src=\"assets/icon-burger-wot-130x130.png\">\n                      <img class=\"eiw-default\" src=\"assets/icon-burger-tow-130x130.png\">\n                    </span>\n                  </span></div>\n                  <div class=\"eiw-changeview\">\n                    <img src=\"assets/icon-changeview-wot-130x130.png\">\n                    " + this.config.changeview.title + "\n                  </div>\n                  <div class=\"eiw-gps\">\n                    " + '' + "\n                    " + this.config.gps.title + "\n                  </div>\n                  <div class=\"eiw-instructions\">\n                    <img class=\"eiw-icon-pin\" src=\"assets/icon-numbered.png\">\n                    <span class=\"eiw-text\">" + this.config.instructions.title + "</span>\n                    <img class=\"eiw-icon-logo\" src=\"assets/icon-logo-212x192.png\">\n                  </div>\n                </div>\n            ");
             this.$footer = $('.eiw-footer');

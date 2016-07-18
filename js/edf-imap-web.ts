@@ -213,6 +213,8 @@ module EDF_IMAP_WEB {
 
         config:           MainConfig;
         $wrap:            JQuery;
+        $headerA:         JQuery;
+        $headerB:         JQuery;
         $bkgndA:          JQuery;
         $bkgndAImg:       JQuery;
         $bkgndBImg:       JQuery;
@@ -253,6 +255,9 @@ module EDF_IMAP_WEB {
             let { top, left } = this.$bkgndAImg.position();
             let width = this.$bkgndAImg.width();
             let height = this.$bkgndAImg.height();
+            let headerRt = Math.max(4, $(window).width() - (left + width - 4) );
+            this.$headerA.css('right', headerRt);
+            this.$headerB.css('right', headerRt);
             let zoom = width / this.config.bkgnd.width;
             if (
                 this.prevTop    === top
@@ -305,7 +310,6 @@ module EDF_IMAP_WEB {
             $(window).on('resize', () => {
                 this.hideAll();
                 this.updatePins();
-                // this.$bkgndA.iviewer('fit');
             });
 
             //// Render the header. 
@@ -317,6 +321,8 @@ module EDF_IMAP_WEB {
             $('.eiw-rtn2map', this.$wrap).click( () => {
                 $('.eiw-changeview', this.$wrap).click();
             });
+            this.$headerA = $('.eiw-header-a', this.$wrap);
+            this.$headerB = $('.eiw-header-b', this.$wrap);
 
             //// Render the footer. 
             this.$wrap.append(`
