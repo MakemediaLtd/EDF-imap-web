@@ -97,10 +97,9 @@ module EDF_IMAP_WEB {
 
         }
 
-        showSlide (slideIndex:number) {
+        showSlide (slideIndex:number) { // before change
             let item = this.config.items[slideIndex];
-            let caption = item.caption;
-            let content = item.content;
+            let { src, caption, content } = item;
             if ('number' == typeof caption) caption = this.config.items[caption].caption;
             if ('number' == typeof content) content = this.config.items[content].content;
             $('.eiw-caption', this.main.$wrap)
@@ -110,6 +109,14 @@ module EDF_IMAP_WEB {
                .html(content ? `<p>${content['join']('</p><p>')}</p>` : '')
                .css('height', this.main.calcContentHeight() - 30 ) // `- 30` allows for padding
             ;
+        }
+
+        resetGif (slideIndex:number) { // after change
+            let item = this.config.items[slideIndex];
+            let { src, caption, content } = item;
+            if ( '.gif' === src.substr(-4) ) {
+                // $('.slick-current img').attr('src', src+'?'+Math.random()); //@todo better method of restarting GIFs
+            }
         }
 
         renderInfoPoint ($container:JQuery) {
@@ -418,7 +425,9 @@ module EDF_IMAP_WEB {
                 })
                .on('beforeChange', (evt, slick, currentSlide, nextSlide) => {
                    this.activePin.showSlide(nextSlide);
-                //    console.log(nextSlide);
+                })
+               .on('afterChange', (evt, slick, currentSlide) => {
+                   this.activePin.resetGif(currentSlide);
                 })
             ;
 

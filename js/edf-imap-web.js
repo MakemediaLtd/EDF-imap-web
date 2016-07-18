@@ -78,8 +78,7 @@ var EDF_IMAP_WEB;
         };
         Pin.prototype.showSlide = function (slideIndex) {
             var item = this.config.items[slideIndex];
-            var caption = item.caption;
-            var content = item.content;
+            var src = item.src, caption = item.caption, content = item.content;
             if ('number' == typeof caption)
                 caption = this.config.items[caption].caption;
             if ('number' == typeof content)
@@ -90,6 +89,12 @@ var EDF_IMAP_WEB;
                 .html(content ? "<p>" + content['join']('</p><p>') + "</p>" : '')
                 .css('height', this.main.calcContentHeight() - 30) // `- 30` allows for padding
             ;
+        };
+        Pin.prototype.resetGif = function (slideIndex) {
+            var item = this.config.items[slideIndex];
+            var src = item.src, caption = item.caption, content = item.content;
+            if ('.gif' === src.substr(-4)) {
+            }
         };
         Pin.prototype.renderInfoPoint = function ($container) {
             this.$el = $("\n                <div class=\"eiw-info-point eiw-pin-" + this.kind + " eiw-info-point-" + this.config.slug + "\">\n                  <img src=\"assets/icon-" + this.kind + (this.id ? '-' + this.id : '') + ".png\">\n                </div>\n            ");
@@ -280,7 +285,9 @@ var EDF_IMAP_WEB;
             })
                 .on('beforeChange', function (evt, slick, currentSlide, nextSlide) {
                 _this.activePin.showSlide(nextSlide);
-                //    console.log(nextSlide);
+            })
+                .on('afterChange', function (evt, slick, currentSlide) {
+                _this.activePin.resetGif(currentSlide);
             });
             //// Render the tagmenu (initially hidden).
             var tags = {};
