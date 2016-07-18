@@ -403,6 +403,7 @@ body {
     bottom: 9em;
     background: #fff;
     overflow-y: auto;
+    z-index: 4;
 }
 .eiw-tagmenu .eiw-icon-logo,
 .eiw-xtramenu .eiw-icon-logo {

@@ -170,7 +170,6 @@ var EDF_IMAP_WEB;
                 && this.prevHeight === height) {
                 return;
             } // no need to update anything
-            console.log('reset pins!');
             this.prevTop = top;
             this.prevLeft = left;
             this.prevWidth = width;
@@ -218,6 +217,7 @@ var EDF_IMAP_WEB;
             $(window).on('resize', function () {
                 _this.hideAll();
                 _this.updatePins();
+                _this.$bkgndA.iviewer('fit');
             });
             //// Render the header. 
             this.$wrap.append("\n                <div class=\"eiw-header-a\">" + this.config.header.titleA + "</div>\n                <div class=\"eiw-header-b\">" + this.config.header.titleB + "</div>\n                <div class=\"eiw-rtn2map\"><span class=\"eiw-dismiss\">X</span><div>" + this.config.header.rtn2Map + "</div></div>\n            ");
@@ -247,16 +247,32 @@ var EDF_IMAP_WEB;
             });
             $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap)
                 .css('height', $(window).innerHeight() - $('.eiw-footer').height());
-            $('.eiw-bkgnd-a', this.$wrap).iviewer({
+            this.$bkgndA = $('.eiw-bkgnd-a', this.$wrap);
+            this.$bkgndA.iviewer({
                 src: this.config.bkgnd.srcA,
                 zoom_min: 'fit',
                 zoom_max: 100,
+                zoom_delta: 1.2,
                 ui_disabled: true,
                 onZoom: function (evt, zoom) {
-                    _this.updatePins();
+                    if (!_this.zoomFix && _this.$bkgndAImg.height() < $('.eiw-bkgnd-a').height()) {
+                        _this.zoomFix = true;
+                        _this.$bkgndA.iviewer('fit');
+                    }
+                    else {
+                        _this.zoomFix = false;
+                        _this.updatePins();
+                    }
                 },
                 onAfterZoom: function (evt, zoom) {
-                    _this.updatePins();
+                    if (!_this.zoomFix && _this.$bkgndAImg.height() < $('.eiw-bkgnd-a').height()) {
+                        _this.zoomFix = true;
+                        _this.$bkgndA.iviewer('fit');
+                    }
+                    else {
+                        _this.zoomFix = false;
+                        _this.updatePins();
+                    }
                 },
                 onDrag: function (evt, coords) {
                     _this.updatePins();
@@ -267,7 +283,7 @@ var EDF_IMAP_WEB;
             $(window).on('resize', function () {
                 $('.eiw-bkgnd-a, .eiw-bkgnd-b', _this.$wrap)
                     .css('height', $(window).innerHeight() - $('.eiw-footer').height());
-                $('.eiw-bkgnd-a', _this.$wrap).iviewer('update');
+                _this.$bkgndA.iviewer('update');
             });
             //// Render each pin. 
             for (var _i = 0, _a = this.pins; _i < _a.length; _i++) {

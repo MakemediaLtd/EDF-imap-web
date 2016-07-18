@@ -1155,7 +1155,7 @@ interface JQueryStatic {
  * The jQuery instance members
  */
 interface JQuery {
-    iviewer: any; //20160715^RP
+    iviewer(param1: string|Object, param2?: any): JQuery; //20160718^RP
     /**
      * Register a handler to be called when Ajax requests complete. This is an AjaxEvent.
      *
