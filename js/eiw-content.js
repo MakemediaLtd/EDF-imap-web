@@ -10,7 +10,7 @@
     //// Configure the interactive map. 
     app.configure({
         bkgnd: {
-            srcA:    'assets/bkgnd-a-hinkley-v3-3760x4648.jpg'
+            srcA:    'assets/bkgnd-a-hinkley-v4-3760x4648.jpg'
           , srcB:    'assets/bkgnd-b-aerial-view-3760x4648.jpg'
           , width:   3760
           , height:  4648
