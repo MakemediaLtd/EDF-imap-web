@@ -122,11 +122,20 @@ namespace EDF_IMAP_WEB { export namespace Pin {
         }
 
         renderInfoPoint ($container:JQuery) {
-            this.$el = $(`
-                <div class="eiw-info-point eiw-pin-${this.kind} eiw-info-point-${this.config.slug}">
-                  <img src="assets/icon-${this.kind}${this.id ? '-'+this.id:''}.png">
-                </div>
-            `);
+            if ('hidden' == this.kind) {
+                this.$el = $(`
+                    <div class="eiw-info-point eiw-pin-hidden eiw-info-point-${this.config.slug}"></div>
+                `);
+            } else {
+                this.$el = $(`
+                    <div class="eiw-info-point eiw-pin-numbered eiw-info-point-${this.config.slug}">
+                    <img src="assets/icon-numbered.png">
+                    </div>
+                `);
+                //// nb, in versions before 2.0.5 we treated lightbulbs and  
+                //// numbered pins differently, and used: 
+                //// `<img src="assets/icon-${this.kind}${this.id ? '-'+this.id:''}.png">`
+            }
             this.$el.css({
                 left: this.config.x
               , top:  this.config.y
