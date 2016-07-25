@@ -1,6 +1,6 @@
 # EDF-imap-web
 
-#### This repo contains private content held on behalf of EDF
+#### This repo contains private content held on behalf of EDF Energy plc
 
 EDF-imap-web is the HTML5 port of the EDF Interactive Map. Test it at:  
 https://makemedialtd.github.io/EDF-imap-web/index.html
@@ -8,14 +8,16 @@ https://makemedialtd.github.io/EDF-imap-web/index.html
 
 ## Important files/folders
 
-- index.html - open this in a browser to start the app
-- assets/ - contains images, fonts and videos
-- js/edf-imap-web.js - the main app logic, defines `window.EDF_IMAP_WEB`
-- js/edf-imap-web.ts - source TypeScript file for js/edf-imap-web.js 
-- js/content.js - defines the `window.EDF_IMAP_WEB.content` JSON object
+- __index.html__ - open this file in a browser to start the app
+- __assets/__ - contains images, fonts and videos
+- __js/edf-app.js__ - the main app logic, instantiates `window.EDF_IMAP_WEB.app`
+- __js/edf-main.ts__ - source for the ‘Main’ class. Compiles to js/edf-app.js 
+- __js/edf-pin.ts__ - source for ‘Pin’ classes. Also compiles to js/edf-app.js 
+- __js/edf-content.js__ - configures the app, and adds each Pin instance
 
 
-## Using TypeScript
+## Compiling EDF-imap-web
 
 Compile and watch using:
-`$ tsc -w js/*.ts --outFile js/eiw-app.js`
+`$ npm start`
+(you’ll need `tsc` installed)
