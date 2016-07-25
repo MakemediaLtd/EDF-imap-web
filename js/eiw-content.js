@@ -37,6 +37,14 @@
       , instructions: {
             title:   'Tap an information point<br>to get more detail &amp; media'
         }
+      , tagcolors: {
+            'Construction'              : 'orange'
+          , 'Workforce'                 : 'peach'
+          , 'Logistics'                 : 'navy'
+          , 'Geographical Features'     : 'cyan'
+          , 'Power Station'             : 'green'
+          , 'Site History &amp; Ecology': 'lime'
+        }
     });
 
 
@@ -556,7 +564,7 @@
       , y: 656
       , title: 'Illustrative view of sea wall'
       , slug:  'q'
-      , tags:  []
+      , tags:  ['Logistics']
       , slides: [
             { src: 'assets/q-image_1-718x404.jpg', caption: 'Illustrative view of sea wall', 
               content: [

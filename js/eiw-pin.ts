@@ -30,11 +30,14 @@ namespace EDF_IMAP_WEB { export namespace Pin {
         $el:    JQuery;
         kind:   string = 'base';
         id:     number = 0;
+        color:  string;
 
         constructor (config:Config, main:Main.Main) {
             config.tags = config.tags || []; //@todo find a better defaults syntax
             this.config = config;
             this.main   = main;
+            this.color = main.config.tagcolors[ config.tags[0] ];
+            if (! this.color) throw new RangeError(me+config.tags[0]+' not found');
         }
 
         deactivate () {
@@ -129,7 +132,7 @@ namespace EDF_IMAP_WEB { export namespace Pin {
             } else {
                 this.$el = $(`
                     <div class="eiw-info-point eiw-pin-numbered eiw-info-point-${this.config.slug}">
-                    <img src="assets/icon-numbered.png">
+                    <img src="assets/icon-teardrop-${this.color}.png">
                     </div>
                 `);
                 //// nb, in versions before 2.0.5 we treated lightbulbs and  

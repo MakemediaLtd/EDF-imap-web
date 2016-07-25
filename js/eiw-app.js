@@ -19,6 +19,9 @@ var EDF_IMAP_WEB;
                 config.tags = config.tags || []; //@todo find a better defaults syntax
                 this.config = config;
                 this.main = main;
+                this.color = main.config.tagcolors[config.tags[0]];
+                if (!this.color)
+                    throw new RangeError(me + config.tags[0] + ' not found');
             }
             Pin.prototype.deactivate = function () {
                 this.$el.removeClass('eiw-active');
@@ -106,7 +109,7 @@ var EDF_IMAP_WEB;
                     this.$el = $("\n                    <div class=\"eiw-info-point eiw-pin-hidden eiw-info-point-" + this.config.slug + "\"></div>\n                ");
                 }
                 else {
-                    this.$el = $("\n                    <div class=\"eiw-info-point eiw-pin-numbered eiw-info-point-" + this.config.slug + "\">\n                    <img src=\"assets/icon-numbered.png\">\n                    </div>\n                ");
+                    this.$el = $("\n                    <div class=\"eiw-info-point eiw-pin-numbered eiw-info-point-" + this.config.slug + "\">\n                    <img src=\"assets/icon-teardrop-" + this.color + ".png\">\n                    </div>\n                ");
                 }
                 this.$el.css({
                     left: this.config.x,

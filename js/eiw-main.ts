@@ -43,6 +43,7 @@ namespace EDF_IMAP_WEB { export namespace Main {
         instructions: {
             title:   string;
         }
+        tagcolors: Object
     }
 
     export class Main {
