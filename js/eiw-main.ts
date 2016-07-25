@@ -14,7 +14,7 @@ namespace EDF_IMAP_WEB { export namespace Main {
     let me = 'js/eiw-main.ts:\n  ';
 
     //// Describe the `Main` class’s configuration-object. 
-    interface MainConfig {
+    interface Config {
         splash: {
             src:     string;
             wait:    string;
@@ -54,7 +54,7 @@ namespace EDF_IMAP_WEB { export namespace Main {
         constructor () {
         }
 
-        config:           MainConfig;
+        config:           Config;
         $wrap:            JQuery;
         $headerA:         JQuery;
         $headerB:         JQuery;
@@ -78,19 +78,19 @@ namespace EDF_IMAP_WEB { export namespace Main {
         prevHeight:       number;
         zoomFix:          boolean;
 
-        configure (config:MainConfig) {
+        configure (config:Config) {
             this.config = config;
         }
 
-        addNumberedPin (pin:Pin.PinConfig) {
+        addNumberedPin (pin:Pin.Config) {
             this.pins.push( new Pin.NumberedPin(pin, this) );
         }
 
-        addLightbulbPin (pin:Pin.PinConfig) {
+        addLightbulbPin (pin:Pin.Config) {
             this.pins.push( new Pin.LightbulbPin(pin, this) );
         }
 
-        addHiddenPin (pin:Pin.PinConfig) {
+        addHiddenPin (pin:Pin.Config) {
             this.pins.push( new Pin.HiddenPin(pin, this) );
         }
 

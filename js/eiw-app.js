@@ -3,11 +3,6 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-//// Typings. 
-/// <reference path="../typings/globals/jquery/index.d.ts" />
-/// <reference path="../typings/globals/slick-carousel/slick-carousel.d.ts" />
-/// <reference path="../typings/globals/jqueryui/index.d.ts" />
-/// <reference path="../typings/globals/jquery.tinyscrollbar/index.d.ts" />
 //// Classes. 
 /// <reference path="eiw-main.ts" />
 //// EDF_IMAP_WEB.Pin
@@ -33,54 +28,54 @@ var EDF_IMAP_WEB;
                 this.$el.addClass('eiw-active');
                 this.main.activePin = this;
                 this.main.$popup.removeClass('eiw-hidden');
-                var _a = this.config, _b = _a.title, title = _b === void 0 ? '' : _b, _c = _a.tags, tags = _c === void 0 ? [] : _c, _d = _a.items, items = _d === void 0 ? [{ src: '', caption: '', content: [''] }] : _d;
+                var _a = this.config, _b = _a.title, title = _b === void 0 ? '' : _b, _c = _a.tags, tags = _c === void 0 ? [] : _c, _d = _a.slides, slides = _d === void 0 ? [{ src: '', caption: '', content: [''] }] : _d;
                 $('.eiw-title', this.main.$wrap).html(title);
                 $('.eiw-tags', this.main.$wrap).html("<tt>" + tags.join('</tt><tt>') + "</tt>");
                 //// Remove the previous carousel slides, and add the new ones.  
                 for (var i = this.main.$carousel.data('eiwCurrentSlideTally'); i > 0; i--) {
                     this.main.$carousel.slick('slickRemove', i - 1);
                 }
-                this.main.$carousel.data('eiwCurrentSlideTally', items.length);
-                if (1 === items.length && !items[0].src) {
+                this.main.$carousel.data('eiwCurrentSlideTally', slides.length);
+                if (1 === slides.length && !slides[0].src) {
                     this.main.$popup.addClass('eiw-carousel-hidden');
                 }
                 else {
                     this.main.$popup.removeClass('eiw-carousel-hidden');
-                    for (var _i = 0, items_1 = items; _i < items_1.length; _i++) {
-                        var item = items_1[_i];
+                    for (var _i = 0, slides_1 = slides; _i < slides_1.length; _i++) {
+                        var slide = slides_1[_i];
                         var media = void 0;
-                        if (!item.src) {
+                        if (!slide.src) {
                             media = '';
                         }
-                        else if ('.mp4' === item.src.substr(-4)) {
-                            media = "<video loop src=\"" + item.src + "\"></video>";
+                        else if ('.mp4' === slide.src.substr(-4)) {
+                            media = "<video loop src=\"" + slide.src + "\"></video>";
                         }
                         else {
-                            media = "<img src=\"" + item.src + "\">";
+                            media = "<img src=\"" + slide.src + "\">";
                         }
                         this.main.$carousel.slick('slickAdd', "<div>" + media + "</div>");
                     }
-                    if (items[0] && '.mp4' === items[0].src.substr(-4)) {
+                    if (slides[0] && '.mp4' === slides[0].src.substr(-4)) {
                         $('[data-slick-index="0"] video', this.main.$carousel)[0]['play']();
                     }
                 }
                 //// Show caption and content for current slide. 
                 this.showSlide(0);
                 // $('.eiw-caption', this.main.$wrap)
-                //    .html(items[0].caption ? `<h4>${items[0].caption}</h4>` : '')
+                //    .html(slides[0].caption ? `<h4>${slides[0].caption}</h4>` : '')
                 // ;
                 // $('.eiw-content', this.main.$wrap)
-                //    .html(items[0].content ? `<p>${items[0].content['join']('</p><p>')}</p>` : '')
+                //    .html(slides[0].content ? `<p>${slides[0].content['join']('</p><p>')}</p>` : '')
                 //    .css('height', this.main.calcContentHeight() - 45 ) // `- 45` allows for padding
                 // ;
             };
             Pin.prototype.showSlide = function (slideIndex) {
-                var item = this.config.items[slideIndex];
-                var src = item.src, caption = item.caption, content = item.content;
+                var slide = this.config.slides[slideIndex];
+                var src = slide.src, caption = slide.caption, content = slide.content;
                 if ('number' == typeof caption)
-                    caption = this.config.items[caption].caption;
+                    caption = this.config.slides[caption].caption;
                 if ('number' == typeof content)
-                    content = this.config.items[content].content;
+                    content = this.config.slides[content].content;
                 this.main.$caption.html(caption ? "<h4>" + caption + "</h4>" : '');
                 this.main.$content.html(content ? "<p>" + content['join']('</p><p>') + "</p>" : '');
                 var contentBottom = this.main.$content.position().top + this.main.$content.outerHeight(true);
@@ -101,8 +96,8 @@ var EDF_IMAP_WEB;
                 this.main.$content.scrollTop(0);
             };
             Pin.prototype.resetGif = function (slideIndex) {
-                var item = this.config.items[slideIndex];
-                var src = item.src, caption = item.caption, content = item.content;
+                var slide = this.config.slides[slideIndex];
+                var src = slide.src, caption = slide.caption, content = slide.content;
                 if ('.gif' === src.substr(-4)) {
                 }
             };

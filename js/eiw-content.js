@@ -51,7 +51,7 @@
       , title: 'HPC Introduction'
       , slug:  '1'
       , tags:  []
-      , items: [
+      , slides: [
             { src: 'assets/1-image_2-718x404.png', caption: 'Site Construction Director’s Welcome', 
               content: [
                   'Welcome to the Hinkley Point C construction site. '
@@ -77,7 +77,7 @@
       , title: 'Reactor buildings'
       , slug:  '2'
       , tags:  ['Power Station']
-      , items: [
+      , slides: [
             { src: 'assets/2-reactor-718x404.gif', caption: '', 
               content: [
                   'Hinkley Point C will comprise of two UK EPRTM reactors each generating 1630MW. HPC will produce almost four times more electricity than Hinkley Point B station’s two reactors.'
@@ -106,7 +106,7 @@
       , title: 'Concrete Batching Plant'
       , slug:  '3'
       , tags:  ['Construction']
-      , items: [
+      , slides: [
             { src: 'assets/3-batching-plant-718x404.gif', caption: '', 
               content: [
                   '3 million tonnes of concrete will be required during the construction of Hinkley Point C - that’s 75 times more concrete than was used to build the Millennium Stadium. '
@@ -128,7 +128,7 @@
       , title: 'Accommodation'
       , slug:  '4'
       , tags:  ['Workforce']
-      , items: [
+      , slides: [
             { src: 'assets/4-accommodation-718x404.gif', caption: 'Hinkley Point C On-Site Accommodation Campus', 
               content: [
                   'During peak construction over 5,600 people will work onsite at any one time. HPC will have an on site 510 bed campus, comprised of 15 accommodation buildings, and housing critical members of the workforce. '
@@ -157,7 +157,7 @@
       , title: 'Temporary Jetty'
       , slug:  '5'
       , tags:  ['Logistics']
-      , items: [
+      , slides: [
             { src: 'assets/5-jetty-718x404.gif', caption: 'Artist’s impression of jetty', 
               content: [
                   'In order to reduce the number of vehicles on the roads, and associated C02 emissions,  will receive at least 80% of construction aggregates will arrive by sea - an estimated 2.8 million tonnes. The Jetty development will be used to bring these bulk materials to site. '
@@ -187,7 +187,7 @@
       , title: 'Northern Plaza'
       , slug:  '6'
       , tags:  ['Logistics']
-      , items: [
+      , slides: [
             { src: 'assets/6-image_1-718x404.png', caption: 'Hinkley Point C’s interim bus service', 
               content: [
                   'During peak construction 5,600 people will work on site at Hinkley Point C at any one time. '
@@ -204,7 +204,7 @@
       , title: 'Green Lane'
       , slug:  '7'
       , tags:  ['Geographical Features']
-      , items: [
+      , slides: [
             { src: 'assets/7-green-lane-718x404.gif', caption: '', 
               content: [
                   'Green Lane is an ancient right of way. It will remain protected during construction and public access will be returned when Hinkley Point C is operational. '
@@ -223,7 +223,7 @@
       , title: 'Concrete process trial'
       , slug:  '8'
       , tags:  ['Construction']
-      , items: [
+      , slides: [
             { src: 'assets/8-concrete-trials-718x404.gif', caption: '', 
               content: [
                   'In order to trial the processes and procedures used for concrete manufacture and construction, a mock up was created following the same techniques and materials that will be used in main construction. '
@@ -245,7 +245,7 @@
       , title: 'Holford Valley'
       , slug:  '9'
       , tags:  ['Geographical Features']
-      , items: [
+      , slides: [
             { src: 'assets/9-image_1-718x404.jpg', caption: 'Holford culvert under construction', 
               content: [
                   'Over 4 million cubic metres of materials will be excavated as part of the build - which would fill 1,300 Olympic sized swimming pools. '
@@ -271,7 +271,7 @@
       , title: 'Southern Plaza'
       , slug:  '10'
       , tags:  ['Logistics']
-      , items: [
+      , slides: [
             { src: 'assets/10-pc3000-arriving-718x404.gif', caption: 'Large plant will arrive here throughout the build', 
               content: [
                   'The Southern Plaza plays a key role in efficient site logistics to minimise impact on the local road network. Using a computerised Delivery Management System, the Plaza will manage up to 375 HGVs each day. '
@@ -294,7 +294,7 @@
       , title: 'Water Intake and Outfall Tunnels'
       , slug:  'a'
       , tags:  ['Power Station']
-      , items: [
+      , slides: [
             { src: 'assets/a-image_1-718x404.png', caption: '', 
               content: [
                   'Nuclear power stations require large volumes of water for cooling. The water intake and outfall tunnels ensure that a separate and continuous supply of sea water is taken and returned to the sea. '
@@ -328,7 +328,7 @@
       , title: 'Steep Holm and Flat Holm'
       , slug:  'bc'
       , tags:  ['Geographical Features']
-      , items: [
+      , slides: [
             { src: '', caption: '', 
               content: [
                   'Flat Holm is the smaller island with the lighthouse. Steep Holm the larger steeper island and is a nature reserve and home to the remains of a 12th century Augustinian priory. '
@@ -343,7 +343,7 @@
       , title: 'HPB Caisson'
       , slug:  'd'
       , tags:  ['Geographical Features']
-      , items: [
+      , slides: [
             { src: '', caption: '', 
               content: [
                   'The ‘tower’ further down the coast close to shore, near Hinkley Point B is its cold water intake known as a Caisson.'
@@ -358,7 +358,7 @@
       , title: 'Tree planting'
       , slug:  'e'
       , tags:  ['Site History &amp; Ecology']
-      , items: [
+      , slides: [
             { src: 'assets/e-image_1-718x404.jpg', caption: '', 
               content: [
                   'Over 20,000 trees have been planted to help provide a natural screen to construction activities for our neighbours in the nearby hamlet of Shurton.'
@@ -373,7 +373,7 @@
       , title: 'Archaeology'
       , slug:  'f'
       , tags:  ['Site History &amp; Ecology']
-      , items: [
+      , slides: [
             { src: 'assets/f-image_1-718x404.jpg', caption: '', 
               content: [
                   'Several large area excavations have been carried out at the Hinkley Point C site. The first seven-month archaeological excavations began in March 2012. Further excavations took place in the summer of 2014. '
@@ -406,7 +406,7 @@
       , title: 'Old barn'
       , slug:  'g'
       , tags:  ['Site History &amp; Ecology']
-      , items: [
+      , slides: [
             { src: 'assets/g-image_1-718x404.jpg', caption: '', 
               content: [
                   'An old barn just outside the construction fence. There were previously four old barns on the construction site. They have been removed and the old fashioned stone used in restoration. They have been replaced by a new bat house.'
@@ -421,7 +421,7 @@
       , title: 'Water Management'
       , slug:  'h'
       , tags:  ['Site History &amp; Ecology']
-      , items: [
+      , slides: [
             { src: 'assets/h-water-management-718x404.gif', caption: 'Hinkley Point C Water Management Zones', 
               content: [
                   'Large ponds have been created on the construction site to hold rainwater run-off. Importantly they allow sediment to settle before water is released to sea or streams.'
@@ -443,7 +443,7 @@
       , title: 'Emergency Access Road'
       , slug:  'i'
       , tags:  ['Logistics']
-      , items: [
+      , slides: [
             { src: 'assets/i-image_1-718x404.jpg', caption: 'Illustrative view of emergency access road', 
               content: [
                   'The emergency access gate will be available for emergency services if the main entrances to site become inaccessible. It is a legal requirement for all new nuclear power stations to have two access roads .'
@@ -458,7 +458,7 @@
       , title: 'Materials Stockpile'
       , slug:  'j'
       , tags:  ['Construction']
-      , items: [
+      , slides: [
             { src: 'assets/j-transporting-materials-to-holford-valley-718x404.gif', caption: 'Transferring material into Holford Valley', 
               content: [
                   'Various types of material which have been excavated from the site are segregated here. The soil will be reused for landscaping and backfill.'
@@ -483,7 +483,7 @@
       , title: 'Southern Landscaping'
       , slug:  'k'
       , tags:  ['Geographical Features', 'Site History &amp; Ecology']
-      , items: [
+      , slides: [
             { src: '', caption: '', 
               content: [
                   'Landscaping is due to occur outside the current perimeter fence at the south of the site. This will provide a screen to mitigate against visual and audible impacts of construction. '
@@ -499,7 +499,7 @@
       , title: 'Perimeter fence'
       , slug:  'l'
       , tags:  ['Geographical Features']
-      , items: [
+      , slides: [
             { src: '', caption: '', 
               content: [
                   'Hinkley Point C is a nuclear licensed site and security is a priority. The perimeter fence is part of site security arrangements and is approximately 6.5 km long.'
@@ -514,7 +514,7 @@
       , title: 'Doggett’s Farm'
       , slug:  'm'
       , tags:  ['Geographical Features']
-      , items: [
+      , slides: [
             { src: '', caption: '', 
               content: [
                   'Doggett’s Farm is the closest property to the construction site. A noise insulation scheme offers double glazed windows to houses most likely to be affected by construction and transport noise. A property price support scheme exists for homes close to the construction site.'
@@ -529,7 +529,7 @@
       , title: 'Wick Barrow / Pixies Mound'
       , slug:  'n'
       , tags:  ['Geographical Features', 'Site History &amp; Ecology']
-      , items: [
+      , slides: [
             { src: '', caption: '', 
               content: [
                   'Wick Barrow is a rare example of a Neolithic round barrow, dating from about 6,000 years ago.  It measures about 25 metres in diameter and 1.5 metres high.  A barrow is a name given to a structure for burying the dead. '
@@ -546,7 +546,7 @@
       , title: 'Plant Equipment'
       , slug:  'p'
       , tags:  ['Construction']
-      , items: [
+      , slides: [
             { src: 'assets/p-pc30000-in-operation-718x404.gif', caption: '', 
               content: [
                   'PC3000 at work'
@@ -561,7 +561,7 @@
       , title: 'Illustrative view of sea wall'
       , slug:  'q'
       , tags:  []
-      , items: [
+      , slides: [
             { src: 'assets/q-image_1-718x404.jpg', caption: 'Illustrative view of sea wall', 
               content: [
                   'A sea wall will be constructed to protect against natural hazards that have a frequency of less than one in 10,000 years and includes tides, storm surges and tsunami as isolated or in-combination events. '
@@ -578,7 +578,7 @@
       , title: 'Ecology'
       , slug:  'r'
       , tags:  ['Site History &amp; Ecology']
-      , items: [
+      , slides: [
             { src: 'assets/r-image_1-718x404.jpg', caption: 'Illustrative view of restored landscape', 
               content: [
                   'Over 20,000 trees have been planted to provide a screen to construction activities for local villages.'
@@ -606,34 +606,6 @@
         ]
     });
 
-    // app.addLightbulbPin({
-    //     x: 111
-    //   , y: 450
-    //   , title: 'xx'
-    //   , slug:  's'
-    //   , tags:  ['Power Station', 'Workforce']
-    //   , items: [
-    //         { src: 'assets/test-1-288x360.jpg', caption: 'xx', 
-    //           content: [
-    //               'xx'
-    //             , 'xx'
-    //           ]
-    //         }
-    //       , { src: 'assets/test-2-288x360.jpg', caption: 'xx', 
-    //           content: [
-    //               'xx'
-    //             , 'xx'
-    //           ]
-    //         }
-    //       , { src: 'assets/test-3-288x360.jpg', caption: 'xx', 
-    //           content: [
-    //               'xx'
-    //             , 'xx'
-    //           ]
-    //         }
-    //     ]
-    // });
-
 
     //// Add the Hidden Pins. 
     app.addHiddenPin({
@@ -643,7 +615,7 @@
       , slug:  'xtra-1'
       , isXtra: true
       , tags:  []
-      , items: [
+      , slides: [
             { src: 'assets/xtra-1-image_1-718x404.jpg', caption: 'Project construction timescale', 
               content: [
                   'The initial programme of site activity focuses on earth excavation. Over 4 million cubic metres of earth will be dug from the north of the site creating excavations large enough to host the power station’s two reactors. '
@@ -667,7 +639,7 @@
       , slug:  'xtra-2'
       , isXtra: true
       , tags:  []
-      , items: [
+      , slides: [
             { src: 'assets/xtra-2-image_1-718x404.jpg', caption: 'Hinkley Point C’s Associated Developments ', 
               content: [
                   'A number of off site facilities are required during construction for both our workforce and to ensure efficient logistics. '
@@ -685,7 +657,7 @@
       , slug:  'xtra-3'
       , isXtra: true
       , tags:  []
-      , items: [
+      , slides: [
             { src: 'assets/xtra-3-image_1-718x404.jpg', caption: 'Hinkley Point C staff volunteering at a local school', 
               content: [
                   'The Hinkley Point C project is one of the first major projects to invest so much at an early stage in local schools, colleges and training. EDF Energy is fully committed to Somerset people benefitting from the skills and employment opportunities the project will bring. '
@@ -705,7 +677,7 @@
       , title: 'On site temporary accommodation'
       , slug:  's'
       , tags:  ['Workforce']
-      , items: [
+      , slides: [
             { src: '', caption: '', 
               content: [
                   'It is anticipated that over 50,000 square meters of welfare accommodation will be required during construction. '
