@@ -1,11 +1,8 @@
 {
   "name": "edf-imap-web",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "The HTML5 port of the EDF Interactive Map Viewer",
   "main": "js/edf-imap-web.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MakemediaLtd/EDF-imap-web.git"
@@ -18,6 +15,7 @@
   "author": "Rich Plastow <rich@richplastow.com> (http://richplastow.com/)",
   "license": "CUSTOM",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc -w js/*.ts --outFile js/eiw-app.js"
   }
 }

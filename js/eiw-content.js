@@ -327,36 +327,6 @@
     });
 
     app.addLightbulbPin({
-        x: 2302
-      , y: 508
-      , title: 'Steep Holm and Flat Holm'
-      , slug:  'bc'
-      , tags:  ['Geographical Features']
-      , slides: [
-            { src: '', caption: '', 
-              content: [
-                  'Flat Holm is the smaller island with the lighthouse. Steep Holm the larger steeper island and is a nature reserve and home to the remains of a 12th century Augustinian priory. '
-              ]
-            }
-        ]
-    });
-
-    app.addLightbulbPin({
-        x: 2794
-      , y: 484
-      , title: 'HPB Caisson'
-      , slug:  'd'
-      , tags:  ['Geographical Features']
-      , slides: [
-            { src: '', caption: '', 
-              content: [
-                  'The ‘tower’ further down the coast close to shore, near Hinkley Point B is its cold water intake known as a Caisson.'
-              ]
-            }
-        ]
-    });
-
-    app.addLightbulbPin({
         x: 504
       , y: 1584
       , title: 'Tree planting'
@@ -399,21 +369,6 @@
               content: [
                   'A number of flint tools dating from the Neolithic and Bronze Age periods'
                 , 'Two parallel ditches dug from east to west, used to divide land in the Bronze Age'
-              ]
-            }
-        ]
-    });
-
-    app.addLightbulbPin({
-        x: 870
-      , y: 3100
-      , title: 'Old barn'
-      , slug:  'g'
-      , tags:  ['Site History &amp; Ecology']
-      , slides: [
-            { src: 'assets/g-image_1-718x404.jpg', caption: '', 
-              content: [
-                  'An old barn just outside the construction fence. There were previously four old barns on the construction site. They have been removed and the old fashioned stone used in restoration. They have been replaced by a new bat house.'
               ]
             }
         ]
@@ -507,21 +462,6 @@
             { src: '', caption: '', 
               content: [
                   'Hinkley Point C is a nuclear licensed site and security is a priority. The perimeter fence is part of site security arrangements and is approximately 6.5 km long.'
-              ]
-            }
-        ]
-    });
-
-    app.addLightbulbPin({
-        x: 3077
-      , y: 4185
-      , title: 'Doggett’s Farm'
-      , slug:  'm'
-      , tags:  ['Geographical Features']
-      , slides: [
-            { src: '', caption: '', 
-              content: [
-                  'Doggett’s Farm is the closest property to the construction site. A noise insulation scheme offers double glazed windows to houses most likely to be affected by construction and transport noise. A property price support scheme exists for homes close to the construction site.'
               ]
             }
         ]
