@@ -41,31 +41,31 @@
 
 
     //// Add the Numbered Pins. 
-    app.addNumberedPin({
-        x: 2957
-      , y: 1644
-      , title: 'HPC Introduction'
-      , slug:  '1'
-      , tags:  []
-      , slides: [
-            { src: 'assets/1-image_2-718x404.png', caption: 'Site Construction Director’s Welcome', 
-              content: [
-                  'Welcome to the Hinkley Point C construction site. '
-                , 'Hinkley Point C will restart nuclear construction in the UK. It will be the first nuclear power station to be built in the UK for 25 years, the first in a generation.'
-                , 'Safety is our number one priority. Please listen carefully to your host regarding the risks present on our construction site. If you have any concerns please tell us. '
-              ]
-            }
-          , { src: 'assets/1-edf-hpc-animation-v3-718x404.gif', caption: '', //@todo add this movie
-              content: [
-                  'Hinkley Point C will host two nuclear reactors capable of producing enough low carbon electricity to power around 5 million homes'
-                , 'Will offset the emission of 10 million tonnes of CO2 a year.'
-                , 'Will be capable of generating 7% of the UK’s electricity'
-                , 'Will provide 25,000 different job opportunities during construction, with  5,600 people on site at the peak'
-                , 'The site is approximately 175 hectares in size, equal to 245 football pitches'
-              ]
-            }
-        ]
-    });
+    // app.addNumberedPin({
+    //     x: 2957
+    //   , y: 1644
+    //   , title: 'HPC Introduction'
+    //   , slug:  '1'
+    //   , tags:  []
+    //   , slides: [
+    //         { src: 'assets/1-image_2-718x404.png', caption: 'Site Construction Director’s Welcome', 
+    //           content: [
+    //               'Welcome to the Hinkley Point C construction site. '
+    //             , 'Hinkley Point C will restart nuclear construction in the UK. It will be the first nuclear power station to be built in the UK for 25 years, the first in a generation.'
+    //             , 'Safety is our number one priority. Please listen carefully to your host regarding the risks present on our construction site. If you have any concerns please tell us. '
+    //           ]
+    //         }
+    //       , { src: 'assets/1-edf-hpc-animation-v3-718x404.gif', caption: '', //@todo add this movie
+    //           content: [
+    //               'Hinkley Point C will host two nuclear reactors capable of producing enough low carbon electricity to power around 5 million homes'
+    //             , 'Will offset the emission of 10 million tonnes of CO2 a year.'
+    //             , 'Will be capable of generating 7% of the UK’s electricity'
+    //             , 'Will provide 25,000 different job opportunities during construction, with  5,600 people on site at the peak'
+    //             , 'The site is approximately 175 hectares in size, equal to 245 football pitches'
+    //           ]
+    //         }
+    //     ]
+    // });
 
     app.addNumberedPin({
         x: 2179
