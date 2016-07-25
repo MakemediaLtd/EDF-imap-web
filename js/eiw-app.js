@@ -86,7 +86,7 @@ var EDF_IMAP_WEB;
                 this.main.$caption.html(caption ? "<h4>" + caption + "</h4>" : '');
                 this.main.$content.html(content ? "<p>" + content['join']('</p><p>') + "</p>" : '');
                 var contentBottom = this.main.$content.position().top + this.main.$content.outerHeight(true);
-                var gap = $(window).innerHeight() - contentBottom; // was `this.main.$footer.position().top - contentBottom;`
+                var gap = $(window).innerHeight() - contentBottom; // was `this.main.$sidebar.position().top - contentBottom;`
                 if (50 > gap) {
                     var currHeight = this.main.$content.height();
                     this.main.$content.height(currHeight - 50 + gap);
@@ -94,7 +94,7 @@ var EDF_IMAP_WEB;
                 else {
                     this.main.$content.height('auto');
                     contentBottom = this.main.$content.position().top + this.main.$content.outerHeight(true);
-                    gap = $(window).innerHeight() - contentBottom; // was `this.main.$footer.position().top - contentBottom;`
+                    gap = $(window).innerHeight() - contentBottom; // was `this.main.$sidebar.position().top - contentBottom;`
                     if (50 > gap) {
                         var currHeight = this.main.$content.height();
                         this.main.$content.height(currHeight - 50 + gap);
@@ -197,17 +197,20 @@ var EDF_IMAP_WEB;
                 var innerWidth = $(window).innerWidth();
                 var innerHeight = $(window).innerHeight();
                 var bkgndsWidth = innerHeight / aspectRatio;
-                this.$footer.css({
+                bkgndsWidth = Math.max(bkgndsWidth, innerWidth * 0.7);
+                bkgndsWidth = Math.min(bkgndsWidth, innerWidth - 120);
+                this.$sidebar.css({
                     width: innerWidth - bkgndsWidth + 2 // `+ 2` allows a little overlap
                 });
                 this.$bkgnds.css({
                     height: innerHeight,
                     width: bkgndsWidth
                 });
+                this.$rtn2map.css('left', innerWidth - bkgndsWidth);
             };
             Main.prototype.updatePins = function () {
                 var _a = this.$bkgndAImg.position(), top = _a.top, left = _a.left;
-                left += this.$bkgndA.position().left;
+                var containerLeft = this.$bkgndA.position().left;
                 var width = this.$bkgndAImg.width();
                 var height = this.$bkgndAImg.height();
                 // let headerRt = Math.max(4, $(window).width() - (left + width - 4) );
@@ -232,7 +235,7 @@ var EDF_IMAP_WEB;
                 });
                 for (var _i = 0, _b = this.pins; _i < _b.length; _i++) {
                     var pin = _b[_i];
-                    pin.updateInfoPoint(top, left, zoom);
+                    pin.updateInfoPoint(top, left + this.$bkgndA.position().left, zoom);
                 }
             };
             Main.prototype.hideAll = function (except) {
@@ -241,11 +244,11 @@ var EDF_IMAP_WEB;
                     pin.deactivate();
                 }
                 if ('tagmenu' !== except) {
-                    $('.eiw-tagmenu', this.$wrap).addClass('eiw-hidden');
+                    this.$tagmenu.addClass('eiw-min').height(0);
                     $('.eiw-tagmenu-toggle', this.$wrap).removeClass('eiw-active');
                 }
                 if ('xtramenu' !== except) {
-                    $('.eiw-xtramenu', this.$wrap).addClass('eiw-hidden');
+                    this.$xtramenu.addClass('eiw-min').height(0);
                     $('.eiw-xtramenu-toggle', this.$wrap).removeClass('eiw-active');
                 }
                 this.$popup.addClass('eiw-hidden');
@@ -269,22 +272,41 @@ var EDF_IMAP_WEB;
                 });
                 //// Render the header. 
                 this.$wrap.append("\n                <div class=\"eiw-header-a\">" + this.config.header.titleA + "</div>\n                <div class=\"eiw-header-b\">" + this.config.header.titleB + "</div>\n                <div class=\"eiw-rtn2map\"><span class=\"eiw-dismiss\">X</span><div>" + this.config.header.rtn2Map + "</div></div>\n            ");
-                $('.eiw-rtn2map', this.$wrap).click(function () {
-                    $('.eiw-changeview', _this.$wrap).click();
-                });
+                this.$rtn2map = $('.eiw-rtn2map', this.$wrap);
                 this.$headerA = $('.eiw-header-a', this.$wrap);
                 this.$headerB = $('.eiw-header-b', this.$wrap);
-                //// Render the footer. 
-                this.$wrap.append("\n                <div class=\"eiw-footer\">\n                  <div class=\"eiw-tagmenu-toggle\"><span>\n                    <span class=\"eiw-icon\">\n                      <img class=\"eiw-default\" src=\"assets/icon-burger-tow-130x130.png\">\n                      <img class=\"eiw-hover\"   src=\"assets/icon-burger-wot-130x130.png\">\n                    </span>\n                    <span class=\"eiw-text\">\n                      " + this.config.tagmenu.title + "\n                    </span>\n                  </span></div>\n                  <div class=\"eiw-xtramenu-toggle\"><span>\n                    <span class=\"eiw-text\">\n                      " + this.config.xtramenu.title + "\n                    </span>\n                    <span class=\"eiw-icon\">\n                      <img class=\"eiw-hover\"   src=\"assets/icon-burger-wot-130x130.png\">\n                      <img class=\"eiw-default\" src=\"assets/icon-burger-tow-130x130.png\">\n                    </span>\n                  </span></div>\n                  <div class=\"eiw-changeview\">\n                    <img src=\"assets/icon-changeview-wot-130x130.png\">\n                    " + this.config.changeview.title + "\n                  </div>\n                  <div class=\"eiw-gps\">\n                    " + '' + "\n                    " + this.config.gps.title + "\n                  </div>\n                  <div class=\"eiw-instructions\">\n                    <img class=\"eiw-icon-pin\" src=\"assets/icon-numbered.png\">\n                    <span class=\"eiw-text\">" + this.config.instructions.title + "</span>\n                    <img class=\"eiw-icon-logo\" src=\"assets/icon-logo-212x192.png\">\n                  </div>\n                </div>\n            ");
-                this.$footer = $('.eiw-footer');
-                $('.eiw-tagmenu-toggle', this.$wrap).click(function () {
+                this.$rtn2map.click(function () {
+                    $('.eiw-changeview', _this.$wrap).click();
+                });
+                //// Render the sidebar. 
+                this.$wrap.append("\n                <div class=\"eiw-sidebar\">\n                  <div>\n                    <div class=\"eiw-tagmenu-toggle\">\n                      <div class=\"eiw-button\">\n                        <span>\n                          <span class=\"eiw-icon\">\n                            <img class=\"eiw-default\" src=\"assets/icon-burger-tow-130x130.png\">\n                            <img class=\"eiw-hover\"   src=\"assets/icon-burger-wot-130x130.png\">\n                          </span>\n                          <span class=\"eiw-text\">\n                            " + this.config.tagmenu.title + "\n                          </span>\n                        </span>\n                      </div>\n                    </div>\n                  </div>\n                  <div>\n                    <div class=\"eiw-xtramenu-toggle\">\n                      <div class=\"eiw-button\">\n                        <span>\n                          <span class=\"eiw-icon\">\n                            <img class=\"eiw-default\" src=\"assets/icon-burger-tow-130x130.png\">\n                            <img class=\"eiw-hover\"   src=\"assets/icon-burger-wot-130x130.png\">\n                          </span>\n                          <span class=\"eiw-text\">\n                            " + this.config.xtramenu.title + "\n                          </span>\n                        </span>\n                      </div>\n                    </div>\n                  </div>\n                  <div>\n                    <div class=\"eiw-changeview\">\n                      <div>\n                        <img src=\"assets/icon-changeview-wot-130x130.png\">\n                        " + this.config.changeview.title + "\n                      </div>\n                    </div>\n                  </div>\n                  <div>\n                    <div class=\"eiw-instructions\">\n                      <div>\n                        <img class=\"eiw-icon-pin\" src=\"assets/icon-numbered.png\">\n                        <span class=\"eiw-text\">" + this.config.instructions.title + "</span>\n                        <div class=\"eiw-icon-logo\"><img src=\"assets/icon-logo-212x192.png\"></div>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n            ");
+                this.$sidebar = $('.eiw-sidebar');
+                $('.eiw-tagmenu-toggle .eiw-button', this.$wrap).click(function () {
                     _this.hideAll('tagmenu');
-                    $('.eiw-tagmenu', _this.$wrap).toggleClass('eiw-hidden');
+                    if (_this.$tagmenu.hasClass('eiw-min')) {
+                        _this.$tagmenu
+                            .removeClass('eiw-min')
+                            .css('height', $('> div', _this.$tagmenu).height());
+                    }
+                    else {
+                        _this.$tagmenu
+                            .addClass('eiw-min')
+                            .css('height', 0);
+                    }
                     $('.eiw-tagmenu-toggle', _this.$wrap).toggleClass('eiw-active');
                 });
-                $('.eiw-xtramenu-toggle', this.$wrap).click(function () {
+                $('.eiw-xtramenu-toggle .eiw-button', this.$wrap).click(function () {
                     _this.hideAll('xtramenu');
-                    $('.eiw-xtramenu', _this.$wrap).toggleClass('eiw-hidden');
+                    if (_this.$xtramenu.hasClass('eiw-min')) {
+                        _this.$xtramenu
+                            .removeClass('eiw-min')
+                            .css('height', $('> div', _this.$xtramenu).height());
+                    }
+                    else {
+                        _this.$xtramenu
+                            .addClass('eiw-min')
+                            .css('height', 0);
+                    }
                     $('.eiw-xtramenu-toggle', _this.$wrap).toggleClass('eiw-active');
                 });
                 $('.eiw-changeview', this.$wrap).click(function () {
@@ -370,7 +392,7 @@ var EDF_IMAP_WEB;
                         tags[tag].push($accordionLink);
                     }
                 }
-                this.$tagmenu = $("\n                <div class=\"eiw-tagmenu eiw-hidden\">\n                  <div class=\"eiw-icon-logo\"><img src=\"assets/icon-logo-212x192.png\"></div>\n                  <h3>" + this.config.tagmenu.heading + "</h3>\n                </div>\n            ");
+                this.$tagmenu = $("\n                <div class=\"eiw-tagmenu eiw-min\">\n                  <h3>" + this.config.tagmenu.heading + "</h3>\n                </div>\n            ");
                 var $accordionContent = $("\n                <div>\n                  <h4 class=\"eiw-accordion-fix\"></h4>\n                  <ul class=\"eiw-accordion-fix\"></ul>\n                </div>\n            ");
                 this.$tagmenu.append($accordionContent);
                 for (var tag in tags) {
@@ -382,7 +404,7 @@ var EDF_IMAP_WEB;
                     }
                     $accordionContent.append($accordionSection);
                 }
-                this.$wrap.append(this.$tagmenu);
+                $('.eiw-tagmenu-toggle', this.$wrap).append(this.$tagmenu);
                 this.$tagmenu.accordion({
                     header: 'h4',
                     create: function (event, ui) { }
@@ -392,16 +414,16 @@ var EDF_IMAP_WEB;
                     $(evt.target).data('eiwPinInstance').activate();
                 });
                 //// Render the xtramenu (initially hidden).
-                this.$xtramenu = $("\n                <div class=\"eiw-xtramenu eiw-hidden\">\n                  <div class=\"eiw-icon-logo\"><img src=\"assets/icon-logo-212x192.png\"></div>\n                  <h3>" + this.config.xtramenu.heading + "</h3>\n                </div>\n            ");
+                this.$xtramenu = $("\n                <div class=\"eiw-xtramenu eiw-min\">\n                  <div>\n                    <h3>" + this.config.xtramenu.heading + "</h3>\n                  </div>\n                </div>\n            ");
                 for (var _h = 0, _j = this.pins; _h < _j.length; _h++) {
                     var pin = _j[_h];
                     if (!pin.config.isXtra)
                         continue;
                     var $xtraLink = $("<h4>" + pin.config.title + "</h4>");
                     $xtraLink.data('eiwPinInstance', pin);
-                    this.$xtramenu.append($xtraLink);
+                    $('> div', this.$xtramenu).append($xtraLink);
                 }
-                this.$wrap.append(this.$xtramenu);
+                $('.eiw-xtramenu-toggle', this.$wrap).append(this.$xtramenu);
                 $('h4', this.$xtramenu).click(function (evt) {
                     _this.hideAll();
                     $(evt.target).data('eiwPinInstance').activate();

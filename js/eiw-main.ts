@@ -37,9 +37,6 @@ namespace EDF_IMAP_WEB { export namespace Main {
         changeview: {
             title:   string;
         }
-        gps: {
-            title:   string;
-        }
         instructions: {
             title:   string;
         }
@@ -59,13 +56,14 @@ namespace EDF_IMAP_WEB { export namespace Main {
         $bkgnds:          JQuery;
         $bkgndAImg:       JQuery;
         $bkgndBImg:       JQuery;
+        $rtn2map:         JQuery;
         $popup:           JQuery;
         $carousel:        JQuery;
         $caption:         JQuery;
         $content:         JQuery;
         $tagmenu:         JQuery;
         $xtramenu:        JQuery;
-        $footer:          JQuery;
+        $sidebar:          JQuery;
         pins:             Pin.Pin[] = [];
         numberedPinTally: number = 0;
         activePin:        Pin.Pin = null;
@@ -96,18 +94,21 @@ namespace EDF_IMAP_WEB { export namespace Main {
             let innerWidth  = $(window).innerWidth();
             let innerHeight = $(window).innerHeight();
             let bkgndsWidth = innerHeight / aspectRatio;
-            this.$footer.css({
+            bkgndsWidth = Math.max( bkgndsWidth, innerWidth * 0.7 );
+            bkgndsWidth = Math.min( bkgndsWidth, innerWidth - 120 );
+            this.$sidebar.css({
                 width:  innerWidth - bkgndsWidth + 2 // `+ 2` allows a little overlap
             });
             this.$bkgnds.css({
                 height: innerHeight
               , width:  bkgndsWidth
             });
+            this.$rtn2map.css('left', innerWidth - bkgndsWidth);
         }
 
         updatePins () {
             let { top, left } = this.$bkgndAImg.position();
-            left += this.$bkgndA.position().left;
+            let containerLeft = this.$bkgndA.position().left; 
             let width = this.$bkgndAImg.width();
             let height = this.$bkgndAImg.height();
             // let headerRt = Math.max(4, $(window).width() - (left + width - 4) );
@@ -131,18 +132,18 @@ namespace EDF_IMAP_WEB { export namespace Main {
               , height: height
             });
             for (let pin of this.pins) {
-                pin.updateInfoPoint(top, left, zoom);
+                pin.updateInfoPoint(top, left + this.$bkgndA.position().left, zoom);
             }
         }
 
         hideAll (except?:string) {
             for (let pin of this.pins) { pin.deactivate(); }
             if ('tagmenu' !== except) {
-                $('.eiw-tagmenu', this.$wrap).addClass('eiw-hidden');
+                this.$tagmenu.addClass('eiw-min').height(0);
                 $('.eiw-tagmenu-toggle', this.$wrap).removeClass('eiw-active');
             }
             if ('xtramenu' !== except) {
-                $('.eiw-xtramenu', this.$wrap).addClass('eiw-hidden');
+                this.$xtramenu.addClass('eiw-min').height(0);
                 $('.eiw-xtramenu-toggle', this.$wrap).removeClass('eiw-active');
             }
             this.$popup.addClass('eiw-hidden');
@@ -173,57 +174,94 @@ namespace EDF_IMAP_WEB { export namespace Main {
                 <div class="eiw-header-b">${this.config.header.titleB}</div>
                 <div class="eiw-rtn2map"><span class="eiw-dismiss">X</span><div>${this.config.header.rtn2Map}</div></div>
             `);
-            $('.eiw-rtn2map', this.$wrap).click( () => {
-                $('.eiw-changeview', this.$wrap).click();
-            });
+            this.$rtn2map = $('.eiw-rtn2map', this.$wrap); 
             this.$headerA = $('.eiw-header-a', this.$wrap);
             this.$headerB = $('.eiw-header-b', this.$wrap);
+            this.$rtn2map.click( () => {
+                $('.eiw-changeview', this.$wrap).click();
+            });
 
-            //// Render the footer. 
+            //// Render the sidebar. 
             this.$wrap.append(`
-                <div class="eiw-footer">
-                  <div class="eiw-tagmenu-toggle"><span>
-                    <span class="eiw-icon">
-                      <img class="eiw-default" src="assets/icon-burger-tow-130x130.png">
-                      <img class="eiw-hover"   src="assets/icon-burger-wot-130x130.png">
-                    </span>
-                    <span class="eiw-text">
-                      ${this.config.tagmenu.title}
-                    </span>
-                  </span></div>
-                  <div class="eiw-xtramenu-toggle"><span>
-                    <span class="eiw-text">
-                      ${this.config.xtramenu.title}
-                    </span>
-                    <span class="eiw-icon">
-                      <img class="eiw-hover"   src="assets/icon-burger-wot-130x130.png">
-                      <img class="eiw-default" src="assets/icon-burger-tow-130x130.png">
-                    </span>
-                  </span></div>
-                  <div class="eiw-changeview">
-                    <img src="assets/icon-changeview-wot-130x130.png">
-                    ${this.config.changeview.title}
+                <div class="eiw-sidebar">
+                  <div>
+                    <div class="eiw-tagmenu-toggle">
+                      <div class="eiw-button">
+                        <span>
+                          <span class="eiw-icon">
+                            <img class="eiw-default" src="assets/icon-burger-tow-130x130.png">
+                            <img class="eiw-hover"   src="assets/icon-burger-wot-130x130.png">
+                          </span>
+                          <span class="eiw-text">
+                            ${this.config.tagmenu.title}
+                          </span>
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                  <div class="eiw-gps">
-                    ${/*<img src="assets/icon-gps-wot-130x130.png">*/''}
-                    ${this.config.gps.title}
+                  <div>
+                    <div class="eiw-xtramenu-toggle">
+                      <div class="eiw-button">
+                        <span>
+                          <span class="eiw-icon">
+                            <img class="eiw-default" src="assets/icon-burger-tow-130x130.png">
+                            <img class="eiw-hover"   src="assets/icon-burger-wot-130x130.png">
+                          </span>
+                          <span class="eiw-text">
+                            ${this.config.xtramenu.title}
+                          </span>
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                  <div class="eiw-instructions">
-                    <img class="eiw-icon-pin" src="assets/icon-numbered.png">
-                    <span class="eiw-text">${this.config.instructions.title}</span>
-                    <img class="eiw-icon-logo" src="assets/icon-logo-212x192.png">
+                  <div>
+                    <div class="eiw-changeview">
+                      <div>
+                        <img src="assets/icon-changeview-wot-130x130.png">
+                        ${this.config.changeview.title}
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="eiw-instructions">
+                      <div>
+                        <img class="eiw-icon-pin" src="assets/icon-numbered.png">
+                        <span class="eiw-text">${this.config.instructions.title}</span>
+                        <div class="eiw-icon-logo"><img src="assets/icon-logo-212x192.png"></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
             `);
-            this.$footer = $('.eiw-footer');
-            $('.eiw-tagmenu-toggle', this.$wrap).click( () => {
+            this.$sidebar = $('.eiw-sidebar');
+            $('.eiw-tagmenu-toggle .eiw-button', this.$wrap).click( () => {
                 this.hideAll('tagmenu');
-                $('.eiw-tagmenu', this.$wrap).toggleClass('eiw-hidden');
+                if ( this.$tagmenu.hasClass('eiw-min') ) {
+                    this.$tagmenu
+                       .removeClass('eiw-min')
+                       .css( 'height', $('> div', this.$tagmenu).height() )
+                    ;
+                } else {
+                    this.$tagmenu
+                       .addClass('eiw-min')
+                       .css('height', 0)
+                    ;
+                }
                 $('.eiw-tagmenu-toggle', this.$wrap).toggleClass('eiw-active');
             });
-            $('.eiw-xtramenu-toggle', this.$wrap).click( () => {
+            $('.eiw-xtramenu-toggle .eiw-button', this.$wrap).click( () => {
                 this.hideAll('xtramenu');
-                $('.eiw-xtramenu', this.$wrap).toggleClass('eiw-hidden');
+                if ( this.$xtramenu.hasClass('eiw-min') ) {
+                    this.$xtramenu
+                       .removeClass('eiw-min')
+                       .css( 'height', $('> div', this.$xtramenu).height() )
+                    ;
+                } else {
+                    this.$xtramenu
+                       .addClass('eiw-min')
+                       .css('height', 0)
+                    ;
+                }
                 $('.eiw-xtramenu-toggle', this.$wrap).toggleClass('eiw-active');
             });
             $('.eiw-changeview', this.$wrap).click( () => {
@@ -348,8 +386,7 @@ namespace EDF_IMAP_WEB { export namespace Main {
                 }
             }
             this.$tagmenu = $(`
-                <div class="eiw-tagmenu eiw-hidden">
-                  <div class="eiw-icon-logo"><img src="assets/icon-logo-212x192.png"></div>
+                <div class="eiw-tagmenu eiw-min">
                   <h3>${this.config.tagmenu.heading}</h3>
                 </div>
             `);
@@ -368,7 +405,7 @@ namespace EDF_IMAP_WEB { export namespace Main {
                 }
                 $accordionContent.append($accordionSection);
             }
-            this.$wrap.append(this.$tagmenu);
+            $('.eiw-tagmenu-toggle', this.$wrap).append(this.$tagmenu);
             this.$tagmenu.accordion({
                 header: 'h4'
               , create: (event, ui) => { /* @todo something here? */ }
@@ -380,18 +417,19 @@ namespace EDF_IMAP_WEB { export namespace Main {
 
             //// Render the xtramenu (initially hidden).
             this.$xtramenu = $(`
-                <div class="eiw-xtramenu eiw-hidden">
-                  <div class="eiw-icon-logo"><img src="assets/icon-logo-212x192.png"></div>
-                  <h3>${this.config.xtramenu.heading}</h3>
+                <div class="eiw-xtramenu eiw-min">
+                  <div>
+                    <h3>${this.config.xtramenu.heading}</h3>
+                  </div>
                 </div>
             `);
             for (let pin of this.pins) {
                 if (! pin.config.isXtra) continue;
                 let $xtraLink = $(`<h4>${pin.config.title}</h4>`);
                 $xtraLink.data('eiwPinInstance', pin);
-                this.$xtramenu.append($xtraLink);
+                $('> div', this.$xtramenu).append($xtraLink);
             }
-            this.$wrap.append(this.$xtramenu);
+            $('.eiw-xtramenu-toggle', this.$wrap).append(this.$xtramenu);
             $('h4', this.$xtramenu).click( (evt:JQueryMouseEventObject) => {
                 this.hideAll();
                 $(evt.target).data('eiwPinInstance').activate();

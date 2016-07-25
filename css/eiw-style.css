@@ -399,86 +399,6 @@ body {
 }
 
 
-
-/* Common elements in Tagmenu and Xtramenu */
-.eiw-tagmenu,
-.eiw-xtramenu {
-    position: absolute;
-    top: 5em;
-    bottom: 9em;
-    background: #fff;
-    overflow-y: auto;
-    z-index: 4;
-}
-.eiw-tagmenu .eiw-icon-logo,
-.eiw-xtramenu .eiw-icon-logo {
-    margin: 2em 0 1em;
-    text-align: center;
-}
-.eiw-tagmenu .eiw-icon-logo img,
-.eiw-xtramenu .eiw-icon-logo img {
-    width: 8em;
-    height: auto;
-}
-.eiw-tagmenu h3,
-.eiw-xtramenu h3 {
-    font-size: 1.25em;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: normal;
-}
-.eiw-tagmenu h4,
-.eiw-xtramenu h4 {
-    font-size: 1.25em;
-    margin: 0.7em 0;
-    text-transform: uppercase;
-    outline: none!important;
-    cursor: pointer;
-}
-
-
-/* Tagmenu - shown on the left */
-.eiw-tagmenu {
-    padding: 1em 0.5em 0.5em 2em;
-    left: 0;
-    right: 50%;
-    border-left: 1.5em solid #ffa02f;
-}
-.eiw-tagmenu ul {
-    margin: 0;
-    padding-left: 2em;
-}
-.eiw-tagmenu ul li {
-    padding-bottom: 0.3em;
-    height: 0;
-    font-size: 1.25em;
-    color: #ffa02f;
-    cursor: pointer;
-    transition: color 0.5s, height 0.3s;
-}
-.eiw-tagmenu li:hover {
-    color: #09357A;
-}
-.eiw-tagmenu ul.ui-accordion-content-active {
-    height: auto!important;
-}
-.eiw-tagmenu ul.ui-accordion-content-active li {
-    height: auto; /*1.3em;*/
-}
-
-
-/* Xtramenu - shown on the right */
-.eiw-xtramenu {
-    padding: 1em 0.5em 0.5em 1.5em;
-    left: 50%;
-    right: 0;
-    border-right: 1.5em solid #09357A;
-}
-.eiw-xtramenu h4 {
-    margin: 2em 0;
-}
-
-
 /* Background Images */
 
 .eiw-bkgnd-a,
@@ -520,8 +440,9 @@ body {
     z-index: 40;
 }
 .eiw-rtn2map {
-    left: 0.6em;
-    top: 0.4em;
+    left: 200px; /* will be moved to right-edge of sdebar by JavaScript */ 
+    top: 0.5em;
+    margin-left: 0.8em;
     cursor: pointer;
     background: rgba(255,255,255,0.2);
 }
@@ -551,13 +472,13 @@ body {
 .eiw-view-a .eiw-rtn2map  { opacity: 0; }
 
 
-/* Footer */
+/* Sidebar */
 
-.eiw-footer {
+.eiw-sidebar {
     position: absolute;
-    display: none;
+    display: table;
     top: 0;
-    bottom: 0;
+    height: 100%;
     left: 0;
     width: 100px; /* will be changed to the correct width by JavaScript */
     background: #fff;
@@ -565,12 +486,23 @@ body {
     text-transform: uppercase;
     z-index: 30;
 }
-@media (min-height: 500px) {
+.eiw-sidebar > div {
+    display: table-row;
+}
+.eiw-sidebar > div > div {
+    display: table-cell;
+    height: 5em; /* `.eiw-instructions` has height set to `auto` */
+    vertical-align: middle;
+}
+.eiw-sidebar > div > div > div {
+    overflow: hidden;
+}
+/*@media (min-height: 500px) {
     .eiw-tagmenu, 
     .eiw-xtramenu {
         bottom: 10.5em;
     }
-    .eiw-footer {
+    .eiw-sidebar {
         font-size: 80%;
     }
 }
@@ -579,7 +511,7 @@ body {
     .eiw-xtramenu {
         bottom: 12em;
     }
-    .eiw-footer {
+    .eiw-sidebar {
         font-size: 90%;
     }
 }
@@ -588,27 +520,22 @@ body {
     .eiw-xtramenu {
         bottom: 13em;
     }
-    .eiw-footer {
+    .eiw-sidebar {
         font-size: 100%;
     }
-}
-.eiw-footer div {
-    overflow: hidden;
-}
+}*/
 
-.eiw-tagmenu-toggle {
-    height: 5.5em;
-    width: 51%;
+.eiw-tagmenu-toggle > div {
     cursor: pointer;
     background: #ffa02f;
     color: #fff;
 }
-.eiw-tagmenu-toggle > span {
+.eiw-tagmenu-toggle > div > span {
     display: table;
     width: 100%;
     height: 5em;
 }
-.eiw-tagmenu-toggle > span > span {
+.eiw-tagmenu-toggle > div > span > span {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
@@ -630,6 +557,9 @@ body {
     margin-left: -5em;
     opacity: 0;
 }
+.eiw-tagmenu-toggle eiw-text:hover {
+    color: red!important;
+}
 .eiw-tagmenu-toggle:hover      img.eiw-default,
 .eiw-tagmenu-toggle.eiw-active img.eiw-default {
     opacity: 0;
@@ -639,21 +569,17 @@ body {
     opacity: 1;
 }
 
-.eiw-xtramenu-toggle {
-    height: 5.5em;
-    width: 50%;
-    margin-top: -5.5em;
-    margin-left: 50%;
+.eiw-xtramenu-toggle > div {
     background: #09357A;
     color: #fff;
     cursor: pointer;
 }
-.eiw-xtramenu-toggle > span {
+.eiw-xtramenu-toggle > div > span {
     display: table;
     width: 100%;
     height: 5em;
 }
-.eiw-xtramenu-toggle > span > span {
+.eiw-xtramenu-toggle > div > span > span {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
@@ -666,7 +592,7 @@ body {
     width: 5em;
 }
 .eiw-xtramenu-toggle img {
-    float: right;
+    float: left;
     width: 5em;
     height: auto;
     transition: opacity 0.5s;
@@ -684,10 +610,13 @@ body {
     opacity: 1;
 }
 
-.eiw-changeview {
-    height: 8.5em;
+.eiw-changeview > div {
+    position: fixed;
+    right: 0;
+    bottom: 0;
     width: 5em;
-    padding-right: 0.5em;
+    height: 8.5em;
+    padding: 0.2em 0.5em 0.5em;
     margin-top: -0.5em;
     text-align: center;
     background: #ffa02f;
@@ -695,7 +624,7 @@ body {
     cursor: pointer;
     transition: background-color 0.5s;
 }
-.eiw-changeview:hover {
+.eiw-changeview > div:hover {
     background: #09357A;
 }
 .eiw-changeview img {
@@ -703,28 +632,13 @@ body {
     height: auto;
 }
 
-.eiw-gps {
-    position: absolute;
-    height: 8.5em;
-    width: 5em;
-    padding-left: 0.5em;
-    right: 0;
-    margin-top: -8.5em;
-    text-align: center;
-    color: #fff;
-    background: #09357A;
-}
-.eiw-gps img {
-    width: 5em;
-    height: auto;
+.eiw-sidebar > div > div.eiw-instructions {
+    height: auto; /* override height `1px` */
+    vertical-align: bottom;
+    padding-bottom: 2em;
 }
 
-.eiw-instructions {
-    position: absolute;
-    height: 8.5em;
-    left: 5em;
-    right: 5em;
-    margin-top: -8.5em;
+.eiw-instructions > div {
     padding-top: 1em;
     text-align: center;
     background: #fff;
@@ -734,10 +648,12 @@ body {
     width: 2em;
     height: auto;
 }
-.eiw-instructions img.eiw-icon-logo {
-    width: 3em;
+.eiw-instructions .eiw-icon-logo {
+    display: block;
+}
+.eiw-instructions .eiw-icon-logo img {
+    width: 6em;
     height: auto;
-    padding-left: 1em;
 }
 .eiw-instructions .eiw-text {
     display: inline-block;
@@ -745,7 +661,7 @@ body {
     padding: 1em;
     font-size: 1.3em;
 }
-@media (max-width: 400px) and (max-height: 500px), (min-width: 1372px) and (min-height: 700px) {
+/*@media (max-width: 400px) and (max-height: 500px), (min-width: 1372px) and (min-height: 700px) {
     .eiw-instructions img.eiw-icon-pin {
         width: 2.2em;
     }
@@ -769,4 +685,94 @@ body {
         font-size: 1.6em;
     }
 }
+*/
 
+
+
+/* Common elements in Tagmenu and Xtramenu */
+.eiw-tagmenu,
+.eiw-xtramenu {
+    background: #fff!important;
+    overflow-y: auto;
+    height: 100px; /* will be set by JavaScript when un-minimized */
+    transition: height 0.5s; 
+}
+.eiw-tagmenu.eiw-min,
+.eiw-xtramenu.eiw-min {
+    height: 0px;
+    overflow: hidden;
+}
+.eiw-tagmenu > div,
+.eiw-xtramenu > div {
+    padding: 1em 0;
+}
+.eiw-tagmenu .eiw-icon-logo,
+.eiw-xtramenu .eiw-icon-logo {
+    margin: 2em 0 1em;
+    text-align: center;
+}
+.eiw-tagmenu .eiw-icon-logo img,
+.eiw-xtramenu .eiw-icon-logo img {
+    width: 8em;
+    height: auto;
+}
+.eiw-tagmenu h3,
+.eiw-xtramenu h3 {
+    margin-top: 0;
+    font-size: 1.25em;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: normal;
+    color: #09357A;
+}
+.eiw-tagmenu h4,
+.eiw-xtramenu h4 {
+    font-size: 1.25em;
+    margin: 0.7em 0;
+    text-transform: uppercase;
+    outline: none!important;
+    cursor: pointer;
+    color: #09357A;
+}
+
+
+/* Tagmenu */
+.eiw-tagmenu {
+    padding: 0 0.5em 0 2em;
+    left: 0;
+    right: 50%;
+    border-left: 1.5em solid #ffa02f;
+}
+.eiw-tagmenu ul {
+    margin: 0;
+    padding-left: 2em;
+}
+.eiw-tagmenu ul li {
+    padding-bottom: 0.3em;
+    height: 0;
+    font-size: 1.25em;
+    color: #ffa02f;
+    cursor: pointer;
+    transition: color 0.5s, height 0.3s;
+}
+.eiw-tagmenu li:hover {
+    color: #09357A;
+}
+.eiw-tagmenu ul.ui-accordion-content-active {
+    height: auto!important;
+}
+.eiw-tagmenu ul.ui-accordion-content-active li {
+    height: auto; /*1.3em;*/
+}
+
+
+/* Xtramenu  */
+.eiw-xtramenu {
+    padding: 0 0.5em 0 1.5em;
+    left: 50%;
+    right: 0;
+    border-left: 1.5em solid #09357A;
+}
+.eiw-xtramenu h4 {
+    margin: 2em 0;
+}

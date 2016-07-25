@@ -22,7 +22,7 @@
         }
       , tagmenu: {
             title:   'Browse By Category'
-          , heading: 'Numbered Pins Link<br>to On-Site Signs'
+          , heading: '' // was 'Numbered Pins Link<br>to On-Site Signs'
         }
       , xtramenu: {
             title:   'Additional Information'
@@ -30,9 +30,6 @@
         }
       , changeview: {
             title:   'Change View'
-        }
-      , gps: {
-            title:   '&nbsp;'
         }
       , instructions: {
             title:   'Tap an information point<br>to get more detail &amp; media'
