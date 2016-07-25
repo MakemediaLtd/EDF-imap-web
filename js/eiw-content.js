@@ -4,11 +4,11 @@
     var me = 'js/content.js:\n  ';
     if ('undefined' == typeof window) throw new Error(me+'No `window` object');
     if (! window.EDF_IMAP_WEB) throw new Error(me+'No `window.EDF_IMAP_WEB`');
-    var main = window.EDF_IMAP_WEB.main;
+    var app = window.EDF_IMAP_WEB.app;
 
 
     //// Configure the interactive map. 
-    main.configure({
+    app.configure({
         splash: {
             src:     'assets/0-intro-flythrough-718x404-noloop.gif'
           , wait:    9500 // nine and a half seconds
@@ -45,7 +45,7 @@
 
 
     //// Add the Numbered Pins. 
-    main.addNumberedPin({
+    app.addNumberedPin({
         x: 2957
       , y: 1644
       , title: 'HPC Introduction'
@@ -71,7 +71,7 @@
         ]
     });
 
-    main.addNumberedPin({
+    app.addNumberedPin({
         x: 2179
       , y: 1474
       , title: 'Reactor buildings'
@@ -100,7 +100,7 @@
         ]
     });
 
-    main.addNumberedPin({
+    app.addNumberedPin({
         x: 507
       , y: 1191
       , title: 'Concrete Batching Plant'
@@ -122,7 +122,7 @@
         ]
     });
 
-    main.addNumberedPin({
+    app.addNumberedPin({
         x: 3252
       , y: 3968
       , title: 'Accommodation'
@@ -151,7 +151,7 @@
         ]
     });
 
-    main.addNumberedPin({
+    app.addNumberedPin({
         x: 748
       , y: 828
       , title: 'Temporary Jetty'
@@ -181,7 +181,7 @@
         ]
     });
 
-    main.addNumberedPin({
+    app.addNumberedPin({
         x: 3332
       , y: 2164
       , title: 'Northern Plaza'
@@ -198,7 +198,7 @@
         ]
     });
 
-    main.addNumberedPin({
+    app.addNumberedPin({
         x: 2968
       , y: 2396
       , title: 'Green Lane'
@@ -217,7 +217,7 @@
         ]
     });
 
-    main.addNumberedPin({
+    app.addNumberedPin({
         x: 2360
       , y: 2292
       , title: 'Concrete process trial'
@@ -239,7 +239,7 @@
         ]
     });
 
-    main.addNumberedPin({
+    app.addNumberedPin({
         x: 2647
       , y: 2697
       , title: 'Holford Valley'
@@ -265,7 +265,7 @@
         ]
     });
 
-    main.addNumberedPin({
+    app.addNumberedPin({
         x: 2952
       , y: 3520
       , title: 'Southern Plaza'
@@ -288,7 +288,7 @@
 
 
     //// Add the Lightbulb Pins. 
-    main.addLightbulbPin({
+    app.addLightbulbPin({
         x: 1435
       , y: 513
       , title: 'Water Intake and Outfall Tunnels'
@@ -322,7 +322,7 @@
         ]
     });
 
-    main.addLightbulbPin({
+    app.addLightbulbPin({
         x: 2302
       , y: 508
       , title: 'Steep Holm and Flat Holm'
@@ -337,7 +337,7 @@
         ]
     });
 
-    main.addLightbulbPin({
+    app.addLightbulbPin({
         x: 2794
       , y: 484
       , title: 'HPB Caisson'
@@ -352,7 +352,7 @@
         ]
     });
 
-    main.addLightbulbPin({
+    app.addLightbulbPin({
         x: 504
       , y: 1584
       , title: 'Tree planting'
@@ -367,7 +367,7 @@
         ]
     });
 
-    main.addLightbulbPin({
+    app.addLightbulbPin({
         x: 966
       , y: 2128
       , title: 'Archaeology'
@@ -400,7 +400,7 @@
         ]
     });
 
-    main.addLightbulbPin({
+    app.addLightbulbPin({
         x: 870
       , y: 3100
       , title: 'Old barn'
@@ -415,7 +415,7 @@
         ]
     });
 
-    main.addLightbulbPin({
+    app.addLightbulbPin({
         x: 1480
       , y: 3084
       , title: 'Water Management'
@@ -437,7 +437,7 @@
         ]
     });
 
-    main.addLightbulbPin({
+    app.addLightbulbPin({
         x: 1282
       , y: 4042
       , title: 'Emergency Access Road'
@@ -452,7 +452,7 @@
         ]
     });
 
-    main.addLightbulbPin({
+    app.addLightbulbPin({
         x: 1950
       , y: 3684
       , title: 'Materials Stockpile'
@@ -477,7 +477,7 @@
         ]
     });
 
-    main.addLightbulbPin({
+    app.addLightbulbPin({
         x: 2188
       , y: 4200
       , title: 'Southern Landscaping'
@@ -493,7 +493,7 @@
         ]
     });
 
-    main.addLightbulbPin({
+    app.addLightbulbPin({
         x: 2598
       , y: 4013
       , title: 'Perimeter fence'
@@ -508,7 +508,7 @@
         ]
     });
 
-    main.addLightbulbPin({
+    app.addLightbulbPin({
         x: 3077
       , y: 4185
       , title: 'Doggett’s Farm'
@@ -523,7 +523,7 @@
         ]
     });
 
-    main.addLightbulbPin({
+    app.addLightbulbPin({
         x: 3674
       , y: 1980
       , title: 'Wick Barrow / Pixies Mound'
@@ -540,7 +540,7 @@
         ]
     });
 
-    main.addLightbulbPin({
+    app.addLightbulbPin({
         x: 2870
       , y: 2030
       , title: 'Plant Equipment'
@@ -555,7 +555,7 @@
         ]
     });
 
-    main.addLightbulbPin({
+    app.addLightbulbPin({
         x: 1868
       , y: 656
       , title: 'Illustrative view of sea wall'
@@ -572,7 +572,7 @@
         ]
     });
 
-    main.addLightbulbPin({
+    app.addLightbulbPin({
         x: 910
       , y: 2592
       , title: 'Ecology'
@@ -606,7 +606,7 @@
         ]
     });
 
-    // main.addLightbulbPin({
+    // app.addLightbulbPin({
     //     x: 111
     //   , y: 450
     //   , title: 'xx'
@@ -636,7 +636,7 @@
 
 
     //// Add the Hidden Pins. 
-    main.addHiddenPin({
+    app.addHiddenPin({
         x: 111
       , y: 650
       , title: 'Project construction summary'
@@ -660,7 +660,7 @@
         ]
     });
 
-    main.addHiddenPin({
+    app.addHiddenPin({
         x: 222
       , y: 650
       , title: 'More than a power station'
@@ -678,7 +678,7 @@
         ]
     });
 
-    main.addHiddenPin({
+    app.addHiddenPin({
         x: 333
       , y: 650
       , title: 'Our role in the Community'
@@ -699,7 +699,7 @@
         ]
     });
 
-    main.addHiddenPin({
+    app.addHiddenPin({
         x: 444
       , y: 650
       , title: 'On site temporary accommodation'

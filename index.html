@@ -33,8 +33,8 @@
   <script src="js/jquery.iviewer.min.js"></script>
 
   <!-- Define `window.EDF_IMAP_WEB`, and load content into it -->
-  <script src="js/edf-imap-web.js"></script>
-  <script src="js/content.js"></script>
+  <script src="js/eiw-app.js"></script>
+  <script src="js/eiw-content.js"></script>
 
 </head>
 <body style="margin:0px;">
@@ -46,11 +46,11 @@
   <!--[if !IE]> -->
   <script>
     !function() {
-      var me = 'index.html:\n  ', EIW = window.EDF_IMAP_WEB;
-      if (! EIW) throw new Error(me+'No `window.EDF_IMAP_WEB`');
-      if (! EIW.main) throw new Error(me+'No `main`');
-      if (! EIW.main.pins.length) throw new Error(me+'No `pins`');
-      EIW.main.init('#edf-imap-web-wrap');
+      var me = 'index.html:\n  ';
+      if (! EDF_IMAP_WEB) throw new Error(me+'No `window.EDF_IMAP_WEB`');
+      if (! EDF_IMAP_WEB.app) throw new Error(me+'No `app`');
+      if (! EDF_IMAP_WEB.app.pins.length) throw new Error(me+'No `pins`');
+      EDF_IMAP_WEB.app.init('#edf-imap-web-wrap');
     }();
   </script>
   <!-- <![endif]-->

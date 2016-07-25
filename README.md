@@ -18,4 +18,4 @@ https://makemedialtd.github.io/EDF-imap-web/index.html
 ## Using TypeScript
 
 Compile and watch using:
-`$ tsc -w js/*.ts`
+`$ tsc -w js/*.ts --outFile js/eiw-app.js`
