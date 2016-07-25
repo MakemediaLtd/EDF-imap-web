@@ -381,27 +381,6 @@ var EDF_IMAP_WEB;
                     _this.hideAll();
                     $(evt.target).data('eiwPinInstance').activate();
                 });
-                //// Render the splash (only shown when the page first loads).
-                var $media = $('<b></b>'); // no media
-                if ('.mp4' === this.config.splash.src.substr(-4)) {
-                    $media = $("<video loop src=\"" + this.config.splash.src + "\"></video>");
-                }
-                else {
-                    $media = $("<img src=\"" + this.config.splash.src + "\">");
-                    $media.ready(function () {
-                        window.setTimeout(function () {
-                            _this.$splash.addClass('eiw-splash-hidden');
-                        }, _this.config.splash.wait);
-                        window.setTimeout(function () {
-                            _this.$splash.remove();
-                            $('.eiw-info-point-1').click(); // open the introduction pin
-                        }, _this.config.splash.wait + 500);
-                    });
-                }
-                ;
-                this.$splash = $("\n                <div class=\"eiw-splash\">\n                  <div class=\"eiw-icon-logo\"><img src=\"assets/icon-logo-212x192.png\"></div>\n                  <br>\n                  <div class=\"eiw-media\"></div>\n                </div>\n            ");
-                this.$wrap.append(this.$splash);
-                $('.eiw-media', this.$splash).append($media);
                 //// Set the initial pin positions, and fix various browser no-update issues. 
                 this.updatePins();
                 window.setInterval(function () {

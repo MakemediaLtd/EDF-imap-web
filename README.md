@@ -10,6 +10,7 @@ https://makemedialtd.github.io/EDF-imap-web/index.html
 
 - __index.html__ - open this file in a browser to start the app
 - __assets/__ - contains images, fonts and videos
+- __css/eiw-style.css__ - app styling (not including CSS for 3rd-party plugins)
 - __js/edf-app.js__ - the main app logic, instantiates `window.EDF_IMAP_WEB.app`
 - __js/edf-main.ts__ - source for the ‘Main’ class. Compiles to js/edf-app.js 
 - __js/edf-pin.ts__ - source for ‘Pin’ classes. Also compiles to js/edf-app.js 
@@ -18,6 +19,6 @@ https://makemedialtd.github.io/EDF-imap-web/index.html
 
 ## Compiling EDF-imap-web
 
-Compile and watch using:
-`$ npm start`
+Compile and watch using:  
+`$ npm start`  
 (you’ll need `tsc` installed)

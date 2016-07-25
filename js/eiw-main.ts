@@ -15,10 +15,6 @@ namespace EDF_IMAP_WEB { export namespace Main {
 
     //// Describe the `Main` class’s configuration-object. 
     interface Config {
-        splash: {
-            src:     string;
-            wait:    string;
-        };
         bkgnd: {
             srcA:    string;
             srcB:    string;
@@ -67,7 +63,6 @@ namespace EDF_IMAP_WEB { export namespace Main {
         $content:         JQuery;
         $tagmenu:         JQuery;
         $xtramenu:        JQuery;
-        $splash:          JQuery;
         $footer:          JQuery;
         pins:             Pin.Pin[] = [];
         numberedPinTally: number = 0;
@@ -386,33 +381,6 @@ namespace EDF_IMAP_WEB { export namespace Main {
                 this.hideAll();
                 $(evt.target).data('eiwPinInstance').activate();
             });
-
-            //// Render the splash (only shown when the page first loads).
-            let $media = $('<b></b>'); // no media
-            if ( '.mp4' === this.config.splash.src.substr(-4) ) { // a movie
-                $media = $(`<video loop src="${this.config.splash.src}"></video>`);
-                //@todo add a 'has-reached-end' listener, if video is used
-            } else { // an image
-                $media = $(`<img src="${this.config.splash.src}">`);
-                $media.ready( () => {
-                    window.setTimeout( () => {
-                        this.$splash.addClass('eiw-splash-hidden');
-                    }, this.config.splash.wait);
-                    window.setTimeout( () => {
-                        this.$splash.remove();
-                        $('.eiw-info-point-1').click(); // open the introduction pin
-                    }, this.config.splash.wait+500);
-                });
-            };
-            this.$splash = $(`
-                <div class="eiw-splash">
-                  <div class="eiw-icon-logo"><img src="assets/icon-logo-212x192.png"></div>
-                  <br>
-                  <div class="eiw-media"></div>
-                </div>
-            `);
-            this.$wrap.append(this.$splash);
-            $('.eiw-media', this.$splash).append($media);
 
             //// Set the initial pin positions, and fix various browser no-update issues. 
             this.updatePins();

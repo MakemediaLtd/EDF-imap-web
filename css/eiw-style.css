@@ -42,36 +42,6 @@ body {
 }
 
 
-/* Splash */
-.eiw-splash {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0,0,0,0.8);
-    z-index: 100;
-    text-align: center;
-    transition: opacity 0.5s;
-}
-.eiw-splash-hidden {
-    opacity: 0;
-}
-.eiw-splash .eiw-icon-logo {
-    display: inline-block;
-}
-.eiw-splash .eiw-icon-logo img {
-    width: 12em;
-    margin: 4em 0; 
-}
-.eiw-splash .eiw-media img {
-    width: 100%;
-    max-width: 718px;
-    height: auto;
-}
-
-
-
 /* Info-points, which mark places on the map. */
 .eiw-info-point {
     position: absolute;
