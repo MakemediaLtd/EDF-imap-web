@@ -56,6 +56,7 @@ namespace EDF_IMAP_WEB { export namespace Main {
         $headerA:         JQuery;
         $headerB:         JQuery;
         $bkgndA:          JQuery;
+        $bkgnds:          JQuery;
         $bkgndAImg:       JQuery;
         $bkgndBImg:       JQuery;
         $popup:           JQuery;
@@ -90,13 +91,28 @@ namespace EDF_IMAP_WEB { export namespace Main {
             this.pins.push( new Pin.HiddenPin(pin, this) );
         }
 
+        resizeBkgnds () {
+            let aspectRatio = this.config.bkgnd.height / this.config.bkgnd.width;
+            let innerWidth  = $(window).innerWidth();
+            let innerHeight = $(window).innerHeight();
+            let bkgndsWidth = innerHeight / aspectRatio;
+            this.$footer.css({
+                width:  innerWidth - bkgndsWidth + 2 // `+ 2` allows a little overlap
+            });
+            this.$bkgnds.css({
+                height: innerHeight
+              , width:  bkgndsWidth
+            });
+        }
+
         updatePins () {
             let { top, left } = this.$bkgndAImg.position();
+            left += this.$bkgndA.position().left;
             let width = this.$bkgndAImg.width();
             let height = this.$bkgndAImg.height();
-            let headerRt = Math.max(4, $(window).width() - (left + width - 4) );
-            this.$headerA.css('right', headerRt);
-            this.$headerB.css('right', headerRt);
+            // let headerRt = Math.max(4, $(window).width() - (left + width - 4) );
+            // this.$headerA.css('right', headerRt);
+            // this.$headerB.css('right', headerRt);
             let zoom = width / this.config.bkgnd.width;
             if (
                 this.prevTop    === top
@@ -222,15 +238,14 @@ namespace EDF_IMAP_WEB { export namespace Main {
                   <div class="eiw-bkgnd-a"></div>
                 </div>
             `);
-            $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap).click( () => {
+            this.$bkgnds = $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap);
+            this.$bkgnds.click( () => {
                 this.hideAll();
             })
-            $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap)
-               .css('height', $(window).innerHeight() - $('.eiw-footer').height() );
-
+            this.resizeBkgnds();
             this.$bkgndA = $('.eiw-bkgnd-a', this.$wrap);
-            let minWidth  = $('.eiw-bkgnd-a').width()  / this.config.bkgnd.width;
-            let minHeight = $('.eiw-bkgnd-a').height() / this.config.bkgnd.height;
+            let minWidth  = $('.eiw-bkgnd-a').width()  * 1.01 / this.config.bkgnd.width; // `* 1.01` fills the container more fully */
+            let minHeight = $('.eiw-bkgnd-a').height() * 1.01 / this.config.bkgnd.height;
             this.$bkgndA.iviewer({
                 src: this.config.bkgnd.srcA
               , zoom_min: Math.min(minWidth, minHeight) * 100
@@ -256,8 +271,7 @@ namespace EDF_IMAP_WEB { export namespace Main {
             this.$bkgndBImg = $('.eiw-bkgnd-b img', this.$wrap);
 
             $(window).on('resize', () => {
-                $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap)
-                   .css('height', $(window).innerHeight() - $('.eiw-footer').height() );
+                this.resizeBkgnds();
                 this.$bkgndA.iviewer('update');
             });
 

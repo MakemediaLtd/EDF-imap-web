@@ -36,8 +36,11 @@ namespace EDF_IMAP_WEB { export namespace Pin {
             config.tags = config.tags || []; //@todo find a better defaults syntax
             this.config = config;
             this.main   = main;
-            this.color = main.config.tagcolors[ config.tags[0] ];
-            if (! this.color) throw new RangeError(me+config.tags[0]+' not found');
+            if (! config.isXtra) {
+                if (! config.tags[0]) throw new RangeError(me+config.slug+' has no tags');
+                this.color = main.config.tagcolors[ config.tags[0] ];
+                if (! this.color) throw new RangeError(me+config.tags[0]+' not found');
+            }
         }
 
         deactivate () {
@@ -100,14 +103,14 @@ namespace EDF_IMAP_WEB { export namespace Pin {
             this.main.$caption.html(caption ? `<h4>${caption}</h4>` : '');
             this.main.$content.html(content ? `<p>${content['join']('</p><p>')}</p>` : '');
             let contentBottom = this.main.$content.position().top + this.main.$content.outerHeight(true);
-            let gap = this.main.$footer.position().top - contentBottom;
+            let gap = $(window).innerHeight() - contentBottom; // was `this.main.$footer.position().top - contentBottom;`
             if (50 > gap) {
                 let currHeight = this.main.$content.height();
                 this.main.$content.height( currHeight - 50 + gap ); 
             } else {
                 this.main.$content.height('auto'); 
                 contentBottom = this.main.$content.position().top + this.main.$content.outerHeight(true);
-                gap = this.main.$footer.position().top - contentBottom;
+                gap = $(window).innerHeight() - contentBottom; // was `this.main.$footer.position().top - contentBottom;`
                 if (50 > gap) {
                     let currHeight = this.main.$content.height();
                     this.main.$content.height( currHeight - 50 + gap );

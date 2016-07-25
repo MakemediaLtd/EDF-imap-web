@@ -19,9 +19,13 @@ var EDF_IMAP_WEB;
                 config.tags = config.tags || []; //@todo find a better defaults syntax
                 this.config = config;
                 this.main = main;
-                this.color = main.config.tagcolors[config.tags[0]];
-                if (!this.color)
-                    throw new RangeError(me + config.tags[0] + ' not found');
+                if (!config.isXtra) {
+                    if (!config.tags[0])
+                        throw new RangeError(me + config.slug + ' has no tags');
+                    this.color = main.config.tagcolors[config.tags[0]];
+                    if (!this.color)
+                        throw new RangeError(me + config.tags[0] + ' not found');
+                }
             }
             Pin.prototype.deactivate = function () {
                 this.$el.removeClass('eiw-active');
@@ -82,7 +86,7 @@ var EDF_IMAP_WEB;
                 this.main.$caption.html(caption ? "<h4>" + caption + "</h4>" : '');
                 this.main.$content.html(content ? "<p>" + content['join']('</p><p>') + "</p>" : '');
                 var contentBottom = this.main.$content.position().top + this.main.$content.outerHeight(true);
-                var gap = this.main.$footer.position().top - contentBottom;
+                var gap = $(window).innerHeight() - contentBottom; // was `this.main.$footer.position().top - contentBottom;`
                 if (50 > gap) {
                     var currHeight = this.main.$content.height();
                     this.main.$content.height(currHeight - 50 + gap);
@@ -90,7 +94,7 @@ var EDF_IMAP_WEB;
                 else {
                     this.main.$content.height('auto');
                     contentBottom = this.main.$content.position().top + this.main.$content.outerHeight(true);
-                    gap = this.main.$footer.position().top - contentBottom;
+                    gap = $(window).innerHeight() - contentBottom; // was `this.main.$footer.position().top - contentBottom;`
                     if (50 > gap) {
                         var currHeight = this.main.$content.height();
                         this.main.$content.height(currHeight - 50 + gap);
@@ -188,13 +192,27 @@ var EDF_IMAP_WEB;
             Main.prototype.addHiddenPin = function (pin) {
                 this.pins.push(new EDF_IMAP_WEB.Pin.HiddenPin(pin, this));
             };
+            Main.prototype.resizeBkgnds = function () {
+                var aspectRatio = this.config.bkgnd.height / this.config.bkgnd.width;
+                var innerWidth = $(window).innerWidth();
+                var innerHeight = $(window).innerHeight();
+                var bkgndsWidth = innerHeight / aspectRatio;
+                this.$footer.css({
+                    width: innerWidth - bkgndsWidth + 2 // `+ 2` allows a little overlap
+                });
+                this.$bkgnds.css({
+                    height: innerHeight,
+                    width: bkgndsWidth
+                });
+            };
             Main.prototype.updatePins = function () {
                 var _a = this.$bkgndAImg.position(), top = _a.top, left = _a.left;
+                left += this.$bkgndA.position().left;
                 var width = this.$bkgndAImg.width();
                 var height = this.$bkgndAImg.height();
-                var headerRt = Math.max(4, $(window).width() - (left + width - 4));
-                this.$headerA.css('right', headerRt);
-                this.$headerB.css('right', headerRt);
+                // let headerRt = Math.max(4, $(window).width() - (left + width - 4) );
+                // this.$headerA.css('right', headerRt);
+                // this.$headerB.css('right', headerRt);
                 var zoom = width / this.config.bkgnd.width;
                 if (this.prevTop === top
                     && this.prevLeft === left
@@ -275,14 +293,14 @@ var EDF_IMAP_WEB;
                 });
                 //// Render the background-images. 
                 this.$wrap.append("\n                <div class=\"eiw-bkgnds\">\n                  <div class=\"eiw-bkgnd-b\"><img src=\"" + this.config.bkgnd.srcB + "\"></div>\n                  <div class=\"eiw-bkgnd-a\"></div>\n                </div>\n            ");
-                $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap).click(function () {
+                this.$bkgnds = $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap);
+                this.$bkgnds.click(function () {
                     _this.hideAll();
                 });
-                $('.eiw-bkgnd-a, .eiw-bkgnd-b', this.$wrap)
-                    .css('height', $(window).innerHeight() - $('.eiw-footer').height());
+                this.resizeBkgnds();
                 this.$bkgndA = $('.eiw-bkgnd-a', this.$wrap);
-                var minWidth = $('.eiw-bkgnd-a').width() / this.config.bkgnd.width;
-                var minHeight = $('.eiw-bkgnd-a').height() / this.config.bkgnd.height;
+                var minWidth = $('.eiw-bkgnd-a').width() * 1.01 / this.config.bkgnd.width; // `* 1.01` fills the container more fully */
+                var minHeight = $('.eiw-bkgnd-a').height() * 1.01 / this.config.bkgnd.height;
                 this.$bkgndA.iviewer({
                     src: this.config.bkgnd.srcA,
                     zoom_min: Math.min(minWidth, minHeight) * 100,
@@ -302,8 +320,7 @@ var EDF_IMAP_WEB;
                 this.$bkgndAImg = $('.eiw-bkgnd-a img', this.$wrap);
                 this.$bkgndBImg = $('.eiw-bkgnd-b img', this.$wrap);
                 $(window).on('resize', function () {
-                    $('.eiw-bkgnd-a, .eiw-bkgnd-b', _this.$wrap)
-                        .css('height', $(window).innerHeight() - $('.eiw-footer').height());
+                    _this.resizeBkgnds();
                     _this.$bkgndA.iviewer('update');
                 });
                 //// Render each pin. 

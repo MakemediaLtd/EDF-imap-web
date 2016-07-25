@@ -45,13 +45,13 @@
   <![endif]-->
   <!--[if !IE]> -->
   <script>
-    !function() {
+    jQuery( function () {
       var me = 'index.html:\n  ';
       if (! EDF_IMAP_WEB) throw new Error(me+'No `window.EDF_IMAP_WEB`');
       if (! EDF_IMAP_WEB.app) throw new Error(me+'No `app`');
       if (! EDF_IMAP_WEB.app.pins.length) throw new Error(me+'No `pins`');
       EDF_IMAP_WEB.app.init('#edf-imap-web-wrap');
-    }();
+    });
   </script>
   <!-- <![endif]-->
 
