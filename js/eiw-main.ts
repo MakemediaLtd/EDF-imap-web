@@ -502,6 +502,9 @@ namespace EDF_IMAP_WEB { export namespace Main {
                 this.updatePins();
             }, 300);
 
+            //// Open the tagmenu when the page loads. 
+            $('.eiw-tagmenu-toggle .eiw-button', this.$wrap).click();
+
         }
     }
 

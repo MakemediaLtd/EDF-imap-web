@@ -496,6 +496,8 @@ var EDF_IMAP_WEB;
                 window.setInterval(function () {
                     _this.updatePins();
                 }, 300);
+                //// Open the tagmenu when the page loads. 
+                $('.eiw-tagmenu-toggle .eiw-button', this.$wrap).click();
             };
             return Main;
         }());
