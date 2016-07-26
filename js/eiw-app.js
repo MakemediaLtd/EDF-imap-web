@@ -36,7 +36,7 @@ var EDF_IMAP_WEB;
                 this.main.activePin = this;
                 this.main.$popup.removeClass('eiw-hidden');
                 var _a = this.config, _b = _a.title, title = _b === void 0 ? '' : _b, _c = _a.tags, tags = _c === void 0 ? [] : _c, _d = _a.slides, slides = _d === void 0 ? [{ src: '', caption: '', content: [''] }] : _d;
-                $('.eiw-title', this.main.$wrap).html(title);
+                this.main.$title.html(title);
                 $('.eiw-tags', this.main.$wrap).html("<tt>" + tags.join('</tt><tt>') + "</tt>");
                 //// Remove the previous carousel slides, and add the new ones.  
                 for (var i = this.main.$carousel.data('eiwCurrentSlideTally'); i > 0; i--) {
@@ -92,14 +92,22 @@ var EDF_IMAP_WEB;
                     this.main.$content.height(currHeight - 50 + gap);
                 }
                 else {
-                    this.main.$content.height('auto');
+                    this.main.$content.css('height', 'auto');
                     contentBottom = this.main.$content.position().top + this.main.$content.outerHeight(true);
                     gap = $(window).innerHeight() - contentBottom; // was `this.main.$sidebar.position().top - contentBottom;`
+                    // console.log('gap', gap, 'contentBottom', contentBottom)
                     if (50 > gap) {
+                        // console.log(33)
                         var currHeight = this.main.$content.height();
                         this.main.$content.height(currHeight - 50 + gap);
                     }
                 }
+                var resultingHeight = this.main.$content.height()
+                    + Math.max(this.main.$caption.height(), this.main.$dots.height())
+                    + this.main.$carousel.height()
+                    + this.main.$title.height();
+                resultingHeight = Math.min(resultingHeight, $(window).innerHeight() - this.main.$popup.position().top);
+                this.main.$popup.css('height', resultingHeight); // allows CSS transition
                 this.main.$content.scrollTop(0);
             };
             Pin.prototype.resetGif = function (slideIndex) {
@@ -364,7 +372,9 @@ var EDF_IMAP_WEB;
                 //// Render the popup (initially hidden).
                 this.$popup = $("\n                <div class=\"eiw-popup eiw-hidden\">\n                  <div>\n                    <div>\n                      <div class=\"eiw-dismiss\"  >X</div>\n                      <h2  class=\"eiw-title\"    >Title here</h2>\n                      <div class=\"eiw-carousel\" ></div>\n                      <div class=\"eiw-arrows\"   ></div>\n                      <div class=\"eiw-dots\"     ></div>\n                      <div class=\"eiw-caption\"  >Caption here</div>\n                    </div>\n                  </div>\n                  <div>\n                    <div>\n                      <div class=\"eiw-content\"  ><p>Content here. </p></div>\n                      <div class=\"eiw-tags\"     ><tt>A Tag</tt><tt>Another Tag</tt></div>\n                    </div>\n                  </div>\n                </div>\n            ");
                 this.$wrap.append(this.$popup);
+                this.$title = $('.eiw-title', this.$wrap);
                 this.$caption = $('.eiw-caption', this.$wrap);
+                this.$dots = $('.eiw-dots', this.$wrap);
                 this.$content = $('.eiw-content', this.$wrap);
                 $('.eiw-dismiss', this.$wrap).click(function (evt) {
                     _this.hideAll();

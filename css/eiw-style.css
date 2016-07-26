@@ -128,7 +128,16 @@ p, h1, h2, h3, h4, h5, h6, span, div, ul, li {
     top: 3em;
     border-left: 1.5em solid #ffa02f;
     z-index: 40;
+    /*transition: opacity 0.5s, transform 0.5s, top 0.5s, height 0.5s;*/
+    transition: opacity 0.5s, top 0.5s, height 0.5s, z-index step-start 0.5s;
 }
+.eiw-popup.eiw-hidden {
+    display: table!important; /* override `none`, above */
+    opacity: 0;
+    z-index: -10;
+    transition: opacity 0.5s, top 0.5s, height 0.5s, z-index step-end 0.5s;
+}
+
 .eiw-popup > div {
     display: table-row;
 }

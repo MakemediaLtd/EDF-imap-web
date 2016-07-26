@@ -58,8 +58,10 @@ namespace EDF_IMAP_WEB { export namespace Main {
         $infoPoints:      JQuery;
         $rtn2map:         JQuery;
         $popup:           JQuery;
+        $title:           JQuery;
         $carousel:        JQuery;
         $caption:         JQuery;
+        $dots:            JQuery;
         $content:         JQuery;
         $tagmenu:         JQuery;
         $xtramenu:        JQuery;
@@ -364,7 +366,9 @@ namespace EDF_IMAP_WEB { export namespace Main {
                 </div>
             `);
             this.$wrap.append(this.$popup);
+            this.$title   = $('.eiw-title',   this.$wrap);
             this.$caption = $('.eiw-caption', this.$wrap); 
+            this.$dots    = $('.eiw-dots',    this.$wrap); 
             this.$content = $('.eiw-content', this.$wrap); 
             $('.eiw-dismiss', this.$wrap).click( (evt:JQueryMouseEventObject) => {
                 this.hideAll();

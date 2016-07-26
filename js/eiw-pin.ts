@@ -54,7 +54,8 @@ namespace EDF_IMAP_WEB { export namespace Pin {
             this.main.$popup.removeClass('eiw-hidden');
             let { title='', tags=[], slides=[{ src:'', caption:'', content:[''] }] } 
                 = this.config;
-            $('.eiw-title', this.main.$wrap).html(title);
+            
+            this.main.$title.html(title);
             $('.eiw-tags', this.main.$wrap).html(`<tt>${tags.join('</tt><tt>')}</tt>`);
 
             //// Remove the previous carousel slides, and add the new ones.  
@@ -108,14 +109,27 @@ namespace EDF_IMAP_WEB { export namespace Pin {
                 let currHeight = this.main.$content.height();
                 this.main.$content.height( currHeight - 50 + gap ); 
             } else {
-                this.main.$content.height('auto'); 
+                this.main.$content.css('height', 'auto');
                 contentBottom = this.main.$content.position().top + this.main.$content.outerHeight(true);
                 gap = $(window).innerHeight() - contentBottom; // was `this.main.$sidebar.position().top - contentBottom;`
+                // console.log('gap', gap, 'contentBottom', contentBottom)
                 if (50 > gap) {
+                    // console.log(33)
                     let currHeight = this.main.$content.height();
                     this.main.$content.height( currHeight - 50 + gap );
                 } 
             }
+            let resultingHeight = 
+                this.main.$content.height()
+              + Math.max( this.main.$caption.height(), this.main.$dots.height() )
+              + this.main.$carousel.height()
+              + this.main.$title.height()
+            ;
+            resultingHeight = Math.min(
+                resultingHeight
+              , $(window).innerHeight() - this.main.$popup.position().top
+            );
+            this.main.$popup.css('height', resultingHeight); // allows CSS transition
             this.main.$content.scrollTop(0);
         }
 
