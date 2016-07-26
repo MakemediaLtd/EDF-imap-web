@@ -122,7 +122,7 @@ var EDF_IMAP_WEB;
                     this.$el = $("\n                    <div class=\"eiw-info-point eiw-pin-hidden eiw-info-point-" + this.config.slug + "\"></div>\n                ");
                 }
                 else {
-                    this.$el = $("\n                    <div class=\"eiw-info-point eiw-pin-numbered eiw-info-point-" + this.config.slug + "\">\n                    <img src=\"assets/icon-teardrop-" + this.color + ".png\">\n                    </div>\n                ");
+                    this.$el = $("\n                    <div title=\"" + this.config.title + "\" class=\"eiw-info-point eiw-pin-numbered eiw-info-point-" + this.config.slug + "\">\n                      <img src=\"assets/icon-teardrop-" + this.color + ".png\">\n                    </div>\n                ");
                 }
                 this.$el.css({
                     left: this.config.x,
@@ -363,13 +363,30 @@ var EDF_IMAP_WEB;
                     $(evt.currentTarget).data('eiwPinInstance').activate();
                 })
                     .hover(function (evt) {
+                    if ($(evt.currentTarget).hasClass('eiw-active'))
+                        return;
+                    $('.eiw-xtramenu-toggle', _this.$wrap).removeClass('eiw-active');
+                    _this.$xtramenu.addClass('eiw-min').height(0);
+                    $('.eiw-tagmenu-toggle', _this.$wrap).addClass('eiw-active');
+                    _this.$tagmenu
+                        .removeClass('eiw-min')
+                        .css('height', $('> div', _this.$tagmenu).height());
                     $('li', _this.$tagmenu).removeClass('eiw-active');
                     if ($(evt.target).parent().data('eiwTagmenuLI')) {
-                        $(evt.target).parent().data('eiwTagmenuLI').addClass('eiw-active');
+                        $(evt.target).parent().data('eiwTagmenuLI')
+                            .addClass('eiw-active')
+                            .parent().parent().prev()
+                            .addClass('eiw-active');
                     }
                 })
                     .mouseleave(function (evt) {
-                    $('li', _this.$tagmenu).removeClass('eiw-active');
+                    $('li, h4', _this.$tagmenu).removeClass('eiw-active');
+                    $('h4', _this.$tagmenu).each(function () {
+                        var $this = $(this);
+                        if (5 < $this.next().height()) {
+                            $this.addClass('eiw-active');
+                        }
+                    });
                 });
                 //// Render the popup (initially hidden).
                 this.$popupShield = $('<div class="eiw-popup-shield eiw-hidden"></div>');
@@ -382,6 +399,10 @@ var EDF_IMAP_WEB;
                 this.$content = $('.eiw-content', this.$wrap);
                 $('.eiw-dismiss, .eiw-popup-shield', this.$wrap).click(function (evt) {
                     _this.hideAll();
+                    $('.eiw-tagmenu-toggle', _this.$wrap).addClass('eiw-active');
+                    _this.$tagmenu
+                        .removeClass('eiw-min')
+                        .css('height', $('> div', _this.$tagmenu).height());
                 });
                 $('.eiw-arrows', this.$wrap).append("\n                <img class=\"eiw-arrow-left\"       src=\"assets/icon-arrow-left-130x200.png\">\n                <img class=\"eiw-arrow-glow-left\"  src=\"assets/icon-arrow-glow-left-130x200.png\">\n                <img class=\"eiw-arrow-right\"      src=\"assets/icon-arrow-right-130x200.png\">\n                <img class=\"eiw-arrow-glow-right\" src=\"assets/icon-arrow-glow-right-130x200.png\">\n            ");
                 //// Initialize the ‘Slick’ carousel. 

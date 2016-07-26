@@ -149,8 +149,8 @@ namespace EDF_IMAP_WEB { export namespace Pin {
                 `);
             } else {
                 this.$el = $(`
-                    <div class="eiw-info-point eiw-pin-numbered eiw-info-point-${this.config.slug}">
-                    <img src="assets/icon-teardrop-${this.color}.png">
+                    <div title="${this.config.title}" class="eiw-info-point eiw-pin-numbered eiw-info-point-${this.config.slug}">
+                      <img src="assets/icon-teardrop-${this.color}.png">
                     </div>
                 `);
                 //// nb, in versions before 2.0.5 we treated lightbulbs and  

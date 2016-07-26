@@ -336,13 +336,31 @@ namespace EDF_IMAP_WEB { export namespace Main {
                     $(evt.currentTarget).data('eiwPinInstance').activate();
                 })
                .hover( (evt:JQueryMouseEventObject) => {
+                    if ( $(evt.currentTarget).hasClass('eiw-active') ) return;
+                    $('.eiw-xtramenu-toggle', this.$wrap).removeClass('eiw-active');
+                    this.$xtramenu.addClass('eiw-min').height(0);
+                    $('.eiw-tagmenu-toggle', this.$wrap).addClass('eiw-active');
+                    this.$tagmenu
+                       .removeClass('eiw-min')
+                       .css( 'height', $('> div', this.$tagmenu).height() )
+                    ;
                     $('li', this.$tagmenu).removeClass('eiw-active');
                     if ( $(evt.target).parent().data('eiwTagmenuLI') ) {
-                        $(evt.target).parent().data('eiwTagmenuLI').addClass('eiw-active');
+                        $(evt.target).parent().data('eiwTagmenuLI')
+                           .addClass('eiw-active')
+                           .parent().parent().prev()
+                           .addClass('eiw-active')
+                        ;
                     }
                 })
                .mouseleave( (evt:JQueryMouseEventObject) => {
-                    $('li', this.$tagmenu).removeClass('eiw-active');
+                    $('li, h4', this.$tagmenu).removeClass('eiw-active');
+                    $('h4', this.$tagmenu).each( function () {
+                        let $this = $(this);
+                        if ( 5 < $this.next().height() ) {
+                            $this.addClass('eiw-active');
+                        }
+                    });
                 })
             ;
 
@@ -376,6 +394,11 @@ namespace EDF_IMAP_WEB { export namespace Main {
             this.$content = $('.eiw-content', this.$wrap); 
             $('.eiw-dismiss, .eiw-popup-shield', this.$wrap).click( (evt:JQueryMouseEventObject) => {
                 this.hideAll();
+                $('.eiw-tagmenu-toggle', this.$wrap).addClass('eiw-active');
+                this.$tagmenu
+                    .removeClass('eiw-min')
+                    .css( 'height', $('> div', this.$tagmenu).height() )
+                ;
             });
             $('.eiw-arrows', this.$wrap).append(`
                 <img class="eiw-arrow-left"       src="assets/icon-arrow-left-130x200.png">
