@@ -51,6 +51,7 @@ namespace EDF_IMAP_WEB { export namespace Pin {
         activate () {
             this.$el.addClass('eiw-active');
             this.main.activePin = this; 
+            this.main.$popupShield.removeClass('eiw-hidden');
             this.main.$popup.removeClass('eiw-hidden');
             let { title='', tags=[], slides=[{ src:'', caption:'', content:[''] }] } 
                 = this.config;

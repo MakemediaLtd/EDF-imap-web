@@ -34,6 +34,7 @@ var EDF_IMAP_WEB;
             Pin.prototype.activate = function () {
                 this.$el.addClass('eiw-active');
                 this.main.activePin = this;
+                this.main.$popupShield.removeClass('eiw-hidden');
                 this.main.$popup.removeClass('eiw-hidden');
                 var _a = this.config, _b = _a.title, title = _b === void 0 ? '' : _b, _c = _a.tags, tags = _c === void 0 ? [] : _c, _d = _a.slides, slides = _d === void 0 ? [{ src: '', caption: '', content: [''] }] : _d;
                 this.main.$title.html(title);
@@ -258,6 +259,7 @@ var EDF_IMAP_WEB;
                     this.$xtramenu.addClass('eiw-min').height(0);
                     $('.eiw-xtramenu-toggle', this.$wrap).removeClass('eiw-active');
                 }
+                this.$popupShield.addClass('eiw-hidden');
                 this.$popup.addClass('eiw-hidden');
                 $('h4, li', this.$tagmenu).removeClass('eiw-active');
                 $('> div > div', this.$tagmenu).css('height', 0);
@@ -370,13 +372,15 @@ var EDF_IMAP_WEB;
                     $('li', _this.$tagmenu).removeClass('eiw-active');
                 });
                 //// Render the popup (initially hidden).
+                this.$popupShield = $('<div class="eiw-popup-shield eiw-hidden"></div>');
                 this.$popup = $("\n                <div class=\"eiw-popup eiw-hidden\">\n                  <div>\n                    <div>\n                      <div class=\"eiw-dismiss\"  >X</div>\n                      <h2  class=\"eiw-title\"    >Title here</h2>\n                      <div class=\"eiw-carousel\" ></div>\n                      <div class=\"eiw-arrows\"   ></div>\n                      <div class=\"eiw-dots\"     ></div>\n                      <div class=\"eiw-caption\"  >Caption here</div>\n                    </div>\n                  </div>\n                  <div>\n                    <div>\n                      <div class=\"eiw-content\"  ><p>Content here. </p></div>\n                      <div class=\"eiw-tags\"     ><tt>A Tag</tt><tt>Another Tag</tt></div>\n                    </div>\n                  </div>\n                </div>\n            ");
+                this.$wrap.append(this.$popupShield);
                 this.$wrap.append(this.$popup);
                 this.$title = $('.eiw-title', this.$wrap);
                 this.$caption = $('.eiw-caption', this.$wrap);
                 this.$dots = $('.eiw-dots', this.$wrap);
                 this.$content = $('.eiw-content', this.$wrap);
-                $('.eiw-dismiss', this.$wrap).click(function (evt) {
+                $('.eiw-dismiss, .eiw-popup-shield', this.$wrap).click(function (evt) {
                     _this.hideAll();
                 });
                 $('.eiw-arrows', this.$wrap).append("\n                <img class=\"eiw-arrow-left\"       src=\"assets/icon-arrow-left-130x200.png\">\n                <img class=\"eiw-arrow-glow-left\"  src=\"assets/icon-arrow-glow-left-130x200.png\">\n                <img class=\"eiw-arrow-right\"      src=\"assets/icon-arrow-right-130x200.png\">\n                <img class=\"eiw-arrow-glow-right\" src=\"assets/icon-arrow-glow-right-130x200.png\">\n            ");

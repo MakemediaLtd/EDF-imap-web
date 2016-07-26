@@ -118,6 +118,16 @@ p, h1, h2, h3, h4, h5, h6, span, div, ul, li {
 
 
 /* Popup */
+.eiw-popup-shield {
+    position: fixed;
+    top:    0;
+    bottom: 0;
+    left:   0;
+    right:  0;
+    background: rgba(0,0,0,0.5);
+    z-index: 40;
+    transition: opacity 0.5s, z-index step-start 0.5s;
+}
 .eiw-popup {
     position: absolute;
     display: table;
@@ -128,11 +138,16 @@ p, h1, h2, h3, h4, h5, h6, span, div, ul, li {
     top: 3em;
     border-left: 1.5em solid #ffa02f;
     z-index: 40;
-    /*transition: opacity 0.5s, transform 0.5s, top 0.5s, height 0.5s;*/
     transition: opacity 0.5s, top 0.5s, height 0.5s, z-index step-start 0.5s;
+}
+.eiw-popup-shield.eiw-hidden {
+    display: block!important; /* override `none`, above */
 }
 .eiw-popup.eiw-hidden {
     display: table!important; /* override `none`, above */
+}
+.eiw-popup-shield.eiw-hidden,
+.eiw-popup.eiw-hidden {
     opacity: 0;
     z-index: -10;
     transition: opacity 0.5s, top 0.5s, height 0.5s, z-index step-end 0.5s;

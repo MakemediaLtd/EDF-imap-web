@@ -57,6 +57,7 @@ namespace EDF_IMAP_WEB { export namespace Main {
         $bkgndBImg:       JQuery;
         $infoPoints:      JQuery;
         $rtn2map:         JQuery;
+        $popupShield:     JQuery;
         $popup:           JQuery;
         $title:           JQuery;
         $carousel:        JQuery;
@@ -148,6 +149,7 @@ namespace EDF_IMAP_WEB { export namespace Main {
                 this.$xtramenu.addClass('eiw-min').height(0);
                 $('.eiw-xtramenu-toggle', this.$wrap).removeClass('eiw-active');
             }
+            this.$popupShield.addClass('eiw-hidden');
             this.$popup.addClass('eiw-hidden');
             $('h4, li', this.$tagmenu).removeClass('eiw-active');
             $('> div > div', this.$tagmenu).css('height', 0);
@@ -345,6 +347,7 @@ namespace EDF_IMAP_WEB { export namespace Main {
             ;
 
             //// Render the popup (initially hidden).
+            this.$popupShield = $('<div class="eiw-popup-shield eiw-hidden"></div>');
             this.$popup = $(`
                 <div class="eiw-popup eiw-hidden">
                   <div>
@@ -365,12 +368,13 @@ namespace EDF_IMAP_WEB { export namespace Main {
                   </div>
                 </div>
             `);
+            this.$wrap.append(this.$popupShield);
             this.$wrap.append(this.$popup);
             this.$title   = $('.eiw-title',   this.$wrap);
             this.$caption = $('.eiw-caption', this.$wrap); 
             this.$dots    = $('.eiw-dots',    this.$wrap); 
             this.$content = $('.eiw-content', this.$wrap); 
-            $('.eiw-dismiss', this.$wrap).click( (evt:JQueryMouseEventObject) => {
+            $('.eiw-dismiss, .eiw-popup-shield', this.$wrap).click( (evt:JQueryMouseEventObject) => {
                 this.hideAll();
             });
             $('.eiw-arrows', this.$wrap).append(`
