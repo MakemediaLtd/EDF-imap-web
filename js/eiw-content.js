@@ -422,7 +422,7 @@
           , { src: 'assets/j-image_1-718x404.jpg', caption: 'PC 3000 moving materials at HPC site', 
               content: [
                   'Over 5 million cubic metres of material will be moving as part of the enabling works programme. '
-                , '48,000m3 of material has been used to backfill the old Hinkley Point A buildings.'
+                , '48,000m&sup3; of material has been used to backfill the old Hinkley Point A buildings.'
                 , 'By doing this we have avoided 3,200 lorry movements travelling over 288,000 miles and saved 400 tonnes of CO&#8322;.'
               ]
             }
