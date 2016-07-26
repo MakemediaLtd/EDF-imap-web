@@ -63,7 +63,7 @@ namespace EDF_IMAP_WEB { export namespace Main {
         $content:         JQuery;
         $tagmenu:         JQuery;
         $xtramenu:        JQuery;
-        $sidebar:          JQuery;
+        $sidebar:         JQuery;
         pins:             Pin.Pin[] = [];
         numberedPinTally: number = 0;
         activePin:        Pin.Pin = null;
