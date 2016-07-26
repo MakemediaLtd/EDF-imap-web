@@ -16,7 +16,7 @@
           , height:  4648
         }
       , header: {
-            titleA:  'Hinkley Point Construction Site June 2015'
+            titleA:  'Hinkley Point C Construction Site June 2016'
           , titleB:  'Hinkley Point C Construction Complete'
           , rtn2Map: 'Return to map'
         }
@@ -63,7 +63,7 @@
     //       , { src: 'assets/1-edf-hpc-animation-v3-718x404.gif', caption: '', //@todo add this movie
     //           content: [
     //               'Hinkley Point C will host two nuclear reactors capable of producing enough low carbon electricity to power around 5 million homes'
-    //             , 'Will offset the emission of 10 million tonnes of CO2 a year.'
+    //             , 'Will offset the emission of 10 million tonnes of CO&#8322; a year.'
     //             , 'Will be capable of generating 7% of the UK’s electricity'
     //             , 'Will provide 25,000 different job opportunities during construction, with  5,600 people on site at the peak'
     //             , 'The site is approximately 175 hectares in size, equal to 245 football pitches'
@@ -81,8 +81,8 @@
       , slides: [
             { src: 'assets/2-reactor-718x404.gif', caption: '', 
               content: [
-                  'Hinkley Point C will comprise of two UK EPRTM reactors each generating 1630MW. HPC will produce almost four times more electricity than Hinkley Point B station’s two reactors.'
-                , 'The UK EPRTM is an evolutionary design with improved efficiency and safety drawing from experience gained from EPR construction at Flamanville in France and Taishan in China. '
+                  'Hinkley Point C will comprise of two UK EPR&trade; reactors each generating 1630MW. HPC will produce almost four times more electricity than Hinkley Point B station’s two reactors.'
+                , 'The UK EPR&trade; is an evolutionary design including improved efficiency and safety — its construction draws from experience gained from sister projects in Flamanville in France and Taishan in China. '
               ]
             }
           , { src: 'assets/2-image_2-718x404.jpg', caption: 'Aerial view HPC', 
@@ -161,7 +161,7 @@
       , slides: [
             { src: 'assets/5-jetty-718x404.gif', caption: 'Artist’s impression of jetty', 
               content: [
-                  'In order to reduce the number of vehicles on the roads, and associated C02 emissions,  will receive at least 80% of construction aggregates will arrive by sea - an estimated 2.8 million tonnes. The Jetty development will be used to bring these bulk materials to site. '
+                  'In order to reduce the number of vehicles on the roads, and associated CO&#8322; emissions,  HPC will receive at least 80% of construction aggregates by sea — an estimated 2.8 million tonnes. The Jetty development will be used to bring these bulk materials to site. '
               ]
             }
           , { src: 'assets/5-image_1-718x404.png', caption: 0, // use caption from slide 0 (zero-indexed) 
@@ -249,7 +249,7 @@
       , slides: [
             { src: 'assets/9-image_1-718x404.jpg', caption: 'Holford culvert under construction', 
               content: [
-                  'Over 4 million cubic metres of materials will be excavated as part of the build - which would fill 1,300 Olympic sized swimming pools. '
+                  'Over 5 million cubic metres of materials will be excavated as part of the build. '
                 , 'Much of this earth will be transferred to Holford Valley. '
                 , 'In preparation for the excavated material a tunnel called a culvert was created to protect Holford Stream and allow it to continue flowing.'
               ]
@@ -347,7 +347,7 @@
       , slides: [
             { src: 'assets/f-image_1-718x404.jpg', caption: '', 
               content: [
-                  'Several large area excavations have been carried out at the Hinkley Point C site. The first seven-month archaeological excavations began in March 2012. Further excavations took place in the summer of 2014. '
+                  'Several large area excavations have been carried out at the Hinkley Point C site. The first seven-month archaeological excavations began in March 2012. Further excavations took place on HPC Site in the summer of 2014 and also outside the Southern perimeter fence in November 2015.'
               ]
             }
           , { src: 'assets/f-image_2-718x404.jpg', caption: 'Summary of findings:', 
@@ -387,7 +387,6 @@
               content: [
                   'The ponds, or Early Water Management Zones, are necessary as top-soil has been removed across site in large quantities.'
                 , 'Previously the top-soil, comprising of grass and other vegetation, would have acted as a natural filter.'
-                , 'A programme of de-watering is planned before excavations in the main reactor area. Boreholes will be drilled and pumps inserted to draw out water which will be held in Water Management Zones. '
               ]
             }
         ]
@@ -422,9 +421,9 @@
             }
           , { src: 'assets/j-image_1-718x404.jpg', caption: 'PC 3000 moving materials at HPC site', 
               content: [
-                  '1.6 million cubic metres of earth has already been moved as part of site preparation works. '
+                  'Over 5 million cubic metres of material will be moving as part of the enabling works programme. '
                 , '48,000m3 of material has been used to backfill the old Hinkley Point A buildings.'
-                , 'By doing this we have avoided 3,200 lorry movements travelling over 288,000 miles and saved 400 tonnes of CO2.'
+                , 'By doing this we have avoided 3,200 lorry movements travelling over 288,000 miles and saved 400 tonnes of CO&#8322;.'
               ]
             }
           , { src: 'assets/j-image_2-718x404.jpg', caption: 1, // use caption from slide 1 (zero-indexed) 
@@ -442,8 +441,7 @@
       , slides: [
             { src: '', caption: '', 
               content: [
-                  'Landscaping is due to occur outside the current perimeter fence at the south of the site. This will provide a screen to mitigate against visual and audible impacts of construction. '
-                , 'A bund comprising of ‘made ground’ will be created. It will be seeded and planted.'
+                  'Landscaping is due to occur outside the current perimeter fence at the south of the site. This will provide a screen to mitigate against visual and audible impacts of construction. It will be seeded and planted. '
               ]
             }
         ]
@@ -559,7 +557,7 @@
       , slides: [
             { src: 'assets/xtra-1-image_1-718x404.jpg', caption: 'Project construction timescale', 
               content: [
-                  'The initial programme of site activity focuses on earth excavation. Over 4 million cubic metres of earth will be dug from the north of the site creating excavations large enough to host the power station’s two reactors. '
+                  'The initial programme of site activity focuses on earth excavation. Over 5 million cubic metres of earth will be dug from the north of the site creating excavations large enough to host the power station’s two reactors. '
                 , 'Throughout this period temporary buildings will be constructed across the site providing welfare facilities and office accommodation for the workforce. '
                 , 'During this initial activity, also in the north of the site, a sea jetty will be constructed to bring bulk materials to site and works will also begin on tunnelling the water inlet and outlet structures under the Severn Estuary. '
                 , 'Upon completion of the excavation works, main civil construction works will start which will see approximately three million tonnes of concrete poured to create suitable foundations for the power station. '
@@ -603,7 +601,7 @@
               content: [
                   'The Hinkley Point C project is one of the first major projects to invest so much at an early stage in local schools, colleges and training. EDF Energy is fully committed to Somerset people benefitting from the skills and employment opportunities the project will bring. '
                 , 'Almost £15 million is being invested in education, employment and skills in Somerset. This includes a commitment to over £6 million for Bridgwater College and West Somerset College. '
-                , 'An Energy Skills Centre, Enterprise Centre and a Construction Skills and Innovation centre have been built as part of the investment. The project aims to create 1000 new apprenticeships throughout the construction period. '
+                , 'An Energy Skills Centre, Enterprise Centre and a Construction Skills and Innovation centre have been built as part of the investment. '
                 , 'The project presents a transformational opportunity for the Somerset economy. Over 2,000 companies in the local area have registered their interest to work on the construction of Hinkley Point C with extensive activity underway to help local firms prepare for the challenge. '
                 , 'It is estimated that around £100 million each year will be put into the region’s economy during peak construction and £40 million each year of its planned 60 year operating life. '
                 , 'EDF Energy has reached agreement with local councils to deliver almost £100 million to mitigate the impacts of the construction which includes a £20 million community fund. '
