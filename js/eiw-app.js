@@ -164,7 +164,6 @@ var EDF_IMAP_WEB;
 //// Typings. 
 /// <reference path="../typings/globals/jquery/index.d.ts" />
 /// <reference path="../typings/globals/slick-carousel/slick-carousel.d.ts" />
-/// <reference path="../typings/globals/jqueryui/index.d.ts" />
 /// <reference path="../typings/globals/jquery.tinyscrollbar/index.d.ts" />
 //// Classes. 
 /// <reference path="eiw-pin.ts" />
@@ -252,12 +251,9 @@ var EDF_IMAP_WEB;
                     $('.eiw-xtramenu-toggle', this.$wrap).removeClass('eiw-active');
                 }
                 this.$popup.addClass('eiw-hidden');
+                $('h4, li', this.$tagmenu).removeClass('eiw-active');
+                $('> div > div', this.$tagmenu).css('height', 0);
             };
-            // calcContentHeight () { // used to update popup-content height
-            //     let popupBottom = this.$popup.position().top + this.$popup.outerHeight(true);
-            //     let captionBottom = this.$caption.position().top + this.$caption.outerHeight(true);
-            //     return popupBottom - captionBottom; 
-            // }
             Main.prototype.init = function (wrapSelector) {
                 var _this = this;
                 //// Get a reference to the HTML element which will contain the app.
@@ -350,9 +346,20 @@ var EDF_IMAP_WEB;
                     var pin = _a[_i];
                     pin.renderInfoPoint(this.$wrap);
                 }
-                $('.eiw-info-point', this.$wrap).click(function (evt) {
+                this.$infoPoints = $('.eiw-info-point', this.$wrap);
+                this.$infoPoints
+                    .click(function (evt) {
                     _this.hideAll();
                     $(evt.currentTarget).data('eiwPinInstance').activate();
+                })
+                    .hover(function (evt) {
+                    $('li', _this.$tagmenu).removeClass('eiw-active');
+                    if ($(evt.target).parent().data('eiwTagmenuLI')) {
+                        $(evt.target).parent().data('eiwTagmenuLI').addClass('eiw-active');
+                    }
+                })
+                    .mouseleave(function (evt) {
+                    $('li', _this.$tagmenu).removeClass('eiw-active');
                 });
                 //// Render the popup (initially hidden).
                 this.$popup = $("\n                <div class=\"eiw-popup eiw-hidden\">\n                  <div>\n                    <div>\n                      <div class=\"eiw-dismiss\"  >X</div>\n                      <h2  class=\"eiw-title\"    >Title here</h2>\n                      <div class=\"eiw-carousel\" ></div>\n                      <div class=\"eiw-arrows\"   ></div>\n                      <div class=\"eiw-dots\"     ></div>\n                      <div class=\"eiw-caption\"  >Caption here</div>\n                    </div>\n                  </div>\n                  <div>\n                    <div>\n                      <div class=\"eiw-content\"  ><p>Content here. </p></div>\n                      <div class=\"eiw-tags\"     ><tt>A Tag</tt><tt>Another Tag</tt></div>\n                    </div>\n                  </div>\n                </div>\n            ");
@@ -387,31 +394,73 @@ var EDF_IMAP_WEB;
                     for (var _d = 0, _e = pin.config.tags; _d < _e.length; _d++) {
                         var tag = _e[_d];
                         tags[tag] = tags[tag] || [];
-                        var $accordionLink = $("<li>" + pin.config.title + "</li>");
-                        $accordionLink.data('eiwPinInstance', pin);
-                        tags[tag].push($accordionLink);
+                        var $tagmenuLink = $("<li>" + pin.config.title + "</li>");
+                        $tagmenuLink.data('eiwPinInstance', pin);
+                        pin.$el.data('eiwTagmenuLI', $tagmenuLink);
+                        tags[tag].push($tagmenuLink);
                     }
                 }
-                this.$tagmenu = $("\n                <div class=\"eiw-tagmenu eiw-min\">\n                  <h3>" + this.config.tagmenu.heading + "</h3>\n                </div>\n            ");
-                var $accordionContent = $("\n                <div>\n                  <h4 class=\"eiw-accordion-fix\"></h4>\n                  <ul class=\"eiw-accordion-fix\"></ul>\n                </div>\n            ");
-                this.$tagmenu.append($accordionContent);
+                this.$tagmenu = $("<div class=\"eiw-tagmenu eiw-min\">");
+                var $tagmenuContent = $("<div>");
+                if (this.config.tagmenu.heading) {
+                    $tagmenuContent.append("<h3>" + this.config.tagmenu.heading + "</h3>");
+                }
+                this.$tagmenu.append($tagmenuContent);
                 for (var tag in tags) {
-                    $accordionContent.append("<h4>" + tag + "</h4");
-                    var $accordionSection = $("<ul>");
+                    var $tagmenuHeading = $("<h4 class=\"eiw-color-" + this.config.tagcolors[tag] + "\">" + tag + "</h4>");
+                    var $tagmenuSection = $("<div class=\"eiw-section eiw-min eiw-color-" + this.config.tagcolors[tag] + "\">");
+                    var $tagmenuUL = $("<ul>");
                     for (var _f = 0, _g = tags[tag]; _f < _g.length; _f++) {
-                        var $accordionLink = _g[_f];
-                        $accordionSection.append($accordionLink);
+                        var $tagmenuLink = _g[_f];
+                        $tagmenuUL.append($tagmenuLink);
                     }
-                    $accordionContent.append($accordionSection);
+                    $tagmenuSection.append($tagmenuUL);
+                    $tagmenuContent.append($tagmenuHeading);
+                    $tagmenuHeading.data('eiwSection', $tagmenuSection);
+                    $tagmenuContent.append($tagmenuSection);
                 }
                 $('.eiw-tagmenu-toggle', this.$wrap).append(this.$tagmenu);
-                this.$tagmenu.accordion({
-                    header: 'h4',
-                    create: function (event, ui) { }
+                $('h4', this.$tagmenu).click(function (evt) {
+                    var $tagmenuHeading = $(evt.target);
+                    var $tagmenuSection = $tagmenuHeading.data('eiwSection');
+                    var $previouslyOpen = $('> div > div', _this.$tagmenu).not('.eiw-min');
+                    var isMin = $tagmenuSection.hasClass('eiw-min');
+                    var tagmenuSectionHeight = $('> ul', $tagmenuSection).height();
+                    var tagmenuHeight = $('> div', _this.$tagmenu).height();
+                    if (0 === $previouslyOpen.length && isMin) {
+                        tagmenuHeight += tagmenuSectionHeight;
+                    }
+                    else if ($previouslyOpen.length && isMin) {
+                        tagmenuHeight += tagmenuSectionHeight -= $previouslyOpen.height();
+                    }
+                    else if (!isMin) {
+                        tagmenuHeight -= tagmenuSectionHeight;
+                    }
+                    else {
+                        console.log('!');
+                    }
+                    $('h4', _this.$tagmenu).removeClass('eiw-active');
+                    $('> div > div', _this.$tagmenu).addClass('eiw-min').css('height', 0);
+                    _this.$tagmenu.css('height', tagmenuHeight);
+                    if (isMin) {
+                        $tagmenuSection
+                            .removeClass('eiw-min')
+                            .css('height', $('> ul', $tagmenuSection).height());
+                        $tagmenuHeading
+                            .addClass('eiw-active');
+                    }
                 });
-                $('li', this.$tagmenu).click(function (evt) {
+                $('li', this.$tagmenu)
+                    .click(function (evt) {
                     _this.hideAll();
                     $(evt.target).data('eiwPinInstance').activate();
+                })
+                    .hover(function (evt) {
+                    _this.$infoPoints.removeClass('eiw-active');
+                    $(evt.target).data('eiwPinInstance').$el.addClass('eiw-active');
+                })
+                    .mouseleave(function (evt) {
+                    _this.$infoPoints.removeClass('eiw-active');
                 });
                 //// Render the xtramenu (initially hidden).
                 this.$xtramenu = $("\n                <div class=\"eiw-xtramenu eiw-min\">\n                  <div>\n                    <h3>" + this.config.xtramenu.heading + "</h3>\n                  </div>\n                </div>\n            ");

@@ -438,7 +438,7 @@
       , y: 4200
       , title: 'Southern Landscaping'
       , slug:  'k'
-      , tags:  ['Geographical Features', 'Site History &amp; Ecology']
+      , tags:  ['Site History &amp; Ecology']
       , slides: [
             { src: '', caption: '', 
               content: [
@@ -469,7 +469,7 @@
       , y: 1980
       , title: 'Wick Barrow / Pixies Mound'
       , slug:  'n'
-      , tags:  ['Geographical Features', 'Site History &amp; Ecology']
+      , tags:  ['Site History &amp; Ecology']
       , slides: [
             { src: '', caption: '', 
               content: [

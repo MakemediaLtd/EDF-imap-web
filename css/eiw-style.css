@@ -427,7 +427,7 @@ body {
 .eiw-header-b,
 .eiw-rtn2map {
     position: absolute;
-    transition: opacity 0.5s;
+    transition: opacity 0.5s, margin-top 0.3s cubic-bezier(0, 1.2, 1, 1.2);
     text-transform: uppercase;
     color: #fff;
     z-index: 40;
@@ -469,7 +469,7 @@ body {
             .eiw-header-b { opacity: 1; }
 .eiw-view-a .eiw-header-b { opacity: 0; }
             .eiw-rtn2map  { opacity: 1; }
-.eiw-view-a .eiw-rtn2map  { opacity: 0; }
+.eiw-view-a .eiw-rtn2map  { opacity: 0; margin-top: -5em; }
 
 
 /* Sidebar */
@@ -697,14 +697,20 @@ body {
     height: 100px; /* will be set by JavaScript when un-minimized */
     transition: height 0.5s; 
 }
+.eiw-section {
+    height: 100px; /* will be set by JavaScript when un-minimized */
+    transition: height 0.5s;
+    overflow: hidden;
+}
 .eiw-tagmenu.eiw-min,
-.eiw-xtramenu.eiw-min {
+.eiw-xtramenu.eiw-min,
+.eiw-section.eiw-min {
     height: 0px;
     overflow: hidden;
 }
 .eiw-tagmenu > div,
 .eiw-xtramenu > div {
-    padding: 1em 0;
+    padding: 0;
 }
 .eiw-tagmenu .eiw-icon-logo,
 .eiw-xtramenu .eiw-icon-logo {
@@ -719,60 +725,96 @@ body {
 .eiw-tagmenu h3,
 .eiw-xtramenu h3 {
     margin-top: 0;
-    font-size: 1.25em;
-    text-transform: uppercase;
+    padding-top: 1em;
+    font-size: 1.8em;
     text-align: center;
     font-weight: normal;
     color: #09357A;
 }
 .eiw-tagmenu h4,
 .eiw-xtramenu h4 {
-    font-size: 1.25em;
-    margin: 0.7em 0;
-    text-transform: uppercase;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0.7em 0 0.7em 1em;
     outline: none!important;
     cursor: pointer;
     color: #09357A;
+    transition: background 0.5s;
 }
+.eiw-tagmenu h4:hover,
+.eiw-xtramenu h4:hover {
+    color: #fff;
+}
+
 
 
 /* Tagmenu */
 .eiw-tagmenu {
-    padding: 0 0.5em 0 2em;
-    left: 0;
-    right: 50%;
     border-left: 1.5em solid #ffa02f;
 }
 .eiw-tagmenu ul {
     margin: 0;
-    padding-left: 2em;
+    padding-left: 3.2em;
 }
 .eiw-tagmenu ul li {
-    padding-bottom: 0.3em;
-    height: 0;
-    font-size: 1.25em;
-    color: #ffa02f;
+    padding: 0.4em 1em 0.4em 0.15em;
+    font-size: 1.8em;
+    color: #fff;
+    font-weight: bold;
+    text-transform: none;
     cursor: pointer;
     transition: color 0.5s, height 0.3s;
 }
-.eiw-tagmenu li:hover {
-    color: #09357A;
+.eiw-tagmenu ul li.eiw-active,
+.eiw-tagmenu ul li:hover {
+    text-decoration: underline;
 }
-.eiw-tagmenu ul.ui-accordion-content-active {
-    height: auto!important;
+.eiw-tagmenu ul li:last-child {
+    padding-bottom: 1em;
 }
-.eiw-tagmenu ul.ui-accordion-content-active li {
-    height: auto; /*1.3em;*/
+.eiw-tagmenu h4.eiw-active {
+    color: #fff;
 }
+.eiw-tagmenu .eiw-color-cyan:hover,
+.eiw-tagmenu .eiw-color-cyan.eiw-active,
+.eiw-tagmenu .eiw-color-cyan ul {
+    background: #005aba;
+}
+.eiw-tagmenu .eiw-color-green:hover,
+.eiw-tagmenu .eiw-color-green.eiw-active,
+.eiw-tagmenu .eiw-color-green ul {
+    background: #509e30;
+}
+.eiw-tagmenu .eiw-color-lime:hover,
+.eiw-tagmenu .eiw-color-lime.eiw-active,
+.eiw-tagmenu .eiw-color-lime ul {
+    background: #a8b614;
+}
+.eiw-tagmenu .eiw-color-navy:hover,
+.eiw-tagmenu .eiw-color-navy.eiw-active,
+.eiw-tagmenu .eiw-color-navy ul {
+    background: #09357A;
+}
+.eiw-tagmenu .eiw-color-orange:hover,
+.eiw-tagmenu .eiw-color-orange.eiw-active,
+.eiw-tagmenu .eiw-color-orange ul {
+    background: #fe5715;
+}
+.eiw-tagmenu .eiw-color-peach:hover,
+.eiw-tagmenu .eiw-color-peach.eiw-active,
+.eiw-tagmenu .eiw-color-peach ul {
+    background: #fe9f2f;
+}
+
 
 
 /* Xtramenu  */
 .eiw-xtramenu {
-    padding: 0 0.5em 0 1.5em;
-    left: 50%;
-    right: 0;
     border-left: 1.5em solid #09357A;
 }
 .eiw-xtramenu h4 {
-    margin: 2em 0;
+    margin: 0;
+}
+.eiw-xtramenu h4:hover {
+    background: #09357A;
 }
