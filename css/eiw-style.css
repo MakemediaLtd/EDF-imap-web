@@ -583,25 +583,25 @@ p, h1, h2, h3, h4, h5, h6, span, div, ul, li {
 .eiw-tagmenu-toggle .eiw-icon {
     width: 5em;
 }
-.eiw-tagmenu-toggle img {
+.eiw-tagmenu-toggle .eiw-icon > img {
     float: left;
     width: 5em;
     height: auto;
     transition: opacity 0.5s;
 }
-.eiw-tagmenu-toggle img.eiw-hover {
+.eiw-tagmenu-toggle .eiw-icon > img.eiw-hover {
     margin-left: -5em;
     opacity: 0;
 }
 .eiw-tagmenu-toggle eiw-text:hover {
     color: red!important;
 }
-.eiw-tagmenu-toggle:hover      img.eiw-default,
-.eiw-tagmenu-toggle.eiw-active img.eiw-default {
+.eiw-tagmenu-toggle:hover      .eiw-icon > img.eiw-default,
+.eiw-tagmenu-toggle.eiw-active .eiw-icon > img.eiw-default {
     opacity: 0;
 }
-.eiw-tagmenu-toggle:hover      img.eiw-hover,
-.eiw-tagmenu-toggle.eiw-active img.eiw-hover {
+.eiw-tagmenu-toggle:hover      .eiw-icon > img.eiw-hover,
+.eiw-tagmenu-toggle.eiw-active .eiw-icon > img.eiw-hover {
     opacity: 1;
 }
 
@@ -633,16 +633,16 @@ p, h1, h2, h3, h4, h5, h6, span, div, ul, li {
     height: auto;
     transition: opacity 0.5s;
 }
-.eiw-xtramenu-toggle img.eiw-hover {
+.eiw-xtramenu-toggle .eiw-icon > img.eiw-hover {
     margin-left: -5em;
     opacity: 0;
 }
-.eiw-xtramenu-toggle:hover      img.eiw-default,
-.eiw-xtramenu-toggle.eiw-active img.eiw-default {
+.eiw-xtramenu-toggle:hover      .eiw-icon > img.eiw-default,
+.eiw-xtramenu-toggle.eiw-active .eiw-icon > img.eiw-default {
     opacity: 0;
 }
-.eiw-xtramenu-toggle:hover      img.eiw-hover,
-.eiw-xtramenu-toggle.eiw-active img.eiw-hover {
+.eiw-xtramenu-toggle:hover      .eiw-icon > img.eiw-hover,
+.eiw-xtramenu-toggle.eiw-active .eiw-icon > img.eiw-hover {
     opacity: 1;
 }
 
@@ -808,8 +808,33 @@ p, h1, h2, h3, h4, h5, h6, span, div, ul, li {
 .eiw-tagmenu ul li:last-child {
     padding-bottom: 1em;
 }
+.eiw-tagmenu h4 {
+    vertical-align: middle;
+}
 .eiw-tagmenu h4.eiw-active {
     color: #fff;
+}
+.eiw-tagmenu h4 > img {
+    float: left;
+    margin: -0.2em 0 0 -0.2em;
+    width: 1.2em;
+    height: auto;
+    opacity: 0;
+}
+.eiw-tagmenu h4 > img.eiw-default {
+    opacity: 1;
+}
+.eiw-tagmenu h4 > img.eiw-hover {
+    margin-left: -1.2em;
+    padding-right: 0.5em;
+}
+.eiw-tagmenu h4:hover      > img.eiw-default,
+.eiw-tagmenu h4.eiw-active > img.eiw-default {
+    opacity: 0;
+}
+.eiw-tagmenu h4:hover      > img.eiw-hover,
+.eiw-tagmenu h4.eiw-active > img.eiw-hover {
+    opacity: 1;
 }
 .eiw-tagmenu .eiw-color-cyan:hover,
 .eiw-tagmenu .eiw-color-cyan.eiw-active,

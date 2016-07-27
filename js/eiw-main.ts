@@ -444,7 +444,13 @@ namespace EDF_IMAP_WEB { export namespace Main {
             }
             this.$tagmenu.append($tagmenuContent);
             for (let tag in tags) {
-                let $tagmenuHeading = $(`<h4 class="eiw-color-${this.config.tagcolors[tag]}">${tag}</h4>`);
+                let $tagmenuHeading = $(`
+                    <h4 class="eiw-color-${this.config.tagcolors[tag]}">
+                      <img class="eiw-default" src="assets/icon-teardrop-${this.config.tagcolors[tag]}.png">
+                      <img class="eiw-hover"   src="assets/icon-teardrop-wot.png">
+                      ${tag}
+                    </h4>
+                `);
                 let $tagmenuSection = $(`<div class="eiw-section eiw-min eiw-color-${this.config.tagcolors[tag]}">`);
                 let $tagmenuUL      = $(`<ul>`);
                 for (let $tagmenuLink of tags[tag]) {
@@ -458,6 +464,7 @@ namespace EDF_IMAP_WEB { export namespace Main {
             $('.eiw-tagmenu-toggle', this.$wrap).append(this.$tagmenu);
             $('h4', this.$tagmenu).click( (evt:JQueryMouseEventObject) => {
                 let $tagmenuHeading = $(evt.target);
+                if (! $tagmenuHeading.data('eiwSection') ) $tagmenuHeading = $tagmenuHeading.parent(); // clicked an <IMG>
                 let $tagmenuSection = $tagmenuHeading.data('eiwSection');
                 let $previouslyOpen = $('> div > div', this.$tagmenu).not('.eiw-min');
                 let isMin = $tagmenuSection.hasClass('eiw-min');

@@ -442,7 +442,7 @@ var EDF_IMAP_WEB;
                 }
                 this.$tagmenu.append($tagmenuContent);
                 for (var tag in tags) {
-                    var $tagmenuHeading = $("<h4 class=\"eiw-color-" + this.config.tagcolors[tag] + "\">" + tag + "</h4>");
+                    var $tagmenuHeading = $("\n                    <h4 class=\"eiw-color-" + this.config.tagcolors[tag] + "\">\n                      <img class=\"eiw-default\" src=\"assets/icon-teardrop-" + this.config.tagcolors[tag] + ".png\">\n                      <img class=\"eiw-hover\"   src=\"assets/icon-teardrop-wot.png\">\n                      " + tag + "\n                    </h4>\n                ");
                     var $tagmenuSection = $("<div class=\"eiw-section eiw-min eiw-color-" + this.config.tagcolors[tag] + "\">");
                     var $tagmenuUL = $("<ul>");
                     for (var _f = 0, _g = tags[tag]; _f < _g.length; _f++) {
@@ -457,6 +457,8 @@ var EDF_IMAP_WEB;
                 $('.eiw-tagmenu-toggle', this.$wrap).append(this.$tagmenu);
                 $('h4', this.$tagmenu).click(function (evt) {
                     var $tagmenuHeading = $(evt.target);
+                    if (!$tagmenuHeading.data('eiwSection'))
+                        $tagmenuHeading = $tagmenuHeading.parent(); // clicked an <IMG>
                     var $tagmenuSection = $tagmenuHeading.data('eiwSection');
                     var $previouslyOpen = $('> div > div', _this.$tagmenu).not('.eiw-min');
                     var isMin = $tagmenuSection.hasClass('eiw-min');
