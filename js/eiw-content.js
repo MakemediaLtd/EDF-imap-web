@@ -518,7 +518,7 @@
       , slug:  'r'
       , tags:  ['Site History &amp; Ecology']
       , slides: [
-            { src: 'assets/r-image_1-718x404.jpg', caption: 'Illustrative view of restored landscape', 
+            { src: 'assets/r-image_4-718x404.jpg', caption: 'Illustrative view of restored landscape', 
               content: [
                   'Over 20,000 trees have been planted to provide a screen to construction activities for local villages.'
                 , 'Additional planting will help create 13.5 hectares of broad leaved woodland and 11.2km of species rich hedgerows as habitats for wildlife during Hinkley Point C’s operation.'
@@ -537,7 +537,7 @@
                 , 'These temporary habitats will decompose over time encouraging the badgers to make natural setts in the adjacent hedge.'
               ]
             }
-          , { src: 'assets/r-image_4-718x404.jpg', caption: 'Ecological mitigation', 
+          , { src: 'assets/r-image_1-718x404.jpg', caption: 'Ecological mitigation', 
               content: [
                   'An ecological mitigation area either side of Green Lane will help to provide additional habitat, especially for reptiles such as slowworms and grass snakes. Gloworms are also present – the females can be seen glowing on a hot summer’s night.'
               ]
