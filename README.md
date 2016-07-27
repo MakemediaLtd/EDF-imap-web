@@ -3,7 +3,8 @@
 #### This repo contains private content held on behalf of EDF Energy plc
 
 EDF-imap-web is the HTML5 port of the EDF Interactive Map. Test it at:  
-https://makemedialtd.github.io/EDF-imap-web/index.html
+https://makemedialtd.github.io/EDF-imap-web/iframe-test.html  
+https://makemedialtd.github.io/EDF-imap-web/index.html  
 
 
 ## Important files/folders

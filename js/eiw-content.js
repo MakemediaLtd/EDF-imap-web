@@ -35,12 +35,12 @@
             title:   'Tap an information point<br>to get more detail &amp; media'
         }
       , tagcolors: {
-            'Construction'              : 'orange'
-          , 'Workforce'                 : 'peach'
+            'Construction'              : 'lime'
+          // , 'Workforce'                 : 'green'
           , 'Logistics'                 : 'navy'
-          , 'Geographical Features'     : 'cyan'
-          , 'Power Station'             : 'green'
-          , 'Site History &amp; Ecology': 'lime'
+          , 'Geographical Features'     : 'orange'
+          , 'Power Station'             : 'peach'
+          , 'Site History &amp; Ecology': 'cyan'
         }
     });
 
@@ -128,7 +128,7 @@
       , y: 3968
       , title: 'Accommodation'
       , slug:  '4'
-      , tags:  ['Workforce']
+      , tags:  ['Logistics']
       , slides: [
             { src: 'assets/4-accommodation-718x404.gif', caption: 'Hinkley Point C On-Site Accommodation Campus', 
               content: [
@@ -610,19 +610,19 @@
         ]
     });
 
-    app.addHiddenPin({
-        x: 444
-      , y: 650
-      , title: 'On site temporary accommodation'
-      , slug:  's'
-      , tags:  ['Workforce']
-      , slides: [
-            { src: '', caption: '', 
-              content: [
-                  'It is anticipated that over 50,000 square meters of welfare accommodation will be required during construction. '
-              ]
-            }
-        ]
-    });
+    // app.addHiddenPin({
+    //     x: 444
+    //   , y: 650
+    //   , title: 'On site temporary accommodation'
+    //   , slug:  's'
+    //   , tags:  ['Workforce']
+    //   , slides: [
+    //         { src: '', caption: '', 
+    //           content: [
+    //               'It is anticipated that over 50,000 square meters of welfare accommodation will be required during construction. '
+    //           ]
+    //         }
+    //     ]
+    // });
 
 }();
