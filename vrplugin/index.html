@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>VR view</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="style.css">
+		<script>
+
+
+		</script>
+		<style>
+			#vr-360-icon img{
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				margin: 12px;
+				width: 50px;
+			}
+			#vr-360-text{
+				font-family: "Open Sans", Arial, Serif;
+				position: fixed;
+				bottom: -35px;
+				left: 50%;
+				transform: translateX(-50%);
+				background-color: rgba(0, 0, 0, 0.5);
+				border-radius: 50%;
+				padding: 35px 50px;
+				width: 450px;
+			}
+			#vr-360-text p{
+				position: absolute;
+				text-align: center;
+				width: 100%;
+				margin: auto;
+				padding: 0;
+				top: 22px;
+				left: 0;
+				margin-top: -10px;
+			}
+			@media only screen and (max-width: 1023px){
+				#vr-360-icon{
+					display: none;
+				}
+				#vr-360-text{
+					display: none;
+				}
+			}
+		</style>
+	</head>
+	<body>
+    <div id="error" class="dialog">
+      <div class="wrap">
+        <h1 class="title">Error</h1>
+        <p class="message">An unknown error occurred.</p>
+      </div>
+    </div>
+
+    <a id="watermark" href="http://g.co/vr/view" target="_blank" style="display: none;">
+      <img src="images/ic_info_outline_black_24dp.svg"/>
+    </a>
+	
+	<!--
+	<script>
+		WebVRConfig = {
+		  BUFFER_SCALE: 0.5,
+		  TOUCH_PANNER_DISABLED: false
+		};
+    </script>
+	
+    <script src="build/three.min.js"></script>
+    <script src="build/embed.min.js"></script>
+	-->
+    <script src="build/vrview.js"></script>
+	</body>
+</html>

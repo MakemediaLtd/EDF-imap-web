@@ -58,6 +58,14 @@ var EDF_IMAP_WEB;
                         else if ('.mp4' === slide.src.substr(-4)) {
                             media = "<video loop src=\"" + slide.src + "\"></video>";
                         }
+                        else if (slide.src.includes("http")) {
+                            media = '<iframe style="width: 100%; height: 100%;" src="' + slide.src + '" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>' ;
+                        }
+                        else if(slide.src.includes("360img-")){
+                            // media = '<iframe style="width: 100%; height: 100%;" src="' + slide.src + '"></iframe>';
+                            media = '<iframe style="width: 100%; height: 100%;" allowfullscreen src="../vrplugin/index.html?image=' + slide.src + '"></iframe>';
+                            
+                        }
                         else {
                             media = "<img src=\"" + slide.src + "\">";
                         }

@@ -79,7 +79,19 @@
       , slug:  '2'
       , tags:  ['Power Station']
       , slides: [
-            { src: 'assets/2-reactor-718x404.gif', caption: '', 
+            { src: 'https://www.youtube.com/embed/lV5G7VozIOc', caption: '', 
+              content: [
+                  'This is a 360 video'
+                , 'From Youtube. '
+              ]
+            }
+          , { src: 'assets/360img-locodojo.jpg', caption: '', 
+              content: [
+                  'This is a 360 image'
+                , 'From assets. '
+              ]
+            }
+          , { src: 'assets/2-reactor-718x404.gif', caption: '', 
               content: [
                   'Hinkley Point C will comprise of two UK EPR&trade; reactors each generating 1630MW. HPC will produce almost four times more electricity than Hinkley Point B station’s two reactors.'
                 , 'The UK EPR&trade; is an evolutionary design including improved efficiency and safety — its construction draws from experience gained from sister projects in Flamanville in France and Taishan in China. '

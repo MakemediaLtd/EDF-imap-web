@@ -1,4 +1,4 @@
-# EDF-imap-web
+﻿# EDF-imap-web
 
 #### This repo contains private content held on behalf of EDF Energy plc
 
@@ -23,3 +23,12 @@ https://makemedialtd.github.io/EDF-imap-web/index.html
 Compile and watch using:  
 `$ npm start`  
 (you’ll need `tsc` installed)
+
+
+## ANTONINO:
+360_R&D branch contains my commit to include 360 videos into the app,
+for youtube video just put the link into the eiw-content.js file (there is one as an example)
+in eiw-app.js the app checks if it's a video or an image, 
+put the 360 images into "vrplugin/assets"
+also all the names of the 360 images need to have this format: 360-img[namefile].jpg in order to enable the plugin
+
