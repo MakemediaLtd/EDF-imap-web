@@ -16,7 +16,7 @@
           , height:  4648
         }
       , header: {
-            titleA:  'Hinkley Point C Construction Site June 2016'
+            titleA:  'Hinkley Point C Construction Site February 2018'
           , titleB:  'Hinkley Point C Construction Complete'
           , rtn2Map: 'Return to map'
         }
@@ -41,6 +41,7 @@
           , 'Geographical Features'     : 'orange'
           , 'Power Station'             : 'peach'
           , 'Site History &amp; Ecology': 'cyan'
+          , '360 Videos'				: 'green'
         }
     });
 
@@ -72,6 +73,152 @@
     //     ]
     // });
 
+   //  { src: 'assets/360img-locodojo.jpg', caption: '', 
+   //           content: [
+   //               'This is a 360 image'
+   //             , 'From assets. '
+   //           ]
+   //         }
+   //      ,
+   //   }
+
+
+// 360 videos
+
+    app.addNumberedPin({
+        x: 1700
+      , y: 500
+      , title: 'Sea Wall'
+      , slug:  '360_1'
+      , tags:  ['360 Videos']
+      , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            { src: 'https://www.youtube.com/embed/ZKmzlsPh7jQ?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=1;', caption: 'Sea Wall: During Construction.', 
+              content: [
+                  'Drag the video to explore the scene.'
+               // , ' More copy here...'
+              ]
+            },
+             { src: 'https://www.youtube.com/embed/u-WdA5_Mvzs?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=0;', caption: 'Sea Wall: After Construction.', 
+              content: [
+                  'Drag the video to explore the scene.'
+              ]
+            }
+          , 
+            
+
+          
+        ]
+    });
+
+
+   	app.addNumberedPin({
+        x: 2400
+      , y: 1474
+      , title: 'Reactor 1'
+      , slug:  '360_2'
+      , tags:  ['360 Videos']
+      , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            { src: 'https://www.youtube.com/embed/eROGkX-cL_c?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=1;', caption: 'Reactor 1: During Construction', 
+              content: [
+                  'Drag the video to explore the scene.'
+               // , ' More copy here...'
+              ]
+            },
+            { src: 'https://www.youtube.com/embed/GcEv1zX3Kgc?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=0;', caption: 'Reactor 1: After Construction', 
+              content: [
+                  'Drag the video to explore the scene.'
+               // , ' More copy here...'
+              ]
+            }
+            
+
+          
+        ]
+    });
+
+
+   	app.addNumberedPin({
+        x: 2000
+      , y: 1474
+      , title: 'Reactor 2'
+      , slug:  '360_3'
+      , tags:  ['360 Videos']
+      , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            { src: 'https://www.youtube.com/embed/seDvbz9Rqpw;controls=0&amp;showinfo=0;frameborder=0;autoplay=1;', caption: 'Reactor 2: During Construction', 
+              content: [
+                  'Drag the video to explore the scene.'
+               // , ' More copy here...'
+              ]
+            },
+            { src: 'https://www.youtube.com/embed/3BBw-qy9NKI?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=0;', caption: 'Reactor 2: After Construction', 
+              content: [
+                  'Drag the video to explore the scene.'
+               // , ' More copy here...'
+              ]
+            }
+            
+
+          
+        ]
+    });
+
+
+   	app.addNumberedPin({
+        x: 300
+      , y: 1200
+      , title: 'Batching Plant'
+      , slug:  '360_4'
+      , tags:  ['360 Videos']
+      , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            { src: 'https://www.youtube.com/embed/3r2FLBYO64o?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=1;', caption: 'Batching Plant: During Construction', 
+              content: [
+                  'Drag the video to explore the scene.'
+               // , ' More copy here...'
+              ]
+            },
+            { src: 'https://www.youtube.com/embed/Cm0TzDnwZ7Y?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=0;', caption: 'Batching Plant: After Construction', 
+              content: [
+                  'Drag the video to explore the scene.'
+               // , ' More copy here...'
+              ]
+            }
+            
+
+          
+        ]
+    });
+
+
+   	app.addNumberedPin({
+        x: 400
+      , y: 2000
+      , title: 'Environmental'
+      , slug:  '360_5'
+      , tags:  ['360 Videos']
+      , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            { src: 'https://www.youtube.com/embed/NZOLQOqebC4?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=1;', caption: 'Environmental: During Construction', 
+              content: [
+                  'Drag the video to explore the scene.'
+               // , ' More copy here...'
+              ]
+            },
+            { src: 'https://www.youtube.com/embed/WuGXcZVM9pQ?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=0;', caption: 'Environmental: After Construction', 
+              content: [
+                  'Drag the video to explore the scene.'
+               // , ' More copy here...'
+              ]
+            }
+            
+
+          
+        ]
+    });
+
+
+
+// End 360 Videos
+
+
     app.addNumberedPin({
         x: 2179
       , y: 1474
@@ -79,19 +226,7 @@
       , slug:  '2'
       , tags:  ['Power Station']
       , slides: [
-            { src: 'https://www.youtube.com/embed/lV5G7VozIOc', caption: '', 
-              content: [
-                  'This is a 360 video'
-                , 'From Youtube. '
-              ]
-            }
-          , { src: 'assets/360img-locodojo.jpg', caption: '', 
-              content: [
-                  'This is a 360 image'
-                , 'From assets. '
-              ]
-            }
-          , { src: 'assets/2-reactor-718x404.gif', caption: '', 
+            { src: 'assets/2-reactor-718x404.gif', caption: '', 
               content: [
                   'Hinkley Point C will comprise of two UK EPR&trade; reactors each generating 1630MW. HPC will produce almost four times more electricity than Hinkley Point B station’s two reactors.'
                 , 'The UK EPR&trade; is an evolutionary design including improved efficiency and safety — its construction draws from experience gained from sister projects in Flamanville in France and Taishan in China. '

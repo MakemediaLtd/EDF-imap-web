@@ -30,6 +30,13 @@ var EDF_IMAP_WEB;
             Pin.prototype.deactivate = function () {
                 this.$el.removeClass('eiw-active');
                 this.main.activePin = null;
+
+             //   var div = document.getElementById("popupVid");
+             //   var iframe = div.getElementsByTagName("iframe")[0].contentWindow;
+             //   div.style.display = state == 'hide' ? 'none' : '';
+            //    func = state == 'hide' ? 'pauseVideo' : 'playVideo';
+             //   iframe.postMessage('{"event":"command","func":"' + func + '","args":""}', '*');
+
             };
             Pin.prototype.activate = function () {
                 this.$el.addClass('eiw-active');

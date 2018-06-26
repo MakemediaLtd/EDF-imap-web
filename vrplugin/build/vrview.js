@@ -37117,7 +37117,7 @@ DeviceInfo.prototype.getDistortedFieldOfViewLeftEye = function() {
   var viewer = this.viewer;
   var device = this.device;
 
-  var distortion = new Distortion(viewer.distortionCoefficients);
+  var distortion = null; // new Distortion(viewer.distortionCoefficients);
 
   // Device.height and device.width for device in portrait mode, so transpose.
   var eyeToScreenDistance = viewer.screenLensDistance;
@@ -39130,7 +39130,7 @@ function WebVRManager(renderer, effect, params) {
   // Create device info and set the correct default viewer.
   this.deviceInfo = new DeviceInfo(this.dpdb.getDeviceParams());
   this.deviceInfo.viewer = DeviceInfo.Viewers[this.viewerSelector.selectedKey];
-  console.log('Using the %s viewer.', this.getViewer().label);
+  //console.log('Using the %s viewer.', this.getViewer().label);
 
   this.distorter = new CardboardDistorter(renderer);
   this.distorter.updateDeviceInfo(this.deviceInfo);
