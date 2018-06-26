@@ -144,7 +144,7 @@
       , slug:  '360_3'
       , tags:  ['360 Videos']
       , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            { src: 'https://www.youtube.com/embed/seDvbz9Rqpw;controls=0&amp;showinfo=0;frameborder=0;autoplay=1;', caption: 'Reactor 2: During Construction', 
+            { src: 'https://www.youtube.com/embed/seDvbz9Rqpw?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=0;', caption: 'Reactor 2: During Construction', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
