@@ -3,6 +3,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+
+
+
+
 //// Classes. 
 /// <reference path="eiw-main.ts" />
 //// EDF_IMAP_WEB.Pin
@@ -59,6 +63,11 @@ var EDF_IMAP_WEB;
                     for (var _i = 0, slides_1 = slides; _i < slides_1.length; _i++) {
                         var slide = slides_1[_i];
                         var media = void 0;
+
+                       
+                           
+ 
+
                         if (!slide.src) {
                             media = '';
                         }
@@ -66,7 +75,26 @@ var EDF_IMAP_WEB;
                             media = "<video loop src=\"" + slide.src + "\"></video>";
                         }
                         else if (slide.src.includes("http")) {
-                            media = '<iframe style="width: 100%; height: 100%;" src="' + slide.src + '" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>' ;
+
+
+                            
+
+                            if(slide.src.includes("brightcove"))
+                            {
+                                
+                             
+                                
+                                media = '<iframe   id="player" style="width: 100%; height: 100%;"  src="' + slide.src+ '" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>';
+
+                
+                                
+                            }
+                            else
+                            {
+                                media = '<iframe style="width: 100%; height: 100%;" src="' + slide.src + '" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>' ;
+                            
+                            }
+                           
                         }
                         else if(slide.src.includes("360img-")){
                             // media = '<iframe style="width: 100%; height: 100%;" src="' + slide.src + '"></iframe>';
@@ -91,9 +119,39 @@ var EDF_IMAP_WEB;
                 //    .html(slides[0].content ? `<p>${slides[0].content['join']('</p><p>')}</p>` : '')
                 //    .css('height', this.main.calcContentHeight() - 45 ) // `- 45` allows for padding
                 // ;
+
+
+                  
+
             };
             Pin.prototype.showSlide = function (slideIndex) {
+
+
+
                 var slide = this.config.slides[slideIndex];
+
+              //  if(slideIndex > 0)
+              //  {
+              //      var lastSlide = this.config.slides[slideIndex];
+//
+               //     var srcLastFrame = lastSlide.src;
+
+                 //   var theProtocol = location.protocol;
+
+            //        var theURL = theProtocol + srcLastFrame;
+                    // Get a reference to the iframe element
+              //      var iframeTag = document.getElementById("player");
+                    // Retrieve window object needed for postMessage
+                //    var win = iframeTag.contentWindow;
+                //    console.log('theURL:', theURL);
+                //   console.log('win:', win);
+                 //   win.pause();
+
+                     
+              //  }
+              
+
+
                 var src = slide.src, caption = slide.caption, content = slide.content;
                 if ('number' == typeof caption)
                     caption = this.config.slides[caption].caption;
@@ -544,3 +602,9 @@ var EDF_IMAP_WEB;
 })(EDF_IMAP_WEB || (EDF_IMAP_WEB = {})); // end `EDF_IMAP_WEB.Main` namespace
 //// We use a singleton instance of `Main` for the app. 
 window['EDF_IMAP_WEB'].app = new EDF_IMAP_WEB.Main.Main();
+
+
+
+
+ 
+

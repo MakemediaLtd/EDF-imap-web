@@ -92,13 +92,13 @@
       , slug:  '360_1'
       , tags:  ['360 Videos']
       , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            { src: 'https://www.youtube.com/embed/ZKmzlsPh7jQ?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=1;', caption: 'Sea Wall: During Construction.', 
+            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5802559943001', caption: 'Sea Wall: During Construction.', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
               ]
             },
-             { src: 'https://www.youtube.com/embed/u-WdA5_Mvzs?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=0;', caption: 'Sea Wall: After Construction.', 
+             { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5802472169001', caption: 'Sea Wall: After Construction.', 
               content: [
                   'Drag the video to explore the scene.'
               ]
@@ -118,13 +118,13 @@
       , slug:  '360_2'
       , tags:  ['360 Videos']
       , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            { src: 'https://www.youtube.com/embed/eROGkX-cL_c?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=1;', caption: 'Reactor 1: During Construction', 
+            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5803025191001 ', caption: 'Reactor 1: During Construction', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
               ]
             },
-            { src: 'https://www.youtube.com/embed/GcEv1zX3Kgc?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=0;', caption: 'Reactor 1: After Construction', 
+            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5803040454001 ', caption: 'Reactor 1: After Construction', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
@@ -144,13 +144,13 @@
       , slug:  '360_3'
       , tags:  ['360 Videos']
       , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            { src: 'https://www.youtube.com/embed/seDvbz9Rqpw?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=0;', caption: 'Reactor 2: During Construction', 
+            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5803033312001', caption: 'Reactor 2: During Construction', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
               ]
             },
-            { src: 'https://www.youtube.com/embed/3BBw-qy9NKI?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=0;', caption: 'Reactor 2: After Construction', 
+            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5803037878001 ', caption: 'Reactor 2: After Construction', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
@@ -170,13 +170,13 @@
       , slug:  '360_4'
       , tags:  ['360 Videos']
       , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            { src: 'https://www.youtube.com/embed/3r2FLBYO64o?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=1;', caption: 'Batching Plant: During Construction', 
+            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5803036975001 ', caption: 'Batching Plant: During Construction', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
               ]
             },
-            { src: 'https://www.youtube.com/embed/Cm0TzDnwZ7Y?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=0;', caption: 'Batching Plant: After Construction', 
+            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5803040492001 ', caption: 'Batching Plant: After Construction', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
@@ -196,13 +196,13 @@
       , slug:  '360_5'
       , tags:  ['360 Videos']
       , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            { src: 'https://www.youtube.com/embed/NZOLQOqebC4?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=1;', caption: 'Environmental: During Construction', 
+            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5803043706001 ', caption: 'Environmental: During Construction', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
               ]
             },
-            { src: 'https://www.youtube.com/embed/WuGXcZVM9pQ?rel=0&amp;controls=0&amp;showinfo=0;frameborder=0;autoplay=0;', caption: 'Environmental: After Construction', 
+            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5803047334001', caption: 'Environmental: After Construction', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
