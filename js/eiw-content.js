@@ -92,13 +92,13 @@
       , slug:  '360_1'
       , tags:  ['360 Videos']
       , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5802559943001&muted', caption: 'Sea Wall: During Construction.', 
+            { src: 'https://www.youtube.com/embed/ZKmzlsPh7jQ?rel=0&amp;autoplay=0&mute=1', caption: 'Sea Wall: During Construction.', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
               ]
             },
-             { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5802472169001&muted', caption: 'Sea Wall: After Construction.', 
+             { src: 'https://www.youtube.com/embed/u-WdA5_Mvzs?rel=0&amp;autoplay=0&mute=1', caption: 'Sea Wall: After Construction.', 
               content: [
                   'Drag the video to explore the scene.'
               ]
