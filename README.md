@@ -38,4 +38,7 @@ Yo Ed, so I've made changes to both eiw-app.js and eiq-content.js. You need to p
 
 I have been pushing the site to my own server, please feel free to use that. Login via sftp or ssh as root @46.101.15.153. There's a dir called edf. Just dump everything there, e.g. http://46.101.15.153/edf/test2.html (I don't have a domain for that IP.) password is: perry678. Please just use that edf directory! 
 
+Also, when you want to push live, just merge the 360 R&D branch into the GitHub pages branch.
+
 Good luck!
+
