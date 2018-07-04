@@ -32,3 +32,10 @@ in eiw-app.js the app checks if it's a video or an image,
 put the 360 images into "vrplugin/assets"
 also all the names of the 360 images need to have this format: 360-img[namefile].jpg in order to enable the plugin
 
+## Harrison:
+
+Yo Ed, so I've made changes to both eiw-app.js and eiq-content.js. You need to place your player src files (links) in the content script. In the app.js file I've added some clause that will pick up the Brightcove embed from the YouTube one. The app.js is where you will need to include your slider logic for pausing the player (if we need to do that). I have no idea why the Brightcove player is failing on iOS devices. Sam has the logins for generating player embed code, via the Brightcove website. 
+
+I have been pushing the site to my own server, please feel free to use that. Login via sftp or ssh as root @46.101.15.153. There's a dir called edf. Just dump everything there, e.g. http://46.101.15.153/edf/test2.html (I don't have a domain for that IP.) password is: perry678. Please just use that edf directory! 
+
+Good luck!
