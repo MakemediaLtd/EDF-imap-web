@@ -92,13 +92,13 @@
       , slug:  '360_1'
       , tags:  ['360 Videos']
       , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            { src: 'https://www.youtube.com/embed/ZKmzlsPh7jQ?rel=0&amp;autoplay=0&mute=1', caption: 'Sea Wall: During Construction.', 
+            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5802559943001&muted', caption: 'Sea Wall: During Construction.', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
               ]
             },
-             { src: 'https://www.youtube.com/embed/u-WdA5_Mvzs?rel=0&amp;autoplay=0&mute=1', caption: 'Sea Wall: After Construction.', 
+             { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5802472169001&muted', caption: 'Sea Wall: After Construction.', 
               content: [
                   'Drag the video to explore the scene.'
               ]
@@ -445,7 +445,7 @@
       , slides: [
             { src: 'assets/a-image_1-718x404.png', caption: '', 
               content: [
-                  'Nuclear power stations require large volumes of water for cooling. The water intake and outfall tunnels ensure that a separate and continuous supply of sea water is taken and returned to the sea. '
+                  'Nuclear power stations require large volumes of water for cooling. The water intake and outfall tunnels ensure that a separate and continuous supply of sea water is taken and returned to the sea. '
                 , 'Water used for cooling the steam is never in contact with radioactive materials. Separate cooling circuits are an important aspect of nuclear power station design. '
               ]
             }
@@ -618,7 +618,7 @@
       , slides: [
             { src: '', caption: '', 
               content: [
-                  'Wick Barrow is a rare example of a Neolithic round barrow, dating from about 6,000 years ago.  It measures about 25 metres in diameter and 1.5 metres high.  A barrow is a name given to a structure for burying the dead. '
+                  'Wick Barrow is a rare example of a Neolithic round barrow, dating from about 6,000 years ago.  It measures about 25 metres in diameter and 1.5 metres high.  A barrow is a name given to a structure for burying the dead. '
                 , 'Wick Barrow was found to contain late stone age human remains when excavated in 1907. The excavation also revealed it was disturbed in Roman times as Roman coins and a dagger were found. '
                 , 'Wick Barrow is a Scheduled Ancient Monument and nationally important. It is often referred to as Pixies’ Mound because according to local legend Pixies inhabit the mound.'
               ]
