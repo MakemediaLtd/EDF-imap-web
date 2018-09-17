@@ -263,8 +263,7 @@
             }
           , { src: 'assets/3-page-2-image-718x404.jpg', caption: '',
               content: [
-                  'The first concrete batching plant has been successfully constructed- in time this will be fed by a temporary jetty which will provide the raw materials. '
-                , 'Each Batching Plant has an aggregate ground storage capacity of 50,000 tonnes and each overhead aggregate storage bin capacity of 100 tonnes. The mixer capacity is 140 cubic metres per hour. '
+                  'Three concrete batching plants will be fed by a temporary jetty which will provide the raw materials. Each batching plant has an aggregate ground storage capacity of 50,000 tonnes and each overhead aggregate storage bin capacity of 100 tonnes. The mixer capacity is 140 cubic metres per hour.'
               ]
             }
         ]
@@ -277,9 +276,9 @@
       , slug:  '4'
       , tags:  ['Logistics']
       , slides: [
-            { src: 'assets/4-accommodation-718x404.gif', caption: 'Hinkley Point C On-Site Accommodation Campus', 
+            { src: 'assets/Hinkley Campus Opening - 9th July 2018 - 114.jpg', caption: 'Hinkley Point C On-Site Accommodation Campus', 
               content: [
-                  'During peak construction over 5,600 people will work onsite at any one time. HPC will have an on site 510 bed campus, comprised of 15 accommodation buildings, and housing critical members of the workforce. '
+                  'During peak construction over 5,600 people will work onsite at any one time. The 510 bed Hinkley Camps opened onsite in July 2018. The campus, which is the biggest of its kind in Europe, will be home to many of the workforce during their time at HPC.'
               ]
             }
           , { src: 'assets/4-image_1-718x404.jpg', caption: 'Artist’s impression of HPC Accommodation Campus', 
@@ -293,9 +292,6 @@
           , { src: 'assets/4-image_7-718x404.jpg', caption: 1, 
               content: 1
             }
-          , { src: 'assets/4-image_8-718x404.jpg', caption: 1, 
-              content: 1
-            }
         ]
     });
 
@@ -306,23 +302,22 @@
       , slug:  '5'
       , tags:  ['Logistics']
       , slides: [
-            { src: 'assets/5-jetty-718x404.gif', caption: 'Artist’s impression of jetty', 
+            { src: 'assets/20180704_221100.jpg', caption: '', 
               content: [
                   'In order to reduce the number of vehicles on the roads, and associated CO&#8322; emissions,  HPC will receive at least 80% of construction aggregates by sea — an estimated 2.8 million tonnes. The Jetty development will be used to bring these bulk materials to site. '
               ]
             }
-          , { src: 'assets/5-image_1-718x404.png', caption: 0, // use caption from slide 0 (zero-indexed) 
+          , { src: 'assets/5-image_1-718x404.png', caption: 'Artist’s impression of the temporary jetty', // use caption from slide 0 (zero-indexed) 
               content: [
                   'The jetty will be approximately 500 metres in length and will comprise of a bridge, a head (where ships will berth) and also conveyors that will be used to discharge ships. '
               ]
             }
-          , { src: 'assets/5-image_2-718x404.png', caption: 0,
+          , { src: 'assets/5-image_2-718x404.png', caption: 1,
               content: 1 // use text from slide 1 (zero-indexed)
             }
-          , { src: 'assets/5-image_3-718x404.png', caption: 0, 
+          , { src: 'assets/5-image_3-718x404.png', caption: 1, 
               content: [
                   'The jetty is designed and built to function effectively within the Severn Estuary’s 11-metre tidal range and at 500 metres long it will be the UK’s ninth longest pier'
-                , 'The construction of the jetty will require more than 4,000 tonnes of concrete and around 2,500 tonnes of steel'
                 , 'The jetty is a temporary structure that will be removed after its operational phase.'
               ]
             }
@@ -449,7 +444,7 @@
                 , 'Water used for cooling the steam is never in contact with radioactive materials. Separate cooling circuits are an important aspect of nuclear power station design. '
               ]
             }
-          , { src: 'assets/a-image_2-718x404.png', caption: 'Tunnel Boring Machine', 
+          , { src: 'assets/13.jpg', caption: 'Tunnel Boring Machine', 
               content: [
                   'The marker buoy for the water outfall is closest (approx. 2km from shore) and the intake is further out (approx. 3.3km from shore – where water is colder). '
                 , 'Hinkley Point C’s water intake and outfall tunnels will be drilled by specialist tunnel boring machines out under the Severn Estuary. '
@@ -462,9 +457,9 @@
                 , 'We then have to place them in the deep-water position to within an accuracy of 50mm , or the width of a bank card.'
               ]
             }
-          , { src: 'assets/a-image_4-718x404.jpg', caption: '38,000 segments', 
+          , { src: 'assets/hpc_gary_taylor_crf_13.12.17_1656.jpg', caption: 'Cooling water pipes', 
               content: [
-                  'The tunnel is made up of a number of rings, each ring consists of 6 ‘segments’. We will be manufacturing approximately 38,000 individual segments to create the tunnels, with each segment weighing approximately 5 tonnes.'
+                  'The pipe infrastructure which will sit in HPC’s deep excavation, below the turbine halls and in between the pump house and outfall buildings, and will channel the cooling water into the power station. The completed structure will comprise 724 segments for Units 1 & 2, with a total length of 1.4km.'
               ]
             }
         ]
@@ -579,6 +574,7 @@
         ]
     });
 
+	/*
     app.addLightbulbPin({
         x: 2188
       , y: 4200
@@ -593,6 +589,7 @@
             }
         ]
     });
+	*/
 
     app.addLightbulbPin({
         x: 2598
@@ -650,7 +647,7 @@
       , slides: [
             { src: 'assets/q-image_1-718x404.jpg', caption: 'Illustrative view of sea wall', 
               content: [
-                  'A sea wall will be constructed to protect against natural hazards that have a frequency of less than one in 10,000 years and includes tides, storm surges and tsunami as isolated or in-combination events. '
+                  'A sea wall is currently under construction to protect against natural hazards that have a frequency of less than one in 10,000 years and includes tides, storm surges and tsunami as isolated or in-combination events.'
                 , 'Having also taken predicted sea level rise over the station’s lifetime into account, the seawall will be 760m long and stand at 13.5 metres high.'
                 , 'A physical scale model (1:40) of a 400m long section of the sea wall has already been constructed and tested to assess the structural stability of the wall and the volume of wave overtopping.'
               ]
