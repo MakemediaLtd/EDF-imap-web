@@ -164,7 +164,7 @@
 
 
    	app.addNumberedPin({
-        x: 300
+        x: 360
       , y: 1200
       , title: 'Batching Plant'
       , slug:  '360_4'
@@ -190,7 +190,7 @@
 
 
    	app.addNumberedPin({
-        x: 400
+        x: 670
       , y: 2000
       , title: 'Environmental'
       , slug:  '360_5'
@@ -281,23 +281,23 @@
                   'During peak construction over 5,600 people will work onsite at any one time. The 510 bed Hinkley Camps opened onsite in July 2018. The campus, which is the biggest of its kind in Europe, will be home to many of the workforce during their time at HPC.'
               ]
             }
-          , { src: 'assets/4-image_1-718x404.jpg', caption: 'Artist’s impression of HPC Accommodation Campus', 
+          , { src: 'assets/Hinkley Campus Opening - 9th July 2018 - 129.jpg', caption: 0, 
               content: [
                   'In the nearby town of Bridgwater further accommodation for 1,000 people is planned. All campus accommodation will include excellent sports and recreation facilities for the HPC workforce'
               ]
             }
-          , { src: 'assets/4-image_3-718x404.jpg', caption: 1, // use caption from slide 1 (zero-indexed) 
+          , { src: 'assets/Host - Hinkley Campus - 10th Sept 2018 - 065.jpg', caption: 0, // use caption from slide 1 (zero-indexed) 
               content: 1 // use text from slide 1 (zero-indexed)
             }
-          , { src: 'assets/4-image_7-718x404.jpg', caption: 1, 
+          , { src: 'assets/Hinkley Campus Opening - 9th July 2018 - 043.jpg', caption: 0, 
               content: 1
             }
         ]
     });
 
     app.addNumberedPin({
-        x: 748
-      , y: 828
+        x: 248
+      , y: 528
       , title: 'Temporary Jetty'
       , slug:  '5'
       , tags:  ['Logistics']
@@ -307,15 +307,15 @@
                   'In order to reduce the number of vehicles on the roads, and associated CO&#8322; emissions,  HPC will receive at least 80% of construction aggregates by sea — an estimated 2.8 million tonnes. The Jetty development will be used to bring these bulk materials to site. '
               ]
             }
-          , { src: 'assets/5-image_1-718x404.png', caption: 'Artist’s impression of the temporary jetty', // use caption from slide 0 (zero-indexed) 
+          , { src: 'assets/HPC Site Progress - KBJV - 25th July 2018 - 027.jpg', caption: '', // use caption from slide 0 (zero-indexed) 
               content: [
                   'The jetty will be approximately 500 metres in length and will comprise of a bridge, a head (where ships will berth) and also conveyors that will be used to discharge ships. '
               ]
             }
-          , { src: 'assets/5-image_2-718x404.png', caption: 1,
+          , { src: 'assets/DJI_0003.jpg', caption: 1,
               content: 1 // use text from slide 1 (zero-indexed)
             }
-          , { src: 'assets/5-image_3-718x404.png', caption: 1, 
+          , { src: 'assets/DJI_0024.jpg', caption: 1, 
               content: [
                   'The jetty is designed and built to function effectively within the Severn Estuary’s 11-metre tidal range and at 500 metres long it will be the UK’s ninth longest pier'
                 , 'The jetty is a temporary structure that will be removed after its operational phase.'
@@ -418,7 +418,7 @@
             { src: 'assets/10-pc3000-arriving-718x404.gif', caption: 'Large plant will arrive here throughout the build', 
               content: [
                   'The Southern Plaza plays a key role in efficient site logistics to minimise impact on the local road network. Using a computerised Delivery Management System, the Plaza will manage up to 375 HGVs each day. '
-                , 'Freight Management Facilities are to be built at Junctions 23 & 24 of the M5 motorway to maximise delivery efficiency. '
+                , 'Freight management facilities have been built at Junctions 23 & 24 of the M5 motorway to maximise delivery efficiency. '
               ]
             }
           , { src: 'assets/10-image_2-718x404.jpg', caption: 'ANPR cameras', 
@@ -543,7 +543,7 @@
       , slides: [
             { src: 'assets/i-image_1-718x404.jpg', caption: 'Illustrative view of emergency access road', 
               content: [
-                  'The emergency access gate will be available for emergency services if the main entrances to site become inaccessible. It is a legal requirement for all new nuclear power stations to have two access roads .'
+                  'The emergency access road will be available for emergency services if the main entrances to site become inaccessible. It is a legal requirement for all new nuclear power stations to have two access roads .'
               ]
             }
         ]
@@ -643,7 +643,7 @@
       , y: 656
       , title: 'Illustrative view of sea wall'
       , slug:  'q'
-      , tags:  ['Logistics']
+      , tags:  ['Construction']
       , slides: [
             { src: 'assets/q-image_1-718x404.jpg', caption: 'Illustrative view of sea wall', 
               content: [
