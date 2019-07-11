@@ -16,7 +16,7 @@
           , height:  4648
         }
       , header: {
-            titleA:  'Hinkley Point C Construction Site February 2018'
+            titleA:  'Hinkley Point C Construction Site May 2019'
           , titleB:  'Hinkley Point C Construction Complete'
           , rtn2Map: 'Return to map'
         }
@@ -92,7 +92,7 @@
       , slug:  '360_1'
       , tags:  ['360 Videos']
       , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5802559943001&muted', caption: 'Sea Wall: During Construction.', 
+            { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6051592775001&muted', caption: 'Sea Wall: During Construction.', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
@@ -114,17 +114,30 @@
    	app.addNumberedPin({
         x: 2400
       , y: 1474
-      , title: 'Reactor 1'
+      , title: 'Tower'
       , slug:  '360_2'
       , tags:  ['360 Videos']
       , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5803025191001&muted', caption: 'Reactor 1: During Construction', 
+            { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6051592969001&muted', caption: 'View from the Tower', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
               ]
-            },
-            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5803040454001&muted', caption: 'Reactor 1: After Construction', 
+            }
+            
+
+          
+        ]
+    });
+
+    app.addNumberedPin({
+        x: 2000
+      , y: 1174
+      , title: 'Unit 1 Heatsink'
+      , slug:  '360_6'
+      , tags:  ['360 Videos']
+      , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6051588490001&muted', caption: 'Unit 1 Heatsink: During Construction', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
@@ -140,17 +153,11 @@
    	app.addNumberedPin({
         x: 2000
       , y: 1474
-      , title: 'Reactor 2'
+      , title: 'Unit 2 Heatsink'
       , slug:  '360_3'
       , tags:  ['360 Videos']
       , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5803033312001&muted', caption: 'Reactor 2: During Construction', 
-              content: [
-                  'Drag the video to explore the scene.'
-               // , ' More copy here...'
-              ]
-            },
-            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5803037878001&muted', caption: 'Reactor 2: After Construction', 
+            { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6051592776001&muted', caption: 'Unit 2 Heatsink: During Construction', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
@@ -170,7 +177,7 @@
       , slug:  '360_4'
       , tags:  ['360 Videos']
       , slides: [ // <iframe width="560" height="315" src="https://www.youtube.com/embed/lV5G7VozIOc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5803036975001&muted', caption: 'Batching Plant: During Construction', 
+            { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6051590996001&muted', caption: 'Batching Plant: During Construction', 
               content: [
                   'Drag the video to explore the scene.'
                // , ' More copy here...'
