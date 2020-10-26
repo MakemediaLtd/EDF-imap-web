@@ -64,9 +64,6 @@ var EDF_IMAP_WEB;
                         var slide = slides_1[_i];
                         var media = void 0;
 
-                       
-                           
- 
 
                         if (!slide.src) {
                             media = '';
@@ -76,18 +73,11 @@ var EDF_IMAP_WEB;
                         }
                         else if (slide.src.includes("http")) {
 
-
-                            
-
                             if(slide.src.includes("brightcove"))
                             {
                                 
-                             
-                                
                                 media = '<iframe   id="player" style="width: 100%; height: 100%;"  src="' + slide.src+ '" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>';
-
-                
-                                
+  
                             }
                             else
                             {
@@ -380,16 +370,18 @@ var EDF_IMAP_WEB;
                         _this.$xtramenu
                             .removeClass('eiw-min')
                             .css('height', $('> div', _this.$xtramenu).height());
+							console.log('Xtra Menu opened');
                     }
                     else {
                         _this.$xtramenu
                             .addClass('eiw-min')
                             .css('height', 0);
+							console.log('Xtra Menu closed');
                     }
                     $('.eiw-xtramenu-toggle', _this.$wrap).toggleClass('eiw-active');
                 });
                 $('.eiw-changeview', this.$wrap).click(function () {
-                    _this.hideAll();
+                    //_this.hideAll();
                     _this.$wrap.toggleClass('eiw-view-a');
                 });
                 //// Render the background-images. 
@@ -470,13 +462,20 @@ var EDF_IMAP_WEB;
                 this.$caption = $('.eiw-caption', this.$wrap);
                 this.$dots = $('.eiw-dots', this.$wrap);
                 this.$content = $('.eiw-content', this.$wrap);
+
+
                 $('.eiw-dismiss, .eiw-popup-shield', this.$wrap).click(function (evt) {
-                    _this.hideAll();
-                    $('.eiw-tagmenu-toggle', _this.$wrap).addClass('eiw-active');
+		
+					_this.hideAll();
+					console.log('Log: Pop up dismissed');
+
+                    $ ('.eiw-tagmenu-toggle', _this.$wrap).addClass('eiw-active');
                     _this.$tagmenu
-                        .removeClass('eiw-min')
+                        //.removeClass('eiw-min')
                         .css('height', $('> div', _this.$tagmenu).height());
+					console.log('Log: TagMenu min is removed');
                 });
+				
                 $('.eiw-arrows', this.$wrap).append("\n                <img class=\"eiw-arrow-left\"       src=\"assets/icon-arrow-left-130x200.png\">\n                <img class=\"eiw-arrow-glow-left\"  src=\"assets/icon-arrow-glow-left-130x200.png\">\n                <img class=\"eiw-arrow-right\"      src=\"assets/icon-arrow-right-130x200.png\">\n                <img class=\"eiw-arrow-glow-right\" src=\"assets/icon-arrow-glow-right-130x200.png\">\n            ");
                 //// Initialize the ‘Slick’ carousel. 
                 this.$carousel = $('.eiw-carousel', this.$wrap);
@@ -542,9 +541,12 @@ var EDF_IMAP_WEB;
                     }
                     else if ($previouslyOpen.length && isMin) {
                         tagmenuHeight += tagmenuSectionHeight -= $previouslyOpen.height();
+						console.log('Log: Its Been Called!');
+						// This has never been called?
                     }
                     else if (!isMin) {
-                        tagmenuHeight -= tagmenuSectionHeight;
+                        //tagmenuHeight -= tagmenuSectionHeight;
+						console.log('Log: TagMenu Selection is not Min');
                     }
                     else {
                         console.log('!');
@@ -558,11 +560,12 @@ var EDF_IMAP_WEB;
                             .css('height', $('> ul', $tagmenuSection).height());
                         $tagmenuHeading
                             .addClass('eiw-active');
+						console.log('Log: TagMenu Selection is Min AGAIN');
                     }
                 });
                 $('li', this.$tagmenu)
                     .click(function (evt) {
-                    _this.hideAll();
+                    //_this.hideAll();
                     $(evt.target).data('eiwPinInstance').activate();
                 })
                     .hover(function (evt) {
