@@ -16,7 +16,7 @@
           , height:  4648
         }
       , header: {
-            titleA:  'Hinkley Point C Construction Site May 2019'
+            titleA:  'Hinkley Point C Construction Site Summer 2020'
           , titleB:  'Hinkley Point C Construction Complete'
           , rtn2Map: 'Return to map'
         }
