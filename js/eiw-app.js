@@ -116,8 +116,6 @@ var EDF_IMAP_WEB;
             };
             Pin.prototype.showSlide = function (slideIndex) {
 
-
-
                 var slide = this.config.slides[slideIndex];
 
               //  if(slideIndex > 0)
@@ -462,10 +460,30 @@ var EDF_IMAP_WEB;
                 this.$caption = $('.eiw-caption', this.$wrap);
                 this.$dots = $('.eiw-dots', this.$wrap);
                 this.$content = $('.eiw-content', this.$wrap);
-
+				
+				// Declaring video source ??
+				var slides = _d === void 0 ? [{ src: '', caption: '', content: [''] }] : _d;
+				//this.$source = $('.eiw-content.app.addNumberedPin, addLightbulbPin, addHiddenPin.slides.src', this.$wrap);                    
+				
+				// Declaring video player ??
+				// this.$player = $('iframe id="player", this.$wrap);
 
                 $('.eiw-dismiss, .eiw-popup-shield', this.$wrap).click(function (evt) {
-		
+					
+					// Need to also stop/pause the video somehow ??
+					
+					// if the carousel contains a video player that is currently in the playing state
+                    if(slides.includes("https"))
+                            {   
+                                console.log('Log: There IS a video');
+                            }
+						else if (!slides.includes("https")) {
+                            console.log('Log: media = no source');
+                        }
+						else {
+                            console.log ('Log: media not found');
+                        } 
+					
 					_this.hideAll();
 					console.log('Log: Pop up dismissed');
 
