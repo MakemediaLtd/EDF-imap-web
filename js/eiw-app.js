@@ -76,12 +76,12 @@ var EDF_IMAP_WEB;
                             if(slide.src.includes("brightcove"))
                             {
                                 
-                                media = '<iframe   id="player" style="width: 100%; height: 100%;"  src="' + slide.src+ '" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>';
+                                media = '<iframe name ="players"  id="player" style="width: 100%; height: 100%;"  src="' + slide.src+ '" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>';
   
                             }
                             else
                             {
-                                media = '<iframe style="width: 100%; height: 100%;" src="' + slide.src + '" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>' ;
+                                media = '<iframe  name ="players" style="width: 100%; height: 100%;" src="' + slide.src + '" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>' ;
                             
                             }
                            
@@ -485,6 +485,18 @@ var EDF_IMAP_WEB;
                         } 
 					
 					_this.hideAll();
+					
+					// reload all iframes
+					var _360Videoplayers = document.getElementsByName('players');
+
+					console.log(_360Videoplayers.length);
+
+					for(var i=0; i<_360Videoplayers.length; i++) {
+						
+						_360Videoplayers[i].src = _360Videoplayers[i].src;
+						console.log("here");
+					}
+
 					console.log('Log: Pop up dismissed');
 
                     $ ('.eiw-tagmenu-toggle', _this.$wrap).addClass('eiw-active');
@@ -510,6 +522,21 @@ var EDF_IMAP_WEB;
                     _this.activePin.showSlide(nextSlide);
                 })
                     .on('afterChange', function (evt, slick, currentSlide) {
+
+
+
+                   	var _360Videoplayers = document.getElementsByName('players');
+
+					console.log(_360Videoplayers.length);
+
+					for(var i=0; i<_360Videoplayers.length; i++) {
+						
+						_360Videoplayers[i].src = _360Videoplayers[i].src;
+						console.log("here");
+					}
+
+
+
                     _this.activePin.resetGif(currentSlide);
                 });
                 //// Render the tagmenu (initially hidden).
