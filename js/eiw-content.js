@@ -16,7 +16,7 @@
           , height:  4648
         }
       , header: {
-            titleA:  'Hinkley Point C Construction Site Summer 2020'
+            titleA:  'Hinkley Point C Construction Site'
           , titleB:  'Hinkley Point C Construction Complete'
           , rtn2Map: 'Return to map'
         }
@@ -35,13 +35,13 @@
             title:   'Tap an information point<br>to get more detail &amp; media'
         }
       , tagcolors: {
-            'Construction'              : 'lime'
-          // , 'Workforce'                 : 'green'
-          , 'Logistics'                 : 'navy'
-          , 'Geographical Features'     : 'orange'
-          , 'Power Station'             : 'peach'
-          , 'Site History &amp; Ecology': 'cyan'
-          , '360 Videos'				: 'green'
+            'Construction'              	: 'lime'
+          // , 'Workforce'                  : 'green'
+          , 'Logistics'                 	: 'navy'
+          , 'Geographical Features'     	: 'orange'
+          , 'Power Station'             	: 'peach'
+          , 'Site History &amp; Ecology'	: 'cyan'
+          , 'Off-Site Training Facilities'	: 'green'
         }
     });
 
@@ -83,122 +83,7 @@
    //   }
 
 
-// 360 videos
-
-    app.addNumberedPin({
-        x: 1700
-      , y: 540
-      , title: 'Sea Wall'
-      , slug:  '360_1'
-      , tags:  ['360 Videos']
-      , slides: [ // Video 45837 & 45838
-            { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6204679644001&muted', caption: 'During Construction.', 
-              content: [
-                  'View from East to West of Hinkley Point C construction site.', 
-				  'Drag the video to explore the scene.'
-               // , ' More copy here...'
-              ]
-            },
-             { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6204705544001&muted', caption: 'During Construction.', 
-              content: [
-                  'View from East to West of Hinkley Point C construction site.',
-				  'Drag the video to explore the scene.'
-              ]
-            }
-          , 
-            
-
-          
-        ]
-    });
-	
-	
-	app.addNumberedPin({
-        x: 2450
-      , y: 1400
-      , title: 'Unit 1 Site Overview'
-      , slug:  '360_2'
-      , tags:  ['360 Videos']
-      , slides: [ // Video 45822
-            { src: 'https://bcove.video/37J1d9C', caption: 'Unit 1 Site Overview: During Construction January 2020', 
-              content: [
-                  'Drag the video to explore the scene.'
-               // , ' More copy here...'
-              ]
-            }
-            
-
-          
-        ]
-    
-	
-    });
-
-
-   	app.addNumberedPin({
-        x: 1900
-      , y: 1300
-      , title: 'Unit 2 Turbine Hall Area'
-      , slug:  '360_3'
-      , tags:  ['360 Videos']
-      , slides: [ // Video 45832
-            { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6204680483001&muted', caption: 'Unit 2 Turbine Hall Area: During Construction January 2020', 
-              content: [
-                  'Drag the video to explore the scene.'
-               // , ' More copy here...'
-              ]
-            }
-            
-
-          
-        ]
-    });
-
-
-   	app.addNumberedPin({
-        x: 2200
-      , y: 1800
-      , title: 'Sarens SGC 250 Crane'
-      , slug:  '360_4'
-      , tags:  ['360 Videos']
-      , slides: [ // Video 45819
-            { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6204679645001&muted', caption: 'Big Carl', 
-              content: [
-                  'The world‘s largest land based crane, the SGC-250, aka ‘Big Carl.‘',
-				  'Drag the video to explore the scene.'
-               // , ' More copy here...'
-              ]
-            }
-            
-          
-        ]
-    });
-
-
-   	app.addNumberedPin({
-        x: 2200
-      , y: 1000
-      , title: 'Lifting Operations'
-      , slug:  '360_5'
-      , tags:  ['360 Videos']
-      , slides: [ // Video 45816
-            { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6204676726001&muted', caption: 'Crane lift near Unit 1', 
-              content: [
-                  'At peak construction there will be more than 100 cranes working together to carry out over one million lifts per year.',
-				  'Drag the video to explore the scene.'
-               // , ' More copy here...'
-              ]
-            }
-            
-
-          
-        ]
-    });
-
-
-
-// End 360 Videos
-
+// Power Station
 
     app.addNumberedPin({
         x: 2179
@@ -207,22 +92,16 @@
       , slug:  '2'
       , tags:  ['Power Station']
       , slides: [
-            { src: 'assets/Images/ID_25335_1.jpg', caption: 'How a Pressurised Water Reactor Generates Electricity', 
+            { src: 'assets/Images/ID_25335_1.jpg', caption: 'EPR', 
               content: [
-                  'EPRs – originally known as European Pressurised Water Reactors – are a type of Pressurised Water Reactor (PWR). The design of the UK EPRs under construction at Hinkley Point C represent a major development on previous PWRs, making them amongst the safest and most efficient civil nuclear power generators ever designed.'
+                  'EPRs – originally known as European Pressurised Water Reactors – are a type of Pressurised Water Reactor (PWR). The design of the UK EPRs under construction at Hinkley Point C represent a major development on previous PWRs, making them amongst the safest and most efficient civil nuclear power generators ever designed.',
+				  'Follow this link for more information.',
+				  '<a href="https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/about/reactor" target="_blank">https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/about/reactor</a>'
               ]
             }
-          , { src: 'assets/Images/ID_25335_1.jpg', caption: 'How a Pressurised Water Reactor Generates Electricity', 
+          , { src: '', caption: 'Design', 
               content: [
                   'The UK EPR design marks significant progress towards sustainability. It has been designed to use less uranium and produce almost a third less long-lived radioactive wastes compared with other water reactors in operation today.'
-              ]
-            }
-          /*, { src: 'assets/2-image_3-718x404.jpg', caption: 1, // use caption from slide 1 (zero-indexed) 
-              content: 1 // use text from slide 1 (zero-indexed)
-            }*/
-		  , { src: 'assets/Images/ID_9462_1.jpg', caption: 'Hinkley Point C: Illustrative view on completion.', 
-              content: [
-                  'The UK version of the EPR meets the most stringent safety and environmental protection standards, having gone through the UK’s rigorous, four-year Office for Nuclear Regulation and Environment Agency  Generic Design Assessment process.'
               ]
             }
           , { src: 'assets/Images/ID_689_1.jpg', caption: 'Hinkley Point C: Illustrative view on completion.', 
@@ -234,17 +113,58 @@
         ]
     });
 	
+		
+	app.addNumberedPin({
+        x: 1900
+      , y: 1500
+      , title: 'Base of Reactor'
+      , slug:  '3'
+      , tags:  ['Power Station']
+      , slides: [ // 45816 video & 48892 jpg & 48924 video & 48894 jpg
+			{ src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6204676726001&muted', caption: 'Unit 1', 
+              content: [
+                  'Views near the base of Unit 1.',
+				  'Drag the video to explore the scene.'
+               // , ' More copy here...'
+              ]
+            },
+            { src: 'assets/Images/ID_48892_1.jpg', caption: 'J0 Unit 2: Concrete pour', 
+              content: [
+                  'A major milestone achieved on schedule in 2020 was the completion of the 49,000-tonne base for Hinkley Point C‘s second reactor - meeting a target date set four years earlier. This major milestone in nuclear construction was completed by teams who adapted to new working conditions during the coronavirus pandemic. Their achievement, known as "J0"(Jalon Zero - meaning milestone zero), comes less than a year after the completion of Unit 1 base in June 2019.'
+              ]
+            },
+            { src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204697658001', caption: 'Time-lapse',
+              content: [
+                  'J0 Unit 2 May 2020'
+              ]
+            },
+		    { src: 'assets/Images/ID_48894_1.jpg', caption: 'J0 Unit 2: Completed concrete pour',
+              content: [
+                  'Completion of the second reactor base has benefited from experience gained on the first identical unit - leading to increases in productivity.  *Unit 2 vs Unit 1 *Steel installed 45% faster *Liner cup floor constructed 30% faster  *Cooling system components installed 50% faster.'
+              ]
+            }
+			
+        ]
+    });
+	
 	app.addNumberedPin({
         x: 2350
       , y: 1150
       , title: 'Turbine Hall'
       , slug:  '2'
       , tags:  ['Power Station']
-      , slides: [
+      , slides: [ // Video 45832
             { src: 'assets/Images/ID_51496_2.jpg', caption: '', 
               content: [
                   'The turbine hall is part of what is known as the conventional island, it contains the main non-nuclear  equipment that converts the steam into low carbon electricity.'
 				  ,'These columns are part of the foundations for the turbine hall. 15 of these columns will support a reinforced concrete table for the largest steam turbine in the world.'
+              ]
+            },
+			{ src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6204680483001&muted', caption: 'Unit 2', 
+              content: [
+                  'Views near the Turbine Hall area of Unit 2.',
+				  'Drag the video to explore the scene.'
+               // , ' More copy here...'
               ]
             }
         ]
@@ -275,12 +195,14 @@
         ]
     });
 	
+	// Off-Site Training Facilities
+	
 	app.addNumberedPin({
-        x: 200
-      , y: 3000
-      , title: 'Training Facility - National College for Nuclear'
+        x: 2900
+      , y: 4500
+      , title: 'National College for Nuclear'
       , slug:  '2'
-      , tags:  ['Power Station']
+      , tags:  ['Off-Site Training Facilities']
       , slides: [
             { src: 'assets/Images/ID_37973_1.jpg', caption: 'National College for Nuclear', 
               content: [
@@ -307,11 +229,11 @@
     });
 	
 	app.addNumberedPin({
-        x: 400
-      , y: 3000
-      , title: 'Training Facility - The Welding Centre of Excellence'
+        x: 3100
+      , y: 4500
+      , title: 'The Welding Centre of Excellence'
       , slug:  '2'
-      , tags:  ['Power Station']
+      , tags:  ['Off-Site Training Facilities']
       , slides: [
             { src: 'assets/Images/ID_51350_1.jpg', caption: 'The Welding Centre of Excellence', 
               content: [
@@ -327,11 +249,11 @@
     });
 	
 	app.addNumberedPin({
-        x: 600
-      , y: 3000
-      , title: 'Training Facility - The Construction Skills &amp; Innovation Centre'
+        x: 3300
+      , y: 4500
+      , title: 'The Construction Skills &amp; Innovation Centre'
       , slug:  '2'
-      , tags:  ['Power Station']
+      , tags:  ['Off-Site Training Facilities']
       , slides: [
             { src: 'assets/Images/ID_51351_2.jpg', caption: 'The Construction Skills & Innovation Centre', 
               content: [
@@ -369,49 +291,29 @@
     }); 
 	
 	    app.addNumberedPin({
-        x: 1500
-      , y: 530
+        x: 1700
+      , y: 540
       , title: 'Sea Wall'
-      , slug:  ''
+      , slug:  '360_1'
       , tags:  ['Construction']
-      , slides: [ // Video Illustrative view of sea wall
-             { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5802472169001&muted', caption: 'Sea Wall: After Construction - Illustrative View', 
+      , slides: [ // Video 45837 & 45838
+            { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6204679644001&muted', caption: 'During Construction.', 
+              content: [
+                  'View from East to West of Hinkley Point C construction site.', 
+				  'Drag the video to explore the scene.'
+               // , ' More copy here...'
+              ]
+            },
+			// Video Illustrative view of sea wall
+             { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5802472169001&muted', caption: 'After Construction - Illustrative View', 
               content: [
                   'The sea wall, with its wave return top, stands at 13.5m high and 700m long. It is constructed along the foreshore, reinforcing the cliff that existed previously and forms part of the permanent defence against the sea.',
 				  'Drag the video to explore the scene.'
               ]
-            }
-          , 
-            
+			}
+        ]
+    });
 
-          
-        ]
-    });
-	
-	app.addNumberedPin({
-        x: 1900
-      , y: 1500
-      , title: 'J0 Unit 2'
-      , slug:  '3'
-      , tags:  ['Construction']
-      , slides: [ // 48892 jpg & 48924 video & 48894 jpg
-            { src: 'assets/Images/ID_48892_1.jpg', caption: 'J0 Unit 2: Concrete pour', 
-              content: [
-                  'A major milestone achieved on schedule in 2020 was the completion of the 49,000-tonne base for Hinkley Point C‘s second reactor - meeting a target date set four years earlier. This major milestone in nuclear construction was completed by teams who adapted to new working conditions during the coronavirus pandemic. Their achievement, known as "J0"(Jalon Zero - meaning milestone zero), comes less than a year after the completion of Unit 1 base in June 2019.'
-              ]
-            }
-          , { src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204697658001', caption: 'Time-lapse',
-              content: [
-                  'J0 Unit 2 May 2020'
-              ]
-            }
-		  , { src: 'assets/Images/ID_48894_1.jpg', caption: 'J0 Unit 2: Completed concrete pour',
-              content: [
-                  'Completion of the second reactor base has benefited from experience gained on the first identical unit - leading to increases in productivity.  *Unit 2 vs Unit 1 *Steel installed 45% faster *Liner cup floor constructed 30% faster  *Cooling system components installed 50% faster.'
-              ]
-            }
-        ]
-    });
 	
 	app.addNumberedPin({
         x: 2200
@@ -419,20 +321,25 @@
       , title: 'Big Carl'
       , slug:  '360_4'
       , tags:  ['Construction']
-      , slides: [ // Videos 40623 & 44320
+      , slides: [ // Videos 40623 & 44320 & Video 45819
             { src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204689449001', caption: 'The world‘s largest land based crane', 
               content: [
                   'The world‘s largest land based crane, the SGC-250, aka ‘Big Carl‘, runs along 6km of rail track, is able to stand 250m tall, is capable of lifting 5,000 tonnes and will be used to lift over 700 prefabricated pieces, including the heaviest components of the reactor buildings.'
                // , ' More copy here...'
               ]
-            }
-		,	{ src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204687742001', caption: 'The world‘s largest land based crane', 
+            },
+			{ src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204687742001', caption: 'The world‘s largest land based crane', 
               content: [
                   '‘Big Carl‘completed its first big lift in December 2019: the liner cup for Unit 1 at Hinkley Point C nuclear power station.'
               ]
+            },
+            { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6204679645001&muted', caption: 'Big Carl', 
+              content: [
+                  'The world‘s largest land based crane, the SGC-250, aka ‘Big Carl‘. At peak construction there will be more than 100 cranes  working together to carry out over one million lifts per year.',
+				  'Drag the video to explore the scene.'
+               // , ' More copy here...'
+              ]
             }
-            
-          
         ]
     });
 
@@ -599,7 +506,8 @@
             { src: 'assets/Images/f-image_1-718x404.jpg', caption: 'Archaeology', 
               content: [
                   'Early in the build we worked with Somerset Heritage Trust to unearth the history under the site.',
-				  'Follow this link for more information. https://archaeologyathinkleypoint.wordpress.com/about/the-project/'
+				  'Follow this link for more information.',
+				  '<a href="https://archaeologyathinkleypoint.wordpress.com/about/the-project/" target="_blank">https://archaeologyathinkleypoint.wordpress.com/about/the-project/</a>'
               ]
             }
           , { src: 'assets/Images/f-image_2-718x404.jpg', caption: 'Summary of findings:', 
@@ -681,8 +589,9 @@
             { src: 'assets/Images/r-image_4-718x404.jpg', caption: 'Wildlife Watch', 
               content: [
                   'Our site ecologist helps to monitor and manage our habitats and wildlife corridors on and around the construction site.  This includes surveys of bats, birds, moths, butterflies, great crested newts, badgers, otters and other reptile populations.',
-				  'Follow this link for more information. https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/local-community/plugged-in/article/working-for-wildlife'
-              ]
+				  'Follow this link for more information.',
+				  '<a href="https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/local-community/plugged-in/article/working-for-wildlife" target="_blank">https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/local-community/plugged-in/article/working-for-wildlife/</a>'
+			  ]	  
             }
           , { src: 'assets/Images/ID_24427_1.jpg', caption: 'Barbestelle bat', 
               content: [
@@ -697,7 +606,8 @@
           , { src: 'assets/Images/r-image_1-718x404.jpg', caption: 'Investing in the Quantocks', 
               content: [
                   'The Quantock Hills were England’s first-ever Area of Outstanding Natural Beauty. Thanks to funding from EDF and others, £2.6m is being invested in the Quantock Landscape Partnership Scheme.',
-				  'Follow this link for more information. https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/local-community/plugged-in/article/working-for-wildlife'
+				  'Follow this link for more information.',
+				  '<a href="https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/local-community/plugged-in/article/working-for-wildlife" target="_blank">https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/local-community/plugged-in/article/working-for-wildlife/</a>'
               ]
             }
         ]
@@ -731,25 +641,29 @@
             { src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204688943001', caption: 'Inspire Education Programme', 
               content: [
                   'Inspire is Hinkley Point C’s education programme in Somerset and the wider South West region. We offer a range of free and innovative activities, including hands-on workshops, curriculum-linked teaching resources, assemblies and events for Key Stage 2, 3 and 4 – to help young people take advantage of the huge opportunities that the construction and operation of Hinkley Point C has to offer.'
-				, 'Follow this link for more information. https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/for-teachers-students-and-educators/inspire'
+				, 'Follow this link for more information.',
+				  '<a href="https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/for-teachers-students-and-educators/inspire" target="_blank">https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/for-teachers-students-and-educators/inspire</a>'
               ]
             }
 		  , { src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204687892001', caption: 'Young HPC', 
               content: [
                   'If you are aged between 16 and 21, Young HPC has been designed to give you support, guidance and resources to help you take steps towards your dream career.'
-				, 'Follow this link for more information.  https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/for-teachers-students-and-educators/young-hpc'
+				, 'Follow this link for more information.',
+				  '<a href="https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/for-teachers-students-and-educators/young-hpc" target="_blank">https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/for-teachers-students-and-educators/young-hpc</a>'
               ]
             }
 		  , { src: 'assets/Images/ID_45656_2.jpg', caption: 'Apprenticeships',
               content: [
 				  'At Hinkley Point C, our aspiration is to create 1,000 apprenticeships over the course of construction. The wide range of skills required to build the power station means there really is opportunity for everyone.'
-				, 'Follow this link for more information. https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/jobs-and-training/apprenticeships'
+				, 'Follow this link for more information.',
+				  '<a href="https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/jobs-and-training/apprenticeships" target="_blank">https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/jobs-and-training/apprenticeships</a>'
 			  ]
             }
 		  , { src: 'assets/Images/ID_24632_2.jpg', caption: 'HPC Job Service',
               content: [
 				  'The construction and operation of Hinkley Point C will create thousands of employment and apprenticeship opportunities in a broad range of occupations and careers.'
-				, 'Follow this link for more information. https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/jobs-and-training'
+				, 'Follow this link for more information.',
+				  '<a href="https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/jobs-and-training" target="_blank">https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/jobs-and-training</a>'
 			  ]
             }
         ]
@@ -766,13 +680,15 @@
             { src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204693275001', caption: 'Realising the socio-economic benefits', 
               content: [
                   'Hinkley Point C is working hard to ensure the project benefits people and businesses across the UK. The benefits range from increasing employment, to the development of a sustainable national supply chain and the advancement of new training facilities and qualifications.'
-				, 'Follow this link for more information. https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/about/realising-socio-economic-benefits'
+				, 'Follow this link for more information.',
+				  '<a href="https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/about/realising-socio-economic-benefits" target="_blank">https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/about/realising-socio-economic-benefits</a>'
               ]
             }
 		  , { src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204695354001', caption: 'Built in Britain', 
               content: [
                   '64% of the construction cost of Hinkley Point C will be spent with UK companies.'
-				, 'Follow this link for more information. https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/for-suppliers-and-local-businesses/built-in-britain'
+				, 'Follow this link for more information.',
+				  '<a href="https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/for-suppliers-and-local-businesses/built-in-britain" target="_blank">https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/for-suppliers-and-local-businesses/built-in-britain</a>'
               ]
             }
         ]
@@ -789,13 +705,15 @@
             { src: 'assets/Images/ID_51302_1.png', caption: 'EDF Visitor Centre', 
               content: [
                   'A new visitor centre at Cannington Court will showcase Hinkley Point B, which has been generating since 1976, and Hinkley Point C, which will be generating low carbon electricity for over 60 years.'
-				, 'Follow this link for more information. https://www.edfenergy.com/energy/education/visitor-centres/hinkley-point-visitor-centre.'
+				, 'Follow this link for more information.',
+				  '<a href="https://www.edfenergy.com/energy/education/visitor-centres/hinkley-point-visitor-centre" target="_blank">https://www.edfenergy.com/energy/education/visitor-centres/hinkley-point-visitor-centre</a>'
               ]
             }
 		  ,	{ src: 'assets/Images/ID_9837_1.jpg', caption: 'HPC Community Fund', 
               content: [
                   'As part of the development of Hinkley Point C, we have committed £20 million of community funding to improve the social, economic and environmental wellbeing of communities that are affected by the construction of our new nuclear power station. Our community funds have already delivered £12 million of investment into local projects. From a new play area and a village hall in Stogursey, to a new cycle path in Brean; museum restorations in Watchet and an Education Business Partnership for Somerset, to name but a few.'
-				, 'Follow this link for more information. https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/local-community/being-part-of-the-community/community-fund'
+				, 'Follow this link for more information.',
+				  '<a href="https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/local-community/being-part-of-the-community/community-fund" target="_blank">https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/local-community/being-part-of-the-community/community-fund</a>'
               ]
             }
         ]
