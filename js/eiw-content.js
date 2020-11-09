@@ -35,13 +35,13 @@
             title:   'Tap an information point<br>to get more detail &amp; media'
         }
       , tagcolors: {
-            'Construction'              	: 'lime'
-          // , 'Workforce'                  : 'green'
-          , 'Logistics'                 	: 'navy'
-          , 'Geographical Features'     	: 'orange'
-          , 'Power Station'             	: 'peach'
-          , 'Site History &amp; Ecology'	: 'cyan'
-          , 'Off-Site Training Facilities'	: 'green'
+            'Construction'              		: 'lime'
+          // , 'Workforce'                  	: 'green'
+          , 'Logistics'                 		: 'navy'
+          , 'Geographical Features'     		: 'orange'
+          , 'Power Station'             		: 'peach'
+          , 'Archaeology &amp; the environment'	: 'cyan'
+          , 'Off-Site Training Facilities'		: 'green'
         }
     });
 
@@ -92,27 +92,44 @@
       , slug:  '2'
       , tags:  ['Power Station']
       , slides: [
-            { src: 'assets/Images/ID_25335_1.jpg', caption: 'EPR', 
+			{ src: 'assets/Images/2-reactor-718x404.gif', caption: 'Hinkley Point C: Illustrative view on completion.', 
+              content: [
+                  'Hinkley Point C will comprise of two UK EPR tm reactors each generating 1630MW. HPC will produce almost four times more electricity than Hinkley Point B station‘s reactors.',
+				  'The UK EMPR tm is an evolutionary design including improved efficiency and safety - its contrustion draws from experience gained from sister projects in Flamanville in France and Tasishan in China.'
+              ]
+            }
+           ,{ src: 'assets/Images/ID_25335_1.jpg', caption: 'EPR', 
               content: [
                   'EPRs – originally known as European Pressurised Water Reactors – are a type of Pressurised Water Reactor (PWR). The design of the UK EPRs under construction at Hinkley Point C represent a major development on previous PWRs, making them amongst the safest and most efficient civil nuclear power generators ever designed.',
 				  'Follow this link for more information.',
 				  '<a href="https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/about/reactor" target="_blank">https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/about/reactor</a>'
               ]
             }
-          , { src: '', caption: 'Design', 
+            , { src: '', caption: 'Design', 
               content: [
                   'The UK EPR design marks significant progress towards sustainability. It has been designed to use less uranium and produce almost a third less long-lived radioactive wastes compared with other water reactors in operation today.'
               ]
             }
-          , { src: 'assets/Images/ID_689_1.jpg', caption: 'Hinkley Point C: Illustrative view on completion.', 
+		
+        ]
+    });
+	
+	/*
+	app.addNumberedPin({
+        x: 2179
+      , y: 1474
+      , title: 'Design Carousel Test'
+      , slug:  '2'
+      , tags:  ['Power Station']
+      , slides: [
+            { src: '', caption: 'Design', 
               content: [
-                  'Since we want Hinkley Point C to be a world leading nuclear power station, EPR technology is the obvious world leading choice to power it.',
-				  'When Hinkley Point C is operational it will employ 900 people and has an operating life of 60 years.'
+                  'The UK EPR design marks significant progress towards sustainability. It has been designed to use less uranium and produce almost a third less long-lived radioactive wastes compared with other water reactors in operation today.'
               ]
             }
         ]
     });
-	
+	*/
 		
 	app.addNumberedPin({
         x: 1900
@@ -486,7 +503,7 @@
       , y: 1584
       , title: 'Tree planting'
       , slug:  'e'
-      , tags:  ['Site History &amp; Ecology']
+      , tags:  ['Archaeology &amp; the environment']
       , slides: [
             { src: 'assets/Images/ID_48321_2.jpg', caption: 'Cutting Carbon', 
               content: [
@@ -496,12 +513,13 @@
         ]
     });
 
+	/*
     app.addLightbulbPin({
         x: 966
       , y: 2128
       , title: 'Archaeology'
       , slug:  'f'
-      , tags:  ['Site History &amp; Ecology']
+      , tags:  ['Archaeology &amp; the environment']
       , slides: [
             { src: 'assets/Images/f-image_1-718x404.jpg', caption: 'Archaeology', 
               content: [
@@ -510,7 +528,9 @@
 				  '<a href="https://archaeologyathinkleypoint.wordpress.com/about/the-project/" target="_blank">https://archaeologyathinkleypoint.wordpress.com/about/the-project/</a>'
               ]
             }
-          , { src: 'assets/Images/f-image_2-718x404.jpg', caption: 'Summary of findings:', 
+          , 
+
+		  { src: 'assets/Images/f-image_2-718x404.jpg', caption: 'Summary of findings:', 
               content: [
                   'Everyday items including pottery, coins, and brooches, and fragments of imported pottery'
                 , 'Remains of a sunken-floored building which may date to the sub-Roman period or Dark Ages'
@@ -528,15 +548,17 @@
                 , 'Two parallel ditches dug from east to west, used to divide land in the Bronze Age'
               ]
             }
+			
         ]
     });
+	*/
 
     app.addLightbulbPin({
         x: 1480
       , y: 3084
       , title: 'Water Management'
       , slug:  'h'
-      , tags:  ['Site History &amp; Ecology']
+      , tags:  ['Archaeology &amp; the environment']
       , slides: [
             { src: 'assets/Images/ID_48325_2.jpg', caption: 'Water Management', 
               content: [
@@ -565,10 +587,18 @@
     app.addLightbulbPin({
         x: 3674
       , y: 1980
-      , title: 'Wick Barrow / Pixies Mound'
+      , title: 'Archaeology' //Wick Barrow / Pixies Mound
       , slug:  'n'
-      , tags:  ['Site History &amp; Ecology']
+      , tags:  ['Archaeology &amp; the environment']
       , slides: [ // The Folk-Lore of Wick Barrow video
+			{ src: 'assets/Images/f-image_1-718x404.jpg', caption: 'Archaeology', 
+              content: [
+                  'Early in the build we worked with Somerset Heritage Trust to unearth the history under the site.',
+				  'Follow this link for more information.',
+				  '<a href="https://archaeologyathinkleypoint.wordpress.com/about/the-project/" target="_blank">https://archaeologyathinkleypoint.wordpress.com/about/the-project/</a>'
+              ]
+            }
+          , 
             { src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204693671001', caption: 'The Folk Lore of Wick Barrow', 
               content: [
                   'Dated from about 6,000 years ago, Wick Barrow is a rare example of a Neolithic round barrow.  It measures  25 metres in diameter and 1.5 metres high. A barrow is the name given to a structure for burying the dead. It is located just to the south of Hinkley Point B, overlooking Wick Moor. It‘s also known as Pixie‘s Mound.'
@@ -584,7 +614,7 @@
       , y: 2592
       , title: 'Biodiversity'
       , slug:  'r'
-      , tags:  ['Site History &amp; Ecology']
+      , tags:  ['Archaeology &amp; the environment']
       , slides: [
             { src: 'assets/Images/r-image_4-718x404.jpg', caption: 'Wildlife Watch', 
               content: [
@@ -618,9 +648,9 @@
       , y: 2396
       , title: 'Green Lane'
       , slug:  's'
-      , tags:  ['Site History &amp; Ecology']
-      , slides: [
-            { src: 'assets/Images/ID_263_1.jpg', caption: '', 
+      , tags:  ['Archaeology &amp; the environment']
+      , slides: [ // img 28485
+            { src: 'assets/Images/ID_28485_2.jpg', caption: '', 
               content: [
                   'Green Lane is a retained and enhanced habitat corridor which bisects the construction site and still records Barbastelles and Horeshoe bats, as well as retaining an active badger set. A lighting strategy is in place here and features to retain connectivity of Green Lane  to existing off-site habitats over the construction haul roads include landscape planting with moveable "tree tubs" and a bat gantry.'
               ]
