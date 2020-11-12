@@ -105,7 +105,7 @@
 				  '<a href="https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/about/reactor" target="_blank">https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/about/reactor</a>'
               ]
             }
-            , { src: 'ID_9462_1.jpg', caption: 'Design', 
+            , { src: 'assets/Images/ID_9462_1.jpg', caption: 'Design', 
               content: [
                   'The UK EPR design marks significant progress towards sustainability. It has been designed to use less uranium and produce almost a third less long-lived radioactive wastes compared with other water reactors in operation today.'
               ]
