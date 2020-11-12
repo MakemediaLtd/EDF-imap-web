@@ -94,11 +94,11 @@
       , slides: [ //img 25335 , img 9462
 			{ src: 'assets/Images/2-reactor-718x404.gif', caption: 'Hinkley Point C: Illustrative view on completion.', 
               content: [
-                  'Hinkley Point C will comprise of two UK EPR tm reactors each generating 1630MW. HPC will produce almost four times more electricity than Hinkley Point B station‘s reactors.',
-				  'The UK EMPR tm is an evolutionary design including improved efficiency and safety - its contrustion draws from experience gained from sister projects in Flamanville in France and Tasishan in China.'
+                  'Hinkley Point C will comprise of two UK EPR reactors. Each generating 1630 megawatts of electricity. That‘s almost four times more than Hinkley Point B‘s reactors. ',
+				  'The UK EPR is an evolutionary design including improved efficiency and safety - its construction draws on experience gained from sister projects in Flamanville in France and Taishan in China.'
               ]
             }
-           ,{ src: 'assets/Images/ID_25335_1.jpg', caption: 'EPR', 
+           ,{ src: 'assets/Images/ID_25335_1.jpg', caption: 'EPR',
               content: [
                   'EPRs – originally known as European Pressurised Water Reactors – are a type of Pressurised Water Reactor (PWR). The design of the UK EPRs under construction at Hinkley Point C represent a major development on previous PWRs, making them amongst the safest and most efficient civil nuclear power generators ever designed.',
 				  'Follow this link for more information.',
