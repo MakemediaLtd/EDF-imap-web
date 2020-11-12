@@ -37,7 +37,7 @@
       , tagcolors: {
             'Construction'              		: 'lime'
           // , 'Workforce'                  	: 'green'
-          , 'Logistics'                 		: 'navy'
+          , 'Site Operations'                 		: 'navy'
           , 'Geographical Features'     		: 'orange'
           , 'Power Station'             		: 'peach'
           , 'Archaeology &amp; the environment'	: 'cyan'
@@ -91,7 +91,7 @@
       , title: 'European Pressurised Water Reactor (EPR)'
       , slug:  '2'
       , tags:  ['Power Station']
-      , slides: [
+      , slides: [ //img 25335 , img 9462
 			{ src: 'assets/Images/2-reactor-718x404.gif', caption: 'Hinkley Point C: Illustrative view on completion.', 
               content: [
                   'Hinkley Point C will comprise of two UK EPR tm reactors each generating 1630MW. HPC will produce almost four times more electricity than Hinkley Point B station‘s reactors.',
@@ -105,7 +105,7 @@
 				  '<a href="https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/about/reactor" target="_blank">https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/about/reactor</a>'
               ]
             }
-            , { src: '', caption: 'Design', 
+            , { src: 'ID_9462_1.jpg', caption: 'Design', 
               content: [
                   'The UK EPR design marks significant progress towards sustainability. It has been designed to use less uranium and produce almost a third less long-lived radioactive wastes compared with other water reactors in operation today.'
               ]
@@ -188,8 +188,8 @@
     });
 	
 	app.addNumberedPin({
-        x: 2350
-      , y: 1150
+        x: 2500
+      , y: 700
       , title: 'Pump House Building'
       , slug:  '2'
       , tags:  ['Power Station']
@@ -212,84 +212,43 @@
         ]
     });
 	
-	// Off-Site Training Facilities
-	
-	app.addNumberedPin({
-        x: 2900
-      , y: 4500
-      , title: 'National College for Nuclear'
-      , slug:  '2'
-      , tags:  ['Off-Site Training Facilities']
+    app.addLightbulbPin({
+        x: 2050
+      , y: 650
+      , title: 'Water Intake and Outfall Tunnels'
+      , slug:  'a'
+      , tags:  ['Power Station']
       , slides: [
-            { src: 'assets/Images/ID_37973_1.jpg', caption: 'National College for Nuclear', 
+            { src: 'assets/Images/ID_51971_1.jpg', caption: '', 
               content: [
-                  'Bridgwater & Taunton College is the principal delivery arm of the Southern Hub of the National College for Nuclear, based in Cannington, Somerset. It‘s a state-of-the-art nuclear training facility, including a virtual reality environment, a reactor simulator and computer-equipped training rooms; recreation and collaboration space; sports facilities and student accommodation.'
+                  'Three tunnels are being excavated, two intake tunnels, which will bring cold water 3.5km out from the Bristol Channel into the power station, and one outfall tunnel to send the water back.  Our machines were named Beatrice, Emmeline and Mary by local school children.'
               ]
-            },
-			{ src: 'assets/Images/ID_51863_1.jpg', caption: '', 
+            }
+          , { src: 'assets/Images/ID_51974_2.jpg', caption: '', 
               content: [
-                  'The National College for Nuclear is a  Government  enabled partnership between industry, national regulators, skills bodies and training providers,  revolutionising the way that training for the nuclear sector is delivered.'
-			  ]
-			},
-			{ src: 'assets/Images/ID_51864_1.jpg', caption: 1, // use caption from slide 2 (zero-indexed) 
-              content: 1 // use text from slide 2 (zero-indexed)
-            },
-			{ src: 'assets/Images/ID_51865_2.jpg', caption: 1, // use caption from slide 2 (zero-indexed) 
-              content: 1 // use text from slide 2 (zero-indexed)
-            },
-			{ src: 'assets/Images/ID_3201_1.jpg', caption: 'Apprentices', 
+                  'A tunnel boring machine breaks through ground material to remove it, forming a tunnel in the process with concrete segment rings. There are three large tunnel boring machines and one smaller tunnelling kit operating at Hinkley Point C.'
+              ]
+            }
+          , { src: 'assets/Images/ID_27773_1.jpg', caption: '', 
               content: [
-                  'Apprentices in action inspiring local school children.'
-			  ]
+                  'With its rotating cutting wheel at the front of the machine, the tunnel boring machine breaks materials away from the tunnel face. This earth is then transferred to the belt conveyor system inside the machine. There are a number of hydraulic arms which push the machine forward continually using the previous constructed concrete tunnel ring as its platform.'
+              ]
+            }
+          , { src: 'assets/Images/ID_35616_1.jpg', caption: '', 
+              content: [
+                  '6,000 concrete segment rings will form the walls of the three tunnels. These are created with reinforced segments and grout injected to secure them in place. The segments are being constructed in a state-of- the-art facility at Bristol Port Dock in Avonmouth,  creating between 70-100 rings per week (each ring is made of six to eight segments).'
+              ]
             }
         ]
-    });
+    }); 
 	
-	app.addNumberedPin({
-        x: 3100
-      , y: 4500
-      , title: 'The Welding Centre of Excellence'
-      , slug:  '2'
-      , tags:  ['Off-Site Training Facilities']
-      , slides: [
-            { src: 'assets/Images/ID_51350_1.jpg', caption: 'The Welding Centre of Excellence', 
-              content: [
-                  'The Welding Centre of Excellence, which is part of the South West Institute of Technology, houses brand new facilities for technical welding, training and skills development, including welding in a nuclear environment. '
-              ]
-            },
-			{ src: 'assets/Images/ID_35773_2.jpg', caption: 'Welding underway at Hinkley Point C 35773', 
-              content: [
-                  'The centre is a collaboration between EDF, the Heart of the South West Local Enterprise Partnership, Weldability Sif Foundation and Bridgwater & Taunton College. The centre will help to supply high quality welders to the region and Hinkley Point C.'
-			  ]
-            }
-        ]
-    });
 	
-	app.addNumberedPin({
-        x: 3300
-      , y: 4500
-      , title: 'The Construction Skills &amp; Innovation Centre'
-      , slug:  '2'
-      , tags:  ['Off-Site Training Facilities']
-      , slides: [
-            { src: 'assets/Images/ID_51351_2.jpg', caption: 'The Construction Skills & Innovation Centre', 
-              content: [
-                  'The EDF funded Construction Skills and Innovation Centre was built in partnership with  Bridgwater & Taunton College and EDF. It‘s a unique  training facility in Cannington, close to Hinkley Point C.'
-              ]
-            },
-			{ src: 'assets/Images/ID_51979_1.jpg', caption: 'Apprentices at the Construction Skills and Innovation Centre using a Theodolite', 
-              content: [
-                  'The centre replicates a real-life construction site, with construction vehicles, machinery and equipment in operation. Construction site safety behaviours and standards are learnt alongside specific technical knowledge and skills including excavation, groundworks, concrete pouring, steel fixing, formwork, water utilities and lifting disciplines.'
-			  ]
-            }
-        ]
-    });
 	
-	// End of Power Station (Water intake further down)
+	// End of Power Station
 
     app.addNumberedPin({
-        x: 507
-      , y: 1191
+        x: 1282
+      , y: 3500
       , title: 'Excavated Material Stockpiles'
       , slug:  '3'
       , tags:  ['Construction']
@@ -316,18 +275,18 @@
       , slides: [ // Video 45837 & 45838
             { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6204679644001&muted', caption: 'During Construction.', 
               content: [
-                  'View from East to West of Hinkley Point C construction site.', 
+                  'The sea wall, with its wave return top, stands at 13.5m high and 700m long. It is constructed along the foreshore, reinforcing the cliff that existed previously and forms part of the permanent defence against the sea.',
 				  'Drag the video to explore the scene.'
                // , ' More copy here...'
               ]
-            },
-			// Video Illustrative view of sea wall
+            }
+			/* Video Illustrative view of sea wall
              { src: 'https://players.brightcove.net/4098359024001/rJgmZvJZfm_default/index.html?videoId=5802472169001&muted', caption: 'After Construction - Illustrative View', 
               content: [
                   'The sea wall, with its wave return top, stands at 13.5m high and 700m long. It is constructed along the foreshore, reinforcing the cliff that existed previously and forms part of the permanent defence against the sea.',
 				  'Drag the video to explore the scene.'
               ]
-			}
+			} */
         ]
     });
 
@@ -365,7 +324,7 @@
       , y: 3968
       , title: 'Accommodation'
       , slug:  '4'
-      , tags:  ['Logistics']
+      , tags:  ['Site Operations']
       , slides: [
             { src: 'assets/Images/ID_27145_1.jpg', caption: 'Hinkley Point C On-Site & Off-Site Accommodation Campuses', 
               content: [
@@ -395,7 +354,7 @@
       , y: 528
       , title: 'Temporary Jetty'
       , slug:  '5'
-      , tags:  ['Logistics']
+      , tags:  ['Site Operations']
       , slides: [ // Videos 48756 & 42456 & 40531
             { src: 'assets/Images/ID_48756_2.jpg', caption: 'Temporary Jetty', 
               content: [
@@ -409,7 +368,7 @@
             }
           , { src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204689906001', caption: 'About the Temporary Jetty',
               content: [
-			      'As well as using local aggregates, Hinkley Point C is cutting the carbon footprint of its concrete by using recycled industrial materials in its concrete mix, such as ground granulated blast furnace slag. This is a by-product from steel manufacturing plants in South Wales, which would otherwise be discarded as waste.'
+			      'We have a a full time Harbour Master responsible for the safe operation of the jetty and the waters around it.'
 			  ]
             }
         ]
@@ -420,7 +379,7 @@
       , y: 1950
       , title: 'North Office'
       , slug:  '6'
-      , tags:  ['Logistics']
+      , tags:  ['Site Operations']
       , slides: [
             { src: 'assets/Images/ID_41190_2.jpg', caption: 'Catering', 
               content: [
@@ -445,16 +404,16 @@
       , y: 3300
       , title: 'South Office'
       , slug:  '6'
-      , tags:  ['Logistics']
+      , tags:  ['Site Operations']
       , slides: [ // 31443 jpg & 49504 video & 30117 jpg 
             { src: 'assets/Images/ID_31443_2.jpg', caption: 'South office', 
               content: [
-                  ''
+                  'South Office is primarily home to  our site operations team. They keep the entire site humming, their remit includes roads, buses, logistics, facilities, welfare and accommodation for team Hinkley Point C.'
               ]
             }
-		,	{ src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204697575001', caption: 'South office', 
+		,	{ src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204697575001', caption: 'Local Delivery Partners', 
               content: [
-                  'South Office is primarily home to  our critical site operations team. They keep the entire site humming, their remit includes roads, buses, logistics, facilities, welfare and accommodation for team Hinkley Point C. They work closely with our local delivery partners like Somerset Passenger Solutions.'
+                  'The site operations team work closely with our local delivery partners like Somerset Passenger Solutions.'
               ]
             }
 		,	{ src: 'assets/Images/ID_30117_2.jpg', caption: 'South office', 
@@ -465,38 +424,23 @@
         ]
     });
 
-    //// Add the Lightbulb Pins. 
-	
-	
     app.addLightbulbPin({
-        x: 2050
-      , y: 650
-      , title: 'Water Intake and Outfall Tunnels'
-      , slug:  'a'
-      , tags:  ['Power Station']
+        x: 1282
+      , y: 4042
+      , title: 'Emergency Access Road'
+      , slug:  'i'
+      , tags:  ['Site Operations']
       , slides: [
-            { src: 'assets/Images/ID_51971_1.jpg', caption: '', 
+            { src: 'assets/Images/i-image_1-718x404.jpg', caption: 'Emergency access road', 
               content: [
-                  'Three tunnels are being excavated, two intake tunnels, which will bring cold water 3.5km out from the Bristol Channel into the power station, and one outfall tunnel to send the water back.  Our machines were named Beatrice, Emmeline and Mary by local school children.'
-              ]
-            }
-          , { src: 'assets/Images/ID_51974_2.jpg', caption: '', 
-              content: [
-                  'A tunnel boring machine breaks through ground material to remove it, forming a tunnel in the process with concrete segment rings. There are three large tunnel boring machines and one smaller tunnelling kit operating at Hinkley Point C.'
-              ]
-            }
-          , { src: 'assets/Images/ID_27773_1.jpg', caption: '', 
-              content: [
-                  'With its rotating cutting wheel at the front of the machine, the tunnel boring machine breaks materials away from the tunnel face. This earth is then transferred to the belt conveyor system inside the machine. There are a number of hydraulic arms which push the machine forward continually using the previous constructed concrete tunnel ring as its platform.'
-              ]
-            }
-          , { src: 'assets/Images/ID_35616_1.jpg', caption: '', 
-              content: [
-                  '6,000 concrete segment rings will form the walls of the three tunnels. These are created with reinforced segments and grout injected to secure them in place. The segments are being constructed in a state-of- the-art facility at Bristol Port Dock in Avonmouth,  creating between 70-100 rings per week (each ring is made of six to eight segments).'
+                  'The emergency access road will be available for emergency services if the main entrances to the site become inaccessible. It is a legal requirement for all new power stations to have two access roads.'
               ]
             }
         ]
-    }); 
+    });
+
+    //// Add the Lightbulb Pins. 
+
 
     app.addLightbulbPin({
         x: 504
@@ -568,21 +512,6 @@
         ]
     });
 
-    app.addLightbulbPin({
-        x: 1282
-      , y: 4042
-      , title: 'Emergency Access Road'
-      , slug:  'i'
-      , tags:  ['Logistics']
-      , slides: [
-            { src: 'assets/Images/i-image_1-718x404.jpg', caption: 'Emergency access road', 
-              content: [
-                  'The emergency access road will be available for emergency services if the main entrances to the site become inaccessible. It is a legal requirement for all new power stations to have two access roads.'
-              ]
-            }
-        ]
-    });
-
 
     app.addLightbulbPin({
         x: 3674
@@ -644,8 +573,8 @@
     });
 
     app.addNumberedPin({
-        x: 2968
-      , y: 2396
+        x: 1480
+      , y: 2450
       , title: 'Green Lane'
       , slug:  's'
       , tags:  ['Archaeology &amp; the environment']
@@ -654,6 +583,73 @@
               content: [
                   'Green Lane is a retained and enhanced habitat corridor which bisects the construction site and still records Barbastelles and Horeshoe bats, as well as retaining an active badger set. A lighting strategy is in place here and features to retain connectivity of Green Lane  to existing off-site habitats over the construction haul roads include landscape planting with moveable "tree tubs" and a bat gantry.'
               ]
+            }
+        ]
+    });
+
+// Off-Site Training Facilities
+	
+	app.addNumberedPin({
+        x: 2900
+      , y: 4500
+      , title: 'National College for Nuclear'
+      , slug:  '2'
+      , tags:  ['Off-Site Training Facilities']
+      , slides: [
+            { src: 'assets/Images/ID_37973_1.jpg', caption: 'National College for Nuclear', 
+              content: [
+                  'Bridgwater & Taunton College is the principal delivery arm of the Southern Hub of the National College for Nuclear, based in Cannington, Somerset. It‘s a state-of-the-art nuclear training facility, including a virtual reality environment, a reactor simulator and computer-equipped training rooms; recreation and collaboration space; sports facilities and student accommodation.'
+              ]
+            },
+			{ src: 'assets/Images/ID_51863_1.jpg', caption: '', 
+              content: [
+                  'The National College for Nuclear is a  Government  enabled partnership between industry, national regulators, skills bodies and training providers,  revolutionising the way that training for the nuclear sector is delivered.'
+			  ]
+			},
+			{ src: 'assets/Images/ID_3201_1.jpg', caption: 'Apprentices', 
+              content: [
+                  'Apprentices in action inspiring local school children.'
+			  ]
+            }
+        ]
+    });
+	
+	app.addNumberedPin({
+        x: 3100
+      , y: 4500
+      , title: 'The Welding Centre of Excellence'
+      , slug:  '2'
+      , tags:  ['Off-Site Training Facilities']
+      , slides: [
+            { src: 'assets/Images/ID_51350_1.jpg', caption: 'The Welding Centre of Excellence', 
+              content: [
+                  'The Welding Centre of Excellence, which is part of the South West Institute of Technology, houses brand new facilities for technical welding, training and skills development, including welding in a nuclear environment. '
+              ]
+            },
+			{ src: 'assets/Images/ID_35773_2.jpg', caption: 'Welding underway at Hinkley Point C 35773', 
+              content: [
+                  'The centre is a collaboration between EDF, the Heart of the South West Local Enterprise Partnership, Weldability Sif Foundation and Bridgwater & Taunton College. The centre will help to supply high quality welders to the region and Hinkley Point C.'
+			  ]
+            }
+        ]
+    });
+	
+	app.addNumberedPin({
+        x: 3300
+      , y: 4500
+      , title: 'The Construction Skills &amp; Innovation Centre'
+      , slug:  '2'
+      , tags:  ['Off-Site Training Facilities']
+      , slides: [
+            { src: 'assets/Images/ID_51351_2.jpg', caption: 'The Construction Skills & Innovation Centre', 
+              content: [
+                  'The EDF funded Construction Skills and Innovation Centre was built in partnership with  Bridgwater & Taunton College and EDF. It‘s a unique  training facility in Cannington, close to Hinkley Point C.'
+              ]
+            },
+			{ src: 'assets/Images/ID_51979_1.jpg', caption: 'Apprentices at the Construction Skills and Innovation Centre using a Theodolite', 
+              content: [
+                  'The centre replicates a real-life construction site, with construction vehicles, machinery and equipment in operation. Construction site safety behaviours and standards are learnt alongside specific technical knowledge and skills including excavation, groundworks, concrete pouring, steel fixing, formwork, water utilities and lifting disciplines.'
+			  ]
             }
         ]
     });
