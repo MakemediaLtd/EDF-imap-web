@@ -87,25 +87,26 @@
 
     app.addNumberedPin({
         x: 2179
-      , y: 1474
-      , title: 'European Pressurised Water Reactor (EPR)'
+      , y: 1390
+      , title: 'EPR'
       , slug:  '2'
       , tags:  ['Power Station']
-      , slides: [ //img 25335 , img 9462
-			{ src: 'assets/Images/2-reactor-718x404.gif', caption: 'Hinkley Point C: Illustrative view on completion.', 
-              content: [
-                  'Hinkley Point C will comprise of two UK EPR reactors. Each generating 1630 megawatts of electricity. That‘s almost four times more than Hinkley Point B‘s reactors. ',
-				  'The UK EPR is an evolutionary design including improved efficiency and safety - its construction draws on experience gained from sister projects in Flamanville in France and Taishan in China.'
-              ]
-            }
-           ,{ src: 'assets/Images/ID_25335_1.jpg', caption: 'EPR',
+      , slides: [ //img 53309 , img 689, img 9462
+			{ src: 'assets/Images/ID_53309_1.png', caption: 'EPR',
               content: [
                   'EPRs – originally known as European Pressurised Water Reactors – are a type of Pressurised Water Reactor (PWR). The design of the UK EPRs under construction at Hinkley Point C represent a major development on previous PWRs, making them amongst the safest and most efficient civil nuclear power generators ever designed.',
 				  'Follow this link for more information.',
 				  '<a href="https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/about/reactor" target="_blank">https://www.edfenergy.com/energy/nuclear-new-build-projects/hinkley-point-c/about/reactor</a>'
               ]
             }
-            , { src: 'assets/Images/ID_9462_1.jpg', caption: 'Design', 
+            , 
+			{ src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6211255146001', caption: 'Hinkley Point C: Illustrative view on completion', 
+              content: [
+                  'Hinkley Point C will comprise of two UK EPR reactors. Each generating 1630 megawatts of electricity. That&#39s almost four times more than Hinkley Point B&#39s reactors. ',
+				  'The UK EPR is an evolutionary design including improved efficiency and safety - its construction draws on experience gained from sister projects in Flamanville in France and Taishan in China.'
+              ]
+            }
+           ,{ src: 'assets/Images/ID_9462_1.jpg', caption: 'Design', 
               content: [
                   'The UK EPR design marks significant progress towards sustainability. It has been designed to use less uranium and produce almost a third less long-lived radioactive wastes compared with other water reactors in operation today.'
               ]
@@ -132,22 +133,21 @@
 	*/
 		
 	app.addNumberedPin({
-        x: 1900
-      , y: 1500
+        x: 1825
+      , y: 1390
       , title: 'Base of Reactor'
       , slug:  '3'
       , tags:  ['Power Station']
       , slides: [ // 45816 video & 48892 jpg & 48924 video & 48894 jpg
-			{ src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6204676726001&muted', caption: 'Unit 1', 
-              content: [
-                  'Views near the base of Unit 1.',
-				  'Drag the video to explore the scene.'
-               // , ' More copy here...'
-              ]
-            },
+			{ src: 'assets/Images/HinkleyCSunsetView.jpg', caption: '',
+			  content: [
+				   'The Reactor Building safely contains the components of the nuclear reactor. The containment structure is nearly 3m thick and is tough enough to absorb the kinetic energy of an aircraft impact.'
+				   ]
+			}
+			,
             { src: 'assets/Images/ID_48892_1.jpg', caption: 'J0 Unit 2: Concrete pour', 
               content: [
-                  'A major milestone achieved on schedule in 2020 was the completion of the 49,000-tonne base for Hinkley Point C‘s second reactor - meeting a target date set four years earlier. This major milestone in nuclear construction was completed by teams who adapted to new working conditions during the coronavirus pandemic. Their achievement, known as "J0"(Jalon Zero - meaning milestone zero), comes less than a year after the completion of Unit 1 base in June 2019.'
+                  'A major milestone achieved on schedule in 2020 was the completion of the 49,000-tonne base for Hinkley Point C&#39s second reactor - meeting a target date set four years earlier. This major milestone in nuclear construction was completed by teams who adapted to new working conditions during the coronavirus pandemic. Their achievement, known as "J0"(Jalon Zero - meaning milestone zero), comes less than a year after the completion of Unit 1 base in June 2019.'
               ]
             },
             { src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204697658001', caption: 'Time-lapse',
@@ -160,7 +160,14 @@
                   'Completion of the second reactor base has benefited from experience gained on the first identical unit - leading to increases in productivity.  *Unit 2 vs Unit 1 *Steel installed 45% faster *Liner cup floor constructed 30% faster  *Cooling system components installed 50% faster.'
               ]
             }
-			
+			,
+			{ src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6204676726001&muted', caption: 'Reactor Building', 
+              content: [
+                  'Views near the base of Unit 1.',
+				  'Drag the video to explore the scene.'
+               // , ' More copy here...'
+              ]
+            }
         ]
     });
 	
@@ -170,17 +177,16 @@
       , title: 'Turbine Hall'
       , slug:  '2'
       , tags:  ['Power Station']
-      , slides: [ // Video 45832
+      , slides: [ // img 51496 Video Turbine
             { src: 'assets/Images/ID_51496_2.jpg', caption: '', 
               content: [
                   'The turbine hall is part of what is known as the conventional island, it contains the main non-nuclear  equipment that converts the steam into low carbon electricity.'
 				  ,'These columns are part of the foundations for the turbine hall. 15 of these columns will support a reinforced concrete table for the largest steam turbine in the world.'
               ]
             },
-			{ src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6204680483001&muted', caption: 'Unit 2', 
+			{ src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6211241283001', caption: 'Unit 2', 
               content: [
-                  'Views near the Turbine Hall area of Unit 2.',
-				  'Drag the video to explore the scene.'
+                  'Computer generated image of the turbine that it being supplied by General Electric.',
                // , ' More copy here...'
               ]
             }
@@ -188,26 +194,27 @@
     });
 	
 	app.addNumberedPin({
-        x: 2500
-      , y: 700
-      , title: 'Pump House Building'
+        x: 2350
+      , y: 650
+      , title: 'Heat Sink'
       , slug:  '2'
       , tags:  ['Power Station']
-      , slides: [ // Videos 49693 & 18897 & 50425
+      , slides: [ // Videos 49693 & 18897 & 50425 50496
+			{ src: 'assets/Images/ID_50496_2.jpg', caption: '',
+			  content: [
+				  'The Heat Sink consists of the forebay intake tunnel, pump house and outfall shafts. These are essential parts of the power station&#39s cooling system.'
+			  ]
+			}
+			,
             { src: 'assets/Images/ID_49693_2.jpg', caption: '', 
               content: [
                   'The pumping station, will stand at 54m high but is set 36m underground, it is critical to the operation of the reactor as it pumps filtered seawater for cooling. The system will be capable of transferring 120,000 litres of water per second (this would empty an Olympic size swimming pool in less than a minute). The pump house and forebay structures will require 25% of all the concrete poured for the power station.'
               ]
             },
-			{ src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204687893001', caption: 'Cooling Water Pipes', 
+			{ src: 'assets/Images/ID_50425_2.jpg', caption: 'Cooling Water Pipes', 
               content: [
                   'The CRF pipes will sit underneath the Turbine Hall and in between the pump house and outfall buildings. They will channel cooling water into the future power station. ‘CRF’ stands for ‘Circuit de Refroidissement’, a French term meaning ‘cooling water circuit’.'
 			  ]
-            },
-			{ src: 'assets/Images/ID_50425_2.jpg', caption: 'Cooling Water Pipe Installation', 
-              content: [
-                  ''
-              ]
             }
         ]
     });
@@ -221,7 +228,7 @@
       , slides: [
             { src: 'assets/Images/ID_51971_1.jpg', caption: '', 
               content: [
-                  'Three tunnels are being excavated, two intake tunnels, which will bring cold water 3.5km out from the Bristol Channel into the power station, and one outfall tunnel to send the water back.  Our machines were named Beatrice, Emmeline and Mary by local school children.'
+                  'Three tunnels are being excavated, two intake tunnels, which will bring cold water 3.5km out from the Bristol Channel into the power station, and one outfall tunnel to send the water back. Our machines were named Beatrice, Emmeline and Mary by local school children.'
               ]
             }
           , { src: 'assets/Images/ID_51974_2.jpg', caption: '', 
@@ -236,7 +243,7 @@
             }
           , { src: 'assets/Images/ID_35616_1.jpg', caption: '', 
               content: [
-                  '6,000 concrete segment rings will form the walls of the three tunnels. These are created with reinforced segments and grout injected to secure them in place. The segments are being constructed in a state-of- the-art facility at Bristol Port Dock in Avonmouth,  creating between 70-100 rings per week (each ring is made of six to eight segments).'
+                  '6,000 concrete segment rings will form the walls of the three tunnels. These are created with reinforced segments and grout injected to secure them in place. The segments are being constructed in a state-of-the-art facility at Bristol Port Dock in Avonmouth, creating between 70-100 rings per week (each ring is made of six to eight segments).'
               ]
             }
         ]
@@ -255,7 +262,7 @@
       , slides: [
             { src: 'assets/Images/ID_18377_1.jpg', caption: 'Reprocessing', 
               content: [
-                  'To create the base platforms for the power station vast quantities of material were excavated.  Much of excavated stone was crushed, sorted and stockpiled ready to be reused for building roads and backfilling areas of the site. The excavated material cannot be used to make the nuclear concrete as this needs high-grade stone, which is being sourced from UK quarries.'
+                  'To create the base platforms for the power station vast quantities of material were excavated. Much of the excavated stone was crushed, sorted and stockpiled ready to be reused for building roads and backfilling areas of the site. The excavated material cannot be used to make the nuclear concrete as this needs high-grade stone, which is being sourced from UK quarries.'
               ]
             }
           , { src: 'assets/Images/ID_9705_1.jpg', caption: 'Holford Valley',
@@ -273,7 +280,7 @@
       , slug:  '360_1'
       , tags:  ['Construction']
       , slides: [ // Video 45837 & 45838
-            { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6204679644001&muted', caption: 'During Construction.', 
+            { src: 'https://players.brightcove.net/4098359024001/rk9G4ok4b_default/index.html?videoId=6211712850001&muted', caption: 'During Construction', 
               content: [
                   'The sea wall, with its wave return top, stands at 13.5m high and 700m long. It is constructed along the foreshore, reinforcing the cliff that existed previously and forms part of the permanent defence against the sea.',
 				  'Drag the video to explore the scene.'
@@ -298,21 +305,37 @@
       , slug:  '360_4'
       , tags:  ['Construction']
       , slides: [ // Videos 40623 & 44320 & Video 45819
-            { src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204689449001', caption: 'The world‘s largest land based crane', 
+            { src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204689449001', caption: 'The world&#39s largest land based crane', 
               content: [
-                  'The world‘s largest land based crane, the SGC-250, aka ‘Big Carl‘, runs along 6km of rail track, is able to stand 250m tall, is capable of lifting 5,000 tonnes and will be used to lift over 700 prefabricated pieces, including the heaviest components of the reactor buildings.'
+                  'The world&#39s largest land based crane, the SGC-250, aka ‘Big Carl‘, runs along 6km of rail track, is able to stand 250m tall, is capable of lifting 5,000 tonnes and will be used to lift over 700 prefabricated pieces, including the heaviest components of the reactor buildings.'
                // , ' More copy here...'
               ]
             },
-			{ src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204687742001', caption: 'The world‘s largest land based crane', 
+			{ src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204687742001', caption: 'The world&#39s largest land based crane', 
               content: [
                   '‘Big Carl‘completed its first big lift in December 2019: the liner cup for Unit 1 at Hinkley Point C nuclear power station.'
               ]
             },
             { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6204679645001&muted', caption: 'Big Carl', 
               content: [
-                  'The world‘s largest land based crane, the SGC-250, aka ‘Big Carl‘. At peak construction there will be more than 100 cranes  working together to carry out over one million lifts per year.',
+                  'The world&#39s largest land based crane, the SGC-250, aka ‘Big Carl‘. At peak construction there will be more than 100 cranes  working together to carry out over one million lifts per year.',
 				  'Drag the video to explore the scene.'
+               // , ' More copy here...'
+              ]
+            }
+        ]
+    });
+	
+	app.addNumberedPin({
+        x: 2200
+      , y: 1800
+      , title: 'Concrete'
+      , slug:  '4'
+      , tags:  ['Construction']
+      , slides: [ // 16778
+            { src: 'assets/Images/ID_16778_1.jpg', caption: '', 
+              content: [
+                  'Three million tonnes of concrete will be required during the construction of Hinkley Point C - that is 75 times more than was used to construct the Millenium Stadium. The concrete is manufactured on site through concrete batching plants.'
                // , ' More copy here...'
               ]
             }
@@ -375,15 +398,15 @@
     });
 
     app.addNumberedPin({
-        x: 1750
-      , y: 1950
+        x: 2000
+      , y: 2050
       , title: 'North Office'
       , slug:  '6'
       , tags:  ['Site Operations']
       , slides: [
             { src: 'assets/Images/ID_41190_2.jpg', caption: 'Catering', 
               content: [
-                  'Somerset Larder was established in 2014, bringing together the county’s finest food and drink producers – to act as one – to compete for Hinkley Point C‘s large catering contract. They won the contract, and now supply our workers with a range of great local food options.'
+                  'There are four main office buildings on the site providing welfare facilities for our  teams and space for office staff. Providing our hard working teams with great food is a priority.  Somerset Larder was established in 2014, bringing together the county’s finest food and drink producers – to act as one – to compete for Hinkley Point C’s large catering contract. They won the contract, and now supply our workers with a range of local food options from our four offices.'
               ]
             }
 		,	{ src: 'assets/Images/ID_31003_1.jpg', caption: 'Hinkley Health', 
@@ -530,7 +553,7 @@
           , 
             { src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204693671001', caption: 'The Folk Lore of Wick Barrow', 
               content: [
-                  'Dated from about 6,000 years ago, Wick Barrow is a rare example of a Neolithic round barrow.  It measures  25 metres in diameter and 1.5 metres high. A barrow is the name given to a structure for burying the dead. It is located just to the south of Hinkley Point B, overlooking Wick Moor. It‘s also known as Pixie‘s Mound.'
+                  'Dated from about 6,000 years ago, Wick Barrow is a rare example of a Neolithic round barrow. It measures 25 metres in diameter and 1.5 metres high. A barrow is the name given to a structure for burying the dead. It is located just to the south of Hinkley Point B, overlooking Wick Moor. It&#39s also known as Pixie&#39s Mound.'
               ]
             }
         ]
@@ -595,10 +618,10 @@
       , title: 'National College for Nuclear'
       , slug:  '2'
       , tags:  ['Off-Site Training Facilities']
-      , slides: [
+      , slides: [ // img 37973 , img 51863, img 53316
             { src: 'assets/Images/ID_37973_1.jpg', caption: 'National College for Nuclear', 
               content: [
-                  'Bridgwater & Taunton College is the principal delivery arm of the Southern Hub of the National College for Nuclear, based in Cannington, Somerset. It‘s a state-of-the-art nuclear training facility, including a virtual reality environment, a reactor simulator and computer-equipped training rooms; recreation and collaboration space; sports facilities and student accommodation.'
+                  'Bridgwater & Taunton College is the principal delivery arm of the Southern Hub of the National College for Nuclear, based in Cannington, Somerset. It&#39s a state-of-the-art nuclear training facility, including a virtual reality environment, a reactor simulator and computer-equipped training rooms; recreation and collaboration space; sports facilities and student accommodation.'
               ]
             },
 			{ src: 'assets/Images/ID_51863_1.jpg', caption: '', 
@@ -606,7 +629,7 @@
                   'The National College for Nuclear is a  Government  enabled partnership between industry, national regulators, skills bodies and training providers,  revolutionising the way that training for the nuclear sector is delivered.'
 			  ]
 			},
-			{ src: 'assets/Images/ID_3201_1.jpg', caption: 'Apprentices', 
+			{ src: 'assets/Images/ID_53316_1.jpg', caption: 'Apprentices', 
               content: [
                   'Apprentices in action inspiring local school children.'
 			  ]
@@ -626,7 +649,7 @@
                   'The Welding Centre of Excellence, which is part of the South West Institute of Technology, houses brand new facilities for technical welding, training and skills development, including welding in a nuclear environment. '
               ]
             },
-			{ src: 'assets/Images/ID_35773_2.jpg', caption: 'Welding underway at Hinkley Point C 35773', 
+			{ src: 'assets/Images/ID_35773_2.jpg', caption: 'Welding underway at Hinkley Point C', 
               content: [
                   'The centre is a collaboration between EDF, the Heart of the South West Local Enterprise Partnership, Weldability Sif Foundation and Bridgwater & Taunton College. The centre will help to supply high quality welders to the region and Hinkley Point C.'
 			  ]
@@ -643,7 +666,7 @@
       , slides: [
             { src: 'assets/Images/ID_51351_2.jpg', caption: 'The Construction Skills & Innovation Centre', 
               content: [
-                  'The EDF funded Construction Skills and Innovation Centre was built in partnership with  Bridgwater & Taunton College and EDF. It‘s a unique  training facility in Cannington, close to Hinkley Point C.'
+                  'The EDF funded Construction Skills and Innovation Centre was built in partnership with  Bridgwater & Taunton College and EDF. It&#39s a unique  training facility in Cannington, close to Hinkley Point C.'
               ]
             },
 			{ src: 'assets/Images/ID_51979_1.jpg', caption: 'Apprentices at the Construction Skills and Innovation Centre using a Theodolite', 
