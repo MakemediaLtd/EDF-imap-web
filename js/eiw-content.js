@@ -186,7 +186,7 @@
             },
 			{ src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6211241283001', caption: 'Unit 2', 
               content: [
-                  'Computer generated image of the turbine that it being supplied by General Electric.',
+                  'Computer generated image of the turbine that is being supplied by General Electric.',
                // , ' More copy here...'
               ]
             }
@@ -551,7 +551,7 @@
               ]
             }
           , 
-            { src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204693671001', caption: 'The Folk Lore of Wick Barrow', 
+            { src: 'https://players.brightcove.net/4098359024001/default_default/index.html?videoId=6204693671001', caption: 'The Folk-Lore of Wick Barrow', 
               content: [
                   'Dated from about 6,000 years ago, Wick Barrow is a rare example of a Neolithic round barrow. It measures 25 metres in diameter and 1.5 metres high. A barrow is the name given to a structure for burying the dead. It is located just to the south of Hinkley Point B, overlooking Wick Moor. It&#39s also known as Pixie&#39s Mound.'
               ]
