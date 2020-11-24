@@ -327,8 +327,8 @@
     });
 	
 	app.addNumberedPin({
-        x: 2200
-      , y: 1800
+        x: 650
+      , y: 1000
       , title: 'Concrete'
       , slug:  '4'
       , tags:  ['Construction']
