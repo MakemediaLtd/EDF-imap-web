@@ -135,7 +135,7 @@
 	app.addNumberedPin({
         x: 1825
       , y: 1390
-      , title: 'Base of Reactor'
+      , title: 'Reactor Building'
       , slug:  '3'
       , tags:  ['Power Station']
       , slides: [ // 45816 video & 48892 jpg & 48924 video & 48894 jpg
