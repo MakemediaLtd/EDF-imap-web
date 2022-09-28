@@ -321,14 +321,15 @@
 	app.addNumberedPin({
         x: 650
       , y: 1000
-      , title: 'Concrete'
+      , title: 'Concrete Batching Plant'
       , slug:  '4'
       , tags:  ['Construction']
       , slides: [ // 16778
-            { src: 'assets/Images/ID_16778_1.jpg', caption: '', 
+            { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6312865100112', caption: '', 
               content: [
-                  'Three million tonnes of concrete will be required during the construction of Hinkley Point C - that is 75 times more than was used to construct the Millenium Stadium. The concrete is manufactured on site through concrete batching plants.'
-               // , ' More copy here...'
+                  'HPC has four batching plants capable of delivering 700m³ a day. Three will be in use with the fourth there as a back-up/reserve.'
+                , 'The concrete batching plants are essential to meet HPC’s demand for nuclear safety grade concrete across the site.'
+                ,'There are around 17 different types of concrete used at HPC and the nuclear grade mix took three years to perfect.'
               ]
             }
         ]
