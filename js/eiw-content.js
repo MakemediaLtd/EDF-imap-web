@@ -266,8 +266,8 @@
     }); 
 	
 	    app.addNumberedPin({
-        x: 1700
-      , y: 540
+        x: 1480
+      , y: 280
       , title: 'Sea Wall and Jetty'
       , slug:  '360_1'
       , tags:  ['Construction']
