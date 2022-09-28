@@ -133,13 +133,13 @@
 	*/
 		
 	app.addNumberedPin({
-        x: 1825
-      , y: 1390
+        x: 2800
+      , y: 1700
       , title: 'Reactor Building & Dome'
       , slug:  '3'
       , tags:  ['Power Station']
       , slides: [ // 45816 video & 48892 jpg & 48924 video & 48894 jpg
-			{ src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6312864778112', caption: 'Reactor Building and Dome',
+			{ src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6312864778112', caption: 'Nuclear Island',
 			  content: [
 				   'The prefabricated reinforced steel containment liner is made up of the reactor base, three steel ring liners and a dome. The first steel containment ring weighs 382 tonnes – around the weight of a 747 jumbo jet. The dome is made up of 38 panels, weighs 200 tonnes and stands 14 meters tall.'
 				   ]
