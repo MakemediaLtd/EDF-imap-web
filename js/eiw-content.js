@@ -186,8 +186,8 @@
     });
 	
 	app.addNumberedPin({
-        x: 2350
-      , y: 650
+        x: 2510
+      , y: 575
       , title: 'Heat Sink'
       , slug:  '2'
       , tags:  ['Power Station']
