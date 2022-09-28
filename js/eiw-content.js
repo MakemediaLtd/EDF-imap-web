@@ -135,13 +135,13 @@
 	app.addNumberedPin({
         x: 1825
       , y: 1390
-      , title: 'Reactor Building'
+      , title: 'Reactor Building & Dome'
       , slug:  '3'
       , tags:  ['Power Station']
       , slides: [ // 45816 video & 48892 jpg & 48924 video & 48894 jpg
-			{ src: 'assets/Images/HinkleyCSunsetView.jpg', caption: '',
+			{ src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6312864778112', caption: 'Reactor Building and Dome',
 			  content: [
-				   'The Reactor Building safely contains the components of the nuclear reactor. The containment structure is nearly 3m thick and is tough enough to absorb the kinetic energy of an aircraft impact.'
+				   'The prefabricated reinforced steel containment liner is made up of the reactor base, three steel ring liners and a dome. The first steel containment ring weighs 382 tonnes – around the weight of a 747 jumbo jet. The dome is made up of 38 panels, weighs 200 tonnes and stands 14 meters tall.'
 				   ]
 			}
 			,
@@ -158,14 +158,6 @@
 		    { src: 'assets/Images/ID_48894_1.jpg', caption: 'J0 Unit 2: Completed concrete pour',
               content: [
                   'Completion of the second reactor base has benefited from experience gained on the first identical unit - leading to increases in productivity.  *Unit 2 vs Unit 1 *Steel installed 45% faster *Liner cup floor constructed 30% faster  *Cooling system components installed 50% faster.'
-              ]
-            }
-			,
-			{ src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6204676726001&muted', caption: 'Reactor Building', 
-              content: [
-                  'Views near the base of Unit 1.',
-				  'Drag the video to explore the scene.'
-               // , ' More copy here...'
               ]
             }
         ]
@@ -200,9 +192,9 @@
       , slug:  '2'
       , tags:  ['Power Station']
       , slides: [ // Videos 49693 & 18897 & 50425 50496
-			{ src: 'assets/Images/ID_50496_2.jpg', caption: '',
+			{ src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6312863586112', caption: 'Heat Sink',
 			  content: [
-				  'The Heat Sink consists of the forebay intake tunnel, pump house and outfall shafts. These are essential parts of the power station&#39s cooling system.'
+				  'The Heatsink consists of the fore bay intake tunnel, the pump house and the outfall shaft. The Heatsink construction involved the removal of 250,00m3 of material for the 90m x 90m x 33m deep excavation, 15,500m2 of sprayed concrete and 18,800 linear m of ground nail slope support and 15,500m3 of concrete blinding.'
 			  ]
 			}
 			,
