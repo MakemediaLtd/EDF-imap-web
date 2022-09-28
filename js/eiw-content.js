@@ -268,11 +268,11 @@
 	    app.addNumberedPin({
         x: 1700
       , y: 540
-      , title: 'Sea Wall'
+      , title: 'Sea Wall and Jetty'
       , slug:  '360_1'
       , tags:  ['Construction']
       , slides: [ // Video 45837 & 45838
-            { src: 'https://players.brightcove.net/4098359024001/rk9G4ok4b_default/index.html?videoId=6211712850001&muted', caption: 'During Construction', 
+            { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6312866866112', caption: 'During Construction', 
               content: [
                   'The sea wall, with its wave return top, stands at 13.5m high and 700m long. It is constructed along the foreshore, reinforcing the cliff that existed previously and forms part of the permanent defence against the sea.',
 				  'Drag the video to explore the scene.'
