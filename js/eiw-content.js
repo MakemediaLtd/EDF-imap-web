@@ -41,7 +41,7 @@
           , 'Geographical Features'     		: 'orange'
           , 'Power Station'             		: 'peach'
           , 'Archaeology &amp; the environment'	: 'cyan'
-          , 'Off-Site Training Facilities'		: 'green'
+          , 'Off-Site Training & Visitor Centre'		: 'green'
         }
     });
 
@@ -610,14 +610,14 @@
         ]
     });
 
-// Off-Site Training Facilities
+// Off-Site Training & Visitor Centre
 	
 	app.addNumberedPin({
         x: 2900
       , y: 4500
       , title: 'National College for Nuclear'
       , slug:  '2'
-      , tags:  ['Off-Site Training Facilities']
+      , tags:  ['Off-Site Training & Visitor Centre']
       , slides: [ // img 37973 , img 51863, img 53316
             { src: 'assets/Images/ID_37973_1.jpg', caption: 'National College for Nuclear', 
               content: [
@@ -642,7 +642,7 @@
       , y: 4500
       , title: 'The Welding Centre of Excellence'
       , slug:  '2'
-      , tags:  ['Off-Site Training Facilities']
+      , tags:  ['Off-Site Training & Visitor Centre']
       , slides: [
             { src: 'assets/Images/ID_51350_1.jpg', caption: 'The Welding Centre of Excellence', 
               content: [
@@ -662,7 +662,7 @@
       , y: 4500
       , title: 'The Construction Skills &amp; Innovation Centre'
       , slug:  '2'
-      , tags:  ['Off-Site Training Facilities']
+      , tags:  ['Off-Site Training & Visitor Centre']
       , slides: [
             { src: 'assets/Images/ID_51351_2.jpg', caption: 'The Construction Skills & Innovation Centre', 
               content: [
@@ -676,7 +676,20 @@
             }
         ]
     });
-
+    app.addNumberedPin({
+      x: 3300
+    , y: 4500
+    , title: 'Hinkley Point Visitor Centre'
+    , slug:  '2'
+    , tags:  ['Off-Site Training & Visitor Centre']
+    , slides: [
+          { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6312864562112', caption: 'Hinkley Point Visitor Centre', 
+            content: [
+                'Hinkley Point Visitor Centre'
+            ]
+          },
+      ]
+  });
     //// Add the Hidden Pins. 
 	
     app.addHiddenPin({
