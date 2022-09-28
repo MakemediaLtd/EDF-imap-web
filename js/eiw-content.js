@@ -677,7 +677,7 @@
     , slides: [
           { src: 'https://players.brightcove.net/4098359024001/q2SSHCRNG_default/index.html?videoId=6312864562112', caption: 'Hinkley Point Visitor Centre', 
             content: [
-                'Hinkley Point Visitor Centre'
+                'Hinkley Point Visitor Centre is located within Cannington Court, a restored 12th century Benedictine nunnery which combines the latest in energy saving technology and digital learning with a historic space for events and conferences. The centre encourages visitors to explore how electricity is created in a fun and interactive way. People of all ages can learn why we need to produce low carbon energy and how EDF is helping Britain achieve net zero emissions through the construction of Hinkley Point C and the use of renewable sources such as wind and solar power.'
             ]
           },
       ]
