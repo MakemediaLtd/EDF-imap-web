@@ -319,8 +319,8 @@
     });
 	
 	app.addNumberedPin({
-        x: 650
-      , y: 1000
+        x: 760
+      , y: 775
       , title: 'Concrete Batching Plant'
       , slug:  '4'
       , tags:  ['Construction']
