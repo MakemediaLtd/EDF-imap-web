@@ -670,8 +670,8 @@
         ]
     });
     app.addNumberedPin({
-      x: 0
-    , y: 0
+      x: 3500
+    , y: 4500
     , title: 'Hinkley Point Visitor Centre'
     , slug:  '2'
     , tags:  ['Off-Site Training & Visitor Centre']
